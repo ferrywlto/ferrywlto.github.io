@@ -26,9 +26,12 @@ jobs:
         run: |
           yarn install
           yarn generate
+
+      - name: Deploy
+        run: |
           cp -rf dist/* docs
           cp CNAME docs
-          ls docs
+          cp .nojekyll docs
 
       - name: Commit changes
         run: |
