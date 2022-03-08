@@ -4,3 +4,4 @@ yarn install
 yarn generate
 cp -rf dist/* docs
 cp CNAME docs
+cp .nojekyll docs
