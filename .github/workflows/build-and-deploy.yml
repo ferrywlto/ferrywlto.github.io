@@ -2,6 +2,9 @@ name: Build and deploy to GitHub Pages
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+    - 'master'
 
 jobs:
   build-and-deploy:
@@ -16,7 +19,7 @@ jobs:
         with:
           node-version: '14'
           # act cannot use actions that internal use actions/cache
-          cache: ${{ !env.ACT && 'yarn' || '' }}
+          # cache: ${{ !env.ACT && 'yarn' || '' }}
           cache-dependency-path: src/yarn.lock
 
       - name: Clear publish folder
