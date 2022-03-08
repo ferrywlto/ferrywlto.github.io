@@ -1,0 +1,40 @@
+name: Build and deploy to GitHub Pages
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-18.04
+    name: Build and deploy
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup NodeJS
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          # act cannot use actions that internal use actions/cache
+          cache: ${{ !env.ACT && 'yarn' || '' }}
+          cache-dependency-path: src/yarn.lock
+
+      - name: Build
+        run: |
+          cd src
+          yarn install
+          yarn generate
+          ls
+          ls dist
+          ls ../docs
+          cp -rf dist/* ../docs
+          ls ../docs
+
+      - name: Commit changes
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add docs/.
+          git commit -m "generated"
+          git push
+        shell: bash
