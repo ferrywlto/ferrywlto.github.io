@@ -2,7 +2,8 @@ let development = process.env.NODE_ENV !== 'production'
 
 export default {
     router: {
-        base: development ? '' : 'docs/'
+        base: '.',
+        // base: development ? '.' : 'docs/'
     },
     components: true,
     target: 'static',

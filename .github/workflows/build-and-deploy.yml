@@ -20,18 +20,15 @@ jobs:
           cache-dependency-path: src/yarn.lock
 
       - name: Clear publish folder
-        run: rm -rf docs/*
+        run: y | rm -rf docs/*
 
       - name: Build
         run: |
-          cd src
           yarn install
           yarn generate
-          ls
-          ls dist
-          ls ../docs
-          cp -rf dist/* ../docs
-          ls ../docs
+          cp -rf dist/* docs
+          cp CNAME docs
+          ls docs
 
       - name: Commit changes
         run: |
