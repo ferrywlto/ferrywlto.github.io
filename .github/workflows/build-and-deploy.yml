@@ -19,6 +19,9 @@ jobs:
           cache: ${{ !env.ACT && 'yarn' || '' }}
           cache-dependency-path: src/yarn.lock
 
+      - name: Clear publish folder
+        run: rm -rf docs/*
+
       - name: Build
         run: |
           cd src
