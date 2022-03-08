@@ -2,7 +2,7 @@ let development = process.env.NODE_ENV !== 'production'
 
 export default {
     router: {
-        base: '/ferrywlto.github.io/',
+        base: '/',
         // base: development ? '.' : 'docs/'
     },
     components: true,
