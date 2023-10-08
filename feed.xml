@@ -1,0 +1,134 @@
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<channel>
+    <title>From the blog</title>
+    <link>https://razor-ssg.web-templates.io/blog</link>
+    <description>Writing on software design, company building, and the aerospace industry.</description>
+    <image>
+        <url>https://servicestack.net/img/logo.png</url>
+        <title>From the blog</title>
+        <link>https://razor-ssg.web-templates.io/blog</link>
+    </image>
+    <generator>razor-ssg</generator>
+    <copyright></copyright>
+    <lastBuildDate>Sun, 08 Oct 2023 10:09:32 GMT</lastBuildDate>
+    <managingEditor>email@example.org (Razor SSG)</managingEditor>
+    <webMaster>email@example.org (Razor SSG)</webMaster>
+    <atom:link href="https://razor-ssg.web-templates.io/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+        <title>New Blogging features in Razor SSG</title>
+        <link>https://razor-ssg.web-templates.io/posts/razor-ssg-new-blog-features</link>
+        <author>lucy@email.org (Lucy Bates)</author>
+        <guid isPermaLink="false">https://razor-ssg.web-templates.io/posts/razor-ssg-new-blog-features</guid>
+        <pubDate>Wed, 23 Aug 2023 00:00:00 GMT</pubDate>
+        <atom:updated>2023-08-23T00:00:00Z</atom:updated>
+        <category>razor</category>
+        <category>markdown</category>
+        <category>blog</category>
+        <category>dev</category>
+        <description>Explore the new Blogging Features in Razor SSG</description>
+    </item>
+    <item>
+        <title>Introducing Razor SSG</title>
+        <link>https://razor-ssg.web-templates.io/posts/razor-ssg</link>
+        <author>lucy@email.org (Lucy Bates)</author>
+        <guid isPermaLink="false">https://razor-ssg.web-templates.io/posts/razor-ssg</guid>
+        <pubDate>Thu, 30 Mar 2023 00:00:00 GMT</pubDate>
+        <atom:updated>2023-03-30T00:00:00Z</atom:updated>
+        <category>razor</category>
+        <category>markdown</category>
+        <category>blog</category>
+        <category>dev</category>
+        <description>Create fast, beautiful statically rendered Razor Websites &amp; Blogs</description>
+    </item>
+    <item>
+        <title>Simple, Modern JavaScript</title>
+        <link>https://razor-ssg.web-templates.io/posts/javascript</link>
+        <author>brandon@email.org (Brandon Foley)</author>
+        <guid isPermaLink="false">https://razor-ssg.web-templates.io/posts/javascript</guid>
+        <pubDate>Wed, 01 Feb 2023 00:00:00 GMT</pubDate>
+        <atom:updated>2023-02-01T00:00:00Z</atom:updated>
+        <category>js</category>
+        <category>dev</category>
+        <description>Learn about JS Modules, Vue 3 and available rich UI Components</description>
+    </item>
+    <item>
+        <title>Getting Started</title>
+        <link>https://razor-ssg.web-templates.io/posts/start</link>
+        <author>gayle@email.org (Gayle Smith)</author>
+        <guid isPermaLink="false">https://razor-ssg.web-templates.io/posts/start</guid>
+        <pubDate>Sat, 21 Jan 2023 00:00:00 GMT</pubDate>
+        <atom:updated>2023-01-21T00:00:00Z</atom:updated>
+        <category>js</category>
+        <category>dev</category>
+        <category>tailwind</category>
+        <description>Found out how to use these template features</description>
+    </item>
+    <item>
+        <title>Develop using JetBrains Rider</title>
+        <link>https://razor-ssg.web-templates.io/posts/rider</link>
+        <author>gayle@email.org (Gayle Smith)</author>
+        <guid isPermaLink="false">https://razor-ssg.web-templates.io/posts/rider</guid>
+        <pubDate>Wed, 11 Jan 2023 00:00:00 GMT</pubDate>
+        <atom:updated>2023-01-11T00:00:00Z</atom:updated>
+        <category>c#</category>
+        <category>dev</category>
+        <description>Setting up &amp; exploring development workflow in Rider</description>
+    </item>
+    <item>
+        <title>Develop using Visual Studio</title>
+        <link>https://razor-ssg.web-templates.io/posts/vs</link>
+        <author>lucy@email.org (Lucy Bates)</author>
+        <guid isPermaLink="false">https://razor-ssg.web-templates.io/posts/vs</guid>
+        <pubDate>Tue, 10 Jan 2023 00:00:00 GMT</pubDate>
+        <atom:updated>2023-01-10T00:00:00Z</atom:updated>
+        <category>c#</category>
+        <category>dev</category>
+        <description>Exploring development workflow in VS Code and Visual Studio .NET</description>
+    </item>
+    <item>
+        <title>Deployment with GitHub Actions</title>
+        <link>https://razor-ssg.web-templates.io/posts/deploy</link>
+        <author>gayle@email.org (Gayle Smith)</author>
+        <guid isPermaLink="false">https://razor-ssg.web-templates.io/posts/deploy</guid>
+        <pubDate>Sun, 01 Jan 2023 00:00:00 GMT</pubDate>
+        <atom:updated>2023-01-01T00:00:00Z</atom:updated>
+        <category>github-actions</category>
+        <category>devops</category>
+        <description>Configuring your GitHub repo for SSH and CDN deployments</description>
+    </item>
+    <item>
+        <title>Tailwind Typography</title>
+        <link>https://razor-ssg.web-templates.io/posts/typography</link>
+        <author>lucy@email.org (Lucy Bates)</author>
+        <guid isPermaLink="false">https://razor-ssg.web-templates.io/posts/typography</guid>
+        <pubDate>Sat, 31 Dec 2022 00:00:00 GMT</pubDate>
+        <atom:updated>2022-12-31T00:00:00Z</atom:updated>
+        <category>tailwind</category>
+        <category>markdown</category>
+        <description>tailwindcss/typography enabled for Markdown pages</description>
+    </item>
+    <item>
+        <title>In pursuit of the best value US cloud provider</title>
+        <link>https://razor-ssg.web-templates.io/posts/hetzner-cloud</link>
+        <author>brandon@email.org (Brandon Foley)</author>
+        <guid isPermaLink="false">https://razor-ssg.web-templates.io/posts/hetzner-cloud</guid>
+        <pubDate>Tue, 06 Sep 2022 00:00:00 GMT</pubDate>
+        <atom:updated>2022-09-06T00:00:00Z</atom:updated>
+        <category>dev</category>
+        <category>hosting</category>
+        <category>devops</category>
+        <description>We&#x27;ve been using AWS at ServiceStack for 10&#x2B; years, it&#x27;s served us well but suffers from complex &amp; expensive pricing</description>
+    </item>
+    <item>
+        <title>Real-time search with Typesense</title>
+        <link>https://razor-ssg.web-templates.io/posts/typesense</link>
+        <author>lucy@email.org (Lucy Bates)</author>
+        <guid isPermaLink="false">https://razor-ssg.web-templates.io/posts/typesense</guid>
+        <pubDate>Mon, 08 Nov 2021 00:00:00 GMT</pubDate>
+        <atom:updated>2021-11-08T00:00:00Z</atom:updated>
+        <category>dev</category>
+        <category>docs</category>
+        <description>As part of migrating docs to VitePress we&#x27;ve added UX improvements like instant search powered by Typesense!</description>
+    </item>
+</channel>
+</rss>
