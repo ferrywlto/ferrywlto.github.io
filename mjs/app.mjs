@@ -113,19 +113,19 @@ export function mountAll() {
 
 /** @param {any} [exports] */
 export function init(exports) {
-    if (AppData.init) return
-    client = JsonApiClient.create('https://blazor-gallery-api.jamstacks.net')
-    const { loadMetadata } = useMetadata()
-    loadMetadata({
-        olderThan: 24 * 60 * 60 * 1000, //1day
-        resolvePath: `https://blazor-gallery-api.jamstacks.net/metadata/app.json`
-    })
-    AppData = reactive(AppData)
-    AppData.init = true
-    mountAll()
+    // if (AppData.init) return
+    // client = JsonApiClient.create('https://blazor-gallery-api.jamstacks.net')
+    // const { loadMetadata } = useMetadata()
+    // loadMetadata({
+    //     olderThan: 24 * 60 * 60 * 1000, //1day
+    //     resolvePath: `https://blazor-gallery-api.jamstacks.net/metadata/app.json`
+    // })
+    // AppData = reactive(AppData)
+    // AppData.init = true
+    // mountAll()
 
-    if (exports) {
-        exports.client = client
-        exports.Apps = Apps
-    }
+    // if (exports) {
+    //     exports.client = client
+    //     exports.Apps = Apps
+    // }
 }
