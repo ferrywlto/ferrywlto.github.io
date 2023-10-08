@@ -37,8 +37,8 @@ jobs:
           org_name=$(echo ${{ github.repository_owner }} | tr '[:upper:]' '[:lower:]')
           if [ ! -f "./site/wwwroot/CNAME" ] && [ -z "$custom_domain" ] 
           then
-            echo "ssg_base_href=$(echo https://$org_name.github.io/$repo_name/)" 
-            echo "ssg_base_href=$(echo https://$org_name.github.io/$repo_name/)" >> $GITHUB_ENV
+            echo "ssg_base_href=$(echo https://$org_name.github.io/)" 
+            echo "ssg_base_href=$(echo https://$org_name.github.io/)" >> $GITHUB_ENV
           else
             if [ ! -z "$custom_domain" ]
             then
