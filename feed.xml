@@ -10,10 +10,21 @@
     </image>
     <generator>razor-ssg</generator>
     <copyright></copyright>
-    <lastBuildDate>Sun, 08 Oct 2023 11:47:01 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 22 Oct 2023 15:00:23 GMT</lastBuildDate>
     <managingEditor>email@example.org (Razor SSG)</managingEditor>
     <webMaster>email@example.org (Razor SSG)</webMaster>
     <atom:link href="https://razor-ssg.web-templates.io/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+        <title>My first post on using Razor SSG</title>
+        <link>https://razor-ssg.web-templates.io/posts/my-first-post</link>
+        <author> ()</author>
+        <guid isPermaLink="false">https://razor-ssg.web-templates.io/posts/my-first-post</guid>
+        <pubDate>Sun, 08 Oct 2023 00:00:00 GMT</pubDate>
+        <atom:updated>2023-10-08T00:00:00Z</atom:updated>
+        <category>blog</category>
+        <category>dev</category>
+        <description>Testing out Razor SSG and write down what need to caution when deploying to GitHub Pages</description>
+    </item>
     <item>
         <title>New Blogging features in Razor SSG</title>
         <link>https://razor-ssg.web-templates.io/posts/razor-ssg-new-blog-features</link>
@@ -118,17 +129,6 @@
         <category>hosting</category>
         <category>devops</category>
         <description>We&#x27;ve been using AWS at ServiceStack for 10&#x2B; years, it&#x27;s served us well but suffers from complex &amp; expensive pricing</description>
-    </item>
-    <item>
-        <title>Real-time search with Typesense</title>
-        <link>https://razor-ssg.web-templates.io/posts/typesense</link>
-        <author>lucy@email.org (Lucy Bates)</author>
-        <guid isPermaLink="false">https://razor-ssg.web-templates.io/posts/typesense</guid>
-        <pubDate>Mon, 08 Nov 2021 00:00:00 GMT</pubDate>
-        <atom:updated>2021-11-08T00:00:00Z</atom:updated>
-        <category>dev</category>
-        <category>docs</category>
-        <description>As part of migrating docs to VitePress we&#x27;ve added UX improvements like instant search powered by Typesense!</description>
     </item>
 </channel>
 </rss>

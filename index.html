@@ -6,7 +6,7 @@
     <link rel="icon" type="image/svg" href="img/logo.svg">
     <link rel="alternate" type="application/rss+xml" title="RSS" href="https://razor-ssg.web-templates.io/feed.xml" />
     <title>Home page</title>
-    <base href="https://ferrywlto.github.io/" />
+    <base href="/" />
     <script>
     if (location.search === "?dark") localStorage.setItem('color-scheme','dark') 
     if (location.search === "?light") localStorage.removeItem('color-scheme') 
@@ -100,10 +100,9 @@ mountAll()
 </script>
 
 
-<div class="min-h-screen">
+<div class="min-h-screen my-class">
     <main role="main" class="pt-14 pb-3">
-        
-<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-16 text-center lg:pt-32">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-16 text-center lg:pt-32">
     <h1 class="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-slate-900 dark:text-slate-50 sm:text-7xl">
         Razor Static Sites
         <span class="relative whitespace-nowrap text-blue-600">
@@ -193,73 +192,7 @@ mountAll()
     </div>
 </div>
 
-<section>
-    <div class="py-16 sm:py-24 lg:py-32 bg-slate-50 dark:bg-slate-900 border-y border-slate-200 dark:border-slate-800">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 lg:grid-cols-12 lg:gap-8 lg:px-8">
-            <div class="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl lg:col-span-7">
-                <h2 class="mb-2 inline sm:block lg:inline xl:block">Want Product news and updates?</h2>
-                <p class="inline sm:block lg:inline xl:block">Sign up for our monthly newsletter.</p>
-            </div>
-            <div class="w-full max-w-md lg:col-span-5 lg:pt-2">
-                <div data-mail="JoinMailingList"></div>
-                <p class="mt-4 text-sm leading-6 text-gray-900 dark:text-gray-50">
-                    We care about your data. Read our <a href="privacy" class="font-semibold text-indigo-600 hover:text-indigo-500">privacy&nbsp;policy</a>.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
 
-
-<section class="mt-24">
-    <h2 class="text-4xl md:text-6xl font-bold tracking-tighter leading-tight md:pr-8 whitespace-nowrap text-center pt-8">
-        Getting Started
-    </h2>
-    <div class="mb-8 md:mb-16">
-        <div class="sm:mx-0 sm:px-4 sm:py-8 flex justify-evenly">
-            <div id="getting-started"></div>
-        </div>
-    </div>
-</section>
-
-<section id="showcase" class="bg-gray-50 text-center w-full py-12 sm:py-24">
-    <div class="mx-auto max-w-7xl">
-        <div class="mb-16">
-            <h2 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">Built with Razor SSG</h2>
-            <div class="my-3 max-w-lg mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-4xl">
-                Some examples of OSS Websites built with Razor SSG
-            </div>
-        </div>
-        <div class="mt-8 grid grid-cols-3 gap-4">
-            <a class="block group border dark:border-gray-800 hover:border-indigo-700 dark:hover:border-indigo-700" href="https://servicestack.net">
-                <img class="p-2" src="https://docs.servicestack.net/img/pages/ssg/servicestack.net-home-1440.png">
-                <div class="bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 font-semibold group-hover:bg-indigo-700 group-hover:text-white text-center py-2">servicestack.net</div>
-            </a>
-            <a class="block group border dark:border-gray-800 hover:border-indigo-700 dark:hover:border-indigo-700" href="https://diffusion.works">
-                <div style="max-height:310px;overflow:hidden">
-                <img class="p-2" src="https://servicestack.net/img/posts/vue-diffusion/vuediffusion-search.png"></div>
-                <div class="bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 font-semibold group-hover:bg-indigo-700 group-hover:text-white text-center py-2">diffusion.works</div>
-            </a>
-            <a class="block group border dark:border-gray-800 hover:border-indigo-700 dark:hover:border-indigo-700" href="https://docs.servicestack.net">
-                <div style="max-height:310px;overflow:hidden">
-                <img class="p-2" src="https://servicestack.net/img/posts/razor-ssg/docs.servicestack.net.png"></div>
-                <div class="bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 font-semibold group-hover:bg-indigo-700 group-hover:text-white text-center py-2">docs.servicestack.net</div>
-            </a>
-            <a class="block group border dark:border-gray-800 hover:border-indigo-700 dark:hover:border-indigo-700" href="https://jamstacks.net">
-                <img class="p-2" src="https://docs.servicestack.net/img/pages/release-notes/v6.9/jamstacks-screenshot.png">
-                <div class="bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 font-semibold group-hover:bg-indigo-700 group-hover:text-white text-center py-2">jamstacks.net</div>
-            </a>
-            <a class="block group border dark:border-gray-800 hover:border-indigo-700 dark:hover:border-indigo-700" href="https://xkcd.netcore.io">
-                <img class="p-2" src="https://docs.servicestack.net/img/pages/release-notes/v6.9/xkcd-screenshot.png">
-                <div class="bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 font-semibold group-hover:bg-indigo-700 group-hover:text-white text-center py-2">xkcd.netcore.io</div>
-            </a>
-            <a class="block group border dark:border-gray-800 hover:border-indigo-700 dark:hover:border-indigo-700" href="https://razor-press.web-templates.io">
-                <img class="p-2" src="https://raw.githubusercontent.com/ServiceStack/Assets/master/csharp-templates/razor-press.png">
-                <div class="bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 font-semibold group-hover:bg-indigo-700 group-hover:text-white text-center py-2">razor-press.web-templates.io</div>
-            </a>
-        </div>        
-    </div>
-</section>
 
 <script type="module">
 import { mount } from "app.mjs"
