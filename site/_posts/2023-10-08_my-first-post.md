@@ -8,7 +8,7 @@ image: https://images.unsplash.com/photo-1524668951403-d44b28200ce0?crop=entropy
 
 # Changes required to host our personal / organization site on GitHub Pages successfully
 
-This is a testing post of using Razor SSG.
+Razor SSG is a new free, powerful .NET project template provided by [ServiceStack](https://servicestack.net/) from their blog post [here](https://servicestack.net/posts/razor-ssg). From the past, static site rendering (SSG) has limited free options available, some may heard of [Statiq Framework](https://www.statiq.dev/framework) but it has learning curve. I was using Nuxt.js, it was awesome and easy to learn to be honest. However my ultimate goal, is to do as much as I can using the few stack as possible. Luckily I found this fantastic, work out of box template from ServiceStack.
 
 ## 1. Fix the GitHub Action
 
@@ -51,6 +51,12 @@ post('[data-post]', {
 </script> *@
 ```
 
+Browser Errors
+```
+:5002/:331 GET https://localhost:5001/mjs/components/mail.mjs net::ERR_CONNECTION_REFUSED
+:5002/:332 GET https://localhost:5001/mjs/components/post.mjs net::ERR_CONNECTION_REFUSED
+```
+
 ### 2.2. Remove code from `app.mjs`
 Have to remove the following code at the bottom of `app.mjs` as we are not using CreatorKit. Browser will throw error otherwise. 
 
@@ -73,3 +79,13 @@ export function init(exports) {
     // }
 }
 ```
+
+Browser Errors
+```
+app.mjs:59 Uncaught TypeError: Cannot read properties of null (reading '__vue_app__')
+    at alreadyMounted (app.mjs:59:33)
+    at mount (app.mjs:70:9)
+    at (index):201:1
+```
+
+## 3. Fix the `/posts` endpoint
