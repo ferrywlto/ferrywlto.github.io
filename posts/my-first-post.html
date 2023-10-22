@@ -145,7 +145,7 @@ mountAll()
                             <div class="mb-6 text-lg text-gray-500">
                                 <time datetime="2023-10-08T00:00:00.0000000">October 8, 2023</time>
                                 <span aria-hidden="true">&middot;</span>
-                                <span>2 min read</span>
+                                <span>3 min read</span>
                             </div>
                         </div>
                 </div>
@@ -159,7 +159,7 @@ mountAll()
             <div class="max-w-3xl mx-auto">
                 <div id="post" class="prose lg:prose-xl max-w-none mb-32">
                     <h1 id="changes-required-to-host-our-personal-organization-site-on-github-pages-successfully">Changes required to host our personal / organization site on GitHub Pages successfully<a class="header-anchor" href="javascript:;" onclick="location.hash='#changes-required-to-host-our-personal-organization-site-on-github-pages-successfully'" aria-label="Permalink">&ZeroWidthSpace;</a></h1>
-<p>This is a testing post of using Razor SSG.</p>
+<p>Razor SSG is a new free, powerful .NET project template provided by <a href="https://servicestack.net/">ServiceStack</a> from their blog post <a href="https://servicestack.net/posts/razor-ssg">here</a>. From the past, static site rendering (SSG) has limited free options available, some may heard of <a href="https://www.statiq.dev/framework">Statiq Framework</a> but it has learning curve. I was using Nuxt.js, it was awesome and easy to learn to be honest. However my ultimate goal, is to do as much as I can using the few stack as possible. Luckily I found this fantastic, work out of box template from ServiceStack.</p>
 <h2 id="fix-the-github-action">1. Fix the GitHub Action<a class="header-anchor" href="javascript:;" onclick="location.hash='#fix-the-github-action'" aria-label="Permalink">&ZeroWidthSpace;</a></h2>
 <p>In <code>build.yml</code>:</p>
 <pre><code class="language-yml">echo &quot;ssg_base_href=$(echo https://$org_name.github.io/$repo_name/)&quot; 
@@ -191,6 +191,10 @@ post('[data-post]', {
 })
 &lt;/script&gt; *@
 </code></pre>
+<p>Browser Errors</p>
+<pre><code>:5002/:331 GET https://localhost:5001/mjs/components/mail.mjs net::ERR_CONNECTION_REFUSED
+:5002/:332 GET https://localhost:5001/mjs/components/post.mjs net::ERR_CONNECTION_REFUSED
+</code></pre>
 <h3 id="remove-code-from-app.mjs">2.2. Remove code from <code>app.mjs</code><a class="header-anchor" href="javascript:;" onclick="location.hash='#remove-code-from-app.mjs'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
 <p>Have to remove the following code at the bottom of <code>app.mjs</code> as we are not using CreatorKit. Browser will throw error otherwise.</p>
 <pre><code class="language-js">export function init(exports) {
@@ -211,6 +215,13 @@ post('[data-post]', {
     // }
 }
 </code></pre>
+<p>Browser Errors</p>
+<pre><code>app.mjs:59 Uncaught TypeError: Cannot read properties of null (reading '__vue_app__')
+    at alreadyMounted (app.mjs:59:33)
+    at mount (app.mjs:70:9)
+    at (index):201:1
+</code></pre>
+<h2 id="fix-the-posts-endpoint">3. Fix the <code>/posts</code> endpoint<a class="header-anchor" href="javascript:;" onclick="location.hash='#fix-the-posts-endpoint'" aria-label="Permalink">&ZeroWidthSpace;</a></h2>
 
                 </div>
             </div>
@@ -321,6 +332,22 @@ import { mount } from "app.mjs"
   </div>
 </footer>
 
+<script type="module">
+//TODO: Replace with local and production URLs of CreatorKit .NET App or Remove if not using CreatorKit
+import { mail } from 'https://creatorkit.netcore.io/mjs/components/mail.mjs'
+import { post } from 'https://creatorkit.netcore.io/mjs/components/post.mjs'
+
+mail('[data-mail]', { 
+    mailingLists: ['MonthlyNewsletter'] 
+})
+
+post('[data-post]', {
+    commentLink: { 
+        href: '/community-rules',
+        label: 'read the community rules'
+    } 
+})
+</script>
 
 
 <script type="module">
