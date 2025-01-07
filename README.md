@@ -1,45 +1,68 @@
-# razor-ssg
+# Astro Starter Kit: Blog
 
-.NET 6.0 razor-ssg Static Generated Razor Pages Project Template
+```sh
+npm create astro@latest -- --template blog
+```
 
-[![](https://raw.githubusercontent.com/ServiceStack/Assets/master/csharp-templates/razor-ssg.png)](https://razor-ssg.web-templates.io)
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/blog)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/blog)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/blog/devcontainer.json)
 
-> Browse [source code](https://github.com/NetCoreTemplates/razor-ssg), view live demo [razor-ssg.web-templates.io](https://razor-ssg.web-templates.io) and install with [dotnet-new](https://docs.servicestack.net/dotnet-new):
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-    $ dotnet tool install -g x
+![blog](https://github.com/withastro/astro/assets/2244813/ff10799f-a816-4703-b967-c78997e8323d)
 
-    $ x new razor-ssg ProjectName
+Features:
 
-Alternatively write new project files directly into an razor-ssg repository, using the Directory Name as the ProjectName:
+- ✅ Minimal styling (make it your own!)
+- ✅ 100/100 Lighthouse performance
+- ✅ SEO-friendly with canonical URLs and OpenGraph data
+- ✅ Sitemap support
+- ✅ RSS Feed support
+- ✅ Markdown & MDX support
 
-    $ git clone https://github.com/<User>/<ProjectName>.git
-    $ cd <ProjectName>
-    $ x new razor-ssg
+## 🚀 Project Structure
 
-## Documentation
+Inside of your Astro project, you'll see the following folders and files:
 
-Documentation for this template is included at [/posts/razor-ssg](https://razor-ssg.web-templates.io/posts/razor-ssg).
+```text
+├── public/
+├── src/
+│   ├── components/
+│   ├── content/
+│   ├── layouts/
+│   └── pages/
+├── astro.config.mjs
+├── README.md
+├── package.json
+└── tsconfig.json
+```
 
-## Development Tasks
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-Tasks to run live reload Tailwind and .NET Razor Pages App during development:
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-### Run Tailwind in Background
+The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
 
-    $ npm run ui:dev
+Any static assets, like images, can be placed in the `public/` directory.
 
-### Run .NET App with Live Reload
+## 🧞 Commands
 
-    $ dotnet watch
+All commands are run from the root of the project, from a terminal:
 
-## Local Production Tasks
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-Tasks to prerender and preview production ssg website build:
+## 👀 Want to learn more?
 
-### Prerender website
+Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
 
-    $ npm run prerender
+## Credit
 
-### Preview pre-rendered website
-
-    $ npm run serve
+This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
