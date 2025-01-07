@@ -1,5 +1,14 @@
 # Astro Starter Kit: Blog
 
+## Command used
+
+```
+yarn create astro
+yarn dev
+yarn build
+```
+
+## Default README Content  
 ```sh
 npm create astro@latest -- --template blog
 ```
