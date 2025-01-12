@@ -8,4 +8,7 @@ const tags = [
 const pageTitle = "Tag Index";
 ---
 <h1>{pageTitle}</h1>
-<div>{tags.map((tag) => <p>{tag}</p>)}</div>
+<div>
+  <ul>
+    {tags.map((tag) => <li><a href={`/tags/${tag}`}>{tag}</a></li>)}</div>
+  </ul>
