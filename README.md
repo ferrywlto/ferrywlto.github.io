@@ -8,6 +8,9 @@ yarn dev
 yarn build
 ```
 
+## Create new post
+Use `new-post.sh`
+
 ## Default README Content  
 ```sh
 npm create astro@latest -- --template blog

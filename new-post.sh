@@ -16,3 +16,4 @@ echo "tags: []" >> $fullpath
 echo "---" >> $fullpath
 echo "Created file: ${fullpath}"
 
+code ${fullpath}
