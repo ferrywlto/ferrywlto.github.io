@@ -1,5 +1,12 @@
 # Astro Starter Kit: Blog
 
+## TODO List
+- [ ] Hamberger icon
+- [ ] About Me
+- [ ] Home
+- [ ] Dark theme
+- [ ] Calendar widget 
+
 ## Command used
 
 ```
