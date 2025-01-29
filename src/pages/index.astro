@@ -3,18 +3,68 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getImage, Image } from 'astro:assets';
+import BackgroundImage from "../assets/ferry_next_to_newton_tree.jpg"
+const optmizedBackgroundImage = await getImage({ src: BackgroundImage })
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			.hero-text {
+				text-align: start;
+				text-shadow: 2px 2px 4px black;
+				color: white;
+			}
+			.hero-text-container {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 100%;
+				position: relative;
+				z-index: 2;
+			}
+			.mesh {
+				width: 100vw;
+				height: 100vh;
+				background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAD0lEQVQImWNgwAT/aSEAAP5qBPyVZlLRAAAAAElFTkSuQmCC') repeat left top;
+				opacity: 0.2;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 1;
+			}
+			.main-container {
+				position: relative;
+				width: 100vw;
+				height: 100vh;
+				background-size: cover;
+				background-position: center;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				aspect-ratio: 16 / 9; /* Adjust the aspect ratio as needed */
+				max-width: 100%;
+				max-height: 100%;
+			}
+		</style>
 	</head>
 	<body>
 		<Header />
-		<main>
-			Will have some content soon. WIP ⚙️
-		</main>
+		<div class="main-container" style={`background-image: url('${optmizedBackgroundImage.src}')`}>
+			<div class="mesh" />
+			<main style="main">
+				<div class="hero-text-container">
+					<h1 class="hero-text">
+					Hello Visitor.<br/>
+					I am Ferry ⛴️.<br/>
+					Welcome to my blog.
+					</h1>
+				</div>
+			</main>
+		</div>
 		<Footer />
 		<script>
 		  import "../scripts/menu";
