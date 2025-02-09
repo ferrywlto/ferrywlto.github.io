@@ -1,0 +1,15 @@
+---
+const { url, alt } = Astro.props;
+---
+<style>
+    .container {
+        aspect-ratio: 1;
+        width: 100%;
+    }
+</style>
+<div class="container">
+    <a href={url} target="_blank">
+        <span class="sr-only">{alt}</span>
+        <slot/>
+    </a>
+</div>
