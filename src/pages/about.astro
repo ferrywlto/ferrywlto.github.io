@@ -3,38 +3,62 @@ import { Image } from 'astro:assets';
 import FerryPortrait from "../assets/ferry.png"
 import MainLayout from '../layouts/MainLayout.astro';
 import SocialLinkIcon from '../components/SocialLinkIcon.astro';
-
+import FullGitHubLogo  from '../assets/logos/github-full.svg';
+import FullLeetcodeLogo from '../assets/logos/leetcode-full.svg';
+import FullStackoverFlowLogo from '../assets/logos/stackoverflow-full.svg';
+import FullLinkedInLogo from '../assets/logos/linkedin-full.svg';
+import FullMediumLogo from '../assets/logos/medium-full.svg';
 const title = "About"
 const description = "Ferry To's backgound, including past experiences and social contacts."
 ---
 <MainLayout title={title} description={description}>
-	<Image alt="Portrait of Ferry To" src={FerryPortrait}/>
+	<div class="portrait-container">
+		<Image alt="Portrait of Ferry To" src={FerryPortrait}/>
+	</div>
 	<div class="social-links">
 		<SocialLinkIcon
-		url="https://github.com/ferrywlto"
-		alt="Go to Ferry's GitHub profile">
-			<svg viewBox="0 0 98 96" xmlns="http://www.w3.org/2000/svg">
-				<path fill-rule="evenodd" clip-rule="evenodd" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z" fill="#24292f"/>
-			</svg>
-		</SocialLinkIcon>
+			url="https://github.com/ferrywlto"
+			alt="Go to Ferry's GitHub profile" 
+			src={FullGitHubLogo}
+		/>
 		<SocialLinkIcon
-		url="https://www.linkedin.com/in/ferry-to-2a905720"
-		alt="Go to Ferry's LinkedIn profile">
-			<svg viewBox="0 0 76.624 65.326" xmlns="http://www.w3.org/2000/svg">
-				<g fill="#0a66c2">
-					<path d="m1165 274.515a1.2 1.2 0 0 0 1.21-1.269c0-.9-.543-1.33-1.657-1.33h-1.8v4.712h.677v-2.054h.832l.019.025 1.291 2.029h.724l-1.389-2.1zm-.783-.472h-.785v-1.593h.995c.514 0 1.1.084 1.1.757 0 .774-.593.836-1.314.836" transform="translate(-1092.136 -213.406)"/>
-					<path d="m958.98 112.559h-9.6v-15.034c0-3.585-.064-8.2-4.993-8.2-5 0-5.765 3.906-5.765 7.939v15.294h-9.6v-30.916h9.216v4.225h.129a10.1 10.1 0 0 1 9.093-4.994c9.73 0 11.524 6.4 11.524 14.726zm-40.79-35.143a5.571 5.571 0 1 1 5.57-5.572 5.571 5.571 0 0 1 -5.57 5.572m4.8 35.143h-9.61v-30.917h9.61zm40.776-55.2h-55.21a4.728 4.728 0 0 0 -4.781 4.67v55.439a4.731 4.731 0 0 0 4.781 4.675h55.21a4.741 4.741 0 0 0 4.8-4.675v-55.443a4.738 4.738 0 0 0 -4.8-4.67" transform="translate(-903.776 -57.355)"/>
-					<path d="m1156.525 264.22a4.418 4.418 0 1 0 .085 0zm0 8.33a3.874 3.874 0 1 1 3.809-3.938v.065a3.791 3.791 0 0 1 -3.708 3.871h-.1" transform="translate(-1084.362 -207.809)"/>
-				</g>
-			</svg>		  
-		</SocialLinkIcon>
+			url="https://www.linkedin.com/in/ferry-to-2a905720"
+			alt="Go to Ferry's LinkedIn profile"
+			src={FullLinkedInLogo}
+		/>
 		<SocialLinkIcon 
 			url="https://stackoverflow.com/users/2952180/ferry-to"
-			alt="Go to Ferry's Stackoverflow profile">
-			<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-				<path d="m84.4 93.8v-23.2h7.7v30.9h-69.5v-30.9h7.7v23.2z" fill="#bcbbbb"/>
-				<path d="m38.8 68.4 37.8 7.9 1.6-7.6-37.8-7.9zm5-18 35 16.3 3.2-7-35-16.4zm9.7-17.2 29.7 24.7 4.9-5.9-29.7-24.7zm19.2-18.3-6.2 4.6 23 31 6.2-4.6zm-34.7 71.1h38.6v-7.7h-38.6z" fill="#f48023"/>
-			</svg>		
-		</SocialLinkIcon>
+			alt="Go to Ferry's Stackoverflow profile"
+			src={FullStackoverFlowLogo}
+		/>
+		<SocialLinkIcon
+			url="https://leetcode.com/u/ferrywlto/"
+			alt="Go to Ferry's Leetcode profile"
+			src={FullLeetcodeLogo}
+		/>
+		<SocialLinkIcon
+			url="https://medium.com/@ferrywlto"
+			alt="Go to Ferry's Medium profile"
+			src={FullMediumLogo}
+		/>
 	</div>
 </MainLayout>
+<style>
+.portrait-container {
+	display: flex;
+	justify-content: center;
+}
+.social-links {
+	display: flex;
+	justify-content: center;
+	/* gap: 1em;
+	margin-top: 1em; */
+}
+.social-links a {
+	text-decoration: none;
+	color: rgb(var(--gray));
+}
+.social-links a:hover {
+	color: rgb(var(--gray-dark));
+}
+</style>

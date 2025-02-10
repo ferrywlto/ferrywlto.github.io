@@ -1,5 +1,7 @@
 ---
-const { url, alt } = Astro.props;
+import { Image } from "astro:assets";
+
+const { url, alt, src } = Astro.props;
 ---
 <style>
     .container {
@@ -9,7 +11,6 @@ const { url, alt } = Astro.props;
 </style>
 <div class="container">
     <a href={url} target="_blank">
-        <span class="sr-only">{alt}</span>
-        <slot/>
+        <Image alt={alt} src={src} />
     </a>
 </div>
