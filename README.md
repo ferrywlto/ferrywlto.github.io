@@ -1,12 +1,13 @@
 # Astro Starter Kit: Blog
 
 ## TODO List
+- [ ] Mermaid Diagram Support
 - [ ] Hamberger icon
 - [ ] About Me
 - [ ] Home
 - [ ] Dark theme
 - [ ] Calendar widget 
-
+- [ ] Footer Add Powered By
 ## Command used
 
 ```
