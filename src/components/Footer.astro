@@ -1,25 +1,20 @@
 ---
-import FullAstroLogo from "../assets/logos/astro-full.svg";
-import FullAlpineLogo from "../assets/logos/alpine-full.svg";
-import { Image } from "astro:assets";
 const today = new Date();
 ---
 <footer>
   <div>
+    <span>
     &copy; {today.getFullYear()} Ferry To & <a
       href="https://verdantsparks.io"
       target="_blank">VerdantSparks</a
     >&trade;
+    </span>
     <span class="line-break">All rights reserved.</span>
-  </div>
-  <div class="powered-by">
-    Powered by
-    <a href="https://astro.build" target="_blank">
-      <Image alt="Logo of Astro" src={FullAstroLogo} />
-    </a>
-    <a href="https://alpinejs.dev" target="_blank">
-      <Image alt="Logo of AlpineJS" src={FullAlpineLogo} />
-    </a>
+    <span>       
+      Powered by
+      <a href="https://astro.build" target="_blank">Astro</a> &
+      <a href="https://alpinejs.dev" target="_blank">Alpine.Js</a>
+    </span>
   </div>
 </footer>
 <style>
@@ -27,15 +22,6 @@ const today = new Date();
     padding: 2em 1em 6em 1em;
     color: rgb(var(--gray));
     text-align: center;
-  }
-  .powered-by {
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap; /* stop line-wrapping */
-    gap: 0.5rem;
-    margin-top: 10px;
   }
 
   .powered-by a img {
