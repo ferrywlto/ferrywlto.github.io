@@ -3,14 +3,11 @@ const today = new Date();
 ---
 <footer>
   <div>
-    <span>
-    &copy; {today.getFullYear()} Ferry To & <a
-      href="https://verdantsparks.io"
-      target="_blank">VerdantSparks</a
-    >&trade;
+    <span class="line-break">
+    &copy; {today.getFullYear()} Ferry To & <a href="https://verdantsparks.io" target="_blank">VerdantSparks</a> &trade;
     </span>
     <span class="line-break">All rights reserved.</span>
-    <span>       
+    <span class="line-break">       
       Powered by
       <a href="https://astro.build" target="_blank">Astro</a> &
       <a href="https://alpinejs.dev" target="_blank">Alpine.Js</a>
@@ -18,16 +15,29 @@ const today = new Date();
   </div>
 </footer>
 <style>
+  span a {
+    text-decoration: none;
+    color: var(--accent-dark);
+  }
   footer {
     padding: 2em 1em 6em 1em;
     color: rgb(var(--gray));
     text-align: center;
+    position: relative;
   }
-
-  .powered-by a img {
-    max-height: 35px;
-    height: 100%;
+  
+  footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    background-color: #f0fafa;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAD0lEQVQImWNgwAT/aSEAAP5qBPyVZlLRAAAAAElFTkSuQmCC');
+    background-repeat: repeat;
+    background-position: left top;
+    opacity: 0.18;
   }
 
   @media (max-width: 430px) {

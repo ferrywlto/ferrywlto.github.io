@@ -5,8 +5,8 @@
  */
 
 :root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
+	--accent: #367878;
+	--accent-dark: #006564;
 	--black: 15, 18, 25;
 	--gray: 96, 115, 159;
 	--gray-light: 229, 233, 240;
@@ -152,7 +152,6 @@ hr {
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
 }
-
 .hamburger {
     padding-right: 20px;
     cursor: pointer;
@@ -160,16 +159,20 @@ hr {
   
 .hamburger .line {
 	display: block;
-	width: 40px;
-	height: 5px;
-	margin-bottom: 10px;
-	background-color: #07584d;
+	width: 38px;
+	height: 3px;
+	background-color: var(--accent-dark);
+}
+
+.hamburger .pad {
+	margin-top: 8px; 
+	margin-bottom: 8px;
 }
 
 .nav-links {
 	width: 100%;
 	top: 5rem;
-	left: 48px;
+	/* left: 48px; */
 	display: none;
 	margin: 0;
 }

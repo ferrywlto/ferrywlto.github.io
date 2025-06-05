@@ -1,6 +1,5 @@
 ---
 import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../consts';
 import Hamburger from './Hamburger.astro';
 ---
 
@@ -15,12 +14,23 @@ import Hamburger from './Hamburger.astro';
 	</nav>
 </header>
 <style>
-	header {
-		margin: 0;
-		padding: 0 1em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
+	header {		
+		padding: 0 0.5em;
+		box-shadow: 0 2px 8px rgba(var(--black), 100%);
 	}
+	header::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: #f0fafa;
+		background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAD0lEQVQImWNgwAT/aSEAAP5qBPyVZlLRAAAAAElFTkSuQmCC');
+		background-repeat: repeat;
+		background-position: left top;
+		opacity: 0.18;
+	}	
 	h2 {
 		margin: 0;
 		font-size: 1em;
@@ -36,8 +46,8 @@ import Hamburger from './Hamburger.astro';
 		justify-content: space-between;
 	}
 	nav a {
-		padding: 1em 0.5em;
-		color: var(--black);
+		padding: 0.38em;
+		color: var(--gray-dark);
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
 	}
