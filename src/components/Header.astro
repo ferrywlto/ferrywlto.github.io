@@ -1,9 +1,10 @@
 ---
 import HeaderLink from './HeaderLink.astro';
 import Hamburger from './Hamburger.astro';
+import DrawerMenu from './DrawerMenu.astro';
 ---
 
-<header>
+<header x-data="{ open: false }">
 	<nav>
 		<Hamburger />
 		<div class="nav-links">
@@ -12,12 +13,24 @@ import Hamburger from './Hamburger.astro';
 			<HeaderLink href="/blog">Blog</HeaderLink>
 		</div>
 	</nav>
+	<DrawerMenu />
 </header>
 <style>
 	header {		
-		padding: 0 0.5em;
-		box-shadow: 0 2px 8px rgba(var(--black), 100%);
+		padding: 1rem 1.5rem;
+		background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+		box-shadow: 
+			0 1px 3px rgba(0, 0, 0, 0.12),
+			0 4px 12px rgba(0, 0, 0, 0.08),
+			0 8px 24px rgba(0, 0, 0, 0.05);
+		border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+		position: sticky;
+		top: 0;
+		z-index: 1000;
+		backdrop-filter: blur(10px);
+		transition: all 0.3s ease;
 	}
+
 	header::before {
 		content: '';
 		position: absolute;
@@ -30,38 +43,64 @@ import Hamburger from './Hamburger.astro';
 		background-repeat: repeat;
 		background-position: left top;
 		opacity: 0.18;
-	}	
-	h2 {
-		margin: 0;
-		font-size: 1em;
+		z-index: -1;
 	}
 
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
-	}
 	nav {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		max-width: 1200px;
+		margin: 0 auto;
+		position: relative;
+		z-index: 1;
 	}
-	nav a {
-		padding: 0.38em;
-		color: var(--gray-dark);
-		border-bottom: 4px solid transparent;
-		text-decoration: none;
-	}
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
-	}
-	.social-links,
-	.social-links a {
+
+	.nav-links {
 		display: flex;
+		gap: 1rem;
+		align-items: center;
 	}
-	@media (max-width: 720px) {
-		.social-links {
+
+	.nav-links :global(a) {
+		padding: 0.75rem 1rem;
+		color: rgb(var(--gray-dark));
+		border-bottom: 3px solid transparent;
+		text-decoration: none;
+		border-radius: 6px;
+		transition: all 0.3s ease;
+		font-weight: 500;
+		position: relative;
+	}
+
+	.nav-links :global(a:hover) {
+		background: rgba(var(--accent), 0.1);
+		color: var(--accent-dark);
+		transform: translateY(-2px);
+	}
+
+	.nav-links :global(a.active) {
+		background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+		color: white;
+		border-bottom-color: transparent;
+		box-shadow: 0 4px 12px rgba(var(--accent), 0.3);
+	}
+
+	/* Mobile-first: Hide nav-links on small screens */
+	@media (max-width: 719px) {
+		header {
+			padding: 0.75rem 1rem;
+		}
+		
+		.nav-links {
 			display: none;
+		}
+	}
+
+	/* Desktop: Show nav-links, hide hamburger */
+	@media (min-width: 720px) {
+		.nav-links {
+			display: flex;
 		}
 	}
 </style>

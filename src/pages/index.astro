@@ -3,7 +3,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import { getImage, Image } from 'astro:assets';
+import { getImage } from 'astro:assets';
 import BackgroundImage from "../assets/ferry_next_to_newton_tree.jpg"
 const optmizedBackgroundImage = await getImage({ src: BackgroundImage })
 ---
@@ -66,9 +66,6 @@ const optmizedBackgroundImage = await getImage({ src: BackgroundImage })
 			</main>
 		</div>
 		<Footer />
-		<script>
-		  import "../scripts/menu";
-		</script>
 	  </body>
 	</body>
 </html>

@@ -152,22 +152,6 @@ hr {
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
 }
-.hamburger {
-    padding-right: 20px;
-    cursor: pointer;
-}
-  
-.hamburger .line {
-	display: block;
-	width: 38px;
-	height: 3px;
-	background-color: var(--accent-dark);
-}
-
-.hamburger .pad {
-	margin-top: 8px; 
-	margin-bottom: 8px;
-}
 
 .nav-links {
 	width: 100%;
@@ -175,6 +159,7 @@ hr {
 	/* left: 48px; */
 	display: none;
 	margin: 0;
+	z-index: 1;
 }
 
 .nav-links a {

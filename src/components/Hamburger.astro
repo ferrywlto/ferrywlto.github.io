@@ -2,8 +2,60 @@
 
 ---
 
-<div class="hamburger">
+<button class="hamburger" x-on:click="open = !open" aria-label="Toggle menu" :class="{ 'active': open }">
     <span class="line pad"></span>
     <span class="line"></span>
     <span class="line pad"></span>
-</div>
+</button>
+
+<style>
+.hamburger {
+    cursor: pointer;
+	z-index: 1000;
+    padding: 0.5rem;
+    background: none;
+    border: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.hamburger:hover {
+    background-color: rgba(var(--accent), 0.1);
+}
+
+.hamburger .line {
+	display: block;
+	width: 28px;
+	height: 3px;
+	background-color: var(--accent-dark);
+	transition: all 0.3s ease;
+	transform-origin: center;
+}
+
+.hamburger .pad {
+	margin-top: 6px; 
+	margin-bottom: 6px;
+}
+
+/* Animated hamburger to X transformation */
+.hamburger.active .line:nth-child(1) {
+	transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active .line:nth-child(2) {
+	opacity: 0;
+	transform: scaleX(0);
+}
+
+.hamburger.active .line:nth-child(3) {
+	transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Hide hamburger on desktop */
+@media (min-width: 720px) {
+	.hamburger {
+		display: none;
+	}
+}
+</style>

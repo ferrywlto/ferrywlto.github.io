@@ -1,0 +1,139 @@
+---
+import HeaderLink from './HeaderLink.astro';
+---
+
+<div class="drawer-overlay" x-show="open" x-transition:opacity x-on:click="open = false"></div>
+<div class="drawer" x-show="open" x-transition:enter="transform transition ease-in-out duration-300" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transform transition ease-in-out duration-300" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full">
+	<div class="drawer-header">
+		<h2>Menu</h2>
+		<button class="close-btn" x-on:click="open = false" aria-label="Close menu">
+			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+			</svg>
+		</button>
+	</div>
+	<nav class="drawer-nav">
+		<HeaderLink href="/" x-on:click="open = false">Home</HeaderLink>
+		<HeaderLink href="/about" x-on:click="open = false">About</HeaderLink>
+		<HeaderLink href="/blog" x-on:click="open = false">Blog</HeaderLink>
+		<HeaderLink href="/tags" x-on:click="open = false">Tags</HeaderLink>
+	</nav>
+</div>
+
+<style>
+	.drawer-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background: rgba(0, 0, 0, 0.5);
+		z-index: 998;
+		backdrop-filter: blur(2px);
+	}
+
+	.drawer {
+		position: fixed;
+		top: 0;
+		right: 0;
+		width: 300px;
+		max-width: 80vw;
+		height: 100vh;
+		background: white;
+		z-index: 999;
+		box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+		display: flex;
+		flex-direction: column;
+	}
+
+	.drawer-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1.5rem 1.5rem 1rem 1.5rem;
+		border-bottom: 1px solid rgb(var(--gray-light));
+		background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+	}
+
+	.drawer-header h2 {
+		margin: 0;
+		color: rgb(var(--black));
+		font-size: 1.5rem;
+	}
+
+	.close-btn {
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 0.5rem;
+		border-radius: 6px;
+		color: rgb(var(--gray));
+		transition: all 0.2s ease;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.close-btn:hover {
+		background: rgba(0, 0, 0, 0.05);
+		color: rgb(var(--gray-dark));
+	}
+
+	.drawer-nav {
+		flex: 1;
+		padding: 1rem 0;
+		overflow-y: auto;
+	}
+
+	.drawer-nav :global(a) {
+		display: block;
+		padding: 1rem 1.5rem;
+		text-decoration: none;
+		color: rgb(var(--gray-dark));
+		font-size: 1.1rem;
+		font-weight: 500;
+		border-left: 4px solid transparent;
+		transition: all 0.2s ease;
+	}
+
+	.drawer-nav :global(a:hover) {
+		background: rgba(var(--accent), 0.05);
+		border-left-color: var(--accent);
+		color: var(--accent-dark);
+	}
+
+	.drawer-nav :global(a.active) {
+		background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+		color: white;
+		border-left-color: var(--accent-dark);
+		font-weight: 600;
+	}
+
+	/* Responsive adjustments */
+	@media (max-width: 480px) {
+		.drawer {
+			width: 260px;
+		}
+		
+		.drawer-header {
+			padding: 1rem 1rem 0.75rem 1rem;
+		}
+		
+		.drawer-header h2 {
+			font-size: 1.3rem;
+		}
+		
+		.drawer-nav :global(a) {
+			padding: 0.875rem 1rem;
+			font-size: 1rem;
+		}
+	}
+
+	/* Hide drawer on desktop */
+	@media (min-width: 720px) {
+		.drawer,
+		.drawer-overlay {
+			display: none;
+		}
+	}
+</style>
