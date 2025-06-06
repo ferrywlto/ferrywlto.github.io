@@ -190,7 +190,5 @@ hr {
 		padding: 15px 20px;
 	}
 
-	.hamburger {
-		display: none;
-	}
+	/* Removed .hamburger { display: none; } - now handled by Header.astro */
 }
