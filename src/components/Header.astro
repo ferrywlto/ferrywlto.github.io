@@ -4,7 +4,9 @@ import Hamburger from './Hamburger.astro';
 import DrawerMenu from './DrawerMenu.astro';
 ---
 
-<header x-data="{ open: false }">
+<header x-data="{ 
+	open: false
+}">
 	<nav>
 		<Hamburger />
 		<div class="nav-links">
@@ -18,16 +20,18 @@ import DrawerMenu from './DrawerMenu.astro';
 <style>
 	header {		
 		padding: 0 1.5rem;
-		background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+		background: rgba(255, 255, 255, 0.15);
+		backdrop-filter: blur(15px) saturate(160%);
+		-webkit-backdrop-filter: blur(15px) saturate(160%);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 		box-shadow: 
-			0 1px 3px rgba(0, 0, 0, 0.12),
-			0 4px 12px rgba(0, 0, 0, 0.08),
-			0 8px 24px rgba(0, 0, 0, 0.05);
+			0 1px 3px rgba(0, 0, 0, 0.08),
+			0 4px 12px rgba(0, 0, 0, 0.06),
+			0 8px 24px rgba(0, 0, 0, 0.04);
 		position: sticky;
 		top: 0;
 		z-index: 1000;
-		backdrop-filter: blur(10px);
-		transition: all 0.3s ease;
+		min-height: 78px;
 	}
 
 	header::before {
@@ -37,7 +41,6 @@ import DrawerMenu from './DrawerMenu.astro';
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background-color: #f0fafa;
 		background-image: var(--texture-pattern);
 		background-repeat: repeat;
 		background-position: left top;
