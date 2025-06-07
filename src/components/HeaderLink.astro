@@ -16,9 +16,15 @@ const isActive = href === pathname || href === '/' + (subpath?.[0] || '');
 	a {
 		display: inline-block;
 		text-decoration: none;
+		position: relative;
 	}
+	
 	a.active {
 		font-weight: bolder;
-		text-decoration: underline;
+	}
+	
+	/* Remove default underline for active state since parent components handle styling */
+	a.active {
+		text-decoration: none;
 	}
 </style>
