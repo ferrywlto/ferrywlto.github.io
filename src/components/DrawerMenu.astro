@@ -246,13 +246,22 @@ import HeaderLink from './HeaderLink.astro';
 			padding: 0.875rem 1rem;
 			font-size: 1rem;
 		}
-	}
-
-	/* Hide drawer on desktop */
+	}		/* Hide drawer on desktop */
 	@media (min-width: 720px) {
 		.drawer,
 		.drawer-overlay {
-			display: none;
+			display: none !important;
 		}
+	}
+	
+	/* Ensure drawer is above all other elements */
+	.drawer-overlay,
+	.drawer {
+		position: fixed;
+		z-index: 998;
+	}
+	
+	.drawer {
+		z-index: 999;
 	}
 </style>

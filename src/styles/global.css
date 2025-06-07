@@ -14,6 +14,9 @@
 	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
 	--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
 		0 16px 32px rgba(var(--gray), 33%);
+	
+	/* Shared texture pattern */
+	--texture-pattern: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAD0lEQVQImWNgwAT/aSEAAP5qBPyVZlLRAAAAAElFTkSuQmCC');
 }
 @font-face {
 	font-family: 'Atkinson';
@@ -153,42 +156,18 @@ hr {
 	white-space: nowrap;
 }
 
-.nav-links {
-	width: 100%;
-	top: 5rem;
-	/* left: 48px; */
-	display: none;
-	margin: 0;
-	z-index: 1;
+/* Shared texture utility classes */
+.texture-overlay {
+	background-image: var(--texture-pattern);
+	background-repeat: repeat;
+	background-position: left top;
+	opacity: 0.18;
 }
 
-.nav-links a {
-	display: block;
-	text-align: center;
-	padding: 10px 0;
-	text-decoration: none;
-	font-size: 1.2rem;
-	font-weight: bold;
-	text-transform: uppercase;
-}
-
-.expanded {
-	display: unset;
-}
-
-@media screen and (min-width: 636px) {
-	.nav-links {
-		margin-left: 5em;
-		display: block;
-		position: static;
-		width: auto;
-		background: none;
-	}
-
-	.nav-links a {
-		display: inline-block;
-		padding: 15px 20px;
-	}
-
-	/* Removed .hamburger { display: none; } - now handled by Header.astro */
+.texture-base {
+	background-color: #f0fafa;
+	background-image: var(--texture-pattern);
+	background-repeat: repeat;
+	background-position: left top;
+	opacity: 0.18;
 }

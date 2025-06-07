@@ -29,8 +29,6 @@ const optmizedBackgroundImage = await getImage({ src: BackgroundImage })
 			.mesh {
 				width: 100vw;
 				height: 100vh;
-				background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAD0lEQVQImWNgwAT/aSEAAP5qBPyVZlLRAAAAAElFTkSuQmCC') repeat left top;
-				opacity: 0.18;
 				position: absolute;
 				top: 0;
 				left: 0;
@@ -54,7 +52,7 @@ const optmizedBackgroundImage = await getImage({ src: BackgroundImage })
 	<body>
 		<Header />
 		<div class="main-container" style={`background-image: url('${optmizedBackgroundImage.src}')`}>
-			<div class="mesh" />
+			<div class="mesh texture-overlay" />
 			<main style="main">
 				<div class="hero-text-container">
 					<h1 class="hero-text">

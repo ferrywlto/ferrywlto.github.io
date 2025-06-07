@@ -9,53 +9,78 @@
 </button>
 
 <style>
-.hamburger {
-    cursor: pointer;
-	z-index: 1000;
-    padding: 0.5rem;
-    background: none;
-    border: none;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.hamburger:hover {
-    background-color: rgba(var(--accent), 0.1);
-}
-
-.hamburger .line {
-	display: block;
-	width: 28px;
-	height: 3px;
-	background-color: var(--accent-dark);
-	transition: all 0.3s ease;
-	transform-origin: center;
-}
-
-.hamburger .pad {
-	margin-top: 6px; 
-	margin-bottom: 6px;
-}
-
-/* Animated hamburger to X transformation */
-.hamburger.active .line:nth-child(1) {
-	transform: translateY(9px) rotate(45deg);
-}
-
-.hamburger.active .line:nth-child(2) {
-	opacity: 0;
-	transform: scaleX(0);
-}
-
-.hamburger.active .line:nth-child(3) {
-	transform: translateY(-9px) rotate(-45deg);
-}
-
-/* Hide hamburger on desktop */
-@media (min-width: 720px) {
 	.hamburger {
-		display: none;
+		cursor: pointer;
+		z-index: 1000;
+		padding: 0.5rem;
+		background: none;
+		border: none;
+		border-radius: 6px;
+		transition: all 0.3s ease;
+		position: relative;
+		/* Ensure hamburger is properly sized and accessible */
+		min-width: 44px;
+		min-height: 44px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 	}
-}
+
+	.hamburger:hover {
+		background-color: rgba(var(--accent), 0.1);
+		transform: scale(1.05);
+	}
+
+	.hamburger:focus {
+		outline: 2px solid var(--accent);
+		outline-offset: 2px;
+	}
+
+	.hamburger .line {
+		display: block;
+		width: 28px;
+		height: 3px;
+		background-color: var(--accent-dark);
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		transform-origin: center;
+		border-radius: 2px;
+	}
+
+	.hamburger .pad {
+		margin-top: 6px; 
+		margin-bottom: 6px;
+	}
+
+	/* Animated hamburger to X transformation */
+	.hamburger.active .line:nth-child(1) {
+		transform: translateY(9px) rotate(45deg);
+	}
+
+	.hamburger.active .line:nth-child(2) {
+		opacity: 0;
+		transform: scaleX(0);
+	}
+
+	.hamburger.active .line:nth-child(3) {
+		transform: translateY(-9px) rotate(-45deg);
+	}
+
+	.hamburger.active:hover {
+		background-color: rgba(var(--accent), 0.15);
+	}
+
+	/* Hide hamburger on desktop - mobile navigation only */
+	@media (min-width: 720px) {
+		.hamburger {
+			display: none !important;
+		}
+	}
+
+	/* Show hamburger on mobile */
+	@media (max-width: 719px) {
+		.hamburger {
+			display: flex;
+		}
+	}
 </style>

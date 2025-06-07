@@ -17,6 +17,8 @@ const isActive = href === pathname || href === '/' + (subpath?.[0] || '');
 		display: inline-block;
 		text-decoration: none;
 		position: relative;
+		color: inherit;
+		transition: all 0.2s ease;
 	}
 	
 	a.active {
@@ -26,5 +28,23 @@ const isActive = href === pathname || href === '/' + (subpath?.[0] || '');
 	/* Remove default underline for active state since parent components handle styling */
 	a.active {
 		text-decoration: none;
+	}
+	
+	/* Default link styling when used outside of specific containers */
+	a:not(:is(.nav-links a, .drawer-nav a)) {
+		color: var(--accent);
+		padding: 0.25rem 0;
+		border-bottom: 1px solid transparent;
+	}
+	
+	a:not(:is(.nav-links a, .drawer-nav a)):hover {
+		color: var(--accent-dark);
+		border-bottom-color: var(--accent);
+	}
+	
+	a:not(:is(.nav-links a, .drawer-nav a)).active {
+		color: var(--accent-dark);
+		border-bottom-color: var(--accent);
+		font-weight: 600;
 	}
 </style>

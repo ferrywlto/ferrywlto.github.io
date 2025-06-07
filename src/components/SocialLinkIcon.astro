@@ -4,10 +4,46 @@ import { Image } from "astro:assets";
 const { url, alt, src } = Astro.props;
 ---
 <style>
-    .container {
-        aspect-ratio: 1;
-        width: 100%;
-    }
+	.container {
+		aspect-ratio: 1;
+		width: 100%;
+		display: inline-block;
+		transition: transform 0.2s ease;
+	}
+
+	.container:hover {
+		transform: scale(1.1);
+	}
+
+	.container a {
+		display: block;
+		width: 100%;
+		height: 100%;
+		border-radius: 8px;
+		overflow: hidden;
+		transition: all 0.2s ease;
+		text-decoration: none;
+	}
+
+	.container a:hover {
+		box-shadow: 0 4px 12px rgba(var(--accent), 0.3);
+	}
+
+	.container a:focus {
+		outline: 2px solid var(--accent);
+		outline-offset: 2px;
+	}
+
+	.container img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		transition: opacity 0.2s ease;
+	}
+
+	.container:hover img {
+		opacity: 0.8;
+	}
 </style>
 <div class="container">
     <a href={url} target="_blank">
