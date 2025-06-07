@@ -7,7 +7,7 @@ const today = new Date();
     &copy; {today.getFullYear()} Ferry To & <a href="https://verdantsparks.io" target="_blank">VerdantSparks</a> &trade;
     </span>
     <span class="line-break">All rights reserved.</span>
-    <span class="line-break">       
+    <span class="line-break powered-by">       
       Powered by
       <a href="https://astro.build" target="_blank">Astro</a> &
       <a href="https://alpinejs.dev" target="_blank">Alpine.Js</a>
@@ -16,7 +16,7 @@ const today = new Date();
 </footer>
 <style>
 	footer {
-		padding: 2em 1em 6em 1em;
+		padding: 1.18em 1em 2.38em 1em;
 		color: rgb(var(--gray));
 		text-align: center;
 		position: relative;
@@ -77,21 +77,32 @@ const today = new Date();
 	}
 
 	/* Responsive footer layout */
+	@media (min-width: 431px) and (max-width: 819px) {
+		.line-break.powered-by {
+			display: block;
+			margin-top: 0.28em;
+		}
+	}
+
+	@media (max-width: 720px) {
+		.line-break {
+			display: block;
+			margin-top: 0.28em;
+		}
+		
+		.line-break:first-child {
+			margin-top: 0;
+		}
+	}
+
 	@media (max-width: 430px) {
 		footer {
-			padding: 1.5em 1em 4em 1em;
+			padding: 1em 1em 1.8em 1em;
 			font-size: 0.9em;
 		}
 
 		.line-break {
-			display: block;
 			margin-top: 0.5em;
-		}
-	}
-
-	@media (max-width: 320px) {
-		footer {
-			padding: 1em 0.5em 3em 0.5em;
 		}
 	}
 </style>
