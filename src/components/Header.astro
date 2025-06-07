@@ -17,13 +17,12 @@ import DrawerMenu from './DrawerMenu.astro';
 </header>
 <style>
 	header {		
-		padding: 1rem 1.5rem;
+		padding: 0 1.5rem;
 		background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
 		box-shadow: 
 			0 1px 3px rgba(0, 0, 0, 0.12),
 			0 4px 12px rgba(0, 0, 0, 0.08),
 			0 8px 24px rgba(0, 0, 0, 0.05);
-		border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 		position: sticky;
 		top: 0;
 		z-index: 1000;
@@ -63,68 +62,35 @@ import DrawerMenu from './DrawerMenu.astro';
 	}
 
 	.nav-links :global(a) {
-		padding: 0.75rem 1.25rem;
+		padding: 1rem;
 		color: rgb(var(--gray-dark));
-		border-bottom: 3px solid transparent;
+		border-bottom: 4px solid transparent;
 		text-decoration: none;
-		border-radius: 8px;
 		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 		font-weight: 500;
 		position: relative;
-		overflow: hidden;
 		background: transparent;
-	}
-
-	.nav-links :global(a::before) {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 50%;
-		width: 0;
-		height: 100%;
-		background: linear-gradient(135deg, rgba(var(--accent), 0.15), rgba(var(--accent), 0.08));
-		transition: all 0.3s ease;
-		transform: translateX(-50%);
-		z-index: -1;
+		/* Ensure proper vertical alignment */
+		display: inline-flex;
+		align-items: center;
 	}
 
 	.nav-links :global(a:hover) {
-		background: rgba(var(--accent), 0.12);
-		color: var(--accent-dark);
-		transform: translateY(-2px);
-		box-shadow: 
-			0 8px 25px rgba(var(--accent), 0.2),
-			0 0 0 1px rgba(var(--accent), 0.15);
+		color: var(--accent);
+		border-bottom-color: rgba(var(--accent), 0.4);
 		font-weight: 600;
-		border-bottom-color: rgba(var(--accent), 0.3);
-	}
-
-	.nav-links :global(a:hover::before) {
-		width: 100%;
 	}
 
 	.nav-links :global(a.active) {
-		background: linear-gradient(135deg, var(--accent), var(--accent-dark) 80%);
-		color: white;
-		border-bottom-color: transparent;
-		box-shadow: 
-			0 6px 20px rgba(var(--accent), 0.4),
-			0 0 0 1px rgba(255, 255, 255, 0.2),
-			inset 0 1px 0 rgba(255, 255, 255, 0.2);
-		transform: translateY(-2px);
+		color: var(--accent);
+		border-bottom-color: var(--accent);
 		font-weight: 700;
-		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
-	}
-
-	.nav-links :global(a.active::before) {
-		width: 100%;
-		background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
 	}
 
 	/* Mobile-first: Hide nav-links on small screens */
 	@media (max-width: 719px) {
 		header {
-			padding: 0.75rem 1rem;
+			padding: 0 1rem;
 		}
 		
 		.nav-links {
