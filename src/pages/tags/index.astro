@@ -28,33 +28,34 @@ const pageTitle = "Tag Index";
 	<head>
 		<BaseHead title={`${pageTitle} | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
 		<style>
+			/* Page-specific overrides using theme variables */
 			main {
-				width: 720px;
-				max-width: calc(100% - 2em);
+				width: var(--container-xs);
+				max-width: var(--max-width);
 				margin: auto;
-				padding: 1em 0;
+				padding: var(--space-md) 0;
 			}
 			
 			h1 {
 				color: rgb(var(--black));
-				margin: 2rem 0 1.5rem 0;
-				font-size: 2.369rem;
+				margin: var(--space-xl) 0 var(--space-lg) 0;
+				font-size: var(--text-4xl);
 				line-height: 1.2;
 			}
 			
 			.tags-grid {
 				display: flex;
 				flex-direction: column;
-				gap: 1rem;
-				margin: 2rem 0;
+				gap: var(--space-md);
+				margin: var(--space-xl) 0;
 			}
 			
 			.tag-card {
-				background: rgb(var(--gray-light), 0.5);
+				background: rgba(var(--gray-light), 0.5);
 				border: 1px solid rgb(var(--gray-light));
-				border-radius: 12px;
-				padding: 1.5rem;
-				transition: all 0.2s ease;
+				border-radius: var(--radius-lg);
+				padding: var(--space-lg);
+				transition: var(--transition-normal);
 				text-decoration: none;
 				display: flex;
 				justify-content: space-between;
@@ -62,31 +63,10 @@ const pageTitle = "Tag Index";
 				width: 100%;
 			}
 			
-			/* Size variations based on frequency */
-			.tag-card.size-xs {
-				padding: 1rem 1.5rem;
-			}
-			
-			.tag-card.size-sm {
-				padding: 1.2rem 1.5rem;
-			}
-			
-			.tag-card.size-md {
-				padding: 1.5rem;
-			}
-			
-			.tag-card.size-lg {
-				padding: 2rem 1.5rem;
-			}
-			
-			.tag-card.size-xl {
-				padding: 2.5rem 1.5rem;
-			}
-			
 			.tag-card:hover {
-				box-shadow: var(--box-shadow);
+				box-shadow: var(--shadow-md);
 				transform: translateY(-2px);
-				border-color: rgb(var(--accent));
+				border-color: var(--accent);
 			}
 			
 			.tag-name {
@@ -105,114 +85,72 @@ const pageTitle = "Tag Index";
 				line-height: 1.2;
 			}
 			
-			/* Font size variations based on frequency */
-			.tag-card.size-xs .tag-name {
-				font-size: 1rem;
-			}
-			
-			.tag-card.size-xs .tag-count {
-				font-size: 0.8rem;
-			}
-			
-			.tag-card.size-sm .tag-name {
-				font-size: 1.1rem;
-			}
-			
-			.tag-card.size-sm .tag-count {
-				font-size: 0.85rem;
-			}
-			
-			.tag-card.size-md .tag-name {
-				font-size: 1.3rem;
-			}
-			
-			.tag-card.size-md .tag-count {
-				font-size: 0.9rem;
-			}
-			
-			.tag-card.size-lg .tag-name {
-				font-size: 1.6rem;
-				font-weight: 800;
-			}
-			
-			.tag-card.size-lg .tag-count {
-				font-size: 1.1rem;
-			}
-			
-			.tag-card.size-xl .tag-name {
-				font-size: 2rem;
-				font-weight: 800;
-			}
-			
-			.tag-card.size-xl .tag-count {
-				font-size: 1.3rem;
-			}
-			
 			.tag-card:hover .tag-name {
-				color: rgb(var(--accent));
+				color: var(--accent);
 			}
 			
 			.tag-card:hover .tag-count {
-				color: rgb(var(--accent-dark));
+				color: var(--accent-dark);
 			}
 			
-			@media (max-width: 720px) {
+			/* Size variations using theme variables */
+			.tag-card.size-xs {
+				padding: var(--space-md) var(--space-lg);
+			}
+			.tag-card.size-xs .tag-name { font-size: var(--text-base); }
+			.tag-card.size-xs .tag-count { font-size: var(--text-xs); }
+			
+			.tag-card.size-sm {
+				padding: calc(var(--space-md) * 1.2) var(--space-lg);
+			}
+			.tag-card.size-sm .tag-name { font-size: var(--text-lg); }
+			.tag-card.size-sm .tag-count { font-size: var(--text-sm); }
+			
+			.tag-card.size-md .tag-name { font-size: var(--text-xl); }
+			.tag-card.size-md .tag-count { font-size: var(--text-base); }
+			
+			.tag-card.size-lg {
+				padding: var(--space-xl) var(--space-lg);
+			}
+			.tag-card.size-lg .tag-name { 
+				font-size: var(--text-2xl);
+				font-weight: 800;
+			}
+			.tag-card.size-lg .tag-count { font-size: var(--text-lg); }
+			
+			.tag-card.size-xl {
+				padding: calc(var(--space-xl) * 1.25) var(--space-lg);
+			}
+			.tag-card.size-xl .tag-name { 
+				font-size: var(--text-3xl);
+				font-weight: 800;
+			}
+			.tag-card.size-xl .tag-count { font-size: var(--text-xl); }
+			
+			@media (max-width: 768px) {
+				h1 {
+					font-size: var(--text-3xl);
+					margin: var(--space-md) 0;
+				}
+				
 				.tag-card {
-					padding: 1rem 1.5rem;
+					padding: var(--space-md);
 				}
 				
 				.tag-card.size-lg {
-					padding: 1.5rem;
+					padding: var(--space-lg);
 				}
 				
 				.tag-card.size-xl {
-					padding: 2rem 1.5rem;
-				}
-				
-				/* Reduce font sizes on mobile */
-				.tag-card.size-xs .tag-name {
-					font-size: 0.9rem;
-				}
-				
-				.tag-card.size-xs .tag-count {
-					font-size: 0.7rem;
-				}
-				
-				.tag-card.size-sm .tag-name {
-					font-size: 1rem;
-				}
-				
-				.tag-card.size-sm .tag-count {
-					font-size: 0.75rem;
-				}
-				
-				.tag-card.size-md .tag-name {
-					font-size: 1.1rem;
-				}
-				
-				.tag-card.size-md .tag-count {
-					font-size: 0.8rem;
-				}
-				
-				.tag-card.size-lg .tag-name {
-					font-size: 1.3rem;
-				}
-				
-				.tag-card.size-lg .tag-count {
-					font-size: 0.9rem;
+					padding: var(--space-xl) var(--space-lg);
 				}
 				
 				.tag-card.size-xl .tag-name {
-					font-size: 1.5rem;
+					font-size: var(--text-2xl);
 				}
 				
 				.tag-card.size-xl .tag-count {
-					font-size: 1rem;
-				}
-				
-				h1 {
-					font-size: 1.8rem;
-					margin: 1rem 0;
+					font-size: var(--text-base);
 				}
 			}
 		</style>
