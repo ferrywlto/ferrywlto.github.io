@@ -23,7 +23,7 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.prop
 			max-width: var(--max-width);
 			margin: auto;
 			padding: var(--space-md);
-			color: rgb(var(--gray-dark));
+			color: var(--gray-dark);
 		}
 		.title {
 			margin-bottom: var(--space-md);
@@ -36,7 +36,7 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.prop
 		}
 		.date {
 			margin-bottom: var(--space-sm);
-			color: rgb(var(--gray));
+			color: var(--gray);
 		}
 		.last-updated-on {
 			font-style: italic;
@@ -52,8 +52,8 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.prop
 			margin-top: var(--space-lg);
 		}
 		.tag-badge {
-			background: rgb(var(--gray-light));
-			color: rgb(var(--gray-dark));
+			background: var(--gray-light);
+			color: var(--gray-dark);
 			padding: var(--space-xs) var(--space-sm);
 			border-radius: var(--radius-sm);
 			font-size: var(--text-sm);
@@ -61,8 +61,8 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.prop
 			transition: var(--transition-normal);
 		}
 		.tag-badge:hover {
-			background: rgb(var(--accent));
-			color: rgb(var(--white));
+			background: var(--accent);
+			color: var(--white);
 		}
 	</style>
 	<article>

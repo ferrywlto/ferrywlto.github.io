@@ -48,21 +48,21 @@ const { posts } = Astro.props;
 			}
 			
 			h1 {
-				color: rgb(var(--black));
+				color: var(--black);
 				margin: 0 0 var(--space-sm) 0;
 				font-size: var(--text-4xl);
 				line-height: 1.2;
 			}
 			
 			.tag-info {
-				color: rgb(var(--gray));
+				color: var(--gray);
 				font-size: var(--text-lg);
 				margin: 0;
 			}
 			
 			.back-link {
 				display: inline-block;
-				color: rgb(var(--accent));
+				color: var(--accent);
 				text-decoration: none;
 				margin-bottom: var(--space-xl);
 				font-weight: 500;
@@ -70,7 +70,7 @@ const { posts } = Astro.props;
 			}
 			
 			.back-link:hover {
-				color: rgb(var(--accent-dark));
+				color: var(--accent-dark);
 			}
 			
 			.posts-list {
@@ -80,8 +80,8 @@ const { posts } = Astro.props;
 			}
 			
 			.post-item {
-				background: rgb(var(--gray-light), 0.3);
-				border: 1px solid rgb(var(--gray-light));
+				background: var(--gray-light-opacity-30);
+				border: 1px solid var(--gray-light);
 				border-radius: var(--radius-md);
 				margin-bottom: var(--space-md);
 				transition: var(--transition-normal);
@@ -90,7 +90,7 @@ const { posts } = Astro.props;
 			.post-item:hover {
 				box-shadow: var(--shadow-lg);
 				transform: translateY(-2px);
-				border-color: rgb(var(--accent));
+				border-color: var(--accent);
 			}
 			
 			.post-link {
@@ -101,7 +101,7 @@ const { posts } = Astro.props;
 			}
 			
 			.post-title {
-				color: rgb(var(--black));
+				color: var(--black);
 				font-size: var(--text-xl);
 				font-weight: 700;
 				margin: 0 0 var(--space-sm) 0;
@@ -109,18 +109,18 @@ const { posts } = Astro.props;
 			}
 			
 			.post-date {
-				color: rgb(var(--gray));
+				color: var(--gray);
 				font-size: var(--text-sm);
 				margin: 0;
 			}
 			
 			.post-link:hover .post-title {
-				color: rgb(var(--accent));
+				color: var(--accent);
 			}
 			
 			.empty-state {
 				text-align: center;
-				color: rgb(var(--gray));
+				color: var(--gray);
 				font-style: italic;
 				margin: var(--space-3xl) 0;
 			}

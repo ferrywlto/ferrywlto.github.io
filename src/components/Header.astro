@@ -21,9 +21,10 @@ import DrawerMenu from './DrawerMenu.astro';
 	header {		
 		box-sizing: border-box;
 		padding: 0 var(--space-lg);
-		border-bottom: 1px solid rgba(var(--black), 0.1);
+		background: var(--white);
+		border-bottom: 1px solid var(--black-opacity-10);
 		box-shadow: var(--shadow-sm);
-
+		position: sticky;
 		top: 0;
 		z-index: var(--z-sticky);
 		height: var(--header-height);
