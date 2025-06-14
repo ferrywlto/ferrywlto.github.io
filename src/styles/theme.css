@@ -229,7 +229,7 @@
   background-image: var(--texture-pattern);
   background-repeat: repeat;
   background-position: left top;
-  opacity: 0.18;
+  opacity: 0.08;
   z-index: -1;
 }
 
