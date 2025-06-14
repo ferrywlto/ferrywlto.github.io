@@ -51,22 +51,6 @@ import DrawerMenu from './DrawerMenu.astro';
 		align-items: center;
 	}
 
-	.nav-links :global(a) {
-		padding: var(--space-md);
-		color: rgb(var(--gray-dark));
-		border-bottom: 4px solid transparent;
-		text-decoration: none;
-		transition: var(--transition-slow);
-		font-weight: 500;
-		font-size: var(--text-lg);
-		position: relative;
-		background: transparent;
-		/* Ensure proper vertical alignment */
-		display: inline-flex;
-		align-items: center;
-		/* Prevent text shifting on font-weight change */
-		min-width: fit-content;
-	}
 
 	.nav-links :global(a:hover) {
 		color: var(--accent);
@@ -115,7 +99,7 @@ import DrawerMenu from './DrawerMenu.astro';
 			text-align: center;
 			padding: var(--space-sm) 0;
 			text-decoration: none;
-			font-size: var(--text-xl);
+			/* font-size: var(--text-xl); */
 			font-weight: bold;
 			text-transform: uppercase;
 		}
