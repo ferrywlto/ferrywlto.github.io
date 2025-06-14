@@ -34,7 +34,8 @@
   
   /* Component Heights */
   --header-height: 68px;
-  --footer-height: 118px;
+  --footer-height: 108px;
+  --footer-height-desktop: 88px; 
   --drawer-width: 240px;
   
   /* Typography Scale */
