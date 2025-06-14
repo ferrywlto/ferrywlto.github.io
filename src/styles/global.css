@@ -32,7 +32,7 @@ body {
 	background-size: 100% 600px;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
-	color: rgb(var(--gray-dark));
+	color: var(--gray-dark);
 	font-size: var(--text-xl);
 	line-height: 1.7;
 }
@@ -47,7 +47,7 @@ main {
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
 	margin: 0 0 var(--space-sm) 0;
-	color: rgb(var(--black));
+	color: var(--black);
 	line-height: 1.2;
 }
 
@@ -82,7 +82,7 @@ p {
 textarea, input {
 	font-size: var(--text-base);
 	border-radius: var(--radius-md);
-	border: 1px solid rgb(var(--gray-light));
+	border: 1px solid var(--gray-light);
 	padding: var(--space-sm);
 	transition: var(--transition-normal);
 }
@@ -90,7 +90,7 @@ textarea, input {
 textarea:focus, input:focus {
 	outline: none;
 	border-color: var(--accent);
-	box-shadow: 0 0 0 3px rgba(var(--accent), 0.1);
+	box-shadow: 0 0 0 3px var(--accent-opacity-10);
 }
 
 textarea {
@@ -106,13 +106,13 @@ table {
 
 th, td {
 	padding: var(--space-sm) var(--space-md);
-	border-bottom: 1px solid rgb(var(--gray-light));
+	border-bottom: 1px solid var(--gray-light);
 	text-align: left;
 }
 
 th {
 	font-weight: 600;
-	background: rgba(var(--gray-light), 0.3);
+	background: var(--gray-light-opacity-30);
 }
 
 /* Media */
@@ -125,7 +125,7 @@ img {
 /* Code */
 code {
 	padding: var(--space-xs) var(--space-sm);
-	background-color: rgb(var(--gray-light));
+	background-color: var(--gray-light);
 	border-radius: var(--radius-sm);
 	font-family: 'Courier New', monospace;
 	font-size: var(--text-sm);
@@ -134,8 +134,8 @@ code {
 pre {
 	padding: var(--space-lg);
 	border-radius: var(--radius-md);
-	background: rgb(var(--gray-dark));
-	color: rgb(var(--gray-light));
+	background: var(--gray-dark);
+	color: var(--gray-light);
 	overflow-x: auto;
 	margin: var(--space-lg) 0;
 }
@@ -154,13 +154,13 @@ blockquote {
 	margin: var(--space-lg) 0;
 	font-size: var(--text-lg);
 	font-style: italic;
-	color: rgb(var(--gray));
+	color: var(--gray);
 }
 
 /* Horizontal Rules */
 hr {
 	border: none;
-	border-top: 1px solid rgb(var(--gray-light));
+	border-top: 1px solid var(--gray-light);
 	margin: var(--space-2xl) 0;
 }
 
@@ -203,7 +203,7 @@ hr {
 }
 
 .texture-base-legacy {
-	background-color: rgb(var(--mint-bg));
+	background-color: var(--mint-bg);
 	background-image: var(--texture-pattern);
 	background-repeat: repeat;
 	background-position: left top;

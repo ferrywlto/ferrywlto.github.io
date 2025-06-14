@@ -2,19 +2,61 @@
 
 :root {
   /* Colors */
-  --accent: #367878;
-  --accent-dark: #006564;
-  --accent-light: #5a9d9e;
-  --black: 15, 18, 25;
-  --gray: 96, 115, 159;
-  --gray-light: 229, 233, 240;
-  --gray-lighter: 248, 249, 250;
-  --gray-dark: 34, 41, 57;
-  --white: 255, 255, 255;
-  --mint-bg: 240, 250, 250;
+  --accent: rgb(54, 120, 120);
+  --accent-dark: rgb(0, 101, 100);
+  --accent-light: rgb(90, 157, 158);
+  --accent-bright: rgb(0, 217, 168);
+  --black-emperor: rgb(77, 77, 77);
+  --black: rgb(15, 18, 25);
+  --gray: rgb(96, 115, 159);
+  --gray-light: rgb(229, 233, 240);
+  --gray-lighter: rgb(248, 249, 250);
+  --gray-dark: rgb(34, 41, 57);
+  --white: rgb(255, 255, 255);
+  --mint-bg: rgb(240, 250, 250);
+  
+  /* Color Opacity Variants */
+  /* Accent opacity variants */
+  --accent-opacity-05: rgba(54, 120, 120, 0.05);
+  --accent-opacity-08: rgba(54, 120, 120, 0.08);
+  --accent-opacity-10: rgba(54, 120, 120, 0.1);
+  --accent-opacity-12: rgba(54, 120, 120, 0.12);
+  --accent-opacity-15: rgba(54, 120, 120, 0.15);
+  --accent-opacity-18: rgba(54, 120, 120, 0.18);
+  --accent-opacity-20: rgba(54, 120, 120, 0.2);
+  --accent-opacity-30: rgba(54, 120, 120, 0.3);
+  
+  /* Black opacity variants */
+  --black-opacity-05: rgba(15, 18, 25, 0.05);
+  --black-opacity-08: rgba(0, 0, 0, 0.08);
+  --black-opacity-10: rgba(15, 18, 25, 0.1);
+  --black-opacity-12: rgba(0, 0, 0, 0.12);
+  --black-opacity-15: rgba(15, 18, 25, 0.15);
+  --black-opacity-20: rgba(0, 0, 0, 0.2);
+  --black-opacity-40: rgba(0, 0, 0, 0.4);
+  
+  /* Gray opacity variants (for shadows) */
+  --gray-opacity-25: rgba(96, 115, 159, 0.25);
+  --gray-opacity-33: rgba(96, 115, 159, 0.33);
+  
+  /* Accent dark opacity variants */
+  --accent-dark-opacity-40: rgba(0, 101, 100, 0.4);
+  
+  /* Gray light opacity variants */
+  --gray-light-opacity-30: rgba(229, 233, 240, 0.3);
+  --gray-light-opacity-50: rgba(229, 233, 240, 0.5);
+  
+  /* Gray lighter opacity variants */
+  --gray-lighter-opacity-90: rgba(248, 249, 250, 0.9);
+  
+  /* White opacity variants */
+  --white-opacity-05: rgba(255, 255, 255, 0.05);
+  --white-opacity-10: rgba(255, 255, 255, 0.1);
+  --white-opacity-15: rgba(255, 255, 255, 0.15);
+  --white-opacity-20: rgba(255, 255, 255, 0.2);
   
   /* Gradients */
-  --gray-gradient: rgba(var(--gray-light), 50%), #fff;
+  --gray-gradient: var(--gray-light-opacity-50), var(--white);
   --accent-gradient: linear-gradient(135deg, var(--accent), var(--accent-dark));
   
   /* Spacing Scale */
@@ -50,10 +92,10 @@
   --text-5xl: 3rem;       /* 48px */
   
   /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%);
-  --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.15), 0 8px 24px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 8px 32px rgba(0, 0, 0, 0.12), 0 16px 64px rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0 1px 2px var(--black-opacity-05);
+  --shadow-md: 0 2px 6px var(--gray-opacity-25), 0 8px 24px var(--gray-opacity-33);
+  --shadow-lg: 0 4px 12px var(--black-opacity-15), 0 8px 24px var(--black-opacity-10);
+  --shadow-xl: 0 8px 32px var(--black-opacity-12), 0 16px 64px var(--black-opacity-08);
   
   /* Border Radius */
   --radius-sm: 4px;
@@ -100,8 +142,8 @@
 
 /* Card System */
 .card {
-  background: rgba(var(--gray-light), 0.5);
-  border: 1px solid rgb(var(--gray-light));
+  background: var(--gray-light-opacity-50);
+  border: 1px solid var(--gray-light);
   border-radius: var(--radius-lg);
   padding: var(--space-lg);
   transition: var(--transition-normal);
@@ -158,8 +200,8 @@
 .text-right { text-align: right; }
 
 .text-primary { color: var(--accent); }
-.text-secondary { color: rgb(var(--gray)); }
-.text-muted { color: rgb(var(--gray-light)); }
+.text-secondary { color: var(--gray); }
+.text-muted { color: var(--gray-light); }
 
 /* Spacing Utilities */
 .m-0 { margin: 0; }

@@ -27,8 +27,8 @@
 
 .blog-card {
   /* Inline card styles */
-  background: rgba(var(--gray-light), 0.3);
-  border: 1px solid rgb(var(--gray-light));
+  background: var(--gray-light-opacity-30);
+  border: 1px solid var(--gray-light);
   border-radius: var(--radius-md);
   padding: var(--space-lg);
   transition: var(--transition-normal);
@@ -54,14 +54,14 @@
 
 .blog-title {
   margin: 0;
-  color: rgb(var(--black));
+  color: var(--black);
   line-height: 1.2;
   font-size: var(--text-xl);
 }
 
 .blog-date {
   margin: 0;
-  color: rgb(var(--gray));
+  color: var(--gray);
   font-size: var(--text-sm);
 }
 
@@ -89,8 +89,8 @@
 
 .tag-card {
   /* Inline card styles */
-  background: rgba(var(--gray-light), 0.3);
-  border: 1px solid rgb(var(--gray-light));
+  background: var(--gray-light-opacity-30);
+  border: 1px solid var(--gray-light);
   border-radius: var(--radius-md);
   padding: var(--space-lg);
   transition: var(--transition-normal);
@@ -107,7 +107,7 @@
 }
 
 .tag-name {
-  color: rgb(var(--black));
+  color: var(--black);
   font-weight: 700;
   margin: 0;
   line-height: 1.2;
@@ -115,7 +115,7 @@
 }
 
 .tag-count {
-  color: rgb(var(--gray));
+  color: var(--gray);
   margin: 0;
   text-align: right;
   white-space: nowrap;
