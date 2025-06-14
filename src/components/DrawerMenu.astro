@@ -91,11 +91,15 @@ import HeaderLink from './HeaderLink.astro';
 			0 6px 20px rgba(0, 0, 0, 0.15),
 			0 3px 8px rgba(0, 0, 0, 0.12),
 			0 1px 3px rgba(0, 0, 0, 0.1);
+		box-sizing: border-box;
+		height: var(--header-height);
 		min-height: var(--header-height);
+        max-height: var(--header-height);
+		overflow: hidden;
 	}
-
+    
 	.drawer-header::before {
-		content: '';
+        content: '';
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -103,6 +107,7 @@ import HeaderLink from './HeaderLink.astro';
 		bottom: 0;
 		background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
 		z-index: -1;
+        max-height: var(--header-height);
 	}
 
 	.drawer-header h2 {
@@ -240,7 +245,11 @@ import HeaderLink from './HeaderLink.astro';
 		
 		.drawer-header {
 			padding: var(--space-sm) var(--space-md);
+			box-sizing: border-box;
+			height: var(--header-height);
 			min-height: var(--header-height);
+			max-height: var(--header-height);
+			overflow: hidden;
 		}
 		
 		.drawer-header h2 {
