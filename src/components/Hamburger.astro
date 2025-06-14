@@ -12,18 +12,18 @@
 	.hamburger {
 		cursor: pointer;
 		z-index: 1000;
-		padding: 0.5rem;
+		padding: var(--space-sm);
 		background: none;
 		border: none;
-		border-radius: 8px;
-		transition: all 0.3s ease;
+		border-radius: var(--radius-sm);
+		transition: var(--transition-slow);
 		position: relative;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		min-width: 68px;
-		min-height: 68px;
+		min-width: var(--header-height);
+		min-height: var(--header-height);
 		/* Ensure perfect vertical alignment */
 		align-self: center;
 		margin: auto 0;
@@ -44,12 +44,12 @@
 		width: 38px;
 		height: 3.8px;
 		background-color: var(--accent-dark);
-		border-radius: 3px;
+		border-radius: var(--radius-xs);
 	}
 
 	.hamburger .pad {
-		margin-top: 8px; 
-		margin-bottom: 8px;
+		margin-top: var(--space-sm); 
+		margin-bottom: var(--space-sm);
 	}
 
 	/* Hide hamburger on desktop - mobile navigation only */

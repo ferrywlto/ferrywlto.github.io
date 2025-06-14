@@ -63,7 +63,7 @@ import HeaderLink from './HeaderLink.astro';
 		position: fixed;
 		top: 0;
 		left: 0;
-		width: 240px;
+		width: var(--drawer-width);
 		max-width: 70vw;
 		height: 100vh;
 		background: rgba(248, 249, 250, 0.9);
@@ -81,7 +81,7 @@ import HeaderLink from './HeaderLink.astro';
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 0.5rem 1.5rem;
+		padding: var(--space-sm) var(--space-lg);
 		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 		background: rgba(255, 255, 255, 0.15);
 		backdrop-filter: blur(10px);
@@ -91,7 +91,7 @@ import HeaderLink from './HeaderLink.astro';
 			0 6px 20px rgba(0, 0, 0, 0.15),
 			0 3px 8px rgba(0, 0, 0, 0.12),
 			0 1px 3px rgba(0, 0, 0, 0.1);
-		min-height: 78px;
+		min-height: var(--header-height);
 	}
 
 	.drawer-header::before {
@@ -108,17 +108,17 @@ import HeaderLink from './HeaderLink.astro';
 	.drawer-header h2 {
 		margin: 0;
 		color: rgb(var(--black));
-		font-size: 1.5rem;
+		font-size: var(--text-2xl);
 	}
 
 	.close-btn {
 		background: none;
 		border: none;
 		cursor: pointer;
-		padding: 0.5rem;
-		border-radius: 8px;
+		padding: var(--space-sm);
+		border-radius: var(--radius-sm);
 		color: rgb(var(--gray));
-		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		transition: var(--transition-slow);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -171,14 +171,14 @@ import HeaderLink from './HeaderLink.astro';
 
 	.drawer-nav :global(a) {
 		display: block;
-		padding: 1rem 1.5rem;
+		padding: var(--space-md) var(--space-lg);
 		margin: 0;
 		text-decoration: none;
 		color: rgb(var(--gray-dark));
-		font-size: 1.1rem;
+		font-size: var(--text-lg);
 		font-weight: 500;
 		border-left: none;
-		transition: all 0.3s ease-out;
+		transition: var(--transition-slow);
 		position: relative;
 		overflow: hidden;
 		box-sizing: border-box;
@@ -239,17 +239,17 @@ import HeaderLink from './HeaderLink.astro';
 		}
 		
 		.drawer-header {
-			padding: 0.5rem 1rem;
-			min-height: 78px;
+			padding: var(--space-sm) var(--space-md);
+			min-height: var(--header-height);
 		}
 		
 		.drawer-header h2 {
-			font-size: 1.3rem;
+			font-size: var(--text-xl);
 		}
 		
 		.drawer-nav :global(a) {
-			padding: 0.875rem 1rem;
-			font-size: 1rem;
+			padding: var(--space-md) var(--space-md);
+			font-size: var(--text-base);
 		}
 	}		/* Hide drawer on desktop */
 	@media (min-width: 720px) {

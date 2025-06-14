@@ -33,7 +33,7 @@ body {
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: rgb(var(--gray-dark));
-	font-size: 20px;
+	font-size: var(--text-xl);
 	line-height: 1.7;
 }
 
@@ -80,7 +80,7 @@ p {
 
 /* Form Elements */
 textarea, input {
-	font-size: 16px;
+	font-size: var(--text-base);
 	border-radius: var(--radius-md);
 	border: 1px solid rgb(var(--gray-light));
 	padding: var(--space-sm);
@@ -128,7 +128,7 @@ code {
 	background-color: rgb(var(--gray-light));
 	border-radius: var(--radius-sm);
 	font-family: 'Courier New', monospace;
-	font-size: 0.9em;
+	font-size: var(--text-sm);
 }
 
 pre {
@@ -167,7 +167,7 @@ hr {
 /* Responsive Design */
 @media (max-width: 768px) {
 	body {
-		font-size: 18px;
+		font-size: var(--text-lg);
 	}
 	
 	main {
@@ -203,7 +203,7 @@ hr {
 }
 
 .texture-base-legacy {
-	background-color: #f0fafa;
+	background-color: rgb(var(--mint-bg));
 	background-image: var(--texture-pattern);
 	background-repeat: repeat;
 	background-position: left top;

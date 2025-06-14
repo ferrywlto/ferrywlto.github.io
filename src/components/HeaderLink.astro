@@ -33,7 +33,7 @@ const isActive = href === pathname || href === '/' + (subpath?.[0] || '');
 	/* Default link styling when used outside of specific containers */
 	a:not(:is(.nav-links a, .drawer-nav a)) {
 		color: var(--accent);
-		padding: 0.25rem 0;
+		padding: var(--space-xs) 0;
 		border-bottom: 1px solid transparent;
 	}
 	

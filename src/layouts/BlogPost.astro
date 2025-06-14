@@ -15,33 +15,55 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.prop
 		.hero-image img {
 			display: block;
 			margin: 0 auto;
-			border-radius: 12px;
-			box-shadow: var(--box-shadow);
+			border-radius: var(--radius-md);
+			box-shadow: var(--shadow-lg);
 		}
 		.prose {
-			width: 720px;
-			max-width: calc(100% - 2em);
+			width: var(--container-xs);
+			max-width: var(--max-width);
 			margin: auto;
-			padding: 1em;
+			padding: var(--space-md);
 			color: rgb(var(--gray-dark));
 		}
 		.title {
-			margin-bottom: 1em;
-			padding: 1em 0;
+			margin-bottom: var(--space-md);
+			padding: var(--space-md) 0;
 			text-align: center;
 			line-height: 1;
 		}
 		.title h1 {
-			margin: 0 0 0.5em 0;
+			margin: 0 0 var(--space-sm) 0;
 		}
 		.date {
-			margin-bottom: 0.5em;
+			margin-bottom: var(--space-sm);
 			color: rgb(var(--gray));
 		}
 		.last-updated-on {
 			font-style: italic;
 		}
-		span > a { text-decoration: none; color: inherit;}
+		span > a { 
+			text-decoration: none; 
+			color: inherit;
+		}
+		.tags-container {
+			display: flex;
+			flex-wrap: wrap;
+			gap: var(--space-sm);
+			margin-top: var(--space-lg);
+		}
+		.tag-badge {
+			background: rgb(var(--gray-light));
+			color: rgb(var(--gray-dark));
+			padding: var(--space-xs) var(--space-sm);
+			border-radius: var(--radius-sm);
+			font-size: var(--text-sm);
+			text-decoration: none;
+			transition: var(--transition-normal);
+		}
+		.tag-badge:hover {
+			background: rgb(var(--accent));
+			color: rgb(var(--white));
+		}
 	</style>
 	<article>
 		<div class="hero-image">
@@ -63,9 +85,9 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.prop
 				<hr />
 			</div>
 			<slot />
-			<div style="display: flex;">
+			<div class="tags-container">
 			{tags && tags.map((tag: string) => 
-				<div><span class="badge text-bg-secondary"><a href={`/tags/${tag}`}>#{tag}</a></span>&nbsp;</div>
+				<a href={`/tags/${tag}`} class="tag-badge">#{tag}</a>
 			)}
 			</div>
 		</div>

@@ -1,10 +1,6 @@
 /* Page-specific styles that extend the theme system */
 
 /* Blog Index Page */
-.blog-index {
-  /* Override default container for blog grid */
-}
-
 .blog-index main {
   width: var(--container-md);
   max-width: var(--max-width);
@@ -30,10 +26,20 @@
 }
 
 .blog-card {
-  @extend .card;
+  /* Inline card styles */
+  background: rgba(var(--gray-light), 0.3);
+  border: 1px solid rgb(var(--gray-light));
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  transition: var(--transition-normal);
   display: block;
   text-decoration: none;
   color: inherit;
+}
+
+.blog-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .blog-card img {
@@ -82,12 +88,22 @@
 }
 
 .tag-card {
-  @extend .card;
+  /* Inline card styles */
+  background: rgba(var(--gray-light), 0.3);
+  border: 1px solid rgb(var(--gray-light));
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  transition: var(--transition-normal);
   display: flex;
   justify-content: space-between;
   align-items: center;
   text-decoration: none;
   color: inherit;
+}
+
+.tag-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .tag-name {
