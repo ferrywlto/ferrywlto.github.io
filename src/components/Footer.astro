@@ -4,7 +4,7 @@ const today = new Date();
 <footer>
   <div class="footer-content">
     <span class="line-break">
-    &copy; {today.getFullYear()} Ferry To & <a href="https://verdantsparks.io" target="_blank">VerdantSparks</a> &trade;
+    &copy; {today.getFullYear()} Ferry To & <a href="https://verdantsparks.io" target="_blank">VerdantSparks</a>&trade;
     </span>
     <span class="line-break">All rights reserved.</span>
     <span class="line-break powered-by">       
@@ -20,40 +20,42 @@ const today = new Date();
 		height: var(--footer-height);
 		max-height: var(--footer-height);
 		overflow: hidden;
-		padding: var(--space-lg) var(--space-md);
+		padding: var(--space-md);
 		color: rgb(var(--gray));
 		text-align: center;
 		position: relative;
-		background: linear-gradient(135deg, rgb(var(--white)) 0%, rgb(var(--gray-lighter)) 100%);
-		box-shadow: var(--shadow-lg);
+		background: transparent;
+		box-shadow: var(--shadow-sm);
 		border-top: 1px solid rgba(var(--black), 0.05);
-		backdrop-filter: blur(10px);
 		transition: var(--transition-slow);
 		/* Ensure footer styling is independent */
 		font-family: inherit;
-		font-size: inherit;
+		font-size: var(--text-md);
 		line-height: 1.4;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-	}  footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(var(--mint-bg));
-    background-image: var(--texture-pattern);
-    background-repeat: repeat;
-    background-position: left top;
-    opacity: 0.18;
-    z-index: -1;
-  }
+    min-width: 280px;
+	}
+
+	footer::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgb(var(--gray-lighter));
+		background-image: var(--texture-pattern);
+		background-repeat: repeat;
+		background-position: left top;
+		opacity: 0.18;
+		z-index: -1;
+	}
 
 	.footer-content {
 		position: relative;
-		z-index: 1;
+		z-index: 2;
 		max-width: var(--container-lg);
 		margin: 0 auto;
 	}
@@ -81,43 +83,41 @@ const today = new Date();
 	}
 
 	/* Responsive footer layout */
-	@media (min-width: 431px) and (max-width: 819px) {
+	@media (min-width: 471px) and (max-width: 1023px) {
 		.line-break.powered-by {
 			display: block;
-			margin-top: var(--space-xs);
+      margin-top: var(--space-sm);
 		}
+    footer {
+      font-size: var(--text-sm);
+    }
 	}
 
-	@media (max-width: 720px) {
+	/* @media (max-width: 719px) {
 		footer {
 			box-sizing: border-box;
 			height: var(--footer-height);
 			max-height: var(--footer-height);
 			overflow: hidden;
-		}
-		
-		.line-break {
-			display: block;
-			margin-top: var(--space-xs);
-		}
-		
-		.line-break:first-child {
-			margin-top: 0;
-		}
-	}
-
-	@media (max-width: 430px) {
+      font-size: var(--text-xs);
+		}		
+	} */
+  
+	@media (max-width: 470px) {
+    .line-break {
+      display: block;
+      margin-top: var(--space-xs);
+    }
+    
+    .line-break:first-child {
+      margin-top: 0;
+    }
 		footer {
 			box-sizing: border-box;
 			height: var(--footer-height);
 			max-height: var(--footer-height);
 			overflow: hidden;
-			padding: var(--space-md) var(--space-md);
-			font-size: var(--text-sm);
-		}
-
-		.line-break {
-			margin-top: var(--space-sm);
+      font-size: var(--text-xs);
 		}
 	}
 </style>
