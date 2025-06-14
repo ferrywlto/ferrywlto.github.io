@@ -52,25 +52,6 @@ import DrawerMenu from './DrawerMenu.astro';
 	}
 
 
-	.nav-links :global(a:hover) {
-		color: var(--accent);
-		border-bottom-color: transparent;
-		font-weight: 500;
-		background: linear-gradient(
-			to top,
-			rgba(var(--accent-rgb), 0.15) 0%,
-			rgba(var(--accent-rgb), 0.08) 30%,
-			rgba(var(--accent-rgb), 0.04) 60%,
-			transparent 100%
-		);
-	}
-
-	.nav-links :global(a.active) {
-		color: var(--accent-dark);
-		border-bottom-color: transparent;
-		font-weight: 700;
-	}
-
 	/* Mobile-first: Hide nav-links on small screens */
 	@media (max-width: 719px) {
 		header {
@@ -83,29 +64,6 @@ import DrawerMenu from './DrawerMenu.astro';
 		
 		.nav-links {
 			display: none;
-		}
-		
-		/* Legacy mobile nav-links fallback styles for any remaining usage */
-		:global(.nav-links) {
-			width: 100%;
-			top: 5rem;
-			display: none;
-			margin: 0;
-			z-index: 1;
-		}
-
-		:global(.nav-links a) {
-			display: block;
-			text-align: center;
-			padding: var(--space-sm) 0;
-			text-decoration: none;
-			/* font-size: var(--text-xl); */
-			font-weight: bold;
-			text-transform: uppercase;
-		}
-
-		:global(.expanded) {
-			display: unset;
 		}
 	}
 
@@ -120,20 +78,6 @@ import DrawerMenu from './DrawerMenu.astro';
 		
 		.nav-links {
 			display: flex;
-		}
-		
-		/* Legacy desktop nav-links fallback styles */
-		:global(.nav-links) {
-			margin-left: var(--space-3xl);
-			display: block;
-			position: static;
-			width: auto;
-			background: none;
-		}
-
-		:global(.nav-links a) {
-			display: inline-block;
-			padding: var(--space-md) var(--space-xl);
 		}
 	}
 </style>
