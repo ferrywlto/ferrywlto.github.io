@@ -12,56 +12,86 @@ const title = "About"
 const description = "Ferry To's backgound, including past experiences and social contacts."
 ---
 <MainLayout title={title} description={description}>
-	<div class="portrait-container">
-		<Image alt="Portrait of Ferry To" src={FerryPortrait}/>
+	<div class="container">
+		<div class="protait">
+			<Image alt="Portrait of Ferry To" src={FerryPortrait}/>
+		</div>
 	</div>
-	<h1>You see it right. I don't have time to update his page yet.</h1>
-	<h1>你冇睇錯呀，真係我未得閒整住。</h1>
+	<div class="greeting-text">
+		<div class="first-line">Hi there! 👋 I'm Ferry.&nbsp;</div>
+		<div>Nice to meet you. 😀</div>
+	</div>
+	
+	<div class="follow-text">Connect and follow my latest news from my profiles.</div>
 	<div class="social-links">
+		<SocialLinkIcon
+			url="https://www.linkedin.com/in/ferry-to-2a905720"
+			alt="Go to Ferry's LinkedIn profile"
+			src={FullLinkedInLogo}
+		/>
 		<SocialLinkIcon
 			url="https://github.com/ferrywlto"
 			alt="Go to Ferry's GitHub profile" 
 			src={FullGitHubLogo}
 		/>
 		<SocialLinkIcon
-			url="https://www.linkedin.com/in/ferry-to-2a905720"
-			alt="Go to Ferry's LinkedIn profile"
-			src={FullLinkedInLogo}
-		/>
-		<SocialLinkIcon 
-			url="https://stackoverflow.com/users/2952180/ferry-to"
-			alt="Go to Ferry's Stackoverflow profile"
-			src={FullStackoverFlowLogo}
+			url="https://medium.com/@ferrywlto"
+			alt="Go to Ferry's Medium profile"
+			src={FullMediumLogo}
 		/>
 		<SocialLinkIcon
 			url="https://leetcode.com/u/ferrywlto/"
 			alt="Go to Ferry's Leetcode profile"
 			src={FullLeetcodeLogo}
 		/>
-		<SocialLinkIcon
-			url="https://medium.com/@ferrywlto"
-			alt="Go to Ferry's Medium profile"
-			src={FullMediumLogo}
+		<SocialLinkIcon 
+			url="https://stackoverflow.com/users/2952180/ferry-to"
+			alt="Go to Ferry's Stackoverflow profile"
+			src={FullStackoverFlowLogo}
 		/>
 	</div>
 </MainLayout>
 <style>
-.portrait-container {
+.container {
 	display: flex;
 	justify-content: center;
+	width: 100%;
 }
+
+.portrait {
+	display: flex;
+	justify-content: center;
+	width: 50%;
+	min-width: 380px;
+	max-width: 720px;
+}
+
 .social-links {
-	display: flex;
-	justify-content: center;
-	gap: var(--space-md);
-	margin-top: var(--space-md);
+	display: block;
+	justify-content: space-between;
 }
-.social-links a {
-	text-decoration: none;
-	color: var(--gray);
-	transition: var(--transition-normal);
+
+.follow-text {
+	text-align: start;
 }
-.social-links a:hover {
-	color: var(--gray-dark);
+.greeting-text {
+	text-align: center;
+	font-size: var(--text-md);
+	font-weight: bold;
+}
+
+@media (min-width: 721px) {
+	.social-links {
+		display: flex;
+	}
+	.follow-text {
+		text-align: center;
+	}
+	.greeting-text {
+		display: flex;
+		text-align: center;
+		font-size: var(--text-3xl);
+		font-weight: 500;
+	}
 }
 </style>
