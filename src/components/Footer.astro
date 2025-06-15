@@ -23,7 +23,7 @@ const today = new Date();
 		padding: var(--space-md);
 		color: var(--black-emperor);
 		text-align: center;
-    background: transparent;
+    	background: transparent;
 		box-shadow: var(--shadow-sm);
 		border-top: 1px solid var(--black-opacity-05);
 		transition: var(--transition-slow);
@@ -34,7 +34,7 @@ const today = new Date();
 		display: flex;
 		align-items: center;
 		justify-content: center;
-    min-width: 280px;
+    	min-width: 280px;
 	}
 
 	.footer-content {
@@ -70,29 +70,29 @@ const today = new Date();
 	@media (min-width: 471px) and (max-width: 1023px) {
 		.line-break.powered-by {
 			display: block;
-      margin-top: var(--space-sm);
+      		margin-top: var(--space-sm);
 		}
-    footer {
-      font-size: var(--text-sm);
-    }
+		footer {
+			font-size: var(--text-sm);
+		}
 	}
-
   
 	@media (max-width: 470px) {
-    .line-break {
-      display: block;
-      margin-top: var(--space-xs);
-    }
+		.line-break {
+			display: block;
+			margin-top: var(--space-xs);
+		}
     
-    .line-break:first-child {
-      margin-top: 0;
-    }
+		.line-break:first-child {
+			margin-top: 0;
+		}
+
 		footer {
 			box-sizing: border-box;
 			height: var(--footer-height);
 			max-height: var(--footer-height);
 			overflow: hidden;
-      font-size: var(--text-xs);
+			font-size: var(--text-xs);
 		}
 	}
 </style>
