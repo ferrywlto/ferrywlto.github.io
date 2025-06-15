@@ -33,7 +33,7 @@ const pageTitle = "Tag Index";
 				width: var(--container-xs);
 				max-width: var(--max-width);
 				margin: auto;
-				padding: var(--space-md) 0;
+				padding: var(--space-md) var(--space-md);
 			}
 			
 			h1 {
@@ -61,6 +61,7 @@ const pageTitle = "Tag Index";
 				justify-content: space-between;
 				align-items: center;
 				width: 100%;
+				box-sizing: border-box;
 			}
 			
 			.tag-card:hover {
@@ -128,6 +129,10 @@ const pageTitle = "Tag Index";
 			.tag-card.size-xl .tag-count { font-size: var(--text-xl); }
 			
 			@media (max-width: 768px) {
+				main {
+					padding: var(--space-md);
+				}
+				
 				h1 {
 					font-size: var(--text-3xl);
 					margin: var(--space-md) 0;
@@ -135,6 +140,8 @@ const pageTitle = "Tag Index";
 				
 				.tag-card {
 					padding: var(--space-md);
+					box-sizing: border-box;
+					max-width: 100%;
 				}
 				
 				.tag-card.size-lg {
