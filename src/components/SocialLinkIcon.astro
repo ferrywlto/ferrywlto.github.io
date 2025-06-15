@@ -5,44 +5,29 @@ const { url, alt, src } = Astro.props;
 ---
 <style>
 	.container {
-		aspect-ratio: 1;
+		/* aspect-ratio: 16:9; */
 		width: 100%;
-		display: inline-block;
-		transition: transform 0.2s ease;
+		max-width: 150px;
+		max-height: 68px;
+		align-content: center;
+		justify-content: center;
+		
+		padding: var(--space-sm);
 	}
 
-	.container:hover {
-		transform: scale(1.1);
+	.container img:hover {
+		filter: drop-shadow(var(--shadow-hero));
 	}
 
-	.container a {
-		display: block;
-		width: 100%;
-		height: 100%;
-		border-radius: var(--radius-sm);
-		overflow: hidden;
-		transition: var(--transition-normal);
-		text-decoration: none;
-	}
-
-	.container a:hover {
-		box-shadow: 0 4px 12px var(--accent-opacity-30);
-	}
-
-	.container a:focus {
+	.container:focus {
 		outline: 2px solid var(--accent);
 		outline-offset: 2px;
 	}
 
 	.container img {
 		width: 100%;
-		height: 100%;
 		object-fit: contain;
-		transition: opacity 0.2s ease;
-	}
-
-	.container:hover img {
-		opacity: 0.8;
+		transition: filter 0.18s linear;
 	}
 </style>
 <div class="container">
