@@ -7,6 +7,7 @@
   --accent-light: rgb(90, 157, 158);
   --accent-bright: rgb(0, 217, 168);
   --black-emperor: rgb(77, 77, 77);
+  --black-emperor-light: rgb(88, 88, 88);
   --black: rgb(15, 18, 25);
   --gray: rgb(96, 115, 159);
   --gray-light: rgb(229, 233, 240);
@@ -29,6 +30,7 @@
   --black-opacity-20: rgba(0, 0, 0, 0.2);
   --black-opacity-40: rgba(0, 0, 0, 0.4);
   
+  --black-emperor-light-opacity-80: rgba(88, 88, 88, 0.8);
   /* Gray opacity variants (for shadows) */
   --gray-opacity-25: rgba(96, 115, 159, 0.25);
   --gray-opacity-33: rgba(96, 115, 159, 0.33);
@@ -90,7 +92,8 @@
   --shadow-md: 0 2px 6px var(--gray-opacity-25), 0 8px 24px var(--gray-opacity-33);
   --shadow-lg: 0 4px 12px var(--black-opacity-15), 0 8px 24px var(--black-opacity-10);
   --shadow-xl: 0 8px 32px var(--black-opacity-12), 0 16px 64px var(--black-opacity-08);
-  
+  --shadow-hero: 0.08em 0.08em 0.38em var(--black-emperor-light-opacity-80);
+
   /* Border Radius */
   --radius-sm: 4px;
   --radius-md: 8px;
@@ -109,6 +112,9 @@
 }
 
 /* Component Base Classes */
+.hero-shadow-text {
+  text-shadow: var(--shadow-hero);
+}
 .hidden {
   display: none !important;
 }
