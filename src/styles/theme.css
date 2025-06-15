@@ -110,7 +110,7 @@
 
 /* Component Base Classes */
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 /* Container System */

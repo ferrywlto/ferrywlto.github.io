@@ -23,8 +23,8 @@ import HeaderLink from './HeaderLink.astro';
 		<HeaderLink href="/about">About</HeaderLink>
 		<HeaderLink href="/blog">Blog</HeaderLink>
 		<HeaderLink href="/tags">Tags</HeaderLink>
-        <HeaderLink href="/blog">Whispers</HeaderLink>
-        <HeaderLink href="/blog">Projects</HeaderLink>        
+        <HeaderLink href="/blog" class="hidden">Whispers</HeaderLink>
+        <HeaderLink href="/blog" class="hidden">Projects</HeaderLink>        
 	</nav>
 </div>
 
@@ -162,6 +162,11 @@ import HeaderLink from './HeaderLink.astro';
 		overflow: hidden;
 		box-sizing: border-box;
 		width: 100%;
+	}
+
+	/* Override for hidden class */
+	.drawer-nav :global(a.hidden) {
+		display: none;
 	}
 
 	.drawer-nav :global(a.active) {
