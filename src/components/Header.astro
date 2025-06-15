@@ -13,6 +13,9 @@ import DrawerMenu from './DrawerMenu.astro';
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
+			<HeaderLink href="/blog">Tags</HeaderLink>
+			<HeaderLink href="/blog">Whispers</HeaderLink>
+			<HeaderLink href="/blog">Projects</HeaderLink>
 		</div>
 	</nav>
 	<DrawerMenu />
@@ -20,7 +23,6 @@ import DrawerMenu from './DrawerMenu.astro';
 <style>
 	header {		
 		box-sizing: border-box;
-		padding: 0 var(--space-lg);
 		background: var(--white);
 		border-bottom: 1px solid var(--black-opacity-10);
 		box-shadow: var(--shadow-sm);
@@ -38,20 +40,21 @@ import DrawerMenu from './DrawerMenu.astro';
 	nav {
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
-		max-width: 1200px;
+		justify-content: center;
 		margin: 0 auto;
 		position: relative;
 		z-index: 1;
-		width: 100%; /* Take full width within header */
+		width: 100%;
 	}
 
 	.nav-links {
 		display: flex;
-		gap: var(--space-md);
+		padding: 0 var(--space-lg);
+		justify-content: space-between;
 		align-items: center;
+		width: 100%;
+		max-width: 720px;
 	}
-
 
 	/* Mobile-first: Hide nav-links on small screens */
 	@media (max-width: 719px) {
@@ -63,22 +66,12 @@ import DrawerMenu from './DrawerMenu.astro';
 			padding: 0 var(--space-sm);
 		}
 		
+		nav {
+			justify-content: start;
+		}
+
 		.nav-links {
 			display: none;
-		}
-	}
-
-	/* Desktop: Show nav-links, hide hamburger */
-	@media (min-width: 720px) {
-		header {
-			box-sizing: border-box;
-			height: var(--header-height);
-			max-height: var(--header-height);
-			overflow: hidden;
-		}
-		
-		.nav-links {
-			display: flex;
 		}
 	}
 </style>

@@ -109,6 +109,9 @@
 }
 
 /* Component Base Classes */
+.hidden {
+  display: none;
+}
 
 /* Container System */
 .container {
