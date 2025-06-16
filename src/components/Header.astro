@@ -4,12 +4,12 @@ import Hamburger from './Hamburger.astro';
 import DrawerMenu from './DrawerMenu.astro';
 ---
 
-<header class="texture-overlay" x-data="{ 
+<header class="texture-overlay flex-center" x-data="{ 
 	open: false
 }">
-	<nav>
+	<nav class="flex-center">
 		<Hamburger />
-		<div class="nav-links">
+		<div class="nav-links flex-between">
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
@@ -32,26 +32,17 @@ import DrawerMenu from './DrawerMenu.astro';
 		height: var(--header-height);
 		max-height: var(--header-height);
 		overflow: hidden;
-		/* Make header a flex container to center nav */
-		display: flex;
-		align-items: center;
 	}
 
 	nav {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		margin: 0 auto;
 		position: relative;
 		z-index: 1;
 		width: 100%;
+		margin: 0 auto;
 	}
 
 	.nav-links {
-		display: flex;
 		padding: 0 var(--space-lg);
-		justify-content: space-between;
-		align-items: center;
 		width: 100%;
 		max-width: 720px;
 	}

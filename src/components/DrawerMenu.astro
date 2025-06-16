@@ -10,9 +10,9 @@ import HeaderLink from './HeaderLink.astro';
      x-transition:leave="drawer-leave" 
      x-transition:leave-start="drawer-leave-start" 
      x-transition:leave-end="drawer-leave-end">
-	<div class="drawer-header texture-overlay">
+	<div class="drawer-header texture-overlay flex-between">
 		<h2>Menu</h2>
-		<button class="close-btn" x-on:click="open = false" aria-label="Close menu">
+		<button class="close-btn btn-reset btn-interactive" x-on:click="open = false" aria-label="Close menu">
 			<svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M28 10L10 28M10 10L28 28" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 			</svg>
@@ -81,9 +81,6 @@ import HeaderLink from './HeaderLink.astro';
 	}
 
 	.drawer-header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
 		padding: var(--space-sm) var(--space-lg);
 		border-bottom: 1px solid var(--white-opacity-20);
 		background: var(--white-opacity-15);
@@ -119,15 +116,8 @@ import HeaderLink from './HeaderLink.astro';
 	}
 
 	.close-btn {
-		background: none;
-		border: none;
-		cursor: pointer;
-		border-radius: var(--radius-sm);
 		color: var(--accent-dark);
 		transition: var(--transition-slow);
-		display: flex;
-		align-items: center;
-		justify-content: center;
 		position: relative;
 		overflow: hidden;
 	}

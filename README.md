@@ -1,5 +1,16 @@
 # Astro Starter Kit: Blog
 
+## Design Guideline
+- Desktop size: >= 720px
+- Mobile size: 280 - 719px
+- Header
+    - Full: <= 720px
+    - Drawer: 280px
+- Footer
+    - Small: 280 - 470px 
+    - Medium: 471 - 1023px
+    - Full: >= 1024px
+
 ## TODO List
 - [ ] Mermaid Diagram Support
 - [ ] Hamberger icon

@@ -51,23 +51,7 @@ const pageTitle = "Tag Index";
 			}
 			
 			.tag-card {
-				background: var(--gray-light-opacity-50);
-				border: 1px solid var(--gray-light);
-				border-radius: var(--radius-lg);
 				padding: var(--space-lg);
-				transition: var(--transition-normal);
-				text-decoration: none;
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				width: 100%;
-				box-sizing: border-box;
-			}
-			
-			.tag-card:hover {
-				box-shadow: var(--shadow-md);
-				transform: translateY(-2px);
-				border-color: var(--accent);
 			}
 			
 			.tag-name {
@@ -186,7 +170,7 @@ const pageTitle = "Tag Index";
 						}
 						
 						return (
-							<a href={`/tags/${tagData.name}`} class={`tag-card ${sizeClass}`}>
+							<a href={`/tags/${tagData.name}`} class={`tag-card card card-interactive flex-between full-width ${sizeClass}`}>
 								<h3 class="tag-name">{tagData.name}</h3>
 								<p class="tag-count">{tagData.count} {tagData.count === 1 ? 'post' : 'posts'}</p>
 							</a>

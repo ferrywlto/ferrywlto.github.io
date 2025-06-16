@@ -51,19 +51,6 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.prop
 			gap: var(--space-sm);
 			margin-top: var(--space-lg);
 		}
-		.tag-badge {
-			background: var(--gray-light);
-			color: var(--gray-dark);
-			padding: var(--space-xs) var(--space-sm);
-			border-radius: var(--radius-sm);
-			font-size: var(--text-sm);
-			text-decoration: none;
-			transition: var(--transition-normal);
-		}
-		.tag-badge:hover {
-			background: var(--accent);
-			color: var(--white);
-		}
 	</style>
 	<article>
 		<div class="hero-image">
@@ -87,7 +74,7 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.prop
 			<slot />
 			<div class="tags-container">
 			{tags && tags.map((tag: string) => 
-				<a href={`/tags/${tag}`} class="tag-badge">#{tag}</a>
+				<a href={`/tags/${tag}`} class="badge badge-primary">#{tag}</a>
 			)}
 			</div>
 		</div>

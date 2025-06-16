@@ -120,6 +120,122 @@
   display: none !important;
 }
 
+/* Button Utilities */
+.btn-reset {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+}
+
+.btn-interactive {
+  border-radius: var(--radius-sm);
+  transition: var(--transition-normal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-interactive:hover {
+  background: var(--black-opacity-05);
+}
+
+.btn-interactive:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Flex Utilities */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Link Utilities */
+.link-accent {
+  color: var(--accent);
+  text-decoration: none;
+  transition: var(--transition-normal);
+}
+
+.link-accent:hover {
+  color: var(--accent-dark);
+}
+
+.link-accent:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Card Utilities */
+.card {
+  background: var(--gray-light-opacity-50);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius-lg);
+  transition: var(--transition-normal);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+
+.card-interactive {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Badge Utilities */
+.badge {
+  display: inline-block;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition-normal);
+}
+
+.badge-primary {
+  background: var(--gray-light);
+  color: var(--gray-dark);
+}
+
+.badge-primary:hover {
+  background: var(--accent);
+  color: var(--white);
+}
+
+/* Layout Utilities */
+.full-width {
+  width: 100%;
+}
+
+.responsive-padding {
+  padding: var(--space-md);
+}
+
+@media (max-width: 768px) {
+  .responsive-padding {
+    padding: var(--space-sm);
+  }
+}
+
 /* Container System */
 .container {
   width: 100%;
