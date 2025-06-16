@@ -63,30 +63,34 @@ const description = "Ferry To's backgound, including past experiences and social
 }
 
 .social-links {
-	display: block;
+	display: flex;
 	justify-content: space-between;
 }
 
 .follow-text {
-	text-align: start;
-}
-.greeting-text {
 	text-align: center;
-	font-size: var(--text-md);
-	font-weight: bold;
 }
 
-@media (min-width: 721px) {
+.greeting-text {
+	display: flex;
+	text-wrap: nowrap;
+	font-size: var(--text-3xl);
+	font-weight: 500;
+}
+
+@media (max-width: 719px) {
 	.social-links {
-		display: flex;
+		display: block;
 	}
 	.follow-text {
-		text-align: center;
+		text-align: justify;
 	}
 	.greeting-text {
-		display: flex;
-		font-size: var(--text-3xl);
-		font-weight: 500;
+		display: block;
+		text-align: center;
+		font-size: var(--text-md);
+		font-weight: bold;
 	}
 }
+
 </style>

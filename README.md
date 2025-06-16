@@ -12,13 +12,15 @@
     - Full: >= 1024px
 
 ## TODO List
-- [ ] Mermaid Diagram Support
-- [ ] Hamberger icon
+- [x] Hamberger icon
+- [x] Home
+- [x] Footer Add Powered By
 - [ ] About Me
-- [ ] Home
+- [ ] Whispers
+- [ ] Whisper home widget
 - [ ] Dark theme
+- [ ] Mermaid Diagram Support
 - [ ] Calendar widget 
-- [ ] Footer Add Powered By
 ## Command used
 
 ```
