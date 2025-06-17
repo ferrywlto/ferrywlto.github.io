@@ -13,7 +13,7 @@ const description = "Ferry To's backgound, including past experiences and social
 ---
 <MainLayout title={title} description={description}>
 	<div class="container flex-center">
-		<div class="protait">
+		<div class="protait portrait">
 			<Image alt="Portrait of Ferry To" src={FerryPortrait}/>
 		</div>
 	</div>
@@ -22,8 +22,8 @@ const description = "Ferry To's backgound, including past experiences and social
 		<div>Nice to meet you. 😀</div>
 	</div>
 	
-	<div class="follow-text">Connect and follow my latest news from my profiles.</div>
-	<div class="social-links">
+	<div class="follow-text text-center">Connect and follow my latest news from my profiles.</div>
+	<div class="social-links flex-between">
 		<SocialLinkIcon
 			url="https://www.linkedin.com/in/ferry-to-2a905720"
 			alt="Go to Ferry's LinkedIn profile"
@@ -60,15 +60,6 @@ const description = "Ferry To's backgound, including past experiences and social
 	width: 50%;
 	min-width: 380px;
 	max-width: 720px;
-}
-
-.social-links {
-	display: flex;
-	justify-content: space-between;
-}
-
-.follow-text {
-	text-align: center;
 }
 
 .greeting-text {

@@ -193,24 +193,3 @@ hr {
 	clip-path: inset(50%);
 	white-space: nowrap;
 }
-
-/* Legacy Support - will be deprecated */
-.texture-overlay-legacy {
-	background-image: var(--texture-pattern);
-	background-repeat: repeat;
-	background-position: left top;
-	opacity: 0.18;
-}
-
-.texture-base-legacy {
-	background-color: var(--mint-bg);
-	background-image: var(--texture-pattern);
-	background-repeat: repeat;
-	background-position: left top;
-	opacity: 0.18;
-}
-
-/* Legacy shadow support */
-.box-shadow-legacy {
-	box-shadow: var(--shadow-md);
-}

@@ -7,9 +7,9 @@ import DrawerMenu from './DrawerMenu.astro';
 <header class="texture-overlay flex-center" x-data="{ 
 	open: false
 }">
-	<nav class="flex-center">
+	<nav class="flex-center margin-auto">
 		<Hamburger />
-		<div class="nav-links flex-between">
+		<div class="nav-links flex-between padding-x-lg">
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
@@ -38,11 +38,9 @@ import DrawerMenu from './DrawerMenu.astro';
 		position: relative;
 		z-index: 1;
 		width: 100%;
-		margin: 0 auto;
 	}
 
 	.nav-links {
-		padding: 0 var(--space-lg);
 		width: 100%;
 		max-width: 720px;
 	}
@@ -54,7 +52,6 @@ import DrawerMenu from './DrawerMenu.astro';
 			height: var(--header-height);
 			max-height: var(--header-height);
 			overflow: hidden;
-			padding: 0 var(--space-sm);
 		}
 		
 		nav {

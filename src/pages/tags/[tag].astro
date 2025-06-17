@@ -36,18 +36,13 @@ const { posts } = Astro.props;
 			main {
 				width: var(--container-xs);
 				max-width: var(--max-width);
-				margin: auto;
-				padding: var(--space-md) 0;
 			}
 			
 			.page-header {
-				margin: var(--space-xl) 0;
-				text-align: center;
 			}
 			
 			h1 {
 				color: var(--black);
-				margin: 0 0 var(--space-sm) 0;
 				font-size: var(--text-4xl);
 				line-height: 1.2;
 			}
@@ -55,14 +50,11 @@ const { posts } = Astro.props;
 			.tag-info {
 				color: var(--gray);
 				font-size: var(--text-lg);
-				margin: 0;
 			}
 			
 			.back-link {
-				display: inline-block;
 				color: var(--accent);
 				text-decoration: none;
-				margin-bottom: var(--space-xl);
 				font-weight: 500;
 				transition: var(--transition-normal);
 			}
@@ -72,9 +64,6 @@ const { posts } = Astro.props;
 			}
 			
 			.posts-list {
-				list-style: none;
-				padding: 0;
-				margin: var(--space-xl) 0;
 			}
 			
 			.post-item {
@@ -87,9 +76,6 @@ const { posts } = Astro.props;
 			}
 			
 			.post-link {
-				display: block;
-				padding: var(--space-lg);
-				text-decoration: none;
 				color: inherit;
 			}
 			
@@ -97,14 +83,12 @@ const { posts } = Astro.props;
 				color: var(--black);
 				font-size: var(--text-xl);
 				font-weight: 700;
-				margin: 0 0 var(--space-sm) 0;
 				line-height: 1.3;
 			}
 			
 			.post-date {
 				color: var(--gray);
 				font-size: var(--text-sm);
-				margin: 0;
 			}
 			
 			.post-link:hover .post-title {
@@ -112,15 +96,12 @@ const { posts } = Astro.props;
 			}
 			
 			.empty-state {
-				text-align: center;
 				color: var(--gray);
 				font-style: italic;
-				margin: var(--space-3xl) 0;
 			}
 			
 			@media (max-width: 719px) {
 				main {
-					padding: var(--space-md);
 				}
 				
 				h1 {
@@ -128,11 +109,9 @@ const { posts } = Astro.props;
 				}
 				
 				.page-header {
-					margin: var(--space-md) 0;
 				}
 				
 				.post-link {
-					padding: var(--space-md);
 				}
 				
 				.post-title {
@@ -143,21 +122,21 @@ const { posts } = Astro.props;
 	</head>
 	<body>
 		<Header />
-		<main>
+		<main class="margin-auto responsive-padding">
 			<section>
-				<a href="/tags" class="back-link">← All Tags</a>
+				<a href="/tags" class="back-link inline-block margin-bottom-lg">← All Tags</a>
 				
-				<div class="page-header">
-					<h1>#{tag}</h1>
+				<div class="page-header text-center margin-y-xl">
+					<h1 class="margin-bottom-md">#{tag}</h1>
 					<p class="tag-info">{posts.length} {posts.length === 1 ? 'post' : 'posts'}</p>
 				</div>
 				
 				{posts.length > 0 ? (
-					<ul class="posts-list">
+					<ul class="posts-list list-reset margin-y-xl">
 						{posts.map((post: any) => (
 							<li class="post-item card">
-								<a href={`/blog/${post.id}/`} class="post-link">
-									<h3 class="post-title">{post.data.title}</h3>
+								<a href={`/blog/${post.id}/`} class="post-link block text-decoration-none padding-lg">
+									<h3 class="post-title margin-bottom-md">{post.data.title}</h3>
 									<p class="post-date">
 										<FormattedDate date={post.data.pubDate} />
 									</p>
@@ -166,7 +145,7 @@ const { posts } = Astro.props;
 						))}
 					</ul>
 				) : (
-					<p class="empty-state">No posts found with this tag.</p>
+					<p class="empty-state text-center margin-y-xl">{posts.length} posts found with this tag.</p>
 				)}
 			</section>
 		</main>

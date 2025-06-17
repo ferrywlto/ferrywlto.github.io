@@ -32,13 +32,10 @@ const pageTitle = "Tag Index";
 			main {
 				width: var(--container-xs);
 				max-width: var(--max-width);
-				margin: auto;
-				padding: var(--space-md) var(--space-md);
 			}
 			
 			h1 {
 				color: var(--black);
-				margin: var(--space-xl) 0 var(--space-lg) 0;
 				font-size: var(--text-4xl);
 				line-height: 1.2;
 			}
@@ -47,25 +44,20 @@ const pageTitle = "Tag Index";
 				display: flex;
 				flex-direction: column;
 				gap: var(--space-md);
-				margin: var(--space-xl) 0;
 			}
 			
 			.tag-card {
-				padding: var(--space-lg);
 			}
 			
 			.tag-name {
 				color: var(--black);
 				font-weight: 700;
-				margin: 0;
 				line-height: 1.2;
 				flex: 1;
 			}
 			
 			.tag-count {
 				color: var(--gray);
-				margin: 0;
-				text-align: right;
 				white-space: nowrap;
 				line-height: 1.2;
 			}
@@ -114,16 +106,13 @@ const pageTitle = "Tag Index";
 			
 			@media (max-width: 768px) {
 				main {
-					padding: var(--space-md);
 				}
 				
 				h1 {
 					font-size: var(--text-3xl);
-					margin: var(--space-md) 0;
 				}
 				
 				.tag-card {
-					padding: var(--space-md);
 					box-sizing: border-box;
 					max-width: 100%;
 				}
@@ -148,10 +137,10 @@ const pageTitle = "Tag Index";
 	</head>
 	<body>
 		<Header />
-		<main>
+		<main class="margin-auto responsive-padding">
 			<section>
-				<h1>{pageTitle}</h1>
-				<div class="tags-grid">
+				<h1 class="margin-y-xl">{pageTitle}</h1>
+				<div class="tags-grid margin-y-xl">
 					{tagsWithCounts.map((tagData) => {
 						// Calculate size class based on frequency
 						const ratio = maxCount > minCount ? (tagData.count - minCount) / (maxCount - minCount) : 0.5;
@@ -170,9 +159,9 @@ const pageTitle = "Tag Index";
 						}
 						
 						return (
-							<a href={`/tags/${tagData.name}`} class={`tag-card card card-interactive flex-between full-width ${sizeClass}`}>
+							<a href={`/tags/${tagData.name}`} class={`tag-card card card-interactive flex-between full-width padding-lg ${sizeClass}`}>
 								<h3 class="tag-name">{tagData.name}</h3>
-								<p class="tag-count">{tagData.count} {tagData.count === 1 ? 'post' : 'posts'}</p>
+								<p class="tag-count text-right">{tagData.count} {tagData.count === 1 ? 'post' : 'posts'}</p>
 							</a>
 						);
 					})}

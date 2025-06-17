@@ -2,7 +2,7 @@
 const today = new Date();
 ---
 <footer class="texture-overlay flex-center">
-  <div class="footer-content">
+  <div class="footer-content text-center">
     <span class="line-break">
     &copy; {today.getFullYear()} Ferry To & <a href="https://verdantsparks.io" target="_blank" class="link-accent">VerdantSparks</a>&trade;
     </span>
@@ -20,9 +20,7 @@ const today = new Date();
 		height: var(--footer-height-desktop);
 		max-height: var(--footer-height-desktop);
 		overflow: hidden;
-		padding: var(--space-md);
 		color: var(--black-emperor);
-		text-align: center;
     	background: transparent;
 		box-shadow: var(--shadow-sm);
 		border-top: 1px solid var(--black-opacity-05);
@@ -38,7 +36,6 @@ const today = new Date();
 		position: relative;
 		z-index: 2;
 		max-width: var(--container-lg);
-		margin: 0 auto;
 	}
 
 	footer a {

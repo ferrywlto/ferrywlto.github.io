@@ -14,13 +14,9 @@ const optmizedBackgroundImage = await getImage({ src: BackgroundImage })
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
 			.hero-text {
-				text-align: start;				
 				color: white;
 			}
 			.hero-text-container {
-				display: flex;
-				justify-content: center;
-				align-items: center;
 				width: 100%;
 				position: relative;
 				z-index: 2;
@@ -53,8 +49,8 @@ const optmizedBackgroundImage = await getImage({ src: BackgroundImage })
 		<div class="main-container" style={`background-image: url('${optmizedBackgroundImage.src}')`}>
 			<div class="mesh texture-overlay" />
 			<main style="main">
-				<div class="hero-text-container">
-					<h1 class="hero-text hero-shadow-text">
+				<div class="hero-text-container flex-center">
+					<h1 class="hero-text hero-shadow-text text-start">
 					Hello Visitor<br/>
 					I am Ferry ⛴️<br/>
 					Welcome to my blog

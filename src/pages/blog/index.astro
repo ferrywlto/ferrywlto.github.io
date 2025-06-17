@@ -25,9 +25,6 @@ const posts = (await getCollection('blog')).sort(
 				display: flex;
 				flex-wrap: wrap;
 				gap: var(--space-xl);
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
 			}
 			ul li {
 				width: calc(50% - var(--space-md));
@@ -39,7 +36,6 @@ const posts = (await getCollection('blog')).sort(
 			ul li:first-child {
 				width: 100%;
 				margin-bottom: var(--space-md);
-				text-align: center;
 			}
 			ul li:first-child img {
 				width: 100%;
@@ -52,15 +48,13 @@ const posts = (await getCollection('blog')).sort(
 				border-radius: var(--radius-md);
 			}
 			ul li a {
-				display: block;
+				transition: var(--transition-normal);
 			}
 			.title {
-				margin: 0;
 				color: var(--black);
 				line-height: 1;
 			}
 			.date {
-				margin: 0;
 				color: var(--gray);
 			}
 			ul li a:hover h4,
@@ -76,7 +70,6 @@ const posts = (await getCollection('blog')).sort(
 				}
 				ul li {
 					width: 100%;
-					text-align: center;
 				}
 				ul li:first-child {
 					margin-bottom: 0;
@@ -91,16 +84,16 @@ const posts = (await getCollection('blog')).sort(
 		<Header />
 		<main>
 			<section>
-				<ul>
+				<ul class="list-reset">
 					{
 						posts.map((post) => (
 							<li>
-								<a href={`/blog/${post.id}/`}>
+								<a href={`/blog/${post.id}/`} class="block">
 									{post.data.heroImage 
 									? <Image inferSize src={post.data.heroImage} alt={post.data.description} />
 									: <Image src={placeholderImg} alt={post.data.description} />}
 									
-									<h4 class="title">{post.data.title}</h4>
+									<h4 class="title margin-bottom-md">{post.data.title}</h4>
 									<p class="date">
 										<FormattedDate date={post.data.pubDate} />
 									</p>
