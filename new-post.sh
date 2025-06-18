@@ -1,19 +1,39 @@
 #!/bin/bash
 
-# Generate the current date in yyyyMMdd format
-current_date=$(date +"%Y-%m-%d")
-path="src/content/blog/dev/latest/"
-filename="${current_date}.md"
-fullpath="${path}${filename}"
+# New Blog Post Script - Quickly create a new blog post
+# Usage: ./new-post.sh
+# Creates a new blog post with current date and opens it in VS Code
 
-# Create a new file with the date as the filename
-touch $fullpath
-echo "---" >> $fullpath
-echo "title: ''" >> $fullpath
-echo "description: ''" >> $fullpath
-echo "pubDate: ${current_date}" >> $fullpath
-echo "tags: []" >> $fullpath
-echo "---" >> $fullpath
-echo "Created file: ${fullpath}"
+# Configuration
+CONTENT_DIR="src/content/blog"
+CURRENT_YEAR=$(date +%Y)
+CURRENT_MONTH=$(date +%m)
+CURRENT_DATE=$(date +%Y-%m-%d)
 
-code ${fullpath}
+# Create directory structure (using dev folder as default category)
+POST_DIR="$CONTENT_DIR/dev/$CURRENT_YEAR/$CURRENT_MONTH"
+mkdir -p "$POST_DIR"
+
+# Generate filename
+FILENAME="$POST_DIR/$CURRENT_DATE.md"
+
+# Check if file already exists
+if [ -f "$FILENAME" ]; then
+  echo "❌ Blog post already exists: $FILENAME"
+  echo "💡 Edit the existing file or manually specify a different filename"
+  exit 1
+fi
+
+# Create frontmatter
+cat > "$FILENAME" << EOF
+---
+title: ''
+description: ''
+pubDate: $CURRENT_DATE
+tags: []
+---
+
+EOF
+
+echo "✅ Created new blog post: $FILENAME"
+code "$FILENAME"
