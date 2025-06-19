@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import { render } from 'astro:content';
 import MainLayout from '../layouts/MainLayout.astro';
-import TweetCard from '../components/TweetCard.astro';
+import Tweet from '../components/Tweet.astro';
 import { SITE_TITLE } from '../consts';
 
 // Get all tweets and sort by date (newest first)
@@ -58,7 +58,7 @@ const description = "A chronological timeline of thoughts, quotes, and quick not
           
           <div class="day-tweets">
             {tweets.map(({ tweet, Content }) => (
-              <TweetCard tweet={tweet} Content={Content} />
+              <Tweet tweet={tweet} Content={Content} />
             ))}
           </div>
         </section>
