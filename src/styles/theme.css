@@ -230,12 +230,6 @@
   padding: var(--space-md);
 }
 
-@media (max-width: 768px) {
-  .responsive-padding {
-    padding: var(--space-sm);
-  }
-}
-
 /* Spacing Utilities */
 .margin-auto {
   margin: 0 auto;
@@ -377,7 +371,7 @@
 
 /* Responsive Utilities */
 @media (max-width: 768px) {
-  .container {
+  .responsive-padding, .container {
     padding: 0 var(--space-sm);
   }
 }
