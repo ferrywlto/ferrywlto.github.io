@@ -1,0 +1,195 @@
+---
+import { getCollection } from 'astro:content';
+import { render } from 'astro:content';
+import MainLayout from '../layouts/MainLayout.astro';
+import TweetCard from '../components/TweetCard.astro';
+import { SITE_TITLE } from '../consts';
+
+// Get all tweets and sort by date (newest first)
+const allTweets = await getCollection('tweets');
+const sortedTweets = allTweets.sort((a, b) => 
+  b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+// Render content for each tweet
+const tweetsWithContent = await Promise.all(
+  sortedTweets.map(async (tweet) => {
+    const { Content } = await render(tweet);
+    return { tweet, Content };
+  })
+);
+
+// Group tweets by date for better visual organization
+const groupedTweets = tweetsWithContent.reduce((groups, { tweet, Content }) => {
+  const dateKey = tweet.data.pubDate.toDateString();
+  if (!groups[dateKey]) {
+    groups[dateKey] = [];
+  }
+  groups[dateKey].push({ tweet, Content });
+  return groups;
+}, {} as Record<string, Array<{ tweet: any, Content: any }>>);
+
+const title = `Whispers | ${SITE_TITLE}`;
+const description = "A chronological timeline of thoughts, quotes, and quick notes from Ferry's daily journey.";
+---
+
+<MainLayout title={title} description={description}>
+  <div class="timeline-container">
+    <header class="timeline-header text-center margin-bottom-lg">
+      <h1 class="text-black">Whispers</h1>
+      <p class="text-gray">
+        Some funny quotes from I and my wife. 
+      </p>
+    </header>
+
+    <div class="timeline-content">
+      {Object.entries(groupedTweets).map(([dateKey, tweets]) => (
+        <section class="timeline-day">
+          <h2 class="day-header text-accent font-weight-medium margin-bottom-md">
+            {
+                new Date(dateKey).toLocaleDateString('en-UK', { 
+                    weekday: 'long',
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                })
+            }
+          </h2>
+          
+          <div class="day-tweets">
+            {tweets.map(({ tweet, Content }) => (
+              <TweetCard tweet={tweet} Content={Content} />
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+
+    {tweetsWithContent.length === 0 && (
+      <div class="empty-state text-center margin-y-xl">
+        <p class="text-gray text-lg">No timeline entries yet. Check back soon! ✨</p>
+      </div>
+    )}
+  </div>
+</MainLayout>
+
+<style>
+  .timeline-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: var(--space-lg) var(--space-md);
+  }
+  
+  .timeline-header h1 {
+    font-size: var(--text-4xl);
+    margin-bottom: var(--space-sm);
+  }
+  
+  .timeline-content {
+    position: relative;
+  }
+  
+  /* Main timeline line */
+  .timeline-content::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(
+      to bottom,
+      var(--accent-light),
+      var(--accent),
+      var(--accent-dark)
+    );
+    opacity: 0.3;
+  }
+  
+  .timeline-day {
+    position: relative;
+    margin-bottom: var(--space-3xl);
+    padding-left: var(--space-2xl);
+  }
+  
+  .day-header {
+    position: relative;
+    font-size: var(--text-xl);
+    margin-left: calc(-1 * var(--space-2xl));
+    padding-left: var(--space-2xl);
+  }
+  
+  /* Day marker dot */
+  .day-header::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 4px solid var(--white);
+    box-shadow: 0 0 0 2px var(--accent-light);
+    z-index: 2;
+  }
+  
+  .day-tweets {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    margin-left: var(--space-md);
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .timeline-container {
+      padding: var(--space-md) var(--space-sm);
+    }
+    
+    .timeline-content::before {
+      left: 10px;
+    }
+    
+    .timeline-day {
+      padding-left: var(--space-lg);
+    }
+    
+    .day-header {
+      font-size: var(--text-lg);
+      margin-left: calc(-1 * var(--space-lg));
+      padding-left: var(--space-lg);
+    }
+    
+    .day-header::before {
+      left: 2px;
+      width: 12px;
+      height: 12px;
+    }
+    
+    .day-tweets {
+      margin-left: 0;
+    }
+    
+    .timeline-header h1 {
+      font-size: var(--text-3xl);
+    }
+  }
+  
+  /* Animation */
+  .timeline-day {
+    animation: fadeInUp 0.6s ease-out;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

@@ -1,0 +1,56 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  tweet: CollectionEntry<'tweets'>;
+  Content: any;
+}
+
+const { tweet, Content } = Astro.props;
+const { pubDate } = tweet.data;
+
+// Format time for display
+const timeFormat = new Intl.DateTimeFormat('en-US', {
+  hour: 'numeric',
+  minute: '2-digit',
+  hour12: true
+});
+---
+
+<div class="tweet-simple margin-bottom-sm">
+  <time datetime={pubDate.toISOString()}>
+    {timeFormat.format(pubDate)}:
+  </time>
+  <span class="tweet-content">
+    <Content />
+  </span>
+</div>
+
+<style>
+  .tweet-simple {
+    display: flex;
+    gap: var(--space-xs);
+    font-size: var(--text-base);
+    line-height: 1.5;
+  }
+  
+  .tweet-simple time {
+    color: var(--gray);
+    font-weight: 500;
+    flex-shrink: 0;
+    min-width: 4.5rem;
+  }
+  
+  .tweet-content {
+    flex: 1;
+  }
+  
+  .tweet-content :global(p) {
+    margin: 0;
+    display: inline;
+  }
+  
+  .tweet-content :global(p + p) {
+    margin-left: var(--space-xs);
+  }
+</style>
