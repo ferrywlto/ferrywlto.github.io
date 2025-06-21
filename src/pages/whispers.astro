@@ -35,11 +35,8 @@ const description = "A chronological timeline of thoughts, quotes, and quick not
 
 <MainLayout title={title} description={description}>
   <div class="timeline-container">
-    <header class="timeline-header text-center margin-bottom-lg">
-      <h1 class="text-black">Whispers</h1>
-      <p class="text-gray">
-        Some funny quotes from I and my wife. 
-      </p>
+    <header class="timeline-header text-center margin-bottom-lg text-gray">
+      Some funny quotes from me and my wife.
     </header>
 
     <div class="timeline-content">
@@ -77,12 +74,7 @@ const description = "A chronological timeline of thoughts, quotes, and quick not
   .timeline-container {
     max-width: 700px;
     margin: 0 auto;
-    padding: var(--space-lg) var(--space-md);
-  }
-  
-  .timeline-header h1 {
-    font-size: var(--text-4xl);
-    margin-bottom: var(--space-sm);
+    padding: 0 var(--space-md);
   }
   
   .timeline-content {
@@ -99,16 +91,16 @@ const description = "A chronological timeline of thoughts, quotes, and quick not
     width: 2px;
     background: linear-gradient(
       to bottom,
-      var(--accent-light),
+      var(--accent-dark),
       var(--accent),
-      var(--accent-dark)
+      var(--accent-light)
     );
-    opacity: 0.3;
+    opacity: 0.38;
   }
   
   .timeline-day {
     position: relative;
-    margin-bottom: var(--space-3xl);
+    margin-bottom: var(--space-2xl);
     padding-left: var(--space-2xl);
   }
   
@@ -123,7 +115,7 @@ const description = "A chronological timeline of thoughts, quotes, and quick not
   .day-header::before {
     content: '';
     position: absolute;
-    left: 12px;
+    left: 9px;
     top: 50%;
     transform: translateY(-50%);
     width: 16px;
@@ -139,7 +131,7 @@ const description = "A chronological timeline of thoughts, quotes, and quick not
     display: flex;
     flex-direction: column;
     gap: var(--space-lg);
-    margin-left: var(--space-md);
+    margin-left: var(--space-xs);
   }
   
   /* Responsive design */
@@ -154,12 +146,13 @@ const description = "A chronological timeline of thoughts, quotes, and quick not
     
     .timeline-day {
       padding-left: var(--space-lg);
+      margin-bottom: var(--space-lg);
     }
     
     .day-header {
       font-size: var(--text-lg);
       margin-left: calc(-1 * var(--space-lg));
-      padding-left: var(--space-lg);
+      padding-left: var(--space-xl);
     }
     
     .day-header::before {
@@ -169,11 +162,12 @@ const description = "A chronological timeline of thoughts, quotes, and quick not
     }
     
     .day-tweets {
-      margin-left: 0;
+      gap: var(--space-md);
+      margin-left: var(--space-sm);
     }
     
-    .timeline-header h1 {
-      font-size: var(--text-3xl);
+    .timeline-header p {
+      text-align: start;
     }
   }
   

@@ -18,18 +18,18 @@ const timeFormat = new Intl.DateTimeFormat('en-US', {
 ---
 
 <div class="tweet-simple margin-bottom-sm">
-  <time datetime={pubDate.toISOString()}>
+  <div>
     {timeFormat.format(pubDate)}:
-  </time>
-  <span class="tweet-content">
+  </div>
+  <div class="tweet-content">
     <Content />
-  </span>
+  </div>
 </div>
 
 <style>
   .tweet-simple {
     display: flex;
-    gap: var(--space-xs);
+    gap: var(--space-sm);
     font-size: var(--text-base);
     line-height: 1.5;
   }
@@ -52,5 +52,12 @@ const timeFormat = new Intl.DateTimeFormat('en-US', {
   
   .tweet-content :global(p + p) {
     margin-left: var(--space-xs);
+  }
+
+  @media (max-width: 768px) {
+    .tweet-simple {
+      display: block;
+      font-size: var(--text-sm);
+    }
   }
 </style>
