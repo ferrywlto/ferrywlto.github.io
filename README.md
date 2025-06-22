@@ -1,10 +1,10 @@
 # Astro Starter Kit: Blog
 
 ## Design Guideline
-- Desktop size: >= 720px
+- Desktop size: > 768px
 - Mobile size: 280 - 719px
 - Header
-    - Full: <= 720px
+    - Full: <= 768px
     - Drawer: 280px
 - Footer
     - Small: 280 - 470px 
@@ -16,7 +16,7 @@
 - [x] Home
 - [x] Footer Add Powered By
 - [ ] About Me
-- [ ] Whispers
+- [x] Whispers
 - [ ] Whisper home widget
 - [ ] Dark theme
 - [ ] Mermaid Diagram Support
