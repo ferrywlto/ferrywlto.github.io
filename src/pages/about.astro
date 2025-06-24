@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import FerryPortrait from "../assets/ferry.png"
+import FerryPortrait from "../assets/photos/ferry.png"
 import MainLayout from '../layouts/MainLayout.astro';
 import SocialLinkIcon from '../components/SocialLinkIcon.astro';
 import FullGitHubLogo  from '../assets/logos/github-full.svg';
@@ -9,103 +9,161 @@ import FullStackoverFlowLogo from '../assets/logos/stackoverflow-full.svg';
 import FullLinkedInLogo from '../assets/logos/linkedin-full.svg';
 import FullMediumLogo from '../assets/logos/medium-full.svg';
 import FullThreadsLogo from '../assets/logos/threads-full-light.svg'
+import SheldonPhoto from '../assets/photos/sheldon.jpg'
+import ShamyPhoto from '../assets/photos/shamy.jpg'
+import SevenPhoto from '../assets/photos/seven.jpg'
+import BirthdayPhoto from '../assets/photos/ferry_and_elaine.jpg'
 const title = "About"
 const description = "Ferry To's backgound, including past experiences and social contacts."
 ---
 <MainLayout title={title} description={description}>
-	<div class="container flex-center">
-		<div class="protait portrait">
-			<Image alt="Portrait of Ferry To" src={FerryPortrait}/>
+	<section>
+		<div class="container flex-center">
+			<div class="portrait">
+				<Image alt="Portrait of Ferry To" src={FerryPortrait}/>
+			</div>
 		</div>
-	</div>
-	<div class="container flex-center greeting-text">
-		<div class="first-line">Hi there! 👋 I'm Ferry.&nbsp;</div>
-		<div>Nice to meet you. 😀</div>
-	</div>
-	
-	<div class="container flex-center bio-text">
-		<div>Bio</div>
-		<div>
-			Hello, I'm Ferry—software engineer, architect, and founder. With almost two decades of experience building robust, scalable systems, I specialise in the .NET ecosystem, system architecture, and AI-driven applications.
-			
-			Originally from Hong Kong and now based in the UK, I've navigated roles from senior engineer to technical lead across global enterprises, innovative startups, and my own micro-SaaS ventures. My passion lies in crafting elegant software solutions, mentoring teams, and championing engineering excellence through practical wisdom and quiet leadership.
-			
-			Currently, I'm deeply focused on developing AI-powered micro-SaaS products, blending cutting-edge technology with real-world usability—particularly in domains close to my heart, like pet care. Outside coding, you'll find me sharing my journey, insights, and technical discoveries right here, alongside lessons learned from building products and nurturing communities.
-			
-			Welcome to my digital home—where thoughtful engineering meets real-life stories.
+		<div class="container flex-center greeting-text">
+			<h4 class="first-line">👋 Hi there! I'm Ferry.&nbsp;</h4>
+			<h4>Nice to meet you. 😀</h4>
 		</div>
-		<div>
-			ex-Senior Staff Engineer of <a href="https://www.wati.io/" target="_blank">WATI.io (Clare.AI)</a>.
-
-			Current Software Engineer in <a href="https://www.shi.com/" target="_blank">SHI International Corporation</a>.
-
-			Owner of my software development company <a href="https://www.verdantsparks.io/" target="_blank">VerdantSparks</a>.
-
-			Husband of my lovely wife and parent of my three cats.
-			<ul>
-				<li>🐈 Sheldon</li>
-				<li>🐈 Shamy</li>
-				<li>🐈 Seven</li>
-			</ul>
-
-			Love rodents 🐀 🐿️ 🐹 and one of my 🐁 was named Hello.<br/>
-
-			ActionScript was my favourite language before the death of Flash. Now I focus on C#.<br/><br/>
-
-			🌎 I'm currently living in Milton Keynes, United Kingdom. 🇬🇧 <br/><br/>
-			🔭 I’m currently working on Everything In C#. <br/><br/>
-			🌱 I’m currently learning software craftsmanship. <br/><br/>
-			💬 Ask me about C# and Vue on my website: <br/><br/>
-
-			⚡ Fun fact:<br/>
-			My name Ferry comes from the Chinese nickname called by my family members, which is simply the abbreviation of my Chinese name. It pronounces the same as Ferry in Cantonese (渡輪).<br/>
-			Although I have 3 cats. I love rodents more. Once I feed 20+ hamsters from rescue.<br/>
-			🇭🇰 Hong Kong is my home country.<br/>
-			🇹🇼 I lived in Taiwan for 2 years.<br/>
-			🇬🇧 I'm living in the UK for more than 1 year.<br/>
+	</section>
+	<hr/>
+	<section>
+		<h3>About Me</h3>
+		<p>
+			A software engineer who spent two decades in this industry. I love solving problems and built things with code. Striving to work for myself one day to transform all my ideas into actual products.
+		</p>
+		<p>
+			My tech stack is .NET focused, C# is my current favourite language. I am also curious and keep exploring on different aspects in software development like DevOps, Cloud Infrastructure, Test Automation and AI. 
+		</p>
+		<p>
+			My goal is to work on software development until I cannot, coding is the reason I wake from bed every morning after my wife and my pets.
+		</p>
+		<p>
+			I am currently living in Milton Keynes, UK with my wife and three cats. Relocated from my home country Hong Kong at May 2025 to try out another living style. I had also lived in Taiwai for around two years during the pandamic.
+		</p>
+		<p>
+			My name <b>Ferry</b> comes from the nickname called by my family members when I was young, which literally is the abbreviation of my legal name in Chinese. It pronounces the same as Ferry in Cantonese (渡輪 ⛴️)
+		</p>
+	</section>
+	<hr/>
+	<section>
+		<h3>My Career</h3>
+		<p>
+		I am not going to share all the details of my professional career. You can check my LinkedIn profile at the bottom of this page to view my CV. 
+		</p>
+		<p>
+		There are multiple jobs I worked in my career was related to gaming. My first job after graduation is to work on casino slot-machines software R&D, writing both the Flash frontend and Java backend. Then my second job was working for one of the largest horse racing organization in the world, it is also the largest tax-payer and charity organization in Hong Kong. During that three years of work I built up my foundations in C#, .NET stack and web technologies. At my sixth year of my career, I was working in a mobile gaming company which provides online betting and live video streaming of betting tables from a casino in Cambodia. The fun fact is, I never gamble and dislike it.
+		</p>
+		<p>
+		At 2012, which is the fifth year of my career I start working as a System Analyst in an airline company, but it turns out I don't enjoy the role and quitted that job in three months. It was already three years later that I work in a non-pure-developer role again.       
+		</p>
+		<p>
+		There was a year I tried to work for myself after quiting the mobile gaming company. I was attempted to build a dining POS system with ActionScript and MXML but it is not successful to launch as my technical knowledge is not sufficient for a project that requires deep hardware integration. 
+		</p>
+		<p>
+		I was working as a System Architect in the largest public hosing developer in Hong Kong for another three years. There was an opportunity from my ex-supervisor at 2018, which caused me to start my own business.
+		</p>
+		<p>
+		My company VerdantSparks was founded at 2018, as a digital consultancy and was hiring four full-time employees at peak. During the two years living in Taiwan, I attempted to build a Vet & Pet SaaS business there. However the jounery didn't ended well. although we had a pitch to the Invest Taipei Office with a prototype, there was no funding raised. Eventually We didn't have the resources to continue the development of the MVP.
+		</p>
+		<p>
+		Losing almost all my savings and what my company earned before. I decided to suspend my company, returned to Hong Kong and worked as a Senior Staff Software Engineer in a SaaS startup company for around two years before I move to the UK.    			
+		</p>
+		<p>
+		It was my another career peak working in a startup. We got a great team and I was a beloved leader that brings impacts and cross functioning team influences. The CTO taught me alot and shared much spot-lights with me, I was growing in a lighting speed.   
+		</p>
+		<p>
+		Rapid growth comes at a price, my health was getting worse. Start getting high blood pressures due to the stress from workload plus office politcs from the executives. Therefore I decided to quit after our CTO, took a six months career break while planning for the UK relocation.
+		</p>
+		<p>
+		Now I am just a mid-level software developer working in a large private corporation in the US. Being a remote IC. Quietly preparing for my next career peak.     
+		</p>
+	</section>
+	<hr/>
+	<section>
+		<h3>My Background</h3>
+		<p>WIP</p>
+	</section>
+	<hr/>
+	<section>
+		<h3>My Family</h3>
+		<h4>My Wife</h4>
+		<Image alt="Image of my wife Elaine with me, celebrating my birthday" src={BirthdayPhoto} />
+		<h4>My Pets</h4>
+		<ul>
+			<li>
+				<span>🐈 Sheldon</span>
+				<Image alt="Image of my cat Sheldon" src={SheldonPhoto} />
+			</li>
+			<li>
+				<span>🐈 Shamy</span>
+				<Image alt="Image of my cat Shamy" src={ShamyPhoto} />
+			</li>
+			<li>
+				<span>🐈 Seven</span>
+				<Image alt="Image of my cat Seven" src={SevenPhoto} />
+			</li>
+		</ul>
+	</section>
+	<hr/>
+	<section>
+		<h3>My Hobbies</h3>
+		<p>WIP</p>
+	</section>
+	<hr/>
+	<section>
+		<div class="container flex-center social-links-container">
+			<h3>Connect and follow my latest news from my profiles.</h3>
+			<p>
+				<div class="social-links">
+					<SocialLinkIcon
+					url="https://www.linkedin.com/in/ferry-to-2a905720"
+					alt="Go to Ferry's LinkedIn profile"
+					src={FullLinkedInLogo}
+					/>
+					<SocialLinkIcon
+					url="https://github.com/ferrywlto"
+					alt="Go to Ferry's GitHub profile" 
+					src={FullGitHubLogo}
+					/>
+					<SocialLinkIcon
+					url="https://www.threads.com/@ferrywlto"
+					alt="Go to Ferry's Threads profile"
+					src={FullThreadsLogo}
+					/>
+					<SocialLinkIcon
+					url="https://medium.com/@ferrywlto"
+					alt="Go to Ferry's Medium profile"
+					src={FullMediumLogo}
+					/>
+					<SocialLinkIcon
+					url="https://leetcode.com/u/ferrywlto/"
+					alt="Go to Ferry's Leetcode profile"
+					src={FullLeetcodeLogo}
+					/>
+					<SocialLinkIcon 
+					url="https://stackoverflow.com/users/2952180/ferry-to"
+					alt="Go to Ferry's Stackoverflow profile"
+					src={FullStackoverFlowLogo}
+					/>
+				</div>
+			</p>
 		</div>
-	</div>
-
-	<div class="container flex-center social-links-container">
-		<div class="follow-text text-center">Connect and follow my latest news from my profiles.</div>
-		<div class="social-links">
-			<SocialLinkIcon
-			url="https://www.linkedin.com/in/ferry-to-2a905720"
-			alt="Go to Ferry's LinkedIn profile"
-			src={FullLinkedInLogo}
-			/>
-			<SocialLinkIcon
-			url="https://github.com/ferrywlto"
-			alt="Go to Ferry's GitHub profile" 
-			src={FullGitHubLogo}
-			/>
-			<SocialLinkIcon
-			url="https://www.threads.com/@ferrywlto"
-			alt="Go to Ferry's Threads profile"
-			src={FullThreadsLogo}
-			/>
-
-			<SocialLinkIcon
-			url="https://medium.com/@ferrywlto"
-			alt="Go to Ferry's Medium profile"
-			src={FullMediumLogo}
-			/>
-			<SocialLinkIcon
-			url="https://leetcode.com/u/ferrywlto/"
-			alt="Go to Ferry's Leetcode profile"
-			src={FullLeetcodeLogo}
-			/>
-			<SocialLinkIcon 
-			url="https://stackoverflow.com/users/2952180/ferry-to"
-			alt="Go to Ferry's Stackoverflow profile"
-			src={FullStackoverFlowLogo}
-			/>
-		</div>
-	</div>
+	</section>
 </MainLayout>
 <style>
+.container ul {
+	margin: 0;
+}
 .container {
 	width: 100%;
+}
+
+.section-header {
+	font-size: var(--text-xl);
+	text-align: center;
 }
 
 .portrait {
@@ -114,15 +172,10 @@ const description = "Ferry To's backgound, including past experiences and social
 	max-width: 720px;
 }
 
-.greeting-text {
-	display: flex;
-	text-wrap: nowrap;
-	font-size: var(--text-3xl);
-	font-weight: 500;
-}
 .bio-text {
 	display: block;
 }
+
 .social-links-container {
 	display: block;
 }
@@ -133,16 +186,20 @@ const description = "Ferry To's backgound, including past experiences and social
 	justify-content: space-between;
 	gap: var(--space-sm);
 }
+.bio-header {
+	font-size: var(--text-3xl);
+	text-align: center;
+}
 
 @media (max-width: 768px) {
+	
 	.follow-text {
 		text-align: justify;
 	}
+
 	.greeting-text {
 		display: block;
 		text-align: center;
-		font-size: var(--text-md);
-		font-weight: bold;
 	}
 }
 
