@@ -46,7 +46,7 @@ main {
 }
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-	margin: 0 0 var(--space-sm) 0;
+	margin: 0;
 	color: var(--black);
 	line-height: 1.2;
 }
@@ -56,6 +56,7 @@ h2 { font-size: var(--text-4xl); }
 h3 { font-size: var(--text-3xl); }
 h4 { font-size: var(--text-2xl); }
 h5 { font-size: var(--text-xl); }
+h6 { font-size: var(--text-lg); }
 
 strong, b {
 	font-weight: 700;
@@ -161,7 +162,7 @@ blockquote {
 hr {
 	border: none;
 	border-top: 1px solid var(--gray-light);
-	margin: var(--space-2xl) 0;
+	margin: var(--space-md) 0;
 }
 
 /* Responsive Design */
@@ -174,9 +175,13 @@ hr {
 		padding: var(--space-md);
 	}
 	
-	h1 { font-size: var(--text-4xl); }
-	h2 { font-size: var(--text-3xl); }
-	h3 { font-size: var(--text-2xl); }
+	h1 { font-size: var(--text-3xl); }
+	h2 { font-size: var(--text-2xl); }
+	h3 { font-size: var(--text-xl); }
+	h4 { font-size: var(--text-lg); }
+	h5 { font-size: var(--text-md); }
+	h6 { font-size: var(--text-sm); }
+
 }
 
 /* Accessibility */

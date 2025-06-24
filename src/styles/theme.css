@@ -77,16 +77,17 @@
   --footer-height-desktop: 88px; 
   --drawer-width: 240px;
   
-  /* Typography Scale */
-  --text-xs: 0.75rem;     /* 12px */
-  --text-sm: 0.875rem;    /* 14px */
-  --text-base: 1rem;      /* 16px */
-  --text-lg: 1.125rem;    /* 18px */
-  --text-xl: 1.25rem;     /* 20px */
-  --text-2xl: 1.5rem;     /* 24px */
-  --text-3xl: 1.875rem;   /* 30px */
-  --text-4xl: 2.25rem;    /* 36px */
-  --text-5xl: 3rem;       /* 48px */
+  /* Typography Scale - Bootstrap Aligned */
+  --text-xs: 0.75rem;     /* 12px - Bootstrap .small */
+  --text-sm: 0.875rem;    /* 14px - Bootstrap small elements */
+  --text-base: 1rem;      /* 16px - Bootstrap body text */
+  --text-lg: 1.125rem;    /* 18px - Bootstrap .lead */
+  --text-xl: 1.25rem;     /* 20px - Bootstrap h5 */
+  --text-2xl: 1.5rem;     /* 24px - Bootstrap h4 */
+  --text-3xl: 1.75rem;    /* 28px - Bootstrap h3 */
+  --text-4xl: 2.5rem;     /* 40px - Bootstrap h2 */
+  --text-5xl: 3.5rem;     /* 56px - Bootstrap h1 */
+  --text-6xl: 4.5rem;     /* 72px - Bootstrap display-6 */
   
   /* Shadows */
   --shadow-sm: 0 1px 2px var(--black-opacity-05);

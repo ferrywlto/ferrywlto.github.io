@@ -38,15 +38,6 @@ const { posts } = Astro.props;
 				max-width: var(--max-width);
 			}
 			
-			.page-header {
-			}
-			
-			h1 {
-				color: var(--black);
-				font-size: var(--text-4xl);
-				line-height: 1.2;
-			}
-			
 			.tag-info {
 				color: var(--gray);
 				font-size: var(--text-lg);
@@ -61,9 +52,6 @@ const { posts } = Astro.props;
 			
 			.back-link:hover {
 				color: var(--accent-dark);
-			}
-			
-			.posts-list {
 			}
 			
 			.post-item {
@@ -98,25 +86,6 @@ const { posts } = Astro.props;
 			.empty-state {
 				color: var(--gray);
 				font-style: italic;
-			}
-			
-			@media (max-width: 768px) {
-				main {
-				}
-				
-				h1 {
-					font-size: var(--text-3xl);
-				}
-				
-				.page-header {
-				}
-				
-				.post-link {
-				}
-				
-				.post-title {
-					font-size: var(--text-lg);
-				}
 			}
 		</style>
 	</head>
