@@ -8,7 +8,7 @@ import FormattedDate from '../../components/FormattedDate.astro';
 import { Image } from 'astro:assets';
 import placeholderImg from '../../../public/blog-placeholder-about.jpg'
 
-const posts = (await getCollection('blog')).sort(
+const posts = (await getCollection('blogs')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
@@ -51,18 +51,18 @@ const posts = (await getCollection('blog')).sort(
 				transition: var(--transition-normal);
 			}
 			.title {
-				color: var(--black);
+				color: var(--color-text-primary);
 				line-height: 1;
 			}
 			.date {
-				color: var(--gray);
+				color: var(--color-text-secondary);
 			}
 			ul li a:hover h4,
 			ul li a:hover .date {
-				color: var(--accent);
+				color: var(--color-primary);
 			}
 			ul a:hover img {
-				box-shadow: var(--shadow-lg);
+				box-shadow: var(--shadow);
 			}
 			@media (max-width: 768px) {
 				ul {

@@ -16,21 +16,9 @@ const today = new Date();
 </footer>
 <style>
 	footer {
-		box-sizing: border-box;
-		height: var(--footer-height-desktop);
-		max-height: var(--footer-height-desktop);
-		overflow: hidden;
-		color: var(--black-emperor);
-    	background: transparent;
-		box-shadow: var(--shadow-sm);
-		border-top: 1px solid var(--black-opacity-05);
-		transition: var(--transition-slow);
-		/* Ensure footer styling is independent */
-		font-family: inherit;
-		font-size: var(--text-base);
-		line-height: 1.4;
-    	min-width: 280px;
-	}
+		margin-top: var(--space-2xl);
+		border-top: 1px solid color-mix(in srgb, var(--color-surface) 60%, transparent);
+		box-shadow: var(--shadow);
 
 	.footer-content {
 		position: relative;
