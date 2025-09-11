@@ -3,7 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 import { Image } from 'astro:assets';
 import MainLayout from './MainLayout.astro';
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<'blogs'>['data'];
 
 const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.props;
 ---
@@ -21,7 +21,7 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.prop
 		.prose {
 			width: var(--container-xs);
 			max-width: var(--max-width);
-			color: var(--gray-dark);
+			color: var(--color-text-primary);
 		}
 		.title {
 			margin-bottom: var(--space-md);
@@ -33,7 +33,7 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.prop
 		}
 		.date {
 			margin-bottom: var(--space-sm);
-			color: var(--gray);
+			color: var(--color-text-secondary);
 		}
 		.last-updated-on {
 			font-style: italic;
