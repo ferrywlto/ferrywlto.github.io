@@ -99,3 +99,50 @@ Check out [our documentation](https://docs.astro.build) or jump into our [Discor
 ## Credit
 
 This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+
+
+# Web design framework
+1. Colors
+    - Primary Color
+    - Optional Secondary / Background Color
+    - Rare option Tertiary / Accent /  Color
+
+    - Background Color
+    - Surface Color
+    - Thread / Divider / Border Color
+
+    - Gray Scale
+        - Body Text Color
+        - Meta Text Color
+        - Muted Text Color
+
+    - Web App Only
+        - Success Color
+        - Warning Color
+        - Danger Color
+        - Info Color
+
+2. Typography
+    - Font Family
+    - Font Size
+    - Font Weight
+    - Line Height
+
+3. Spacing
+    - Spacing Scale
+    - Margin
+    - Padding
+
+4. Layout
+    - Grid
+    - Flexbox
+
+5. Component
+    - Cards
+    - Buttons
+    - Forms
+    - Modals
+
+6. Effects
+   - Shadows
+   - Animations / Transitions
