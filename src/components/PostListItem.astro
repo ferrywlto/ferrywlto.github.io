@@ -1,0 +1,38 @@
+---
+export interface Props {
+  title: string;
+  date: string;
+  subtitle: string;
+  link: string;
+}
+
+const { title, date, subtitle, link } = Astro.props
+---
+<div class='container'>
+  <div class="row">
+    <span class="text-meta">{date}</span>
+    <a href={link}>
+      <h3 class="text-item-title">{title}</h3>
+    </a>
+  </div>
+  <div class="row">
+    <h4 class="text-item-subtitle">{subtitle}</h4>
+  </div>
+</div>
+
+<style>
+  @import "../styles/typography.css";
+
+  .row {
+    align-items: center;
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+</style>

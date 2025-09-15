@@ -4,7 +4,7 @@
   --color-text-title: var(--color-body);
   --color-text-subtitle: color-mix(in srgb, var(--color-body) 75%, var(--color-bg) 25%);
   --color-text-meta: color-mix(in srgb, var(--color-body) 50%, var(--color-bg) 50%);
-  --color-thread: var(--color-primary) 50%;
+  --color-thread: color-mix(in srgb, var(--color-primary) 50%, var(--color-bg) 50%);
 }
 
 /* Light Theme Colors (default) */
@@ -13,7 +13,7 @@
   /* Light theme colors (default) */
   --color-bg: #FAFAFA;
   --color-surface: #E4E4E4;
-  --color-body: #4D4D4D;
+  --color-body: #3e3e3e;
   --color-subtle: #656565;
   --color-light: #EFEFEF;
   --color-dark: #262626;

@@ -1,0 +1,58 @@
+---
+export interface Project {
+    name: string,
+    description: string,
+    link: string,
+    lastUpdated?: string,
+    tags: string[]
+}
+
+export interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props
+---
+<div class="column-container">
+    {projects.map(({ name, description, link, tags }) => (
+      <div class="thread-glow-card">
+        <div class="header-row">
+          <div class="title-container">
+            <a href={link}><h3 class="text-item-title">{name}</h3></a>
+          </div>
+          <div class="tags-container">
+            {tags.map(tag => (
+              <div class="hollow-tag-badge">
+                <span class="text-badge">{tag}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <h4 class="text-item-subtitle">{description}</h4>
+      </div>
+    ))}
+</div>
+
+<style>
+  @import "../styles/components.css";
+  @import "../styles/typography.css";
+
+  .header-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 0.5rem;
+  }
+
+  .title-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .tags-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+</style>

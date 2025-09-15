@@ -1,0 +1,43 @@
+---
+export interface Props {
+  title: string;
+  linkText: string;
+  link: string;
+}
+const { title, linkText, link } = Astro.props
+---
+<div class="column-container width-constrained-container">
+  <div class="section-header">
+    <div class="section-header-title">
+      <h2 class="text-section-title">{title}</h2>
+    </div>
+    <div class="section-header-link">
+      <a href={link} class="text-small-link">
+        {linkText} &#8594;
+      </a>
+    </div>
+  </div>
+  <slot />
+</div>
+
+<style>
+  @import '../styles/components.css';
+  @import '../styles/typography.css';
+
+  .section-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+    margin-bottom: 1rem;
+  }
+
+  .section-header-title {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .section-header-link {
+    display: flex;
+    justify-content: flex-end;
+  }
+</style>
