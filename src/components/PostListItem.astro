@@ -9,7 +9,7 @@ export interface Props {
 const { title, date, subtitle, link } = Astro.props;
 ---
 
-<div class="column-container post-list-item">
+<div class="column-container post-list-item surface-background-hover">
   <div class="row">
     <span class="text-meta">{date}</span>
     <a href={link}>
@@ -25,9 +25,11 @@ const { title, date, subtitle, link } = Astro.props;
   @import "../styles/components.css";
   @import "../styles/typography.css";
   @import "../styles/spacing.css";
+  @import "../styles/effect.css";
 
   .post-list-item {
-    gap: var(--gap-small);
+    gap: var(--gap-sm);
+    padding: var(--gap-sm) 0;
   }
 
   .row {
@@ -35,6 +37,6 @@ const { title, date, subtitle, link } = Astro.props;
     align-items: center;
     display: flex;
     width: 100%;
-    gap: var(--gap-medium);
+    gap: var(--gap-md);
   }
 </style>

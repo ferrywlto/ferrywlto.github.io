@@ -8,15 +8,18 @@ const { author, text, link } = Astro.props;
 ---
 
 <a href={link}>
-  <div class="container">
+  <div class="container surface-background-hover">
     <h4 class="text-quote truncated">"{text}" - {author}</h4>
   </div>
 </a>
 
 <style>
   @import "../styles/typography.css";
+  @import "../styles/effect.css";
+
   .container {
-    padding-left: var(--gap-medium);
-    border-left: var(--gap-xsmall) solid var(--color-primary);
+    padding-left: var(--gap-md);
+    border-left: var(--gap-xs) solid var(--color-primary);
+    margin: 0 var(--gap-sm);
   }
 </style>

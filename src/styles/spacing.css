@@ -1,17 +1,17 @@
 :root {
-  --gap-xsmall: 0.25rem;
-  --gap-small: 0.5rem;
-  --gap-medium: 1rem;
-  --gap-large: 2rem;
-  --gap-xlarge: 4rem;
+  --gap-xs: 0.25rem;
+  --gap-sm: 0.5rem;
+  --gap-md: 1rem;
+  --gap-lg: 2rem;
+  --gap-xl: 4rem;
 }
 
 @media screen and (max-width: 768px) {
   :root {
-    --gap-xsmall: 0.125rem;
-    --gap-small: 0.25rem;
-    --gap-medium: 0.5rem;
-    --gap-large: 1rem;
-    --gap-xlarge: 2rem;
+    --gap-xs: 0.125rem;
+    --gap-sm: 0.25rem;
+    --gap-md: 0.5rem;
+    --gap-lg: 1rem;
+    --gap-xl: 2rem;
   }
 }

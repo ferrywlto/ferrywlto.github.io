@@ -16,7 +16,7 @@ export interface Props {
 const { posts } = Astro.props;
 ---
 
-<div class="column-container post-list">
+<div class="column-container">
   {posts.map((post, idx) => {
     const isLast = idx === posts.length - 1;
     return (
@@ -31,7 +31,4 @@ const { posts } = Astro.props;
 <style>
   @import '../styles/components.css';
   @import '../styles/spacing.css';
-  .post-list {
-    gap: var(--gap-small);
-  }
 </style>

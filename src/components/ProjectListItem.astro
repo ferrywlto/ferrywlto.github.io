@@ -9,7 +9,7 @@ export interface Props {
 const { name, description, link, tags } = Astro.props;
 ---
 
-<div class="thread-glow-card column-container project-list-item">
+<div class="thread-glow-card column-container project-list-item surface-background-hover">
   <div class="header-row">
     <div class="title-container">
       <a href={link}>
@@ -33,9 +33,10 @@ const { name, description, link, tags } = Astro.props;
   @import "../styles/components.css";
   @import "../styles/typography.css";
   @import "../styles/spacing.css";
+  @import "../styles/effect.css";
 
   .project-list-item {
-    gap: var(--gap-small);
+    gap: var(--gap-sm);
   }
 
   .header-row {
@@ -53,6 +54,6 @@ const { name, description, link, tags } = Astro.props;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: var(--gap-small);
+    gap: var(--gap-sm);
   }
 </style>
