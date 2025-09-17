@@ -6,9 +6,10 @@ export interface Props {
   link: string;
 }
 
-const { title, date, subtitle, link } = Astro.props
+const { title, date, subtitle, link } = Astro.props;
 ---
-<div class='container'>
+
+<div class="column-container post-list-item">
   <div class="row">
     <span class="text-meta">{date}</span>
     <a href={link}>
@@ -21,18 +22,19 @@ const { title, date, subtitle, link } = Astro.props
 </div>
 
 <style>
+  @import "../styles/components.css";
   @import "../styles/typography.css";
+  @import "../styles/spacing.css";
+
+  .post-list-item {
+    gap: var(--gap-small);
+  }
 
   .row {
+    justify-content: flex-start;
     align-items: center;
     display: flex;
     width: 100%;
-    gap: 1rem;
-  }
-
-  .container {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--gap-medium);
   }
 </style>

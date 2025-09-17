@@ -1,0 +1,61 @@
+---
+import AvatarImage from "./AvatarImage.astro";
+
+const ctaLabel = "About Me &#8594;";
+const heading = "Hello Visitor. I'm Ferry.";
+const body = "I am a Software Engineer. Writing code for almost two decades. I do SaaS product development, WhatsApp integration, and technical consultancy. Recently, I also do vibe coding cleaning.";
+---
+<div class="hero-card width-constrained-container">
+  <div class="hero-text-container column-container">
+    <h1 class="text-hero-title">{heading}</h1>
+    <p class="text-body" set:html={body}></p>
+    <div>
+      <a href="/about">
+        <div class="call-to-action">
+          <span class="text-call-to-action" set:html={ctaLabel}></span>
+        </div>
+      </a>
+    </div>
+  </div>
+  <AvatarImage />
+</div>
+<style>
+  @import "../styles/components.css";
+  @import "../styles/typography.css";
+  @import "../styles/spacing.css";
+
+  .hero-text-container {
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--gap-medium);
+  }
+
+  .hero-card {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid var(--color-thread);
+    border-radius: 0.75rem;
+    background-color: var(--color-surface);
+    margin-bottom: var(--gap-large);
+    padding: var(--gap-large);
+  }
+
+  .call-to-action {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    max-width: 188px;
+    border: 1px solid var(--color-primary);
+    border-radius: 0.5rem;
+    padding: var(--gap-small) var(--gap-medium);
+    cursor: pointer;
+    color: var(--color-primary);
+  }
+
+  .call-to-action:hover {
+    text-decoration: none !important;
+    background-color: var(--color-primary);
+    color: var(--color-button-hover-text);
+  }
+</style>
