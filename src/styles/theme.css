@@ -5,14 +5,16 @@
   --color-text-subtitle: color-mix(in srgb, var(--color-body) 75%, var(--color-bg) 25%);
   --color-text-meta: color-mix(in srgb, var(--color-body) 50%, var(--color-bg) 50%);
   --color-thread: color-mix(in srgb, var(--color-primary) 50%, var(--color-bg) 50%);
+
+  --color-button-hover-text: var(--color-bg);
 }
 
 /* Light Theme Colors (default) */
-:root, 
+:root,
 [data-theme="light"] {
   /* Light theme colors (default) */
   --color-bg: #FAFAFA;
-  --color-surface: #E4E4E4;
+  --color-surface: #F0F0F0;
   --color-body: #3e3e3e;
   --color-subtle: #656565;
   --color-light: #EFEFEF;
@@ -23,6 +25,7 @@
   --color-danger: #8A1C33;
   --color-warning: #7C6100;
   --color-info: #0042aa;
+
 }
 
 /* Dark Theme Colors */

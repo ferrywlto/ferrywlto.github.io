@@ -1,5 +1,11 @@
 @import "./theme.css";
 
+html {
+  font-family: Arial, Helvetica, 'PingFang TC', 'Noto Sans CJK TC', 'Microsoft JhengHei', 'Heiti SC', 'Source Han Sans', 'WenQuanYi Micro Hei', 'SimHei', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
 :root {
   --type-hero: 1.875rem; /* 30px */
   --type-section: 1.25rem; /* 20px */
@@ -86,7 +92,7 @@
 .text-small-link {
   font-size: var(--type-meta);
   line-height: var(--line-height-small-link);
-  color: var(--color-primary) !important;
+  color: var(--color-primary);
   text-decoration: none;
 }
 
@@ -95,6 +101,12 @@
   line-height: var(--line-height-tag);
   color: var(--color-primary);
   text-decoration: none;
+}
+
+.text-call-to-action {
+  font-size: var(--type-meta);
+  font-weight: var(--font-weight-subtitle);
+  line-height: var(--line-height-item);
 }
 
 /* Reset h1-h6 styles */
