@@ -1,4 +1,6 @@
 ---
+import ColumnContainer from './ColumnContainer.astro';
+
 export interface Props {
   name: string;
   description: string;
@@ -9,24 +11,26 @@ export interface Props {
 const { name, description, link, tags } = Astro.props;
 ---
 
-<div class="thread-glow-card column-container project-list-item surface-background-hover">
-  <div class="header-row">
-    <div class="title-container">
-      <a href={link}>
-        <h3 class="text-item-title">{name}</h3>
-      </a>
+<div class="thread-glow-card surface-background-hover">
+  <ColumnContainer gap="sm">
+    <div class="header-row">
+      <div class="title-container">
+        <a href={link}>
+          <h3 class="text-item-title">{name}</h3>
+        </a>
+      </div>
+      <div class="tags-container">
+        {
+          tags.map((tag) => (
+            <div class="hollow-tag-badge">
+              <span class="text-badge">{tag}</span>
+            </div>
+          ))
+        }
+      </div>
     </div>
-    <div class="tags-container">
-      {
-        tags.map((tag) => (
-          <div class="hollow-tag-badge">
-            <span class="text-badge">{tag}</span>
-          </div>
-        ))
-      }
-    </div>
-  </div>
-  <h4 class="text-item-subtitle">{description}</h4>
+    <h4 class="text-item-subtitle">{description}</h4>
+  </ColumnContainer>
 </div>
 
 <style>
@@ -34,10 +38,6 @@ const { name, description, link, tags } = Astro.props;
   @import "../styles/typography.css";
   @import "../styles/spacing.css";
   @import "../styles/effect.css";
-
-  .project-list-item {
-    gap: var(--gap-sm);
-  }
 
   .header-row {
     display: grid;

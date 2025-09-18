@@ -1,4 +1,5 @@
 ---
+import ColumnContainer from './ColumnContainer.astro';
 import ProjectListItem from './ProjectListItem.astro';
 
 export interface Project {
@@ -16,19 +17,10 @@ export interface Props {
 const { projects } = Astro.props;
 ---
 
-<div class="column-container project-list">
+<ColumnContainer gap="sm">
   {
     projects.map(({ name, description, link, tags }) => (
       <ProjectListItem name={name} description={description} link={link} tags={tags} />
     ))
   }
-</div>
-
-<style>
-  @import "../styles/components.css";
-  @import "../styles/typography.css";
-
-  .project-list {
-    gap: var(--gap-sm);
-  }
-</style>
+</ColumnContainer>

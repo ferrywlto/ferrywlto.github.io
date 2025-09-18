@@ -1,0 +1,25 @@
+---
+export interface Props {
+  gap?: string;
+}
+const { gap = '' } = Astro.props;
+
+const styles = gap === 'auto' ? {
+  justifyContent: 'space-between'
+} : {
+  gap: gap === '' ? 0 : ` var(--gap-${gap})`
+}
+---
+
+<div class="column-container" style={styles}>
+  <slot />
+</div>
+
+<style>
+  @import "../styles/spacing.css";
+  .column-container {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+</style>

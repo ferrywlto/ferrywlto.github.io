@@ -1,4 +1,5 @@
 ---
+import ColumnContainer from "./ColumnContainer.astro";
 import QuoteListItem from "./QuoteListItem.astro";
 
 export interface Quote {
@@ -14,17 +15,10 @@ export interface Props {
 const { quotes } = Astro.props;
 ---
 
-<div class="column-container quote-list">
-  {
-    quotes.map(({ author, text, link }) => (
-      <QuoteListItem author={author} text={text} link={link} />
-    ))
-  }
-</div>
-<style>
-  @import "../styles/components.css";
-  @import "../styles/spacing.css";
-  .quote-list {
-    gap: var(--gap-sm);
-  }
-</style>
+<ColumnContainer gap="sm">
+{
+  quotes.map(({ author, text, link }) => (
+    <QuoteListItem author={author} text={text} link={link} />
+  ))
+}
+</ColumnContainer>

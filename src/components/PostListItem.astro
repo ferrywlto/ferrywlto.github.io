@@ -1,4 +1,6 @@
 ---
+import ColumnContainer from "./ColumnContainer.astro";
+
 export interface Props {
   title: string;
   date: string;
@@ -9,26 +11,26 @@ export interface Props {
 const { title, date, subtitle, link } = Astro.props;
 ---
 
-<div class="column-container post-list-item surface-background-hover">
-  <div class="row">
-    <span class="text-meta">{date}</span>
-    <a href={link}>
-      <h3 class="text-item-title">{title}</h3>
-    </a>
-  </div>
-  <div class="row">
-    <h4 class="text-item-subtitle">{subtitle}</h4>
-  </div>
+<div class="post-list-item surface-background-hover">
+  <ColumnContainer gap="sm">
+    <div class="row">
+      <span class="text-meta">{date}</span>
+      <a href={link}>
+        <h3 class="text-item-title">{title}</h3>
+      </a>
+    </div>
+    <div class="row">
+      <h4 class="text-item-subtitle">{subtitle}</h4>
+    </div>
+  </ColumnContainer>
 </div>
 
 <style>
-  @import "../styles/components.css";
   @import "../styles/typography.css";
   @import "../styles/spacing.css";
   @import "../styles/effect.css";
 
   .post-list-item {
-    gap: var(--gap-sm);
     padding: var(--gap-sm) 0;
   }
 
