@@ -1,0 +1,26 @@
+---
+export interface Props {
+  width?: string;
+}
+const { width = "880px" } = Astro.props;
+
+const style = `
+  max-width: ${width};
+`;
+---
+
+<div class="width-constrained-container" style={style}>
+  <slot />
+</div>
+
+<style>
+  .width-constrained-container {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  @media screen and (max-width: 768px) {
+    .width-constrained-container {
+      max-width: unset;
+    }
+  }
+</style>

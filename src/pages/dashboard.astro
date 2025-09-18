@@ -8,6 +8,7 @@ import Divider from "../components/Divider.astro";
 import HeroCard from "../components/HeroCard.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 import ColumnContainer from "../components/ColumnContainer.astro";
+import WidthConstrainedContainer from "../components/WidthConstrainedContainer.astro";
 const posts = [
   {
     title: "Understanding Async/Await in JavaScript",
@@ -85,28 +86,39 @@ const projects = [
 ---
 
 <div class="main-content">
-  <ColumnContainer gap="xl">
+  <ColumnContainer gap="lg">
     <HeroCard />
     <Divider />
-    <div class="width-constrained-container">
-      <ColumnContainer gap="xl">
-        <SectionContainer title="Tech Blog" linkText="All posts" link="./posts">
-          <PostList posts={posts} />
-        </SectionContainer>
 
-        <SectionContainer title="Diary" linkText="Archive" link="./diary">
-          <PostList posts={diary} />
-        </SectionContainer>
+    <WidthConstrainedContainer>
+      <div class="content-container">
+        <ColumnContainer gap="xl">
+          <SectionContainer
+            title="Tech Blog"
+            linkText="All posts"
+            link="./posts"
+          >
+            <PostList posts={posts} />
+          </SectionContainer>
 
-        <SectionContainer title="Quotes" linkText="Archive" link="./quotes">
-          <QuoteList quotes={quotes} />
-        </SectionContainer>
+          <SectionContainer title="Diary" linkText="Archive" link="./diary">
+            <PostList posts={diary} />
+          </SectionContainer>
 
-        <SectionContainer title="Projects" linkText="All projects" link="./projects">
-          <ProjectList projects={projects} />
-        </SectionContainer>
-      </ColumnContainer>
-    </div>
+          <SectionContainer title="Quotes" linkText="Archive" link="./quotes">
+            <QuoteList quotes={quotes} />
+          </SectionContainer>
+
+          <SectionContainer
+            title="Projects"
+            linkText="All projects"
+            link="./projects"
+          >
+            <ProjectList projects={projects} />
+          </SectionContainer>
+        </ColumnContainer>
+      </div>
+    </WidthConstrainedContainer>
   </ColumnContainer>
 </div>
 <style>
@@ -120,5 +132,9 @@ const projects = [
     margin-top: var(--gap-xl);
     margin-bottom: var(--gap-xl);
     padding: var(--gap-xl) 0;
+  }
+
+  .content-container {
+    padding: var(--gap-lg);
   }
 </style>
