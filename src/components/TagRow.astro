@@ -1,0 +1,21 @@
+---
+import TagPill from "./TagPill.astro";
+export interface Props {
+  tags: string[];
+}
+const { tags } = Astro.props;
+---
+
+<div class="tags-container">
+  {tags.map((tag) => <TagPill tag={tag} />)}
+</div>
+
+<style>
+  @import '../styles/spacing.css';
+  .tags-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--gap-sm);
+  }
+</style>

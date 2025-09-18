@@ -12,7 +12,6 @@ html {
   --type-section: 1.25rem; /* 20px */
   --type-item: 1.125rem; /* 18px */
   --type-body: 1rem; /* 16px */
-  --type-quote: 0.9375rem; /* 15px */
   --type-meta: 0.875rem; /* 14px */
   --type-tag: 0.75rem; /* 12px */
 
@@ -27,7 +26,6 @@ html {
   --line-height-body: 1.6;
   --line-height-quote: 1.5;
   --line-height-meta: 1.2;
-  --line-height-small-link: 1.4;
   --line-height-tag: 1;
 }
 
@@ -78,7 +76,7 @@ html {
 }
 
 .text-quote {
-  font-size: var(--type-quote);
+  font-size: var(--type-body);
   font-style: italic;
   line-height: var(--line-height-quote);
   color: var(--color-text-title);
@@ -92,13 +90,13 @@ html {
 
 .text-small-link {
   font-size: var(--type-meta);
-  line-height: var(--line-height-small-link);
+  line-height: var(--line-height-tag);
   color: var(--color-primary);
   text-decoration: none;
 }
 
 .text-badge {
-  font-size: var(--type-tag);
+  font-size: var(--type-meta);
   line-height: var(--line-height-tag);
   color: var(--color-primary);
   text-decoration: none;
