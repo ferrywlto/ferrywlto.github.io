@@ -17,7 +17,7 @@ const {
 
 const style = {
   padding: padding === 'none' ? 0 : `var(--gap-${padding})`,
-  background: background === 'none' ? 'transparent' : background,
+  background: background === 'none' ? 'transparent' : `var(--color-${background})`,
   border: border === 'none' ? 0 : `1px solid var(--color-${border})`
 }
 const classList = ['card'];
@@ -29,6 +29,7 @@ if (hoverBorder !== 'none') classList.push(`hover-border-${hoverBorder}`);
 </div>
 
 <style>
+  @import "../styles/theme.css";
   @import "../styles/typography.css";
   @import "../styles/effect.css";
   @import "../styles/spacing.css";

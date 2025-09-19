@@ -4,6 +4,10 @@
   --gap-md: 1rem;
   --gap-lg: 2rem;
   --gap-xl: 4rem;
+
+  --corner-pill: 999px;
+  --corner-md: 0.5rem;
+  --corner-lg: 0.75rem;
 }
 
 @media screen and (max-width: 768px) {
