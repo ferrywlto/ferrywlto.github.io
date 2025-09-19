@@ -11,10 +11,11 @@ const { tag } = Astro.props;
 
 <style>
   @import "../styles/typography.css";
+  @import "../styles/spacing.css";
 
   .hollow-tag-badge {
     color: var(--color-primary);
-    border-radius: 999px;
+    border-radius: var(--corner-pill);
     padding: var(--gap-xs) var(--gap-sm);
     border: 1px solid var(--color-primary);
     display: flex;

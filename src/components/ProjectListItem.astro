@@ -1,7 +1,8 @@
 ---
-import ColumnContainer from './ColumnContainer.astro';
-import ItemTitleLink from './ItemTitleLink.astro';
-import TagRow from './TagRow.astro';
+import BaseCard from "./BaseCard.astro";
+import ColumnContainer from "./ColumnContainer.astro";
+import ItemTitleLink from "./ItemTitleLink.astro";
+import TagRow from "./TagRow.astro";
 
 export interface Props {
   name: string;
@@ -13,7 +14,7 @@ export interface Props {
 const { name, description, link, tags } = Astro.props;
 ---
 
-<div class="thread-glow-card surface-background-hover">
+<BaseCard border="thread" padding="md">
   <ColumnContainer gap="sm">
     <div class="title-row">
       <ItemTitleLink title={name} link={link} />
@@ -21,7 +22,7 @@ const { name, description, link, tags } = Astro.props;
     </div>
     <h4 class="text-item-subtitle">{description}</h4>
   </ColumnContainer>
-</div>
+</BaseCard>
 
 <style>
   @import "../styles/components.css";

@@ -11,4 +11,30 @@
     color: var(--color-primary);
     transition: border-color 0.3s ease, color 0.3s ease;
   }
+
+  .hover-background-surface:hover {
+    background-color: var(--color-surface);
+    transition: background-color 0.3s ease;
+  }
+
+  .hover-background-primary:hover {
+    background-color: var(--color-primary);
+    transition: background-color 0.3s ease;
+  }
+
+  .hover-border-primary:hover {
+    border-color: var(--color-primary);
+    transition: border-color 0.3s ease;
+  }
+
+  .hover-text-primary:hover{
+    color: var(--color-primary);
+    transition: color 0.3s ease;
+  }
+
+  .hover-stroke-primary:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transition: border-color 0.3s ease, color 0.3s ease;
+  }
 }

@@ -1,6 +1,7 @@
 ---
 import AvatarImage from "./AvatarImage.astro";
 import BaseButton from "./BaseButton.astro";
+import BaseCard from "./BaseCard.astro";
 import ColumnContainer from "./ColumnContainer.astro";
 import WidthConstrainedContainer from "./WidthConstrainedContainer.astro";
 
@@ -10,29 +11,30 @@ const body =
   "I am a Software Engineer. Writing code for almost two decades. I do SaaS product development, WhatsApp integration, and technical consultancy. Recently, I also do vibe coding cleaning.";
 ---
 
-<WidthConstrainedContainer>
-  <div class="hero-card">
-    <ColumnContainer gap="auto">
-      <h1 class="text-hero-title">{heading}</h1>
-      <p class="text-body" set:html={body} />
-      <BaseButton href="/about" text={ctaLabel} />
-    </ColumnContainer>
-    <AvatarImage />
-  </div>
-</WidthConstrainedContainer>
+<div class="wrapper">
+  <WidthConstrainedContainer>
+    <BaseCard border="thread" padding="lg" background="surface">
+      <div class="hero-card">
+        <ColumnContainer gap="auto">
+          <h1 class="text-hero-title">{heading}</h1>
+          <p class="text-body" set:html={body} />
+          <BaseButton href="/about" text={ctaLabel} />
+        </ColumnContainer>
+        <AvatarImage />
+      </div>
+    </BaseCard>
+  </WidthConstrainedContainer>
+</div>
 
 <style>
-  @import "../styles/components.css";
   @import "../styles/typography.css";
   @import "../styles/spacing.css";
 
+  .wrapper {
+    margin-bottom: var(--gap-lg);
+  }
   .hero-card {
     display: flex;
     flex-direction: row;
-    border: 1px solid var(--color-thread);
-    border-radius: 0.75rem;
-    background-color: var(--color-surface);
-    margin-bottom: var(--gap-lg);
-    padding: var(--gap-lg);
   }
 </style>
