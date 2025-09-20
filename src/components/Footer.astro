@@ -1,70 +1,59 @@
 ---
+import WidthConstrainedContainer from "./WidthConstrainedContainer.astro";
+
 const today = new Date();
+const year = today.getFullYear();
 ---
-<footer class="texture-overlay flex-center">
-  <div class="footer-content text-center">
-    <span class="line-break">
-    &copy; {today.getFullYear()} Ferry To & <a href="https://verdantsparks.io" target="_blank" class="link-accent">VerdantSparks</a>&trade;
-    </span>
-    <span class="line-break">All rights reserved.</span>
-    <span class="line-break powered-by">       
-      Powered by
-      <a href="https://astro.build" target="_blank" class="link-accent">Astro</a> &
-      <a href="https://alpinejs.dev" target="_blank" class="link-accent">Alpine.Js</a>
-    </span>
-  </div>
+<footer>
+  <WidthConstrainedContainer>
+    <div class="footer-content text-meta">
+      <div>Made with ❤️ by Ferry To</div>
+      <div>
+        Powered by
+        <a href="https://astro.build" target="_blank">Astro</a> &
+        <a href="https://alpinejs.dev" target="_blank">Alpine.Js</a>
+      </div>
+      <div>
+        &copy; {year}
+        <a href="https://verdantsparks.io" target="_blank" class="link-accent">VerdantSparks</a>&trade;
+        All rights reserved.
+      </div>
+    </div>
+  </WidthConstrainedContainer>
 </footer>
+
 <style>
+  @import "../styles/spacing.css";
+  @import "../styles/typography.css";
+  @import "../styles/effect.css";
+  @import "../styles/theme.css";
+
 	footer {
-		margin-top: var(--space-2xl);
-		border-top: 1px solid color-mix(in srgb, var(--color-surface) 60%, transparent);
-		box-shadow: var(--shadow);
+    width: 100%;
+
+    background-color: var(--color-surface);
+    border-top: 1px solid color-mix(in srgb, var(--color-thread) 50%, var(--color-bg) 50%);
+    padding: var(--gap-lg);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+  }
 
 	.footer-content {
-		position: relative;
-		z-index: 2;
-		max-width: var(--container-lg);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+
 	}
 
-	footer a {
-		font-weight: 500;
-	}
-
-	footer a:hover {
-		text-decoration: underline;
-	}
-
-	.line-break {
-		display: inline;
-	}
-
-	/* Responsive footer layout */
-	@media (min-width: 471px) and (max-width: 1023px) {
-		.line-break.powered-by {
-			display: block;
-      		margin-top: var(--space-sm);
-		}
-		footer {
-			font-size: var(--text-sm);
-		}
-	}
-  
-	@media (max-width: 470px) {
-		.line-break {
-			display: block;
-			margin-top: var(--space-xs);
-		}
-    
-		.line-break:first-child {
-			margin-top: 0;
-		}
-
-		footer {
-			box-sizing: border-box;
-			height: var(--footer-height);
-			max-height: var(--footer-height);
-			overflow: hidden;
-			font-size: var(--text-xs);
-		}
-	}
+  @media screen and (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--gap-lg);
+    }
+  }
 </style>
