@@ -4,16 +4,16 @@ html {
   font-family: Arial, Helvetica, 'PingFang TC', 'Noto Sans CJK TC', 'Microsoft JhengHei', 'Heiti SC', 'Source Han Sans', 'WenQuanYi Micro Hei', 'SimHei', sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 :root {
-  --type-hero: 1.875rem; /* 30px */
-  --type-section: 1.25rem; /* 20px */
-  --type-item: 1.125rem; /* 18px */
-  --type-body: 1rem; /* 16px */
-  --type-meta: 0.875rem; /* 14px */
-  --type-tag: 0.75rem; /* 12px */
+  --type-hero: 2.25rem;   /* 36px — page headline */
+  --type-section: 1.5rem; /* 24px — section headings */
+  --type-item: 1.125rem;  /* 18px — item titles */
+  --type-body: 1rem;      /* 16px — body copy */
+  --type-meta: 1rem;  /* 14px — metadata */
+  --type-tag: 0.875rem;    /* 12px — small tags */
 
   --font-weight-hero: 700;
   --font-weight-title: 600;
@@ -31,13 +31,12 @@ html {
 
 @media screen and (min-width: 1024px) {
   :root {
-    --type-hero: 2.5rem; /* 36px */
-    --type-section: 1.8rem; /* 24px */
-    --type-item: 1.125rem; /* 18px */
-    --type-body: 1rem; /* 16px */
-    --type-quote: 0.9375rem; /* 15px */
-    --type-meta: 0.875rem; /* 14px */
-    --type-tag: 0.75rem; /* 12px */
+    --type-hero: 3rem;    /* 48px on large screens */
+    --type-section: 2rem; /* 32px */
+    --type-item: 1.25rem; /* 20px */
+    --type-body: 1.0625rem; /* 17px */
+    --type-meta: 0.9375rem;  /* 15px */
+    --type-tag: 0.8125rem;   /* 13px */
   }
 }
 
@@ -96,7 +95,7 @@ html {
 }
 
 .text-badge {
-  font-size: var(--type-meta);
+  font-size: var(--type-tag);
   line-height: var(--line-height-tag);
   color: var(--color-primary);
   text-decoration: none;
@@ -123,7 +122,7 @@ h6 {
 }
 
 a {
-  color: var(--color-body);
+  color: inherit;
   text-decoration: none;
 }
 

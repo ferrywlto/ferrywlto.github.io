@@ -10,6 +10,7 @@
   --corner-lg: 0.75rem;
 }
 
+
 @media screen and (max-width: 768px) {
   :root {
     --gap-xs: 0.125rem;
@@ -18,4 +19,11 @@
     --gap-lg: 1rem;
     --gap-xl: 2rem;
   }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }

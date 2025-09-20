@@ -1,11 +1,11 @@
 ---
-import AvatarImage from "./AvatarImage.astro";
 import BaseButton from "./BaseButton.astro";
-import BaseCard from "./BaseCard.astro";
 import ColumnContainer from "./ColumnContainer.astro";
 import WidthConstrainedContainer from "./WidthConstrainedContainer.astro";
+import FerryAvatar from "../assets/photos/ferry-avatar-octocat_512.png";
+import { Image } from "astro:assets";
 
-const ctaLabel = "About Me &#8594;";
+const ctaLabel = "About Me 🙋🏻 &#8594;";
 const heading = "Hello Visitor. I'm Ferry.";
 const body =
   "I am a Software Engineer. Writing code for almost two decades. I do SaaS product development, WhatsApp integration, and technical consultancy. Recently, I also do vibe coding cleaning.";
@@ -13,16 +13,22 @@ const body =
 
 <div class="wrapper">
   <WidthConstrainedContainer>
-    <BaseCard border="thread" padding="lg" background="surface">
       <div class="hero-card">
         <ColumnContainer gap="auto">
+
+          <div class="avatar-container-mobile">
+            <Image src={FerryAvatar} alt="Avatar of Ferry" class="avatar" loading="eager"/>
+          </div>
+
           <h1 class="text-hero-title">{heading}</h1>
           <p class="text-body" set:html={body} />
           <BaseButton href="/about" text={ctaLabel} />
         </ColumnContainer>
-        <AvatarImage />
+
+        <div class="avatar-container-desktop">
+          <Image src={FerryAvatar} alt="Avatar of Ferry" class="avatar" loading="eager"/>
+        </div>
       </div>
-    </BaseCard>
   </WidthConstrainedContainer>
 </div>
 
@@ -33,8 +39,54 @@ const body =
   .wrapper {
     margin-bottom: var(--gap-lg);
   }
+
   .hero-card {
     display: flex;
     flex-direction: row;
+    border: 1px solid var(--color-thread);
+    background-color: var(--color-surface);
+    padding: var(--gap-lg);
+    border-radius: var(--corner-lg);
+  }
+
+  .avatar-container-mobile {
+    justify-content: center;
+    align-items: flex-start;
+    display: none;
+  }
+
+  .avatar-container-desktop {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .avatar {
+    max-width: 256px;
+    max-height: 256px;
+    min-width: 192px;
+    aspect-ratio: 1;
+  }
+
+  @media screen and (max-width: 768px) {
+
+    .hero-card {
+      border: 0;
+      background-color: transparent;
+    }
+
+    .avatar-container-mobile {
+      display: flex;
+    }
+
+    .avatar-container-desktop {
+      display: none;
+    }
+
+    .avatar {
+      max-width: 192px;
+      max-height: 192px;
+      min-width: 128px;
+    }
   }
 </style>
