@@ -1,5 +1,5 @@
 :root {
-  --gap-xs: 0.25rem;
+  --gap-xs: 0.375rem;
   --gap-sm: 0.5rem;
   --gap-md: 1rem;
   --gap-lg: 2rem;
@@ -13,8 +13,8 @@
 
 @media screen and (max-width: 768px) {
   :root {
-    --gap-xs: 0.125rem;
-    --gap-sm: 0.25rem;
+    --gap-xs: 0.25rem;
+    --gap-sm: 0.375rem;
     --gap-md: 0.5rem;
     --gap-lg: 1rem;
     --gap-xl: 2rem;

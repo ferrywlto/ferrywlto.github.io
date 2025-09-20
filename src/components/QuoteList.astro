@@ -15,7 +15,7 @@ export interface Props {
 const { quotes } = Astro.props;
 ---
 
-<ColumnContainer gap="sm">
+<ColumnContainer gap="md">
 {
   quotes.map(({ author, text, link }) => (
     <QuoteListItem author={author} text={text} link={link} />

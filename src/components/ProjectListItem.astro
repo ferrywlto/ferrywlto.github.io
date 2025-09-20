@@ -11,7 +11,7 @@ export interface Props {
 const { name, description, link, tags } = Astro.props;
 ---
 
-<div class="card" id="project-card" data-link={link}>
+<div class="card" onclick={`window.location.href = ${JSON.stringify(link)}`}>
   <div class="column-container">
     <div class="title-row">
       <h3 class="text-item-title">{name}</h3>
@@ -26,22 +26,6 @@ const { name, description, link, tags } = Astro.props;
   </div>
 </div>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    setupCardClick();
-  });
-  function setupCardClick() {
-    const card = document.getElementById("project-card");
-    if (card) {
-      const link = card.dataset.link;
-      card.style.cursor = "pointer";
-      card.addEventListener("click", () => {
-        console.log("Navigating to:", link);
-        window.open(link, "_self");
-      });
-    }
-  }
-</script>
 
 <style>
   @import "../styles/typography.css";
