@@ -1,7 +1,4 @@
 ---
-import BaseCard from "./BaseCard.astro";
-import ColumnContainer from "./ColumnContainer.astro";
-import ItemTitleLink from "./ItemTitleLink.astro";
 import TagRow from "./TagRow.astro";
 
 export interface Props {
@@ -14,23 +11,73 @@ export interface Props {
 const { name, description, link, tags } = Astro.props;
 ---
 
-<BaseCard border="thread" padding="md">
-  <ColumnContainer gap="sm">
+<div class="card" id="project-card" data-link={link}>
+  <div class="column-container">
     <div class="title-row">
-      <ItemTitleLink title={name} link={link} />
-      <TagRow tags={tags} />
+      <h3 class="text-item-title">{name}</h3>
+      <div class="hide-on-mobile">
+        <TagRow tags={tags} />
+      </div>
     </div>
     <h4 class="text-item-subtitle">{description}</h4>
-  </ColumnContainer>
-</BaseCard>
+    <div class="hide-on-desktop">
+      <TagRow tags={tags} />
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    setupCardClick();
+  });
+  function setupCardClick() {
+    const card = document.getElementById("project-card");
+    if (card) {
+      const link = card.dataset.link;
+      card.style.cursor = "pointer";
+      card.addEventListener("click", () => {
+        console.log("Navigating to:", link);
+        window.open(link, "_self");
+      });
+    }
+  }
+</script>
 
 <style>
-  @import "../styles/components.css";
   @import "../styles/typography.css";
   @import "../styles/effect.css";
+  @import "../styles/layout.css";
+  @import "../styles/spacing.css";
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-thread);
+    border-radius: var(--corner-md);
+    padding: var(--gap-md);
+    cursor: pointer;
+  }
+
+  .card:hover {
+    background-color: var(--color-surface);
+  }
+
+  .column-container {
+    gap: var(--gap-md);
+  }
 
   .title-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+
+  @media screen and (max-width: 768px) {
+    .title-row {
+      display: flex;
+    }
+
+    .hide-on-desktop {
+      display: flex;
+    }
   }
 </style>

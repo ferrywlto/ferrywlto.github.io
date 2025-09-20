@@ -1,4 +1,3 @@
-
 /* Only apply hover effects on devices that support hover (not touch devices) */
 @media (hover: hover) {
   .surface-background-hover:hover {
@@ -27,7 +26,7 @@
     transition: border-color 0.3s ease;
   }
 
-  .hover-text-primary:hover{
+  .hover-text-primary:hover {
     color: var(--color-primary);
     transition: color 0.3s ease;
   }

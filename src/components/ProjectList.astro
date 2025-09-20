@@ -17,7 +17,7 @@ export interface Props {
 const { projects } = Astro.props;
 ---
 
-<ColumnContainer gap="sm">
+<ColumnContainer gap="md">
   {
     projects.map(({ name, description, link, tags }) => (
       <ProjectListItem name={name} description={description} link={link} tags={tags} />

@@ -1,0 +1,30 @@
+.column-container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.row-to-column-on-mobile {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+
+.hide-on-desktop {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .row-to-column-on-mobile {
+    flex-direction: column;
+    text-align: flex-start;
+  }
+
+  .hide-on-mobile {
+    display: none;
+  }
+
+  .hide-on-desktop {
+    display: unset;
+  }
+}
