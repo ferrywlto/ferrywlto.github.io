@@ -13,13 +13,13 @@ export interface Props {
 const { title, date, subtitle, link } = Astro.props;
 ---
 
-<div class="post-list-item surface-background-hover">
+<div class="post-list-item surface-background-hover" onclick={`window.location.href = ${JSON.stringify(link)}`}>
   <ColumnContainer gap="sm">
     <div class="title-row">
       <ItemDateLabel date={date} />
       <ItemTitleLink title={title} link={link} />
     </div>
-    <h4 class="text-item-subtitle">{subtitle}</h4>
+    <h4 class="text-item-subtitle hide-on-mobile">{subtitle}</h4>
   </ColumnContainer>
 </div>
 
@@ -27,6 +27,7 @@ const { title, date, subtitle, link } = Astro.props;
   @import "../styles/typography.css";
   @import "../styles/spacing.css";
   @import "../styles/effect.css";
+  @import "../styles/layout.css";
 
   .post-list-item {
     padding: var(--gap-sm) 0;
@@ -37,5 +38,13 @@ const { title, date, subtitle, link } = Astro.props;
     width: 100%;
     align-items: center;
     gap: var(--gap-md);
+  }
+
+  @media screen and (max-width: 768px) {
+    .title-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--gap-sm);
+    }
   }
 </style>

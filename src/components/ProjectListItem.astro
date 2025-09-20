@@ -1,4 +1,5 @@
 ---
+import ItemTitleLink from "./ItemTitleLink.astro";
 import TagRow from "./TagRow.astro";
 
 export interface Props {
@@ -14,7 +15,7 @@ const { name, description, link, tags } = Astro.props;
 <div class="card" onclick={`window.location.href = ${JSON.stringify(link)}`}>
   <div class="column-container">
     <div class="title-row">
-      <h3 class="text-item-title">{name}</h3>
+      <ItemTitleLink title={name} link={link} />
       <div class="hide-on-mobile">
         <TagRow tags={tags} />
       </div>

@@ -6,9 +6,9 @@ import SectionContainer from "../components/SectionContainer.astro";
 
 import Divider from "../components/Divider.astro";
 import HeroCard from "../components/HeroCard.astro";
-import MainLayout from "../layouts/MainLayout.astro";
 import ColumnContainer from "../components/ColumnContainer.astro";
 import WidthConstrainedContainer from "../components/WidthConstrainedContainer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 const posts = [
   {
     title: "Understanding Async/Await in JavaScript",
@@ -85,12 +85,12 @@ const projects = [
 ];
 ---
 
-<div class="main-content">
-  <ColumnContainer gap="lg">
-    <HeroCard />
-    <Divider />
+<BaseLayout>
+  <WidthConstrainedContainer>
+    <ColumnContainer gap="lg">
+      <HeroCard />
+      <Divider />
 
-    <WidthConstrainedContainer>
       <div class="content-container">
         <ColumnContainer gap="xl">
           <SectionContainer
@@ -118,21 +118,11 @@ const projects = [
           </SectionContainer>
         </ColumnContainer>
       </div>
-    </WidthConstrainedContainer>
-  </ColumnContainer>
-</div>
+    </ColumnContainer>
+  </WidthConstrainedContainer>
+</BaseLayout>
 <style>
-  @import "../styles/components.css";
   @import "../styles/spacing.css";
-
-  .main-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: var(--gap-xl);
-    margin-bottom: var(--gap-xl);
-    padding: var(--gap-xl) 0;
-  }
 
   .content-container {
     padding: var(--gap-lg);

@@ -10,7 +10,6 @@
   --corner-lg: 0.75rem;
 }
 
-
 @media screen and (max-width: 768px) {
   :root {
     --gap-xs: 0.25rem;
