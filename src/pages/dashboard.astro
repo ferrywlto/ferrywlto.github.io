@@ -7,7 +7,6 @@ import SectionContainer from "../components/SectionContainer.astro";
 import Divider from "../components/Divider.astro";
 import HeroCard from "../components/HeroCard.astro";
 import ColumnContainer from "../components/ColumnContainer.astro";
-import WidthConstrainedContainer from "../components/WidthConstrainedContainer.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 const posts = [
   {
@@ -86,7 +85,7 @@ const projects = [
 ---
 
 <BaseLayout>
-  <WidthConstrainedContainer>
+  <div class="width-constrained-container">
     <ColumnContainer gap="lg">
       <HeroCard />
       <Divider />
@@ -119,10 +118,11 @@ const projects = [
         </ColumnContainer>
       </div>
     </ColumnContainer>
-  </WidthConstrainedContainer>
+  </div>
 </BaseLayout>
 <style>
   @import "../styles/spacing.css";
+  @import "../styles/layout.css";
 
   .content-container {
     padding: var(--gap-lg);

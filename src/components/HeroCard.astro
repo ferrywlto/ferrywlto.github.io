@@ -1,7 +1,6 @@
 ---
 import BaseButton from "./BaseButton.astro";
 import ColumnContainer from "./ColumnContainer.astro";
-import WidthConstrainedContainer from "./WidthConstrainedContainer.astro";
 import FerryAvatar from "../assets/photos/ferry-avatar-octocat_512.png";
 import { Image } from "astro:assets";
 
@@ -13,31 +12,40 @@ const body =
 ---
 
 <div class="wrapper">
-  <WidthConstrainedContainer>
-      <div class="hero-card">
-        <ColumnContainer gap="auto">
-
-          <div class="avatar-container-mobile">
-            <Image src={FerryAvatar} alt="Avatar of Ferry" class="avatar" loading="eager"/>
-          </div>
-
-          <h1 class="text-hero-title hide-on-mobile">{headingDesktop}</h1>
-          <h1 class="text-hero-title hide-on-desktop">{headingMobile}</h1>
-          <p class="text-body" set:html={body} />
-          <BaseButton href="/about" text={ctaLabel} />
-        </ColumnContainer>
-
-        <div class="avatar-container-desktop">
-          <Image src={FerryAvatar} alt="Avatar of Ferry" class="avatar" loading="eager"/>
-        </div>
+  <div class="hero-card width-constrained-container">
+    <ColumnContainer gap="auto">
+      <div class="avatar-container-mobile">
+        <Image
+          src={FerryAvatar}
+          alt="Avatar of Ferry"
+          class="avatar"
+          loading="eager"
+        />
       </div>
-  </WidthConstrainedContainer>
+
+      <h1 class="text-hero-title hide-on-mobile">{headingDesktop}</h1>
+      <h1 class="text-hero-title hide-on-desktop">{headingMobile}</h1>
+      <p class="text-body" set:html={body} />
+      <BaseButton href="/about" text={ctaLabel} />
+    </ColumnContainer>
+
+    <div class="avatar-container-desktop">
+      <Image
+        src={FerryAvatar}
+        alt="Avatar of Ferry"
+        class="avatar"
+        loading="eager"
+      />
+    </div>
+  </div>
 </div>
 
 <style>
   @import "../styles/typography.css";
   @import "../styles/spacing.css";
   @import "../styles/effect.css";
+  @import "../styles/layout.css";
+
   .wrapper {
     margin-bottom: var(--gap-lg);
   }
@@ -71,7 +79,6 @@ const body =
   }
 
   @media screen and (max-width: 1024px) {
-
     .hero-card {
       border: 0;
       background-color: transparent;
