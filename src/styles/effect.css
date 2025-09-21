@@ -37,3 +37,17 @@
     transition: border-color 0.3s ease, color 0.3s ease;
   }
 }
+
+.hide-on-desktop {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .hide-on-mobile {
+    display: none;
+  }
+
+  .hide-on-desktop {
+    display: unset;
+  }
+}

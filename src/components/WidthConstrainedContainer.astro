@@ -2,7 +2,7 @@
 export interface Props {
   width?: string;
 }
-const { width = "880px" } = Astro.props;
+const { width = "var(--content-width)" } = Astro.props;
 
 const style = `
   max-width: ${width};
@@ -18,7 +18,8 @@ const style = `
     width: 100%;
     box-sizing: border-box;
   }
-  @media screen and (max-width: 768px) {
+
+  @media screen and (max-width: 1024px) {
     .width-constrained-container {
       max-width: unset;
     }

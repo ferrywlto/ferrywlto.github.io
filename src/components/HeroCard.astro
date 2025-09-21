@@ -6,7 +6,8 @@ import FerryAvatar from "../assets/photos/ferry-avatar-octocat_512.png";
 import { Image } from "astro:assets";
 
 const ctaLabel = "About Me 🙋🏻 &#8594;";
-const heading = "Hello Visitor. I'm Ferry.";
+const headingDesktop = "Hello Visitor. I'm Ferry.";
+const headingMobile = "Hello. I'm Ferry.";
 const body =
   "I am a Software Engineer. Writing code for almost two decades. I do SaaS product development, WhatsApp integration, and technical consultancy. Recently, I also do vibe coding cleaning.";
 ---
@@ -20,7 +21,8 @@ const body =
             <Image src={FerryAvatar} alt="Avatar of Ferry" class="avatar" loading="eager"/>
           </div>
 
-          <h1 class="text-hero-title">{heading}</h1>
+          <h1 class="text-hero-title hide-on-mobile">{headingDesktop}</h1>
+          <h1 class="text-hero-title hide-on-desktop">{headingMobile}</h1>
           <p class="text-body" set:html={body} />
           <BaseButton href="/about" text={ctaLabel} />
         </ColumnContainer>
@@ -35,7 +37,7 @@ const body =
 <style>
   @import "../styles/typography.css";
   @import "../styles/spacing.css";
-
+  @import "../styles/effect.css";
   .wrapper {
     margin-bottom: var(--gap-lg);
   }
@@ -68,7 +70,7 @@ const body =
     aspect-ratio: 1;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
 
     .hero-card {
       border: 0;

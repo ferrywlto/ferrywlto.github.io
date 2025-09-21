@@ -10,25 +10,18 @@
   box-sizing: border-box;
 }
 
-.hide-on-desktop {
-  display: none;
+.width-constrained-container {
+  width: 100%;
+  box-sizing: border-box;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .row-to-column-on-mobile {
     flex-direction: column;
     text-align: flex-start;
   }
 
-  .hide-on-mobile {
-    display: none;
+  .width-constrained-container {
+    max-width: 100% !important;
   }
-
-  .hide-on-desktop {
-    display: unset;
-  }
-}
-
-html {
-  min-width: 430px;
 }

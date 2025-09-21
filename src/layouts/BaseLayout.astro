@@ -21,10 +21,19 @@ const { title, description } = Astro.props;
 <style>
   main {
     display: flex;
+    width: 100%;
     align-items: center;
     justify-content: center;
     margin-top: var(--gap-xl);
     margin-bottom: var(--gap-xl);
     padding: var(--gap-xl) 0;
+  }
+
+  @media screen and (max-width: 1024px) {
+    main {
+      margin-top: var(--gap-lg);
+      margin-bottom: var(--gap-lg);
+      padding: var(--gap-lg) 0;
+    }
   }
 </style>
