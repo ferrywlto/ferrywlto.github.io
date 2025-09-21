@@ -1,3 +1,5 @@
+@import './spacing.css';
+
 .column-container {
   display: flex;
   flex-direction: column;
@@ -13,6 +15,7 @@
 .width-constrained-container {
   width: 100%;
   box-sizing: border-box;
+  max-width: var(--content-width);
 }
 
 @media screen and (max-width: 1024px) {

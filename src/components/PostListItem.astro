@@ -1,5 +1,4 @@
 ---
-import ColumnContainer from "./ColumnContainer.astro";
 import ItemDateLabel from "./ItemDateLabel.astro";
 import ItemTitleLink from "./ItemTitleLink.astro";
 
@@ -13,14 +12,12 @@ export interface Props {
 const { title, date, subtitle, link } = Astro.props;
 ---
 
-<div class="post-list-item surface-background-hover" onclick={`window.location.href = ${JSON.stringify(link)}`}>
-  <ColumnContainer gap="sm">
-    <div class="title-row">
-      <ItemDateLabel date={date} />
-      <ItemTitleLink title={title} link={link} />
-    </div>
-    <h4 class="text-item-subtitle hide-on-mobile">{subtitle}</h4>
-  </ColumnContainer>
+<div class="surface-background-hover column-container" onclick={`window.location.href = ${JSON.stringify(link)}`}>
+  <div class="title-row">
+    <ItemDateLabel date={date} />
+    <ItemTitleLink title={title} link={link} />
+  </div>
+  <h4 class="text-item-subtitle hide-on-mobile">{subtitle}</h4>
 </div>
 
 <style>
@@ -29,8 +26,9 @@ const { title, date, subtitle, link } = Astro.props;
   @import "../styles/effect.css";
   @import "../styles/layout.css";
 
-  .post-list-item {
+  .column-container {
     padding: var(--gap-sm) 0;
+    gap: var(--gap-md);
   }
 
   .title-row {

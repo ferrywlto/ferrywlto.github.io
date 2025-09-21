@@ -6,8 +6,8 @@ import SectionContainer from "../components/SectionContainer.astro";
 
 import Divider from "../components/Divider.astro";
 import HeroCard from "../components/HeroCard.astro";
-import ColumnContainer from "../components/ColumnContainer.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+
 const posts = [
   {
     title: "Understanding Async/Await in JavaScript",
@@ -85,44 +85,46 @@ const projects = [
 ---
 
 <BaseLayout>
-  <div class="width-constrained-container">
-    <ColumnContainer gap="lg">
-      <HeroCard />
-      <Divider />
+  <div class="width-constrained-container column-container wrapper">
+    <HeroCard />
+    <Divider />
 
-      <div class="content-container">
-        <ColumnContainer gap="xl">
-          <SectionContainer
-            title="Tech Blog"
-            linkText="All posts"
-            link="./posts"
-          >
-            <PostList posts={posts} />
-          </SectionContainer>
+    <div class="content-container">
+      <div class="column-container content-list">
+        <SectionContainer title="Tech Blog" linkText="All posts" link="./posts">
+          <PostList posts={posts} />
+        </SectionContainer>
 
-          <SectionContainer title="Diary" linkText="Archive" link="./diary">
-            <PostList posts={diary} />
-          </SectionContainer>
+        <SectionContainer title="Diary" linkText="Archive" link="./diary">
+          <PostList posts={diary} />
+        </SectionContainer>
 
-          <SectionContainer title="Quotes" linkText="Archive" link="./quotes">
-            <QuoteList quotes={quotes} />
-          </SectionContainer>
+        <SectionContainer title="Quotes" linkText="Archive" link="./quotes">
+          <QuoteList quotes={quotes} />
+        </SectionContainer>
 
-          <SectionContainer
-            title="Projects"
-            linkText="All projects"
-            link="./projects"
-          >
-            <ProjectList projects={projects} />
-          </SectionContainer>
-        </ColumnContainer>
+        <SectionContainer
+          title="Projects"
+          linkText="All projects"
+          link="./projects"
+        >
+          <ProjectList projects={projects} />
+        </SectionContainer>
       </div>
-    </ColumnContainer>
+    </div>
   </div>
 </BaseLayout>
 <style>
   @import "../styles/spacing.css";
   @import "../styles/layout.css";
+
+  .wrapper {
+    gap: var(--gap-lg);
+  }
+
+  .content-list {
+    gap: var(--gap-xl);
+  }
 
   .content-container {
     padding: var(--gap-lg);

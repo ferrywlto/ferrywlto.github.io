@@ -1,5 +1,4 @@
 ---
-import ColumnContainer from './ColumnContainer.astro';
 import Divider from './Divider.astro';
 import PostListItem from './PostListItem.astro';
 
@@ -17,7 +16,7 @@ export interface Props {
 const { posts } = Astro.props;
 ---
 
-<ColumnContainer>
+<div class="column-container">
   {posts.map((post, idx) => {
     const isLast = idx === posts.length - 1;
     return (
@@ -27,4 +26,11 @@ const { posts } = Astro.props;
     </>
   );
 })}
-</ColumnContainer>
+</div>
+
+<style>
+  @import "../styles/layout.css";
+  .column-container {
+    gap: var(--gap-md);
+  }
+</style>

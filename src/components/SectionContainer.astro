@@ -1,6 +1,4 @@
 ---
-import ColumnContainer from './ColumnContainer.astro';
-
 export interface Props {
   title: string;
   linkText: string;
@@ -9,7 +7,7 @@ export interface Props {
 const { title, linkText, link } = Astro.props;
 ---
 
-<ColumnContainer gap="sm">
+<div class="column-container">
   <div class="section-header">
     <div class="section-header-title">
       <h2 class="text-section-title">{title}</h2>
@@ -21,11 +19,15 @@ const { title, linkText, link } = Astro.props;
     </div>
   </div>
   <slot />
-</ColumnContainer>
+</div>
 
 <style>
   @import "../styles/typography.css";
   @import "../styles/spacing.css";
+  @import "../styles/layout.css";
+  .column-container {
+    gap: var(--gap-md);
+  }
 
   .section-header {
     display: grid;

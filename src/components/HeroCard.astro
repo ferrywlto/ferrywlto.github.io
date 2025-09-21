@@ -1,6 +1,5 @@
 ---
 import BaseButton from "./BaseButton.astro";
-import ColumnContainer from "./ColumnContainer.astro";
 import FerryAvatar from "../assets/photos/ferry-avatar-octocat_512.png";
 import { Image } from "astro:assets";
 
@@ -13,7 +12,7 @@ const body =
 
 <div class="wrapper">
   <div class="hero-card width-constrained-container">
-    <ColumnContainer gap="auto">
+    <div class="column-container">
       <div class="avatar-container-mobile">
         <Image
           src={FerryAvatar}
@@ -27,7 +26,7 @@ const body =
       <h1 class="text-hero-title hide-on-desktop">{headingMobile}</h1>
       <p class="text-body" set:html={body} />
       <BaseButton href="/about" text={ctaLabel} />
-    </ColumnContainer>
+    </div>
 
     <div class="avatar-container-desktop">
       <Image
@@ -48,6 +47,10 @@ const body =
 
   .wrapper {
     margin-bottom: var(--gap-lg);
+  }
+
+  .column-container {
+    justify-content: space-between;
   }
 
   .hero-card {
