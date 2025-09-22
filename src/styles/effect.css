@@ -38,23 +38,18 @@
   }
 
   .nav-control:hover {
-    box-shadow: 0 0 0 1px var(--color-shadow);
-    background-color: var(--color-surface);
+    box-shadow: 0 0 0 1px var(--color-thread);
     transition: all 0.3s ease;
   }
 }
 
 .hide-on-desktop {
-  display: none;
+  display: none !important;
 }
 
 @media screen and (max-width: 1024px) {
   .hide-on-mobile {
-    display: none;
-  }
-
-  .hide-on-desktop {
-    display: unset;
+    display: none !important;
   }
 }
 

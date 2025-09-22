@@ -24,7 +24,7 @@ import GitHubLogo from '../assets/logos/github.svg';
       </div>
       <div class="controls">
         <div class="theme-toggle nav-control">
-          🌙
+          🌚
         </div>
       </div>
 		</div>
@@ -44,12 +44,12 @@ import GitHubLogo from '../assets/logos/github.svg';
 		position: sticky;
 		top: 0;
     width: 100%;
-    height: 5vh;
+    min-height: 4rem;
+    height: 4rem;
     max-height: 4rem;
-		z-index: var(--z-sticky);
-    padding: var(--gap-lg);
-		background: var(--color-bg);
+		background: var(--color-surface);
     border-bottom: var(--elevation-border);
+    margin: auto;
 	}
 
 	.nav-grid {
@@ -70,14 +70,12 @@ import GitHubLogo from '../assets/logos/github.svg';
     justify-content: flex-end;
     align-items: center;
     gap: var(--gap-lg);
-    padding: 0 var(--gap-lg);
   }
 
   .controls {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: var(--gap-md);
   }
 
   .theme-toggle {
