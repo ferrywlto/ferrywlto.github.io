@@ -5,7 +5,7 @@
   --color-text-subtitle: color-mix(in srgb, var(--color-body) 75%, var(--color-bg) 25%);
   --color-text-meta: color-mix(in srgb, var(--color-body) 50%, var(--color-bg) 50%);
   --color-thread: color-mix(in srgb, var(--color-primary) 50%, var(--color-bg) 50%);
-
+  --color-shadow: color-mix(in srgb, var(--color-primary) 25%, var(--color-bg) 75%);
   --color-button-hover-text: var(--color-bg);
 }
 
@@ -42,4 +42,8 @@
     --color-danger: #ffacae;
     --color-warning: #FFD700;
     --color-info: #53d5fd;
+}
+
+html {
+  background-color: var(--color-bg);
 }

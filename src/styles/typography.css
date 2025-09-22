@@ -127,7 +127,9 @@ a {
 }
 
 a:hover {
+  color: var(--color-primary);
   text-decoration: underline;
+  transform: color 0.3s ease;
 }
 
 .truncated {

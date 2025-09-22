@@ -2,64 +2,97 @@
 import HeaderLink from './HeaderLink.astro';
 import Hamburger from './Hamburger.astro';
 import DrawerMenu from './DrawerMenu.astro';
+import Image from 'astro/components/Image.astro';
+import GitHubLogo from '../assets/logos/github.svg';
 ---
 
-<header class="texture-overlay flex-center" x-data="{ 
+<header x-data="{
 	open: false
 }">
-	<nav class="flex-center margin-auto">
+	<nav class="width-constrained-container">
 		<Hamburger />
-		<div class="nav-links flex-between padding-x-lg">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
-			<HeaderLink href="/blog">Blog</HeaderLink>
-			<HeaderLink href="/whispers">Whispers</HeaderLink>
-			<HeaderLink href="/tags">Tags</HeaderLink>
-			<HeaderLink href="/blog" class="hidden">Whispers</HeaderLink>
-			<HeaderLink href="/projects" class="hidden">Projects</HeaderLink>
+		<div class="hide-on-mobile nav-grid">
+      <div class="home-link">
+        <HeaderLink href="/">🌐 ferrywl.to</HeaderLink>
+      </div>
+      <div class="nav-links">
+        <HeaderLink href="/blog">📝 Blog</HeaderLink>
+        <HeaderLink href="/blog" class="hidden">📓 Diary</HeaderLink>
+        <HeaderLink href="/whispers">💬 Quotes</HeaderLink>
+        <HeaderLink href="/projects" class="hidden">🚀 Projects</HeaderLink>
+        <HeaderLink href="/about">👨🏻‍💻 About</HeaderLink>
+      </div>
+      <div class="controls">
+        <div class="theme-toggle nav-control">
+          🌙
+        </div>
+      </div>
 		</div>
 	</nav>
 	<DrawerMenu />
 </header>
+
 <style>
-	header {		
+  @import "../styles/layout.css";
+  @import "../styles/effect.css";
+
+	header {
+    display: flex;
 		box-sizing: border-box;
-		background: var(--color-bg);
-		box-shadow: var(--shadow-header);
+    justify-content: center;
+    align-items: center;
 		position: sticky;
 		top: 0;
+    width: 100%;
+    height: 5vh;
+    max-height: 4rem;
 		z-index: var(--z-sticky);
-		height: var(--header-height);
-		max-height: var(--header-height);
-		overflow: hidden;
+    padding: var(--gap-lg);
+		background: var(--color-bg);
+    border-bottom: var(--elevation-border);
 	}
 
-	nav {
-		position: relative;
-		z-index: 1;
+	.nav-grid {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: var(--gap-lg);
+    align-items: center;
 		width: 100%;
 	}
 
-	.nav-links {
-		width: 100%;
-		max-width: 720px;
-	}
+ .home-link {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--gap-lg);
+    padding: 0 var(--gap-lg);
+  }
+
+  .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-md);
+  }
+
+  .theme-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1;
+    cursor: pointer;
+
+    box-sizing: border-box;
+    border-radius: var(--corner-md);
+    padding: var(--gap-xs) var(--gap-sm);
+  }
 
 	/* Mobile-first: Hide nav-links on small screens */
-	@media (max-width: 768px) {
-		header {
-			box-sizing: border-box;
-			height: var(--header-height);
-			max-height: var(--header-height);
-			overflow: hidden;
-		}
-		
-		nav {
-			justify-content: start;
-		}
-
-		.nav-links {
-			display: none;
-		}
+	@media (max-width: 1024px) {
 	}
 </style>
