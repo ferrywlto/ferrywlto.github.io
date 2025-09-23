@@ -21,9 +21,9 @@ import ThemeToggle from './ThemeToggle.astro';
       </div>
       <div class="nav-links">
         <HeaderLink href="/blog">📝 Blog</HeaderLink>
-        <HeaderLink href="/blog" class="hidden">📓 Diary</HeaderLink>
+        <HeaderLink href="/blog">📓 Diary</HeaderLink>
         <HeaderLink href="/whispers">💬 Quotes</HeaderLink>
-        <HeaderLink href="/projects" class="hidden">🚀 Projects</HeaderLink>
+        <HeaderLink href="/projects">🚀 Projects</HeaderLink>
         <HeaderLink href="/about">👨🏻‍💻 About</HeaderLink>
       </div>
       <div class="controls">
@@ -86,40 +86,83 @@ import ThemeToggle from './ThemeToggle.astro';
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const themeToggle = document.getElementById('theme-toggle');
-
-    if (!themeToggle) return;
+  // Header component with global theme management
+  function initGlobalTheme() {
+    console.log('Initializing global theme system...');
 
     // Get current theme from localStorage or default to light
     function getCurrentTheme(): string {
-      return localStorage.getItem('theme') || 'light';
+      const theme = localStorage.getItem('theme') || 'light';
+      console.log('Current theme:', theme);
+      return theme;
     }
 
     // Set theme on document
     function setTheme(theme: string): void {
+      console.log('Setting theme to:', theme);
       document.documentElement.setAttribute('data-theme', theme);
       localStorage.setItem('theme', theme);
-      updateToggleIcon(theme);
+      updateAllToggleIcons(theme);
+      console.log('Theme set successfully');
     }
 
-    // Update toggle icon and tooltip based on theme
-    function updateToggleIcon(theme: string): void {
-      if (themeToggle) {
-        themeToggle.textContent = theme === 'dark' ? '🌞' : '🌚';
-        themeToggle.title = theme === 'dark' ? 'Click to switch to light theme' : 'Click to switch to dark theme';
-      }
+    // Update all toggle icons and tooltips based on theme
+    function updateAllToggleIcons(theme: string): void {
+      const toggles = document.querySelectorAll('.theme-toggle');
+      toggles.forEach((toggle: Element) => {
+        if(toggle instanceof HTMLElement) {
+          // Ensure the toggle is an HTMLElement to access dataset
+          toggle.textContent = theme === 'dark' ? '🌞' : '🌚';
+          toggle.title = theme === 'dark' ? 'Click to switch to light theme' : 'Click to switch to dark theme';
+        }
+        console.log(`Updated ${toggles.length} toggle icons for theme:`, theme);
+      });
     }
 
     // Initialize theme on page load
     const currentTheme = getCurrentTheme();
     setTheme(currentTheme);
 
-    // Toggle theme on click
-    themeToggle.addEventListener('click', function() {
-      const currentTheme = getCurrentTheme();
-      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      setTheme(newTheme);
+    // Add click listeners to all theme toggles
+    function attachToggleListeners() {
+      const toggles = document.querySelectorAll('.theme-toggle');
+      toggles.forEach((toggle: Element) => {
+        if(toggle instanceof HTMLElement) {
+          // Ensure the toggle is an HTMLElement to access dataset
+          if (!toggle.dataset.listenerAttached) {
+            toggle.addEventListener('click', function() {
+              const currentTheme = getCurrentTheme();
+              const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+              console.log(`Theme toggle clicked: from ${currentTheme} to ${newTheme}`);
+              setTheme(newTheme);
+            });
+            toggle.dataset.listenerAttached = 'true';
+          }
+        }
+      });
+      console.log(`Attached listeners to ${toggles.length} theme toggles`);
+    }
+
+    // Initial listener attachment
+    attachToggleListeners();
+
+    // Re-attach listeners when new toggles are added
+    const observer = new MutationObserver(() => {
+      attachToggleListeners();
     });
-  });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    console.log('Global theme system initialized successfully');
+  }
+
+  // Initialize theme system
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initGlobalTheme);
+  } else {
+    initGlobalTheme();
+  }
+
+  // Fallback initialization
+  window.addEventListener('load', initGlobalTheme);
 </script>
