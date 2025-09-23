@@ -29,7 +29,7 @@
 }
 
 /* Dark Theme Colors */
-[data-theme="dark"] {
+:root[data-theme="dark"] {
     --color-bg: #242424;
     --color-surface: #4D4D4D;
     --color-body: #E4E4E4;

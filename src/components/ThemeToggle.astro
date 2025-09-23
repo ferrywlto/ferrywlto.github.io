@@ -1,0 +1,66 @@
+---
+export interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div class={`theme-toggle nav-control ${className || ''}`} id="theme-toggle" title="Click to toggle light/dark theme">
+  🌚
+</div>
+
+<style>
+  @import "../styles/theme.css";
+  @import "../styles/effect.css";
+
+  .theme-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: var(--corner-md);
+    padding: var(--gap-xs) var(--gap-sm);
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.getElementById('theme-toggle');
+
+    if (!themeToggle) return;
+
+    // Get current theme from localStorage or default to light
+    function getCurrentTheme(): string {
+      return localStorage.getItem('theme') || 'light';
+    }
+
+    // Set theme on document
+    function setTheme(theme: string): void {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      updateToggleIcon(theme);
+    }
+
+    // Update toggle icon and tooltip based on theme
+    function updateToggleIcon(theme: string): void {
+      if (themeToggle) {
+        themeToggle.textContent = theme === 'dark' ? '🌞' : '🌚';
+        themeToggle.title = theme === 'dark' ? 'Click to switch to light theme' : 'Click to switch to dark theme';
+      }
+    }
+
+    // Initialize theme on page load
+    const currentTheme = getCurrentTheme();
+    setTheme(currentTheme);
+
+    // Toggle theme on click
+    themeToggle.addEventListener('click', function() {
+      const currentTheme = getCurrentTheme();
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      setTheme(newTheme);
+    });
+  });
+</script>

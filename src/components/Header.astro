@@ -23,7 +23,7 @@ import GitHubLogo from '../assets/logos/github.svg';
         <HeaderLink href="/about">👨🏻‍💻 About</HeaderLink>
       </div>
       <div class="controls">
-        <div class="theme-toggle nav-control">
+        <div class="theme-toggle nav-control" id="theme-toggle" title="Click to toggle light/dark theme">
           🌚
         </div>
       </div>
@@ -94,3 +94,42 @@ import GitHubLogo from '../assets/logos/github.svg';
 	@media (max-width: 1024px) {
 	}
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.getElementById('theme-toggle');
+
+    if (!themeToggle) return;
+
+    // Get current theme from localStorage or default to light
+    function getCurrentTheme(): string {
+      return localStorage.getItem('theme') || 'light';
+    }
+
+    // Set theme on document
+    function setTheme(theme: string): void {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      updateToggleIcon(theme);
+    }
+
+    // Update toggle icon and tooltip based on theme
+    function updateToggleIcon(theme: string): void {
+      if (themeToggle) {
+        themeToggle.textContent = theme === 'dark' ? '🌞' : '🌚';
+        themeToggle.title = theme === 'dark' ? 'Click to switch to light theme' : 'Click to switch to dark theme';
+      }
+    }
+
+    // Initialize theme on page load
+    const currentTheme = getCurrentTheme();
+    setTheme(currentTheme);
+
+    // Toggle theme on click
+    themeToggle.addEventListener('click', function() {
+      const currentTheme = getCurrentTheme();
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      setTheme(newTheme);
+    });
+  });
+</script>
