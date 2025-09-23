@@ -6,7 +6,12 @@ import ThemeToggle from './ThemeToggle.astro';
 ---
 
 <header x-data="{
-	open: false
+	open: false,
+	toggle() {
+		console.log('Toggle called, current open:', this.open);
+		this.open = !this.open;
+		console.log('New open state:', this.open);
+	}
 }">
 	<nav class="width-constrained-container">
 		<Hamburger />

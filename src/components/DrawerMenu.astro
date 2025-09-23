@@ -1,77 +1,41 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
+import CloseButton from "./CloseButton.astro";
 ---
 
 <div
-  class="drawer-overlay"
+  class="drawer-overlay hide-on-desktop"
   x-show="open"
   x-transition.opacity.duration.300ms
   x-on:click="open = false"
+  x-effect="console.log('Drawer overlay - open state:', open)"
 >
 </div>
 <div
   class="drawer"
   x-show="open"
-  x-transition:enter="drawer-enter"
-  x-transition:enter-start="drawer-enter-start"
-  x-transition:enter-end="drawer-enter-end"
-  x-transition:leave="drawer-leave"
-  x-transition:leave-start="drawer-leave-start"
-  x-transition:leave-end="drawer-leave-end"
+  x-transition:enter="transition ease-out duration-300"
+  x-transition:enter-start="transform -translate-x-full"
+  x-transition:enter-end="transform translate-x-0"
+  x-transition:leave="transition ease-in duration-300"
+  x-transition:leave-start="transform translate-x-0"
+  x-transition:leave-end="transform -translate-x-full"
+  x-effect="console.log('Drawer menu - open state:', open)"
 >
-  <div class="drawer-header texture-overlay flex-between">
+  <div class="drawer-header">
     <h2>Menu</h2>
-    <button
-      class="close-btn btn-reset btn-interactive"
-      x-on:click="open = false"
-      aria-label="Close menu"
-    >
-      <svg
-        width="38"
-        height="38"
-        viewBox="0 0 38 38"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M28 10L10 28M10 10L28 28"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"></path>
-      </svg>
-    </button>
+    <CloseButton onClick="open = false" ariaLabel="Close menu" />
   </div>
   <nav class="drawer-nav">
-    <HeaderLink href="/">Home</HeaderLink>
-    <HeaderLink href="/about">About</HeaderLink>
-    <HeaderLink href="/whispers">Whispers</HeaderLink>
-    <HeaderLink href="/blog">Blog</HeaderLink>
-    <HeaderLink href="/tags">Tags</HeaderLink>
-    <HeaderLink href="/projects" class="hidden">Projects</HeaderLink>
+    <HeaderLink href="/blog">📝 Blog</HeaderLink>
+    <HeaderLink href="/blog">📓 Diary</HeaderLink>
+    <HeaderLink href="/whispers">💬 Quotes</HeaderLink>
+    <HeaderLink href="/projects">🚀 Projects</HeaderLink>
+    <HeaderLink href="/about">👨🏻‍💻 About</HeaderLink>
   </nav>
 </div>
 
 <style>
-  /* Alpine.js transition classes */
-  .drawer-enter {
-    transition: transform 0.3s ease-out;
-  }
-  .drawer-enter-start {
-    transform: translateX(-100%);
-  }
-  .drawer-enter-end {
-    transform: translateX(0);
-  }
-  .drawer-leave {
-    transition: transform 0.3s ease-in;
-  }
-  .drawer-leave-start {
-    transform: translateX(0);
-  }
-  .drawer-leave-end {
-    transform: translateX(-100%);
-  }
 
   .drawer-overlay {
     position: fixed;
@@ -139,13 +103,6 @@ import HeaderLink from "./HeaderLink.astro";
     color: var(--color-primary);
   }
 
-  .close-btn {
-    color: var(--color-primary);
-    transition: var(--transition-slow);
-    position: relative;
-    overflow: hidden;
-  }
-
   .drawer-nav {
     flex: 1;
     padding: 0;
@@ -196,12 +153,5 @@ import HeaderLink from "./HeaderLink.astro";
       0 0 0 1px color-mix(in srgb, var(--color-light) 20%, transparent);
     text-shadow: 0 1px 2px
       color-mix(in srgb, var(--color-body) 10%, transparent);
-  }
-  /* Hide drawer on desktop */
-  @media (min-width: 720px) {
-    .drawer,
-    .drawer-overlay {
-      display: none !important;
-    }
   }
 </style>
