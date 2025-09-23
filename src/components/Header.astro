@@ -2,8 +2,7 @@
 import HeaderLink from './HeaderLink.astro';
 import Hamburger from './Hamburger.astro';
 import DrawerMenu from './DrawerMenu.astro';
-import Image from 'astro/components/Image.astro';
-import GitHubLogo from '../assets/logos/github.svg';
+import ThemeToggle from './ThemeToggle.astro';
 ---
 
 <header x-data="{
@@ -23,9 +22,7 @@ import GitHubLogo from '../assets/logos/github.svg';
         <HeaderLink href="/about">👨🏻‍💻 About</HeaderLink>
       </div>
       <div class="controls">
-        <div class="theme-toggle nav-control" id="theme-toggle" title="Click to toggle light/dark theme">
-          🌚
-        </div>
+        <ThemeToggle />
       </div>
 		</div>
 	</nav>
@@ -76,18 +73,6 @@ import GitHubLogo from '../assets/logos/github.svg';
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  .theme-toggle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    aspect-ratio: 1;
-    cursor: pointer;
-
-    box-sizing: border-box;
-    border-radius: var(--corner-md);
-    padding: var(--gap-xs) var(--gap-sm);
   }
 
 	/* Mobile-first: Hide nav-links on small screens */

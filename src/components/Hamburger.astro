@@ -8,18 +8,6 @@
 >
   <span class="line"></span>
 </div>
-<script defer>
-  document.addEventListener("alpine:init", () => {
-    Alpine.data("menu", () => ({
-      open: false,
-    }));
-  });
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelector(".hamburger")?.addEventListener("click", () => {
-      document.querySelector(".nav-links")?.classList.toggle("expanded");
-    });
-  });
-</script>
 
 <style>
   @import "../styles/theme.css";
