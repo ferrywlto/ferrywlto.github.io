@@ -13,7 +13,7 @@ const body =
 <div class="wrapper">
   <div class="hero-card width-constrained-container">
     <div class="column-container">
-      <div class="avatar-container-mobile">
+      <div class="avatar-container-mobile hide-on-desktop">
         <Image
           src={FerryAvatar}
           alt="Avatar of Ferry"
@@ -24,11 +24,11 @@ const body =
 
       <h1 class="text-hero-title hide-on-mobile">{headingDesktop}</h1>
       <h1 class="text-hero-title hide-on-desktop">{headingMobile}</h1>
-      <p class="text-body" set:html={body} />
+      <span class="text-body" set:html={body} />
       <BaseButton href="/about" text={ctaLabel} />
     </div>
 
-    <div class="avatar-container-desktop">
+    <div class="avatar-container-desktop hide-on-mobile">
       <Image
         src={FerryAvatar}
         alt="Avatar of Ferry"
@@ -65,13 +65,11 @@ const body =
   .avatar-container-mobile {
     justify-content: center;
     align-items: flex-start;
-    display: none;
   }
 
   .avatar-container-desktop {
     justify-content: center;
     align-items: center;
-    display: flex;
   }
 
   .avatar {
@@ -84,15 +82,16 @@ const body =
   @media screen and (max-width: 1024px) {
     .hero-card {
       border: 0;
+      border-radius: 0;
       background-color: transparent;
+    }
+
+    .column-container {
+      gap: var(--gap-xl);
     }
 
     .avatar-container-mobile {
       display: flex;
-    }
-
-    .avatar-container-desktop {
-      display: none;
     }
 
     .avatar {

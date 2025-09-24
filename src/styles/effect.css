@@ -43,8 +43,10 @@
   }
 }
 
-.hide-on-desktop {
-  display: none !important;
+@media screen and (min-width: 1024px) {
+  .hide-on-desktop {
+    display: none !important;
+  }
 }
 
 @media screen and (max-width: 1024px) {
