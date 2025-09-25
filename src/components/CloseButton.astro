@@ -1,20 +1,20 @@
 ---
 export interface Props {
-  onClick?: string;
   ariaLabel?: string;
   class?: string;
 }
 
 const {
-  onClick = "open = false",
   ariaLabel = "Close menu",
   class: className = "",
 } = Astro.props;
+
 ---
 
 <div
+  x-data
   class={`close-btn ${className}`}
-  x-on:click={onClick}
+  x-on:click="$store.drawer = false"
   aria-label={ariaLabel}
   role="button"
 >

@@ -5,14 +5,7 @@ import DrawerMenu from './DrawerMenu.astro';
 import ThemeToggle from './ThemeToggle.astro';
 ---
 
-<header x-data="{
-	open: false,
-	toggle() {
-		console.log('Toggle called, current open:', this.open);
-		this.open = !this.open;
-		console.log('New open state:', this.open);
-	}
-}">
+<header>
 	<nav class="width-constrained-container">
 		<Hamburger />
 		<div class="hide-on-mobile nav-grid">

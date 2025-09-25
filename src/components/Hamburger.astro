@@ -1,14 +1,13 @@
 ---
 
 ---
-<div
+<div x-data
+  @click="$store.drawer = true"
   class="hide-on-desktop hamburger"
-  x-on:click="toggle()"
   aria-label="Toggle menu"
 >
   <span class="line"></span>
 </div>
-
 <style>
   @import "../styles/theme.css";
   @import "../styles/spacing.css";

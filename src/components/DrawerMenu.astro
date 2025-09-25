@@ -5,23 +5,26 @@ import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 <div
+  x-data
   class="drawer-overlay"
-  x-show="open"
-  x-on:click="open = false"
+  x-show="$store.drawer"
+  x-on:click="$store.drawer = false"
+  x-transition.duration.300ms
+  x-transition.opacity
 >
 </div>
 <div
+x-data
   class="drawer"
-  x-show="open"
+  x-show="$store.drawer"
 >
   <div class="drawer-header">
     <ThemeToggle />
-    <HeaderLink href="/">ferrywl.to</HeaderLink>
-    <!-- <h2 class="text-item-title">ferrywl.to</h2> -->
-    <CloseButton onClick="open = false" ariaLabel="Close menu" />
+    <h2 class="text-item-title">ferrywl.to</h2>
+    <CloseButton />
   </div>
   <nav class="drawer-nav">
-    <div class="nav-item"><HeaderLink href="/">🌐 Home</HeaderLink></div>
+    <div class="nav-item"><HeaderLink href="/">🏠 Home</HeaderLink></div>
     <div class="nav-item"><HeaderLink href="/blog">📝 Blog</HeaderLink></div>
     <div class="nav-item"><HeaderLink href="/blog">📓 Diary</HeaderLink></div>
     <div class="nav-item"><HeaderLink href="/whispers">💬 Quotes</HeaderLink></div>
@@ -29,7 +32,6 @@ import ThemeToggle from "./ThemeToggle.astro";
     <div class="nav-item"><HeaderLink href="/about">👨🏻‍💻 About</HeaderLink></div>
   </nav>
 </div>
-
 <style>
   @import "../styles/theme.css";
   @import "../styles/spacing.css";
@@ -63,25 +65,12 @@ import ThemeToggle from "./ThemeToggle.astro";
       animation: slideInFromLeft 0.3s ease-out;
     }
 
-    .drawer[x-show="false"] {
-      animation: slideOutToLeft 0.3s ease-in;
-    }
-
     @keyframes slideInFromLeft {
       from {
         transform: translateX(-100%);
       }
       to {
         transform: translateX(0);
-      }
-    }
-
-    @keyframes slideOutToLeft {
-      from {
-        transform: translateX(0);
-      }
-      to {
-        transform: translateX(-100%);
       }
     }
 
