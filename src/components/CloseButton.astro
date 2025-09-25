@@ -14,7 +14,7 @@ const {
 <div
   x-data
   class={`close-btn ${className}`}
-  x-on:click="$store.drawer = false"
+  x-on:click="$dispatch('close-button-clicked')"
   aria-label={ariaLabel}
   role="button"
 >

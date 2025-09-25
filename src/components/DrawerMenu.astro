@@ -4,21 +4,20 @@ import CloseButton from "./CloseButton.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 ---
 
-<div
-  x-data
-  class="drawer-overlay"
+<div x-data
   x-show="$store.drawer"
-  x-on:click="$store.drawer = false"
+  x-on:click="closeDrawer()"
   x-transition.duration.300ms
   x-transition.opacity
+  class="drawer-overlay"
 >
 </div>
-<div
-x-data
-  class="drawer"
+<div x-data
   x-show="$store.drawer"
+  class="drawer"
 >
-  <div class="drawer-header">
+  <div x-data
+  class="drawer-header" x-on:close-button-clicked="closeDrawer()">
     <ThemeToggle />
     <h2 class="text-item-title">ferrywl.to</h2>
     <CloseButton />
@@ -32,6 +31,24 @@ x-data
     <div class="nav-item"><HeaderLink href="/about">👨🏻‍💻 About</HeaderLink></div>
   </nav>
 </div>
+<script>
+import Alpine from "alpinejs";
+
+  //@ts-ignore
+  window.closeDrawer = function() {
+    console.log('Closing drawer', Alpine.store('drawer'));
+    const drawer = document.querySelector('.drawer');
+    if(drawer) {
+      drawer.classList.remove('drawer-open');
+      drawer.classList.add('drawer-close');
+      setTimeout(() => {
+        Alpine.store('drawer', false);
+        drawer.classList.remove('drawer-close');
+        drawer.classList.add('drawer-open');
+      }, 300);
+    }
+  }
+</script>
 <style>
   @import "../styles/theme.css";
   @import "../styles/spacing.css";
@@ -62,7 +79,24 @@ x-data
       z-index: 999;
       display: flex;
       flex-direction: column;
+      /* animation: slideInFromLeft 0.3s ease-out; */
+    }
+
+    .drawer-open {
       animation: slideInFromLeft 0.3s ease-out;
+    }
+
+    .drawer-close {
+      animation: slideOutToLeft 0.3s ease-in;
+    }
+
+    @keyframes slideOutToLeft {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-100%);
+      }
     }
 
     @keyframes slideInFromLeft {
