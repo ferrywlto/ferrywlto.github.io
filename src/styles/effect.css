@@ -53,6 +53,11 @@
   .hide-on-mobile {
     display: none !important;
   }
+
+  .nav-control:hover {
+    box-shadow: none;
+    transition: none;
+  }
 }
 
 :root {

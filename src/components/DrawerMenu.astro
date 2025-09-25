@@ -5,108 +5,136 @@ import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 <div
-  class="drawer-overlay hide-on-desktop"
+  class="drawer-overlay"
   x-show="open"
-  x-transition.opacity.duration.300ms
   x-on:click="open = false"
-  x-effect="console.log('Drawer overlay - open state:', open)"
 >
 </div>
 <div
   class="drawer"
   x-show="open"
-  x-transition:enter="transition ease-out duration-300"
-  x-transition:enter-start="transform -translate-x-full"
-  x-transition:enter-end="transform translate-x-0"
-  x-transition:leave="transition ease-in duration-300"
-  x-transition:leave-start="transform translate-x-0"
-  x-transition:leave-end="transform -translate-x-full"
-  x-effect="console.log('Drawer menu - open state:', open)"
 >
   <div class="drawer-header">
     <ThemeToggle />
+    <HeaderLink href="/">ferrywl.to</HeaderLink>
+    <!-- <h2 class="text-item-title">ferrywl.to</h2> -->
     <CloseButton onClick="open = false" ariaLabel="Close menu" />
   </div>
   <nav class="drawer-nav">
-    <HeaderLink href="/">🌐 Home</HeaderLink>
-    <HeaderLink href="/blog">📝 Blog</HeaderLink>
-    <HeaderLink href="/blog">📓 Diary</HeaderLink>
-    <HeaderLink href="/whispers">💬 Quotes</HeaderLink>
-    <HeaderLink href="/projects">🚀 Projects</HeaderLink>
-    <HeaderLink href="/about">👨🏻‍💻 About</HeaderLink>
+    <div class="nav-item"><HeaderLink href="/">🌐 Home</HeaderLink></div>
+    <div class="nav-item"><HeaderLink href="/blog">📝 Blog</HeaderLink></div>
+    <div class="nav-item"><HeaderLink href="/blog">📓 Diary</HeaderLink></div>
+    <div class="nav-item"><HeaderLink href="/whispers">💬 Quotes</HeaderLink></div>
+    <div class="nav-item"><HeaderLink href="/projects">🚀 Projects</HeaderLink></div>
+    <div class="nav-item"><HeaderLink href="/about">👨🏻‍💻 About</HeaderLink></div>
   </nav>
 </div>
 
 <style>
+  @import "../styles/theme.css";
+  @import "../styles/spacing.css";
+  @import "../styles/effect.css";
+  @import "../styles/typography.css";
 
-  .drawer-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: color-mix(in srgb, var(--color-body) 10%, transparent);
-    backdrop-filter: blur(8px) brightness(0.8);
-    -webkit-backdrop-filter: blur(8px) brightness(0.8);
-    z-index: 998;
-  }
+  @media screen and (max-width: 1024px) {
+    .drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: color-mix(in srgb, var(--color-shadow) 10%, transparent);
+      backdrop-filter: blur(8px) brightness(0.8);
+      -webkit-backdrop-filter: blur(8px) brightness(0.8);
+      z-index: 998;
+      cursor: pointer;
+    }
 
-  .drawer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: var(--drawer-width);
-    max-width: 70vw;
-    height: 100vh;
-    background: var(--color-surface);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    z-index: 999;
-    box-shadow:
-      4px 0 25px color-mix(in srgb, var(--color-body) 10%, transparent),
-      0 0 0 1px color-mix(in srgb, var(--color-light) 20%, transparent);
-    display: flex;
-    flex-direction: column;
-    z-index: 999;
-  }
+    .drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100vh;
+      background: var(--color-bg);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      animation: slideInFromLeft 0.3s ease-out;
+    }
 
-  .drawer-header {
-    display: flex;
-    padding: var(--gap-sm);
-    background: var(--color-surface);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: var(--shadow-drawer);
-    box-sizing: border-box;
-    height: var(--header-height);
-    min-height: var(--header-height);
-    max-height: var(--header-height);
-  }
+    .drawer[x-show="false"] {
+      animation: slideOutToLeft 0.3s ease-in;
+    }
 
-  .drawer-header::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--color-light) 10%, transparent) 0%,
-      color-mix(in srgb, var(--color-light) 5%, transparent) 100%
-    );
-    z-index: -1;
-    max-height: var(--header-height);
-  }
+    @keyframes slideInFromLeft {
+      from {
+        transform: translateX(-100%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
 
-  .drawer-nav {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: var(--gap-xl);
-    padding: var(--gap-lg);
-    box-sizing: border-box;
-    margin-top: var(--gap-md);
+    @keyframes slideOutToLeft {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
+
+    .close-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      cursor: pointer;
+      border-radius: var(--corner-sm);
+      background: transparent;
+      color: var(--color-text);
+      font-size: 1.2rem;
+      transition: background-color 0.2s ease;
+    }
+
+    .close-button:hover {
+      background: var(--color-hover);
+    }
+
+    .drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--color-surface);
+      padding: var(--gap-lg);
+      box-shadow: var(--shadow-drawer);
+      box-sizing: border-box;
+      height: 4rem;
+
+      border-bottom: 1px solid var(--color-shadow);
+    }
+
+    .drawer-nav {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      /* gap: var(--gap-xl); */
+
+      box-sizing: border-box;
+      background-color: var(--color-bg);
+    }
+
+    .nav-item {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      padding: var(--gap-lg);
+      box-sizing: border-box;
+      border-bottom: 1px solid var(--color-shadow);
+    }
   }
 </style>
