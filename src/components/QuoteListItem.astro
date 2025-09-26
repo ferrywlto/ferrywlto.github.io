@@ -18,8 +18,12 @@ const { author, text, link } = Astro.props;
   @import "../styles/effect.css";
 
   .container {
+    display: flex;
+    width: 100%;
     padding-left: var(--gap-md);
     border-left: var(--gap-xs) solid var(--color-primary);
     margin: 0 var(--gap-sm);
+    overflow: hidden;
+    box-sizing: border-box;
   }
 </style>
