@@ -81,22 +81,18 @@ import ThemeToggle from './ThemeToggle.astro';
 <script>
   // Header component with global theme management
   function initGlobalTheme() {
-    console.log('Initializing global theme system...');
 
     // Get current theme from localStorage or default to light
     function getCurrentTheme(): string {
       const theme = localStorage.getItem('theme') || 'light';
-      console.log('Current theme:', theme);
       return theme;
     }
 
     // Set theme on document
     function setTheme(theme: string): void {
-      console.log('Setting theme to:', theme);
       document.documentElement.setAttribute('data-theme', theme);
       localStorage.setItem('theme', theme);
       updateAllToggleIcons(theme);
-      console.log('Theme set successfully');
     }
 
     // Update all toggle icons and tooltips based on theme
@@ -108,7 +104,6 @@ import ThemeToggle from './ThemeToggle.astro';
           toggle.textContent = theme === 'dark' ? '🌞' : '🌚';
           toggle.title = theme === 'dark' ? 'Click to switch to light theme' : 'Click to switch to dark theme';
         }
-        console.log(`Updated ${toggles.length} toggle icons for theme:`, theme);
       });
     }
 
@@ -126,14 +121,12 @@ import ThemeToggle from './ThemeToggle.astro';
             toggle.addEventListener('click', function() {
               const currentTheme = getCurrentTheme();
               const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-              console.log(`Theme toggle clicked: from ${currentTheme} to ${newTheme}`);
               setTheme(newTheme);
             });
             toggle.dataset.listenerAttached = 'true';
           }
         }
       });
-      console.log(`Attached listeners to ${toggles.length} theme toggles`);
     }
 
     // Initial listener attachment
@@ -145,8 +138,6 @@ import ThemeToggle from './ThemeToggle.astro';
     });
 
     observer.observe(document.body, { childList: true, subtree: true });
-
-    console.log('Global theme system initialized successfully');
   }
 
   // Initialize theme system
