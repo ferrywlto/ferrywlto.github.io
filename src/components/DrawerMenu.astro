@@ -9,10 +9,12 @@ import ThemeToggle from "./ThemeToggle.astro";
   x-on:click="closeDrawer()"
   x-transition.duration.300ms
   x-transition.opacity
+  x-cloak
   class="drawer-overlay"
 >
 </div>
 <div x-data
+  x-cloak
   x-show="$store.drawer"
   class="drawer"
 >
@@ -38,12 +40,10 @@ import Alpine from "alpinejs";
   window.closeDrawer = function() {
     const drawer = document.querySelector('.drawer');
     if(drawer) {
-      drawer.classList.remove('drawer-open');
       drawer.classList.add('drawer-close');
       setTimeout(() => {
-        Alpine.store('drawer', false);
         drawer.classList.remove('drawer-close');
-        drawer.classList.add('drawer-open');
+        Alpine.store('drawer', false);
       }, 300);
     }
   }
@@ -53,6 +53,8 @@ import Alpine from "alpinejs";
   @import "../styles/spacing.css";
   @import "../styles/effect.css";
   @import "../styles/typography.css";
+
+  [x-cloak] { display: none !important; }
 
   @media screen and (max-width: 1024px) {
     .drawer-overlay {

@@ -2,12 +2,27 @@
 
 ---
 <div x-data
-  @click="$store.drawer = true"
+  @click="openDrawer()"
   class="hide-on-desktop hamburger"
   aria-label="Toggle menu"
 >
   <span class="line"></span>
 </div>
+<script>
+import Alpine from "alpinejs";
+
+  //@ts-ignore
+  window.openDrawer = function() {
+    const drawer = document.querySelector('.drawer');
+    if(drawer) {
+      drawer.classList.add('drawer-open');
+      Alpine.store('drawer', true);
+      setTimeout(() => {
+        drawer.classList.remove('drawer-open');
+      }, 300);
+    }
+  }
+</script>
 <style>
   @import "../styles/theme.css";
   @import "../styles/spacing.css";
