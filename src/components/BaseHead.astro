@@ -3,19 +3,20 @@
 // all pages through the use of the <BaseHead /> component.
 
 interface Props {
-	title: string;
-	description: string;
-	image?: string;
+  title: string;
+  description: string;
+  image?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
+const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
 
@@ -41,11 +42,96 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-<script>
-import Alpine from "alpinejs";
+<!-- Critical theme initialization - before any CSS -->
+<script is:inline>
+(function() {
+  const theme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', theme);
+})();
+</script>
 
-  document.addEventListener('alpine:init', () => {
+<script>
+  import Alpine from "alpinejs";
+
+  // Get current theme from localStorage or default to light
+  function getCurrentTheme(): string {
+    const theme = localStorage.getItem("theme") || "light";
+    return theme;
+  }
+
+  // Set theme on document
+  function setTheme(theme: string): void {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }
+
+  // Update all toggle icons and tooltips based on theme
+  function updateAllToggleIcons(theme: string): void {
+    const toggles = document.querySelectorAll(".theme-toggle");
+    toggles.forEach((toggle: Element) => {
+      if (toggle instanceof HTMLElement) {
+        // Ensure the toggle is an HTMLElement to access dataset
+        toggle.textContent = theme === "dark" ? "🌞" : "🌚";
+        toggle.title =
+          theme === "dark"
+            ? "Click to switch to light theme"
+            : "Click to switch to dark theme";
+      }
+    });
+  }
+
+  // Add click listeners to all theme toggles
+  function attachToggleListeners() {
+    const toggles = document.querySelectorAll(".theme-toggle");
+    toggles.forEach((toggle: Element) => {
+      if (toggle instanceof HTMLElement) {
+        // Ensure the toggle is an HTMLElement to access dataset
+        if (!toggle.dataset.listenerAttached) {
+          toggle.addEventListener("click", function () {
+            const currentTheme = getCurrentTheme();
+            const newTheme = currentTheme === "light" ? "dark" : "light";
+            setTheme(newTheme);
+            updateAllToggleIcons(newTheme);
+          });
+          toggle.dataset.listenerAttached = "true";
+        }
+      }
+    });
+  }
+
+  // Header component with global theme management
+  function initGlobalTheme() {
+    // Initialize theme on page load
+    const currentTheme = getCurrentTheme();
+    // setTheme(currentTheme);
+    updateAllToggleIcons(currentTheme);
+
+    // Initial listener attachment
+    attachToggleListeners();
+
+    // Re-attach listeners when new toggles are added
+    const observer = new MutationObserver(() => {
+      attachToggleListeners();
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
+
+  // Set theme data as early as possible
+  // setTheme(getCurrentTheme());
+
+  // Initialize theme system
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initGlobalTheme);
+  } else {
+    initGlobalTheme();
+  }
+
+  // Fallback initialization
+  window.addEventListener("load", initGlobalTheme);
+
+  document.addEventListener("alpine:init", () => {
     // Ensure Alpine is initialized
-    Alpine.store('drawer', false);
+    Alpine.store("drawer", false);
   });
 </script>
