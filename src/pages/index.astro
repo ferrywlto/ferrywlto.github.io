@@ -1,64 +1,132 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import { getImage } from 'astro:assets';
-import BackgroundImage from "../assets/photos/ferry_next_to_newton_tree.jpg"
-const optmizedBackgroundImage = await getImage({ src: BackgroundImage })
+import PostList from "../components/PostList.astro";
+import ProjectList from "../components/ProjectList.astro";
+import QuoteList from "../components/QuoteList.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+
+import Divider from "../components/Divider.astro";
+import HeroCard from "../components/HeroCard.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const posts = [
+  {
+    title: "Understanding Async/Await in JavaScript",
+    date: "2024-06-15",
+    subtitle: "A deep dive into asynchronous programming with async/await.",
+    link: "./post/post1",
+  },
+  {
+    title: "CSS Grid vs. Flexbox: When to Use Which",
+    date: "2024-06-10",
+    subtitle: "A comparison of CSS Grid and Flexbox for layout design.",
+    link: "./post/post2",
+  },
+  {
+    title: "Getting Started with Astro",
+    date: "2024-06-05",
+    subtitle: "An introduction to building fast websites with Astro.",
+    link: "./post/post3",
+  },
+];
+
+const diary = [
+  {
+    title: "My First Diary Entry",
+    date: "2024-06-10",
+    subtitle: "I ate a delicious meal today!",
+    link: "./diary/diary2",
+  },
+  {
+    title: "My birthday",
+    date: "2024-06-05",
+    subtitle: "Celebrating another year of life!",
+    link: "./diary/diary3",
+  },
+];
+
+const quotes = [
+  {
+    author: "Einstein",
+    date: "2024-06-12",
+    text: "Life is like riding a bicycle. To keep your balance you must keep moving.",
+    link: "./quote/quote1",
+  },
+  {
+    author: "Winston Churchill",
+    date: "2024-06-08",
+    text: "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+    link: "./quote/quote2",
+  },
+];
+
+const projects = [
+  {
+    name: "Personal Portfolio Website",
+    tags: ["Astro", "CSS", "JavaScript"],
+    lastUpdated: "2024-06-14",
+    description: "A showcase of my work and skills.",
+    link: "./project/project1",
+  },
+  {
+    name: "E-commerce Platform",
+    tags: [".NET", "Azure", "AI"],
+    lastUpdated: "2024-06-12",
+    description: "An online store for various products.",
+    link: "./project/project2",
+  },
+  {
+    name: "Blog Application",
+    tags: ["Blazor", "MAUI", "Qdrant"],
+    lastUpdated: "2024-06-10",
+    description: "A platform to share articles and posts.",
+    link: "./project/project3",
+  },
+];
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			.hero-text {
-				color: white;
-			}
-			.hero-text-container {
-				width: 100%;
-				position: relative;
-				z-index: 2;
-			}
-			.mesh {
-				width: 100vw;
-				height: 100vh;
-				position: absolute;
-				top: 0;
-				left: 0;
-				z-index: 1;
-			}
-			.main-container {
-				position: relative;
-				width: 100vw;
-				height: 100vh;
-				background-size: cover;
-				background-position: center;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				aspect-ratio: 16 / 9; /* Adjust the aspect ratio as needed */
-				max-width: 100%;
-				max-height: 100%;
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<div class="main-container" style={`background-image: url('${optmizedBackgroundImage.src}')`}>
-			<div class="mesh texture-overlay" />
-			<main style="main">
-				<div class="hero-text-container flex-center">
-					<h1 class="hero-text hero-shadow-text text-start">
-					Hello Visitor<br/>
-					I am Ferry ⛴️<br/>
-					Welcome to my blog
-					</h1>
-				</div>
-			</main>
-		</div>
-		<Footer />
-	  </body>
-	</body>
-</html>
+<BaseLayout>
+  <div class="width-constrained-container column-container wrapper">
+    <HeroCard />
+    <Divider />
+
+    <div class="content-container">
+      <div class="column-container content-list">
+        <SectionContainer title="Tech Blog" linkText="All posts" link="./posts">
+          <PostList posts={posts} />
+        </SectionContainer>
+
+        <SectionContainer title="Diary" linkText="Archive" link="./diary">
+          <PostList posts={diary} />
+        </SectionContainer>
+
+        <SectionContainer title="Quotes" linkText="Archive" link="./quotes">
+          <QuoteList quotes={quotes} />
+        </SectionContainer>
+
+        <SectionContainer
+          title="Projects"
+          linkText="All projects"
+          link="./projects"
+        >
+          <ProjectList projects={projects} />
+        </SectionContainer>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+<style>
+  @import "../styles/spacing.css";
+  @import "../styles/layout.css";
+
+  .wrapper {
+    gap: var(--gap-lg);
+  }
+
+  .content-list {
+    gap: var(--gap-xl);
+  }
+
+  .content-container {
+    padding: var(--gap-lg);
+  }
+</style>
