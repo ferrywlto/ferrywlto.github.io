@@ -1,17 +1,23 @@
 ---
 import TagPill from "./TagPill.astro";
 export interface Props {
+  linkPrefix?: string;
   tags: string[];
 }
-const { tags } = Astro.props;
+const { tags, linkPrefix } = Astro.props;
 ---
 
 <div class="tags-container">
-  {tags.map((tag) => <TagPill tag={tag} />)}
+  {
+    tags.map((tag) => (
+        <TagPill tag={tag} linkPrefix={linkPrefix} />
+    ))
+  }
 </div>
 
 <style>
-  @import '../styles/spacing.css';
+  @import "../styles/theme.css";
+  @import "../styles/spacing.css";
   .tags-container {
     display: flex;
     align-items: center;
