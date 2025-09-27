@@ -15,7 +15,7 @@ import ThemeToggle from './ThemeToggle.astro';
       <div class="nav-links">
         <HeaderLink href="/blog">📝 Blog</HeaderLink>
         <HeaderLink href="/blog">📓 Diary</HeaderLink>
-        <HeaderLink href="/whispers">💬 Quotes</HeaderLink>
+        <HeaderLink href="/whispers">💬 Whispers</HeaderLink>
         <HeaderLink href="/projects">🚀 Projects</HeaderLink>
         <HeaderLink href="/about">👨🏻‍💻 About</HeaderLink>
       </div>
@@ -39,9 +39,9 @@ import ThemeToggle from './ThemeToggle.astro';
 		position: sticky;
 		top: 0;
     width: 100%;
-    min-height: 4rem;
-    height: 4rem;
-    max-height: 4rem;
+    min-height: 3.8rem;
+    height: 3.8rem;
+    max-height: 3.8rem;
 		background: var(--color-surface);
     border-bottom: var(--elevation-border);
     margin: auto;
@@ -72,8 +72,4 @@ import ThemeToggle from './ThemeToggle.astro';
     justify-content: center;
     align-items: center;
   }
-
-	/* Mobile-first: Hide nav-links on small screens */
-	@media (max-width: 1024px) {
-	}
 </style>
