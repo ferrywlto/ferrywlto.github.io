@@ -1,85 +1,91 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import FormattedDate from '../components/FormattedDate.astro';
-import { Image } from 'astro:assets';
-import BaseLayout from './BaseLayout.astro';
-import TagRow from '../components/TagRow.astro';
-type Props = CollectionEntry<'blogs'>['data'];
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
+import { Image } from "astro:assets";
+import BaseLayout from "./BaseLayout.astro";
+import TagRow from "../components/TagRow.astro";
+type Props = CollectionEntry<"blogs">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, tags } =
+  Astro.props;
 ---
+
 <BaseLayout title={title} description={description}>
-	<article class="width-constrained-container column-container">
-		<div class="hero-image">
-			{heroImage && <Image inferSize src={heroImage} alt={description} loading="lazy" />}
-		</div>
-		<div>
-			<div class="title">
-				<div class="date">
-					<FormattedDate date={pubDate} />
-					{
-						updatedDate && (
-							<div class="last-updated-on">
-								Last updated on <FormattedDate date={updatedDate} />
-							</div>
-						)
-					}
-				</div>
-				<h1 class="text-item-title">{title}</h1>
-				<hr />
-			</div>
+  <article class="width-constrained-container column-container">
+    <div class="hero-image">
+      {
+        heroImage && (
+          <Image inferSize src={heroImage} alt={description} loading="lazy" />
+        )
+      }
+    </div>
+    <div>
+      <div class="title">
+        <div class="date">
+          <FormattedDate date={pubDate} />
+          {
+            updatedDate && (
+              <div class="last-updated-on">
+                Last updated on <FormattedDate date={updatedDate} />
+              </div>
+            )
+          }
+        </div>
+        <h1 class="text-item-title">{title}</h1>
+        <hr />
+      </div>
       <slot />
-			<div class="tags-container">
-        <TagRow tags={tags} linkPrefix='blog' />
-			</div>
-		</div>
-	</article>
+      <div class="tags-container">
+        <TagRow tags={tags} linkPrefix="blog" />
+      </div>
+    </div>
+  </article>
 </BaseLayout>
-	<style>
-    @import "../styles/typography.css";
-    @import "../styles/spacing.css";
-    @import "../styles/layout.css";
-    @import "../styles/effect.css";
+<style>
+  @import "../styles/typography.css";
+  @import "../styles/spacing.css";
+  @import "../styles/layout.css";
+  @import "../styles/effect.css";
 
-    .column-container {
-      padding: 0 var(--gap-lg);
-    }
+  .column-container {
+    padding: 0 var(--gap-lg);
+  }
 
-    .hero-image {
-      margin-bottom: var(--gap-lg);
-    }
+  .hero-image {
+    margin-bottom: var(--gap-lg);
+  }
 
-		.hero-image img {
-			display: flex;
-      width: 100%;
-      height: auto;
-			border-radius: var(--corner-md);
-      box-sizing: border-box;
-      object-fit: contain;
-		}
+  .hero-image img {
+    display: flex;
+    width: 100%;
+    height: auto;
+    border-radius: var(--corner-md);
+    box-sizing: border-box;
+    object-fit: contain;
+  }
 
-		.title {
-			margin-bottom: var(--gap-md);
-			padding: var(--gap-md) 0;
-			line-height: 1;
-		}
+  .title {
+    margin-bottom: var(--gap-md);
+    padding: var(--gap-md) 0;
+    line-height: 1;
+  }
 
-    .date {
-      margin-bottom: var(--gap-sm);
-    }
+  .date {
+    margin-bottom: var(--gap-sm);
+  }
 
-		.title h1 {
-			margin: 0 0 var(--gap-sm) 0;
-		}
+  .title h1 {
+    margin: 0 0 var(--gap-sm) 0;
+  }
 
-		.last-updated-on {
-			font-style: italic;
-		}
+  .last-updated-on {
+    font-style: italic;
+  }
 
-		.tags-container {
-			display: flex;
-			flex-wrap: wrap;
-			gap: var(--gap-sm);
-			margin-top: var(--gap-lg);
-		}
-	</style>
+  .tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-sm);
+    margin-top: var(--gap-lg);
+  }
+</style>

@@ -1,13 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
 import { render } from 'astro:content';
-import MainLayout from '../layouts/MainLayout.astro';
 import Tweet from '../components/Tweet.astro';
 import { SITE_TITLE } from '../consts';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 // Get all tweets and sort by date (newest first)
 const allTweets = await getCollection('tweets');
-const sortedTweets = allTweets.sort((a, b) => 
+const sortedTweets = allTweets.sort((a, b) =>
   b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
@@ -33,7 +33,7 @@ const title = `Whispers | ${SITE_TITLE}`;
 const description = "A chronological timeline of thoughts, quotes, and quick notes from Ferry's daily journey.";
 ---
 
-<MainLayout title={title} description={description}>
+<BaseLayout title={title} description={description}>
   <div class="timeline-container">
     <header class="timeline-header text-center margin-bottom-lg text-gray">
       Some funny quotes from me and my wife.
@@ -44,15 +44,15 @@ const description = "A chronological timeline of thoughts, quotes, and quick not
         <section class="timeline-day">
           <h2 class="day-header text-accent font-weight-medium margin-bottom-md">
             {
-                new Date(dateKey).toLocaleDateString('en-UK', { 
+                new Date(dateKey).toLocaleDateString('en-UK', {
                     weekday: 'long',
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric' 
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
                 })
             }
           </h2>
-          
+
           <div class="day-tweets">
             {tweets.map(({ tweet, Content }) => (
               <Tweet tweet={tweet} Content={Content} />
@@ -76,11 +76,11 @@ const description = "A chronological timeline of thoughts, quotes, and quick not
     margin: 0 auto;
     padding: 0 var(--space-md);
   }
-  
+
   .timeline-content {
     position: relative;
   }
-  
+
   /* Main timeline line */
   .timeline-content::before {
     content: '';
@@ -97,20 +97,20 @@ const description = "A chronological timeline of thoughts, quotes, and quick not
     );
     opacity: 0.38;
   }
-  
+
   .timeline-day {
     position: relative;
     margin-bottom: var(--space-2xl);
     padding-left: var(--space-2xl);
   }
-  
+
   .day-header {
     position: relative;
     font-size: var(--text-xl);
     margin-left: calc(-1 * var(--space-2xl));
     padding-left: var(--space-2xl);
   }
-  
+
   /* Day marker dot */
   .day-header::before {
     content: '';
@@ -126,56 +126,56 @@ const description = "A chronological timeline of thoughts, quotes, and quick not
     box-shadow: 0 0 0 2px var(--color-primary);
     z-index: 2;
   }
-  
+
   .day-tweets {
     display: flex;
     flex-direction: column;
     gap: var(--space-lg);
     margin-left: var(--space-xs);
   }
-  
+
   /* Responsive design */
   @media (max-width: 768px) {
     .timeline-container {
       padding: var(--space-md) var(--space-sm);
     }
-    
+
     .timeline-content::before {
       left: 10px;
     }
-    
+
     .timeline-day {
       padding-left: var(--space-lg);
       margin-bottom: var(--space-lg);
     }
-    
+
     .day-header {
       font-size: var(--text-lg);
       margin-left: calc(-1 * var(--space-lg));
       padding-left: var(--space-xl);
     }
-    
+
     .day-header::before {
       left: 2px;
       width: 12px;
       height: 12px;
     }
-    
+
     .day-tweets {
       gap: var(--space-md);
       margin-left: var(--space-sm);
     }
-    
+
     .timeline-header p {
       text-align: start;
     }
   }
-  
+
   /* Animation */
   .timeline-day {
     animation: fadeInUp 0.6s ease-out;
   }
-  
+
   @keyframes fadeInUp {
     from {
       opacity: 0;
