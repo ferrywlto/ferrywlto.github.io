@@ -1,109 +1,73 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
-import { getCollection } from 'astro:content';
-import FormattedDate from '../../components/FormattedDate.astro';
-import { Image } from 'astro:assets';
-import placeholderImg from '../../../public/blog-placeholder-about.jpg'
+import { getCollection } from "astro:content";
+import FormattedDate from "../../components/FormattedDate.astro";
+import HeroImage from "../../components/HeroImage.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
-const posts = (await getCollection('blogs')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+const posts = (await getCollection("blogs")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+const firstPost = posts[0];
+const remainingPosts = posts.slice(1, 10);
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				width: var(--container-md);
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: var(--space-xl);
-			}
-			ul li {
-				width: calc(50% - var(--space-md));
-			}
-			ul li * {
-				text-decoration: none;
-				transition: var(--transition-normal);
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: var(--space-md);
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: var(--text-4xl);
-			}
-			ul li img {
-				margin-bottom: var(--space-sm);
-				border-radius: var(--radius-md);
-			}
-			ul li a {
-				transition: var(--transition-normal);
-			}
-			.title {
-				color: var(--color-text-primary);
-				line-height: 1;
-			}
-			.date {
-				color: var(--color-text-secondary);
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: var(--color-primary);
-			}
-			ul a:hover img {
-				box-shadow: var(--shadow);
-			}
-			@media (max-width: 768px) {
-				ul {
-					gap: var(--space-sm);
-				}
-				ul li {
-					width: 100%;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: var(--text-2xl);
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<section>
-				<ul class="list-reset">
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`} class="block">
-									{post.data.heroImage 
-									? <Image inferSize src={post.data.heroImage} alt={post.data.description} />
-									: <Image src={placeholderImg} alt={post.data.description} />}
-									
-									<h4 class="title margin-bottom-md">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-		</main>
-		<Footer />
-	</body>
-</html>
+<BaseLayout>
+  <main class="column-container width-constrained-container">
+    <h1 class="text-section-title">Latest Blog Posts</h1>
+    <section>
+      <div class="first-post">
+        <a href={`/blog/${firstPost.id}/`} class="block">
+          <HeroImage
+            src={firstPost.data.heroImage}
+            alt={firstPost.data.description}
+          />
+          <h2 class="text-item-title">{firstPost.data.title}</h2>
+          <p class="text-meta">
+            <FormattedDate date={firstPost.data.pubDate} />
+          </p>
+        </a>
+      </div>
+    </section>
+    <section>
+      <div class="remaining-posts">
+        {
+          remainingPosts.map((post) => (
+            <div class="remaining-post">
+              <a href={`/blog/${post.id}/`} class="block">
+                <HeroImage
+                  src={post.data.heroImage}
+                  alt={post.data.description}
+                />
+                <h2 class="text-item-title">{post.data.title}</h2>
+                <p class="text-meta">
+                  <FormattedDate date={post.data.pubDate} />
+                </p>
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+<style>
+  @import "../../styles/typography.css";
+  @import "../../styles/spacing.css";
+  @import "../../styles/layout.css";
+
+  .column-container {
+    padding: 0 var(--gap-lg);
+    gap: var(--gap-lg);
+  }
+
+  .first-post {
+    display: flex;
+    width: 100%;
+  }
+
+  .remaining-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--gap-lg);
+  }
+</style>

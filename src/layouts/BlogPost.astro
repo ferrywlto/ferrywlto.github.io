@@ -4,6 +4,7 @@ import FormattedDate from "../components/FormattedDate.astro";
 import { Image } from "astro:assets";
 import BaseLayout from "./BaseLayout.astro";
 import TagRow from "../components/TagRow.astro";
+import HeroImage from "../components/HeroImage.astro";
 type Props = CollectionEntry<"blogs">["data"];
 
 const { title, description, pubDate, updatedDate, heroImage, tags } =
@@ -12,13 +13,7 @@ const { title, description, pubDate, updatedDate, heroImage, tags } =
 
 <BaseLayout title={title} description={description}>
   <article class="width-constrained-container column-container">
-    <div class="hero-image">
-      {
-        heroImage && (
-          <Image inferSize src={heroImage} alt={description} loading="lazy" />
-        )
-      }
-    </div>
+    <HeroImage src={heroImage} alt={description} class="hero-image" />
     <div>
       <div class="title">
         <div class="date">
@@ -49,19 +44,6 @@ const { title, description, pubDate, updatedDate, heroImage, tags } =
 
   .column-container {
     padding: 0 var(--gap-lg);
-  }
-
-  .hero-image {
-    margin-bottom: var(--gap-lg);
-  }
-
-  .hero-image img {
-    display: flex;
-    width: 100%;
-    height: auto;
-    border-radius: var(--corner-md);
-    box-sizing: border-box;
-    object-fit: contain;
   }
 
   .title {
