@@ -28,3 +28,11 @@
     max-width: 100% !important;
   }
 }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  min-width: 375px; /* iPhone SE width */
+}
