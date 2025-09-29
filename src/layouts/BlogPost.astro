@@ -1,7 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
-import { Image } from "astro:assets";
 import BaseLayout from "./BaseLayout.astro";
 import TagRow from "../components/TagRow.astro";
 import HeroImage from "../components/HeroImage.astro";
@@ -40,7 +39,6 @@ const { title, description, pubDate, updatedDate, heroImage, tags } =
   @import "../styles/typography.css";
   @import "../styles/spacing.css";
   @import "../styles/layout.css";
-  @import "../styles/effect.css";
 
   .column-container {
     padding: 0 var(--gap-lg);

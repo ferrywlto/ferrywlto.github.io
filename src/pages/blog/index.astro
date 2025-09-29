@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import FormattedDate from "../../components/FormattedDate.astro";
-import HeroImage from "../../components/HeroImage.astro";
+import PostPreview from "../../components/PostPreview.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const posts = (await getCollection("blogs")).sort(
@@ -16,34 +15,26 @@ const remainingPosts = posts.slice(1, 10);
     <h1 class="text-section-title">Latest Blog Posts</h1>
     <section>
       <div class="first-post">
-        <a href={`/blog/${firstPost.id}/`} class="block">
-          <HeroImage
-            src={firstPost.data.heroImage}
-            alt={firstPost.data.description}
-          />
-          <h2 class="text-item-title">{firstPost.data.title}</h2>
-          <p class="text-meta">
-            <FormattedDate date={firstPost.data.pubDate} />
-          </p>
-        </a>
+        <PostPreview
+          id={firstPost.id}
+          title={firstPost.data.title}
+          description={firstPost.data.description}
+          pubDate={firstPost.data.pubDate}
+          heroImage={firstPost.data.heroImage}
+        />
       </div>
     </section>
     <section>
       <div class="remaining-posts">
         {
           remainingPosts.map((post) => (
-            <div class="remaining-post">
-              <a href={`/blog/${post.id}/`} class="block">
-                <HeroImage
-                  src={post.data.heroImage}
-                  alt={post.data.description}
-                />
-                <h2 class="text-item-title">{post.data.title}</h2>
-                <p class="text-meta">
-                  <FormattedDate date={post.data.pubDate} />
-                </p>
-              </a>
-            </div>
+            <PostPreview
+              id={post.id}
+              title={post.data.title}
+              description={post.data.description}
+              pubDate={post.data.pubDate}
+              heroImage={post.data.heroImage}
+            />
           ))
         }
       </div>
