@@ -16,9 +16,9 @@ const blogs = defineCollection({
 	}),
 });
 
-const tweets = defineCollection({
+const quotes = defineCollection({
 	// Load Markdown files in the `src/content/tweets/` directory.
-	loader: glob({ base: './src/content/tweets', pattern: '**/*.{md,mdx}' }),
+	loader: glob({ base: './src/content/quotes', pattern: '**/*.{md,mdx}' }),
 	// Type-check frontmatter using a schema
 	schema: z.object({
 		// Transform string to Date object
@@ -53,4 +53,4 @@ const projects = defineCollection({
 	}),
 });
 
-export const collections = { blogs, tweets, diaries, projects };
+export const collections = { blogs, quotes, diaries, projects };
