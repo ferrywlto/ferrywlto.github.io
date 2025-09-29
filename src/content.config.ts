@@ -23,6 +23,7 @@ const quotes = defineCollection({
 	schema: z.object({
 		// Transform string to Date object
 		pubDate: z.coerce.date(),
+    author: z.string()
 	}),
 });
 
