@@ -1,57 +1,46 @@
 import { glob } from 'astro/loaders';
 import { defineCollection, z } from 'astro:content';
 
-const blogs = defineCollection({
-	// Load Markdown and MDX files in the `src/content/blogs/` directory.
-	loader: glob({ base: './src/content/blogs', pattern: '**/*.{md,mdx}' }),
-	// Type-check frontmatter using a schema
+// Content base path
+const CONTENT_BASE_PATH = './src/content';
+
+// Shared schema components
+const baseContentSchema = z.object({
+	title: z.string(),
+	description: z.string(),
+	pubDate: z.coerce.date(),
+	updatedDate: z.coerce.date().optional(),
+  heroImage: z.string().optional(),
+  tags: z.array(z.string()),
+});
+
+const projectLinksSchema = z.object({
+	projectUrl: z.string().url().optional(),
+	repoUrl: z.string().url().optional(),
+});
+
+// Content collections
+const whispers = defineCollection({
+	loader: glob({ base: `${CONTENT_BASE_PATH}/whispers`, pattern: '**/*.{md,mdx}' }),
 	schema: z.object({
-		title: z.string(),
-		description: z.string(),
-		// Transform string to Date object
 		pubDate: z.coerce.date(),
-		updatedDate: z.coerce.date().optional(),
-		heroImage: z.string().optional(),
-		tags: z.array(z.string())
+		author: z.string()
 	}),
 });
 
-const whispers = defineCollection({
-	// Load Markdown files in the `src/content/whispers/` directory.
-	loader: glob({ base: './src/content/whispers', pattern: '**/*.{md,mdx}' }),
-	// Type-check frontmatter using a schema
-	schema: z.object({
-		// Transform string to Date object
-		pubDate: z.coerce.date(),
-    author: z.string()
-	}),
+const blogs = defineCollection({
+	loader: glob({ base: `${CONTENT_BASE_PATH}/blogs`, pattern: '**/*.{md,mdx}' }),
+	schema: baseContentSchema,
 });
 
 const diaries = defineCollection({
-	// Load Markdown files in the `src/content/diaries/` directory.
-	loader: glob({ base: './src/content/diaries', pattern: '**/*.{md,mdx}' }),
-	// Type-check frontmatter using a schema
-	schema: z.object({
-		title: z.string(),
-		description: z.string(),
-		// Transform string to Date object
-		pubDate: z.coerce.date(),
-		updatedDate: z.coerce.date().optional(),
-		heroImage: z.string().optional(),
-		tags: z.array(z.string())
-	}),
+	loader: glob({ base: `${CONTENT_BASE_PATH}/diaries`, pattern: '**/*.{md,mdx}' }),
+	schema: baseContentSchema,
 });
 
 const projects = defineCollection({
-	// Load Markdown files in the `src/content/projects/` directory.
-	loader: glob({ base: './src/content/projects', pattern: '**/*.{md,mdx}' }),
-	// Type-check frontmatter using a schema
-	schema: z.object({
-		title: z.string(),
-		description: z.string(),
-		projectUrl: z.string().url().optional(),
-		repoUrl: z.string().url().optional(),
-	}),
+	loader: glob({ base: `${CONTENT_BASE_PATH}/projects`, pattern: '**/*.{md,mdx}' }),
+	schema: baseContentSchema.merge(projectLinksSchema),
 });
 
 export const collections = { blogs, whispers, diaries, projects };
