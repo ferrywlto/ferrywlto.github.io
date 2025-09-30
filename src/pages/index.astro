@@ -1,7 +1,7 @@
 ---
 import PostList from "../components/PostList.astro";
 import ProjectList from "../components/ProjectList.astro";
-import QuoteList from "../components/QuoteList.astro";
+import WhisperList from "../components/WhisperList.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 
 import Divider from "../components/Divider.astro";
@@ -9,45 +9,37 @@ import HeroCard from "../components/HeroCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 
-const blogs = (await getCollection("blogs"))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3)
-  .map((post) => ({
-    title: post.data.title,
-    date: post.data.pubDate.toString(),
-    subtitle: post.data.description,
-    link: `./blogs/${post.id}`,
-  }));
+export interface Post {
+  id: string,
+  collection: string,
+  data: {
+    title: string;
+    description: string;
+    pubDate: Date;
+    heroImage?: string;
+    tags?: string[];
+  }
+}
 
-const diary = [
-  {
-    title: "My First Diary Entry",
-    date: "2024-06-10",
-    subtitle: "I ate a delicious meal today!",
-    link: "./diary/diary2",
-  },
-  {
-    title: "My birthday",
-    date: "2024-06-05",
-    subtitle: "Celebrating another year of life!",
-    link: "./diary/diary3",
-  },
-];
+function getTopByDateReversed(posts: Post[]) {
+  return posts
+    .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
+    .slice(0, 3)
+}
 
-const quotes = [
-  {
-    author: "Einstein",
-    date: "2024-06-12",
-    text: "Life is like riding a bicycle. To keep your balance you must keep moving.",
-    link: "./quote/quote1",
-  },
-  {
-    author: "Winston Churchill",
-    date: "2024-06-08",
-    text: "Success is not final, failure is not fatal: It is the courage to continue that counts.",
-    link: "./quote/quote2",
-  },
-];
+function getTopPosts(posts: Post[]) {
+  return getTopByDateReversed(posts)
+    .map((post) => ({
+      title: post.data.title,
+      date: post.data.pubDate.toISOString().split('T')[0],
+      subtitle: post.data.description,
+      link: `./${post.collection}/${post.id}`,
+    }));
+}
+
+const blogs = getTopPosts(await getCollection("blogs"));
+
+const diaries = getTopPosts(await getCollection("diaries"));
 
 const projects = [
   {
@@ -86,11 +78,11 @@ const projects = [
         </SectionContainer>
 
         <SectionContainer title="Diary" linkText="Archive" link="./diaries">
-          <PostList posts={diary} />
+          <PostList posts={diaries} />
         </SectionContainer>
 
-        <SectionContainer title="Quotes" linkText="Archive" link="./quotes">
-          <QuoteList quotes={quotes} />
+        <SectionContainer title="Whispers" linkText="Archive" link="./whispers">
+          <WhisperList />
         </SectionContainer>
 
         <SectionContainer

@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import WhispersListItem from "./WhisperListItem.astro";
+
+const whispers = (await getCollection("whispers"))
+  .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
+  .slice(0, 3);
+---
+
+<div class="column-container">
+  {
+    whispers.map(({ data, body, id }) => (
+      <WhispersListItem
+        author={data.author}
+        text={body}
+        link={`/whispers/${id}`}
+      />
+    ))
+  }
+</div>
+
+<style>
+  @import "../styles/layout.css";
+  .column-container {
+    gap: var(--gap-md);
+  }
+</style>
