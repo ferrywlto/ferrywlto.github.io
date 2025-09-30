@@ -4,6 +4,29 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2025-09-30
+
+### ✨ Features
+- **Real Content Integration**: Replaced all dummy content with real data from content collections
+- **Dynamic Landing Page**: Landing page now displays actual blog posts, diary entries, and projects
+- **Content Collections**: Integrated whispers collection with real quotes and thoughts
+- **Schema Optimization**: Refactored content schema to reduce code duplication using shared components
+
+### 🔧 Improvements
+- **Content Management**: Streamlined content configuration with reusable schema patterns
+- **Path Management**: Extracted content base path as configurable constant
+- **Date Formatting**: Standardized date display format (YYYY-MM-DD) across all content types
+- **Type Safety**: Enhanced TypeScript integration with composable schema definitions
+
+### 📝 Documentation
+- **License Clarification**: Updated license to exclude personal blog content from open source license
+- **Code Formatting**: Improved code consistency and documentation
+
+### 🏗️ Technical Changes
+- **Schema Composition**: Created modular schema components (`baseContentSchema`, `mediaSchema`, `tagsSchema`)
+- **Configuration DRY**: Eliminated duplicate schema definitions using Zod schema merging
+- **Content Path Abstraction**: Centralized content directory path management
+
 ## [1.1.0] - 2025-09-30
 
 ### ✨ Features

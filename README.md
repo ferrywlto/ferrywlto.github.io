@@ -1,6 +1,7 @@
 # ferrywl.to - My Personal Website
 
-A modern, responsive personal website built
+A modern, responsive personal website hand-crafted without vibe coding.
+
 ```
 ├── public/                     # Static assets
 │   ├── blog-placeholder-*.jpg  # Hero image placeholders
