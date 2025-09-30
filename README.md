@@ -1,6 +1,8 @@
-# ferrywl.to - Personal Website
+# ferrywl.to - My Personal Website
 
-A modern, responsive personal website built
+A modern, responsive personal website hand-crafted without vibe coding.
+
+```
 ├── public/                     # Static assets
 │   ├── blog-placeholder-*.jpg  # Hero image placeholders
 │   └── favicon.svg
@@ -129,7 +131,7 @@ The site is deployed to GitHub Pages with automatic builds on push to `master`.
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project (except `/src/content` folder) is open source and available under the [MIT License](LICENSE).
 
 ---
 

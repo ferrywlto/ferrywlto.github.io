@@ -3,13 +3,13 @@ import ItemTitleLink from "./ItemTitleLink.astro";
 import TagRow from "./TagRow.astro";
 
 export interface Props {
-  name: string;
+  title: string;
   description: string;
   link: string;
   lastUpdated?: string;
   tags: string[];
 }
-const { name, description, link, tags } = Astro.props;
+const { title: name, description, link, tags } = Astro.props;
 ---
 
 <div class="card" onclick={`window.location.href = ${JSON.stringify(link)}`}>
