@@ -12,7 +12,7 @@ html {
   --type-section: 1.5rem; /* 24px — section headings */
   --type-item: 1.125rem;  /* 18px — item titles */
   --type-body: 1rem;      /* 16px — body copy */
-  --type-meta: 1rem;  /* 14px — metadata */
+  --type-meta: 0.875rem;  /* 14px — metadata */
   --type-tag: 0.875rem;    /* 12px — small tags */
 
   --font-weight-hero: 700;
@@ -129,7 +129,7 @@ a {
 a:hover {
   color: var(--color-primary);
   text-decoration: underline;
-  transform: color 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .truncated {
