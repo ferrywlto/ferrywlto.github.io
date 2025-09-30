@@ -8,11 +8,13 @@ const posts = (await getCollection("blogs")).sort(
 );
 const firstPost = posts[0];
 const remainingPosts = posts.slice(1, 10);
+const linkPrefix = 'blogs';
 ---
 
 <BaseLayout>
   <main class="column-container width-constrained-container">
     <h1 class="text-section-title">Latest Blog Posts</h1>
+    <h2 class="text-item-title">All about technology and changelog of my projects.</h2>
     <section>
       <div class="first-post">
         <PostPreview
@@ -21,6 +23,7 @@ const remainingPosts = posts.slice(1, 10);
           description={firstPost.data.description}
           pubDate={firstPost.data.pubDate}
           heroImage={firstPost.data.heroImage}
+          linkPrefix={linkPrefix}
         />
       </div>
     </section>
@@ -34,6 +37,7 @@ const remainingPosts = posts.slice(1, 10);
               description={post.data.description}
               pubDate={post.data.pubDate}
               heroImage={post.data.heroImage}
+              linkPrefix={linkPrefix}
             />
           ))
         }
