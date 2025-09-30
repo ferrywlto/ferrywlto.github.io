@@ -1,0 +1,55 @@
+---
+export interface Props {
+  ariaLabel?: string;
+  class?: string;
+}
+
+const {
+  ariaLabel = "Close menu",
+  class: className = "",
+} = Astro.props;
+
+---
+
+<div
+  x-data
+  class={`close-btn ${className}`}
+  x-on:click="$dispatch('close-button-clicked')"
+  aria-label={ariaLabel}
+  role="button"
+>
+  <svg
+    width="38"
+    height="38"
+    viewBox="0 0 38 38"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M28 10L10 28M10 10L28 28"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round">
+    </path>
+  </svg>
+</div>
+
+<style>
+  @import "../styles/theme.css";
+
+  @media screen and (max-width: 1024px) {
+    .close-btn {
+      color: var(--color-primary);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      aspect-ratio: 1;
+      object-fit: contain;
+    }
+  }
+</style>

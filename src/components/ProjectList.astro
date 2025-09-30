@@ -1,0 +1,32 @@
+---
+import ProjectListItem from './ProjectListItem.astro';
+
+export interface Project {
+  name: string;
+  description: string;
+  link: string;
+  lastUpdated?: string;
+  tags: string[];
+}
+
+export interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props;
+---
+
+<div class="column-container">
+  {
+    projects.map(({ name, description, link, tags }) => (
+      <ProjectListItem name={name} description={description} link={link} tags={tags} />
+    ))
+  }
+</div>
+
+<style>
+  @import "../styles/layout.css";
+  .column-container {
+    gap: var(--gap-md);
+  }
+</style>

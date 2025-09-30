@@ -2,65 +2,74 @@
 import HeaderLink from './HeaderLink.astro';
 import Hamburger from './Hamburger.astro';
 import DrawerMenu from './DrawerMenu.astro';
+import ThemeToggle from './ThemeToggle.astro';
 ---
 
-<header class="texture-overlay flex-center" x-data="{ 
-	open: false
-}">
-	<nav class="flex-center margin-auto">
+<header>
+	<nav class="width-constrained-container">
 		<Hamburger />
-		<div class="nav-links flex-between padding-x-lg">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
-			<HeaderLink href="/blog">Blog</HeaderLink>
-			<HeaderLink href="/whispers">Whispers</HeaderLink>
-			<HeaderLink href="/tags">Tags</HeaderLink>
-			<HeaderLink href="/blog" class="hidden">Whispers</HeaderLink>
-			<HeaderLink href="/projects" class="hidden">Projects</HeaderLink>
+		<div class="hide-on-mobile nav-grid">
+      <div class="home-link">
+        <HeaderLink href="/">🌐 ferrywl.to</HeaderLink>
+      </div>
+      <div class="nav-links">
+        <HeaderLink href="/blogs">📝 Blog</HeaderLink>
+        <HeaderLink href="/diaries">📓 Diary</HeaderLink>
+        <HeaderLink href="/whispers">💬 Whispers</HeaderLink>
+        <HeaderLink href="/projects">🚀 Projects</HeaderLink>
+        <HeaderLink href="/about">👨🏻‍💻 About</HeaderLink>
+      </div>
+      <div class="controls">
+        <ThemeToggle />
+      </div>
 		</div>
 	</nav>
 	<DrawerMenu />
 </header>
+
 <style>
-	header {		
+  @import "../styles/layout.css";
+  @import "../styles/effect.css";
+
+	header {
+    display: flex;
 		box-sizing: border-box;
-		background: var(--white);
-		border-bottom: 1px solid var(--black-opacity-10);
-		box-shadow: var(--shadow-sm);
+    justify-content: center;
+    align-items: center;
 		position: sticky;
 		top: 0;
-		z-index: var(--z-sticky);
-		height: var(--header-height);
-		max-height: var(--header-height);
-		overflow: hidden;
+    width: 100%;
+    min-height: 3.8rem;
+    height: 3.8rem;
+    max-height: 3.8rem;
+		background: var(--color-surface);
+    border-bottom: var(--elevation-border);
+    margin: auto;
 	}
 
-	nav {
-		position: relative;
-		z-index: 1;
+	.nav-grid {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: var(--gap-lg);
+    align-items: center;
 		width: 100%;
 	}
 
-	.nav-links {
-		width: 100%;
-		max-width: 720px;
-	}
+ .home-link {
+    display: flex;
+    align-items: center;
+  }
 
-	/* Mobile-first: Hide nav-links on small screens */
-	@media (max-width: 768px) {
-		header {
-			box-sizing: border-box;
-			height: var(--header-height);
-			max-height: var(--header-height);
-			overflow: hidden;
-		}
-		
-		nav {
-			justify-content: start;
-		}
+  .nav-links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--gap-lg);
+  }
 
-		.nav-links {
-			display: none;
-		}
-	}
+  .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 </style>

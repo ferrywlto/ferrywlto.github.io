@@ -1,0 +1,45 @@
+---
+import FormattedDate from './FormattedDate.astro';
+import HeroImage from './HeroImage.astro';
+
+export interface Props {
+  id: string;
+  title: string;
+  description: string;
+  pubDate: Date;
+  heroImage?: string;
+}
+
+const { id, title, description, pubDate, heroImage } = Astro.props;
+---
+
+<div class="post-preview">
+  <a href={`/blogs/${id}/`}>
+    <HeroImage
+      src={heroImage}
+      alt={description}
+    />
+    <h2 class="text-item-title">{title}</h2>
+    <p class="text-meta">
+      <FormattedDate date={pubDate} />
+    </p>
+  </a>
+</div>
+
+<style>
+  @import "../styles/typography.css";
+
+  .post-preview {
+    width: 100%;
+  }
+
+  .post-preview a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .post-preview a:hover {
+    text-decoration: none;
+  }
+</style>

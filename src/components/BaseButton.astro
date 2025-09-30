@@ -1,0 +1,59 @@
+---
+export interface Props {
+  href: string;
+  text: string;
+}
+const { href, text } = Astro.props;
+---
+
+<a href={href}>
+  <div class="call-to-action">
+    <span class="text-call-to-action" set:html={text} />
+  </div>
+</a>
+
+<style>
+  @import "../styles/typography.css";
+  @import "../styles/spacing.css";
+
+  a {
+    display: inline-block;
+    width: max(28%, 188px);
+    max-width: 188px;
+  }
+
+  a:hover {
+    text-decoration: none !important;
+  }
+
+  .call-to-action {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border: 1px solid var(--color-primary);
+    border-radius: var(--corner-md);
+    padding: var(--gap-md);
+    cursor: pointer;
+    color: var(--color-primary);
+    box-sizing: border-box;
+  }
+
+  .call-to-action:hover {
+    background-color: var(--color-primary);
+    color: var(--color-button-hover-text);
+  }
+
+  @media screen and (max-width: 1024px) {
+    a {
+      display: block;
+      width: 100%;
+      max-width: none;
+    }
+
+    .call-to-action {
+      padding: var(--gap-lg);
+    }
+  }
+</style>

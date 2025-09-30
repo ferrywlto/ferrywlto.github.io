@@ -1,0 +1,29 @@
+---
+export interface Props {
+  author: string;
+  text: string;
+  link: string;
+}
+const { author, text, link } = Astro.props;
+---
+
+<a href={link}>
+  <div class="container surface-background-hover">
+    <span class="text-quote truncated">"{text}" - {author}</span>
+  </div>
+</a>
+
+<style>
+  @import "../styles/typography.css";
+  @import "../styles/effect.css";
+
+  .container {
+    display: flex;
+    width: 100%;
+    padding-left: var(--gap-md);
+    border-left: var(--gap-xs) solid var(--color-primary);
+    margin: 0 var(--gap-sm);
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+</style>

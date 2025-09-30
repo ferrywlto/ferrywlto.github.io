@@ -1,0 +1,34 @@
+---
+export interface Props {
+  tag: string;
+  linkPrefix?: string;
+}
+const { tag, linkPrefix } = Astro.props;
+---
+
+<a href={`${linkPrefix}/${tag}`}>
+  <div class="hollow-tag-badge">
+    <span class="text-badge">{tag}</span>
+  </div>
+</a>
+
+<style>
+  @import "../styles/theme.css";
+  @import "../styles/typography.css";
+  @import "../styles/spacing.css";
+
+  .hollow-tag-badge {
+    border-radius: var(--corner-lg);
+    padding: var(--gap-xs) var(--gap-sm);
+    border: 1px solid var(--color-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .hollow-tag-badge:hover {
+    background-color: var(--color-primary);
+  }
+  .hollow-tag-badge:hover span {
+    color: var(--color-button-hover-text);
+  }
+</style>

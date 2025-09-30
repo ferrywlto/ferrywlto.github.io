@@ -1,0 +1,68 @@
+---
+import ItemTitleLink from "./ItemTitleLink.astro";
+import TagRow from "./TagRow.astro";
+
+export interface Props {
+  name: string;
+  description: string;
+  link: string;
+  lastUpdated?: string;
+  tags: string[];
+}
+const { name, description, link, tags } = Astro.props;
+---
+
+<div class="card" onclick={`window.location.href = ${JSON.stringify(link)}`}>
+  <div class="column-container">
+    <div class="title-row">
+      <ItemTitleLink title={name} link={link} />
+      <div class="hide-on-mobile">
+        <TagRow tags={tags} />
+      </div>
+    </div>
+    <span class="text-item-subtitle">{description}</span>
+    <div class="hide-on-desktop">
+      <TagRow tags={tags} />
+    </div>
+  </div>
+</div>
+
+
+<style>
+  @import "../styles/typography.css";
+  @import "../styles/effect.css";
+  @import "../styles/layout.css";
+  @import "../styles/spacing.css";
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-thread);
+    border-radius: var(--corner-md);
+    padding: var(--gap-md);
+    cursor: pointer;
+  }
+
+  .card:hover {
+    background-color: var(--color-surface);
+  }
+
+  .column-container {
+    gap: var(--gap-md);
+  }
+
+  .title-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .title-row {
+      display: flex;
+    }
+
+    .hide-on-desktop {
+      display: flex;
+    }
+  }
+</style>

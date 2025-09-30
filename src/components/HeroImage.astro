@@ -1,0 +1,41 @@
+---
+import { Image } from 'astro:assets';
+import placeholderImg from '/public/blog-placeholder-2.jpg';
+
+export interface Props {
+  src?: string;
+  alt: string;
+  class?: string;
+}
+
+const { src, alt, class: className = '' } = Astro.props;
+---
+
+<div class={`hero-image ${className}`}>
+  {
+    src ? (
+      <Image
+        inferSize
+        src={src}
+        alt={alt}
+      />
+    ) : (
+      <Image src={placeholderImg} alt={alt} />
+    )
+  }
+</div>
+
+<style>
+  .hero-image {
+    margin-bottom: var(--gap-lg);
+  }
+
+  .hero-image img {
+    display: flex;
+    width: 100%;
+    height: auto;
+    border-radius: var(--corner-md);
+    box-sizing: border-box;
+    object-fit: contain;
+  }
+</style>

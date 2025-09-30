@@ -1,79 +1,71 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import FormattedDate from '../components/FormattedDate.astro';
-import { Image } from 'astro:assets';
-import MainLayout from './MainLayout.astro';
-type Props = CollectionEntry<'blog'>['data'];
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
+import BaseLayout from "./BaseLayout.astro";
+import TagRow from "../components/TagRow.astro";
+import HeroImage from "../components/HeroImage.astro";
+type Props = CollectionEntry<"blogs">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, tags } =
+  Astro.props;
 ---
-<MainLayout title={title} description={description}>
-	<style>
-		.hero-image {
-			width: 100%;
-		}
-		.hero-image img {
-			display: block;
-			margin: 0 auto;
-			border-radius: var(--radius-md);
-			box-shadow: var(--shadow-lg);
-		}
-		.prose {
-			width: var(--container-xs);
-			max-width: var(--max-width);
-			color: var(--gray-dark);
-		}
-		.title {
-			margin-bottom: var(--space-md);
-			padding: var(--space-md) 0;
-			line-height: 1;
-		}
-		.title h1 {
-			margin: 0 0 var(--space-sm) 0;
-		}
-		.date {
-			margin-bottom: var(--space-sm);
-			color: var(--gray);
-		}
-		.last-updated-on {
-			font-style: italic;
-		}
-		span > a { 
-			text-decoration: none; 
-			color: inherit;
-		}
-		.tags-container {
-			display: flex;
-			flex-wrap: wrap;
-			gap: var(--space-sm);
-			margin-top: var(--space-lg);
-		}
-	</style>
-	<article>
-		<div class="hero-image">
-			{heroImage && <Image width={1020} height={510} src={heroImage} alt={description} loading="lazy" />}
-		</div>
-		<div class="prose margin-auto padding-md">
-			<div class="title text-center">
-				<div class="date">
-					<FormattedDate date={pubDate} />
-					{
-						updatedDate && (
-							<div class="last-updated-on">
-								Last updated on <FormattedDate date={updatedDate} />
-							</div>
-						)
-					}
-				</div>
-				<h1>{title}</h1>
-				<hr />
-			</div>
-			<slot />
-			<div class="tags-container">
-			{tags && tags.map((tag: string) => 
-				<a href={`/tags/${tag}`} class="badge badge-primary">#{tag}</a>
-			)}
-			</div>
-		</div>
-	</article>
-</MainLayout>
+
+<BaseLayout title={title} description={description}>
+  <article class="width-constrained-container column-container">
+    <HeroImage src={heroImage} alt={description} class="hero-image" />
+    <div>
+      <div class="title">
+        <div class="date">
+          <FormattedDate date={pubDate} />
+          {
+            updatedDate && (
+              <div class="last-updated-on">
+                Last updated on <FormattedDate date={updatedDate} />
+              </div>
+            )
+          }
+        </div>
+        <h1 class="text-item-title">{title}</h1>
+        <hr />
+      </div>
+      <slot />
+      <div class="tags-container">
+        <TagRow tags={tags} linkPrefix="blog" />
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+<style>
+  @import "../styles/typography.css";
+  @import "../styles/spacing.css";
+  @import "../styles/layout.css";
+
+  .column-container {
+    padding: 0 var(--gap-lg);
+  }
+
+  .title {
+    margin-bottom: var(--gap-md);
+    padding: var(--gap-md) 0;
+    line-height: 1;
+  }
+
+  .date {
+    margin-bottom: var(--gap-sm);
+  }
+
+  .title h1 {
+    margin: 0 0 var(--gap-sm) 0;
+  }
+
+  .last-updated-on {
+    font-style: italic;
+  }
+
+  .tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-sm);
+    margin-top: var(--gap-lg);
+  }
+</style>

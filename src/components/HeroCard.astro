@@ -1,0 +1,103 @@
+---
+import BaseButton from "./BaseButton.astro";
+import FerryAvatar from "../assets/photos/ferry-avatar-octocat_512.png";
+import { Image } from "astro:assets";
+
+const ctaLabel = "About Me 🙋🏻 &#8594;";
+const headingDesktop = "Hello Visitor. I'm Ferry.";
+const headingMobile = "Hello. I'm Ferry.";
+const body =
+  "I am a Software Engineer. Writing code for almost two decades. I do SaaS product development, WhatsApp integration, and technical consultancy. Recently, I also do vibe code cleaning.";
+---
+
+<div class="wrapper">
+  <div class="hero-card width-constrained-container">
+    <div class="column-container">
+      <div class="avatar-container-mobile hide-on-desktop">
+        <Image
+          src={FerryAvatar}
+          alt="Avatar of Ferry"
+          class="avatar"
+          loading="eager"
+        />
+      </div>
+
+      <h1 class="text-hero-title hide-on-mobile">{headingDesktop}</h1>
+      <h1 class="text-hero-title hide-on-desktop">{headingMobile}</h1>
+      <span class="text-body" set:html={body} />
+      <BaseButton href="/about" text={ctaLabel} />
+    </div>
+
+    <div class="avatar-container-desktop hide-on-mobile">
+      <Image
+        src={FerryAvatar}
+        alt="Avatar of Ferry"
+        class="avatar"
+        loading="eager"
+      />
+    </div>
+  </div>
+</div>
+
+<style>
+  @import "../styles/typography.css";
+  @import "../styles/spacing.css";
+  @import "../styles/effect.css";
+  @import "../styles/layout.css";
+
+  .wrapper {
+    margin-bottom: var(--gap-lg);
+  }
+
+  .column-container {
+    justify-content: space-between;
+  }
+
+  .hero-card {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid var(--color-thread);
+    background-color: var(--color-surface);
+    padding: var(--gap-lg);
+    border-radius: var(--corner-lg);
+  }
+
+  .avatar-container-mobile {
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .avatar-container-desktop {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .avatar {
+    max-width: 256px;
+    max-height: 256px;
+    min-width: 192px;
+    aspect-ratio: 1;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .hero-card {
+      border: 0;
+      border-radius: 0;
+      background-color: transparent;
+    }
+
+    .column-container {
+      gap: var(--gap-xl);
+    }
+
+    .avatar-container-mobile {
+      display: flex;
+    }
+
+    .avatar {
+      max-width: 192px;
+      max-height: 192px;
+      min-width: 128px;
+    }
+  }
+</style>

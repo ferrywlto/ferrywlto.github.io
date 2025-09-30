@@ -1,378 +1,49 @@
-/* Theme System - Centralized Design Tokens */
-
+/* Global Design Tokens - Theme Independent */
 :root {
-  /* Colors */
-  --accent: rgb(54, 120, 120);
-  --accent-dark: rgb(0, 101, 100);
-  --accent-light: rgb(90, 157, 158);
-  --accent-bright: rgb(0, 217, 168);
-  --black-emperor: rgb(77, 77, 77);
-  --black-emperor-dark: rgb(66, 66, 66);
-  --black-emperor-light: rgb(88, 88, 88);
-  --black: rgb(15, 18, 25);
-  --gray: rgb(96, 115, 159);
-  --gray-light: rgb(229, 233, 240);
-  --gray-lighter: rgb(248, 249, 250);
-  --gray-dark: rgb(34, 41, 57);
-  --white: rgb(255, 255, 255);
-  --mint-bg: rgb(240, 250, 250);
-  
-  /* Color Opacity Variants */
-  /* Accent opacity variants */
-  --accent-opacity-10: rgba(54, 120, 120, 0.1);
-  --accent-opacity-30: rgba(54, 120, 120, 0.3);
-  
-  /* Black opacity variants */
-  --black-opacity-05: rgba(15, 18, 25, 0.05);
-  --black-opacity-08: rgba(0, 0, 0, 0.08);
-  --black-opacity-10: rgba(15, 18, 25, 0.1);
-  --black-opacity-12: rgba(0, 0, 0, 0.12);
-  --black-opacity-15: rgba(15, 18, 25, 0.15);
-  --black-opacity-20: rgba(0, 0, 0, 0.2);
-  --black-opacity-40: rgba(0, 0, 0, 0.4);
-  
-  --black-emperor-light-opacity-80: rgba(88, 88, 88, 0.8);
-  /* Gray opacity variants (for shadows) */
-  --gray-opacity-25: rgba(96, 115, 159, 0.25);
-  --gray-opacity-33: rgba(96, 115, 159, 0.33);
-  
-  /* Accent dark opacity variants */
-  --accent-dark-opacity-40: rgba(0, 101, 100, 0.4);
-  
-  /* Gray light opacity variants */
-  --gray-light-opacity-30: rgba(229, 233, 240, 0.3);
-  --gray-light-opacity-50: rgba(229, 233, 240, 0.5);
-  
-  /* Gray lighter opacity variants */
-  --gray-lighter-opacity-90: rgba(248, 249, 250, 0.9);
-  
-  /* White opacity variants */
-  --white-opacity-05: rgba(255, 255, 255, 0.05);
-  --white-opacity-10: rgba(255, 255, 255, 0.1);
-  --white-opacity-15: rgba(255, 255, 255, 0.15);
-  --white-opacity-20: rgba(255, 255, 255, 0.2);
-  
-  /* Gradients */
-  --gray-gradient: var(--gray-light-opacity-50), var(--white);
-  --accent-gradient: linear-gradient(135deg, var(--accent), var(--accent-dark));
-  
-  /* Spacing Scale */
-  --space-xs: 0.25rem;    /* 4px */
-  --space-sm: 0.5rem;     /* 8px */
-  --space-md: 1rem;       /* 16px */
-  --space-lg: 1.5rem;     /* 24px */
-  --space-xl: 2rem;       /* 32px */
-  --space-2xl: 3rem;      /* 48px */
-  --space-3xl: 4rem;      /* 64px */
-  
-  /* Layout */
-  --container-xs: 720px;
-  --container-md: 960px;
-  --container-lg: 1200px;
-  --max-width: calc(100% - 2em);
-  
-  /* Component Heights */
-  --header-height: 68px;
-  --footer-height: 108px;
-  --footer-height-desktop: 88px; 
-  --drawer-width: 240px;
-  
-  /* Typography Scale - Bootstrap Aligned */
-  --text-xs: 0.75rem;     /* 12px - Bootstrap .small */
-  --text-sm: 0.875rem;    /* 14px - Bootstrap small elements */
-  --text-base: 1rem;      /* 16px - Bootstrap body text */
-  --text-lg: 1.125rem;    /* 18px - Bootstrap .lead */
-  --text-xl: 1.25rem;     /* 20px - Bootstrap h5 */
-  --text-2xl: 1.5rem;     /* 24px - Bootstrap h4 */
-  --text-3xl: 1.75rem;    /* 28px - Bootstrap h3 */
-  --text-4xl: 2.5rem;     /* 40px - Bootstrap h2 */
-  --text-5xl: 3.5rem;     /* 56px - Bootstrap h1 */
-  --text-6xl: 4.5rem;     /* 72px - Bootstrap display-6 */
-  
-  /* Shadows */
-  --shadow-sm: 0 1px 2px var(--black-opacity-05);
-  --shadow-md: 0 2px 6px var(--gray-opacity-25), 0 8px 24px var(--gray-opacity-33);
-  --shadow-lg: 0 4px 12px var(--black-opacity-15), 0 8px 24px var(--black-opacity-10);
-  --shadow-xl: 0 8px 32px var(--black-opacity-12), 0 16px 64px var(--black-opacity-08);
-  --shadow-hero: 0.08em 0.08em 0.38em var(--black-emperor-light-opacity-80);
-
-  /* Border Radius */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xs: 2px;
-  
-  /* Transitions */
-  --transition-normal: 0.2s ease;
-  --transition-slow: 0.3s ease;
-  
-  /* Z-index Scale */
-  --z-sticky: 1020;
-  
-  /* Shared Assets */
-  --texture-pattern: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAD0lEQVQImWNgwAT/aSEAAP5qBPyVZlLRAAAAAElFTkSuQmCC');
+  /* Global Semantic Colors - Theme Independent */
+  --color-text-title: var(--color-body);
+  --color-text-subtitle: color-mix(in srgb, var(--color-body) 75%, var(--color-bg) 25%);
+  --color-text-meta: color-mix(in srgb, var(--color-body) 50%, var(--color-bg) 50%);
+  --color-thread: color-mix(in srgb, var(--color-primary) 50%, var(--color-bg) 50%);
+  --color-shadow: color-mix(in srgb, var(--color-primary) 25%, var(--color-bg) 75%);
+  --color-button-hover-text: var(--color-bg);
 }
 
-/* Component Base Classes */
-.hero-shadow-text {
-  text-shadow: var(--shadow-hero);
-}
-.hidden {
-  display: none !important;
+/* Light Theme Colors (default) */
+:root,
+[data-theme="light"] {
+  /* Light theme colors (default) */
+  --color-bg: #FAFAFA;
+  --color-surface: #F0F0F0;
+  --color-body: #2d2d2d;
+  --color-subtle: #656565;
+  --color-light: #EFEFEF;
+  --color-dark: #262626;
+  --color-primary: #006564;
+  --color-secondary: #4a148c;
+  --color-success: #007047;
+  --color-danger: #8A1C33;
+  --color-warning: #7C6100;
+  --color-info: #0042aa;
+
 }
 
-/* Button Utilities */
-.btn-reset {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  font: inherit;
+/* Dark Theme Colors */
+:root[data-theme="dark"] {
+    --color-bg: #242424;
+    --color-surface: #4D4D4D;
+    --color-body: #E4E4E4;
+    --color-subtle: #bebebe;
+    --color-light: #f0f0f0;
+    --color-dark: #101010;
+    --color-primary: #00D9A8;
+    --color-secondary: #ffc0cb;
+    --color-success: #00ff2a;
+    --color-danger: #ffacae;
+    --color-warning: #FFD700;
+    --color-info: #53d5fd;
 }
 
-.btn-interactive {
-  border-radius: var(--radius-sm);
-  transition: var(--transition-normal);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.btn-interactive:hover {
-  background: var(--black-opacity-05);
-}
-
-.btn-interactive:focus {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
-
-/* Flex Utilities */
-.flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.flex-between {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.flex-column {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Link Utilities */
-.link-accent {
-  color: var(--accent);
-  text-decoration: none;
-  transition: var(--transition-normal);
-}
-
-.link-accent:hover {
-  color: var(--accent-dark);
-}
-
-.link-accent:focus {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-  border-radius: var(--radius-sm);
-}
-
-/* Card Utilities */
-.card {
-  background: var(--gray-light-opacity-50);
-  border: 1px solid var(--gray-light);
-  border-radius: var(--radius-lg);
-  transition: var(--transition-normal);
-}
-
-.card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
-  border-color: var(--accent);
-}
-
-.card-interactive {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Badge Utilities */
-.badge {
-  display: inline-block;
-  padding: var(--space-xs) var(--space-sm);
-  border-radius: var(--radius-sm);
-  font-size: var(--text-sm);
-  font-weight: 500;
-  text-decoration: none;
-  transition: var(--transition-normal);
-}
-
-.badge-primary {
-  background: var(--gray-light);
-  color: var(--gray-dark);
-}
-
-.badge-primary:hover {
-  background: var(--accent);
-  color: var(--white);
-}
-
-/* Layout Utilities */
-.full-width {
-  width: 100%;
-}
-
-.responsive-padding {
-  padding: var(--space-md);
-}
-
-/* Spacing Utilities */
-.margin-auto {
-  margin: 0 auto;
-}
-
-.margin-bottom-md {
-  margin-bottom: var(--space-md);
-}
-
-.margin-bottom-lg {
-  margin-bottom: var(--space-lg);
-}
-
-.margin-top-xl {
-  margin-top: var(--space-xl);
-}
-
-.margin-y-xl {
-  margin: var(--space-xl) 0;
-}
-
-.margin-y-lg {
-  margin: var(--space-lg) 0;
-}
-
-.padding-x-lg {
-  padding: 0 var(--space-lg);
-}
-
-.padding-md {
-  padding: var(--space-md);
-}
-
-.padding-lg {
-  padding: var(--space-lg);
-}
-
-/* Text Utilities */
-.text-center {
-  text-align: center;
-}
-
-.text-right {
-  text-align: right;
-}
-
-.text-start {
-  text-align: start;
-}
-
-.text-gray {
-  color: var(--gray);
-}
-
-.text-black {
-  color: var(--black);
-}
-
-.text-accent {
-  color: var(--accent);
-}
-
-.font-weight-bold {
-  font-weight: 700;
-}
-
-.font-weight-medium {
-  font-weight: 500;
-}
-
-.line-height-tight {
-  line-height: 1.2;
-}
-
-.line-height-normal {
-  line-height: 1.4;
-}
-
-/* List Utilities */
-.list-reset {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* Size Utilities */
-.w-full {
-  width: 100%;
-}
-
-.max-w-container {
-  max-width: var(--max-width);
-}
-
-/* Position Utilities */
-.relative {
-  position: relative;
-}
-
-.block {
-  display: block;
-}
-
-.inline-block {
-  display: inline-block;
-}
-
-/* Text Decoration Utilities */
-.text-decoration-none {
-  text-decoration: none;
-}
-
-/* Container System */
-.container {
-  width: 100%;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 var(--space-md);
-}
-
-/* Texture Utilities */
-.texture-overlay {
-  position: relative;
-}
-
-.texture-overlay::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: var(--texture-pattern);
-  background-repeat: repeat;
-  background-position: left top;
-  opacity: 0.08;
-  z-index: -1;
-}
-
-/* Responsive Utilities */
-@media (max-width: 768px) {
-  .responsive-padding, .container {
-    padding: 0 var(--space-sm);
-  }
+html {
+  background-color: var(--color-bg);
 }

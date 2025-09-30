@@ -2,12 +2,12 @@
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
-  tweet: CollectionEntry<'tweets'>;
+  tweet: CollectionEntry<'whispers'>;
   Content: any;
 }
 
 const { tweet, Content } = Astro.props;
-const { pubDate } = tweet.data;
+const { pubDate, author } = tweet.data;
 
 // Format time for display
 const timeFormat = new Intl.DateTimeFormat('en-US', {
@@ -17,47 +17,34 @@ const timeFormat = new Intl.DateTimeFormat('en-US', {
 });
 ---
 
-<div class="tweet-simple margin-bottom-sm">
-  <div>
-    {timeFormat.format(pubDate)}:
+<div class="column-container tweet">
+  <div class="text-meta tweet-time-author">
+    <span>{timeFormat.format(pubDate)}</span>
+    <span>{author} said:</span>
   </div>
-  <div class="tweet-content">
+  <div class="tweet-content text-body">
     <Content />
   </div>
 </div>
 
 <style>
-  .tweet-simple {
+  @import '../styles/typography.css';
+  @import '../styles/spacing.css';
+  @import '../styles/layout.css';
+
+  .tweet-time-author {
     display: flex;
-    gap: var(--space-sm);
-    font-size: var(--text-base);
-    line-height: 1.5;
-  }
-  
-  .tweet-simple time {
-    color: var(--gray);
-    font-weight: 500;
-    flex-shrink: 0;
-    min-width: 4.5rem;
-  }
-  
-  .tweet-content {
-    flex: 1;
-  }
-  
-  .tweet-content :global(p) {
-    margin: 0;
-    display: inline;
-  }
-  
-  .tweet-content :global(p + p) {
-    margin-left: var(--space-xs);
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    white-space: nowrap;
+    gap: var(--gap-md);
   }
 
-  @media (max-width: 768px) {
-    .tweet-simple {
-      display: block;
-      font-size: var(--text-sm);
-    }
+  .tweet-content {
+    display: flex;
+    /* white-space: pre-wrap; */
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 </style>

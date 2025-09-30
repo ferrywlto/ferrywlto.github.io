@@ -1,0 +1,85 @@
+/* Only apply hover effects on devices that support hover (not touch devices) */
+@media (hover: hover) {
+  .surface-background-hover:hover {
+    background-color: var(--color-surface);
+    transition: background-color 0.3s ease;
+  }
+
+  .primary-border-and-text-hover:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transition: border-color 0.3s ease, color 0.3s ease;
+  }
+
+  .hover-background-surface:hover {
+    background-color: var(--color-surface);
+    transition: background-color 0.3s ease;
+  }
+
+  .hover-background-primary:hover {
+    background-color: var(--color-primary);
+    transition: background-color 0.3s ease;
+  }
+
+  .hover-border-primary:hover {
+    border-color: var(--color-primary);
+    transition: border-color 0.3s ease;
+  }
+
+  .hover-text-primary:hover {
+    color: var(--color-primary);
+    transition: color 0.3s ease;
+  }
+
+  .hover-stroke-primary:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transition: border-color 0.3s ease, color 0.3s ease;
+  }
+
+  .nav-control:hover {
+    box-shadow: 0 0 0 1px var(--color-thread);
+    transition: all 0.3s ease;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .hide-on-desktop {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+
+  .nav-control:hover {
+    box-shadow: none;
+    transition: none;
+  }
+}
+
+:root {
+  --elevation-border: 1px solid var(--color-shadow);
+}
+
+/* just for backup */
+:root {
+    /* Shared Assets */
+  --texture-pattern: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAD0lEQVQImWNgwAT/aSEAAP5qBPyVZlLRAAAAAElFTkSuQmCC');
+    /* Shadows - Light Theme */
+  --shadow: 0 1px 2px color-mix(in srgb, var(--color-body) 10%, transparent);
+  --shadow-header:
+    0 1px 0 color-mix(in srgb, var(--color-surface) 60%, transparent),
+    0 1px 2px color-mix(in srgb, var(--color-body) 10%, transparent);
+  --shadow-drawer:
+    0 1px 0 color-mix(in srgb, var(--color-surface) 60%, transparent),
+    0 6px 20px color-mix(in srgb, var(--color-body) 10%, transparent),
+    0 3px 8px color-mix(in srgb, var(--color-body) 10%, transparent),
+    0 1px 3px color-mix(in srgb, var(--color-body) 10%, transparent);
+
+    /* Transitions */
+    --transition-normal: 0.2s ease;
+    --transition-slow: 0.3s ease;
+}

@@ -1,0 +1,27 @@
+---
+export interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div class={`theme-toggle nav-control ${className || ''}`} title="Click to toggle light/dark theme">
+  🌚
+</div>
+
+<style>
+  @import "../styles/theme.css";
+  @import "../styles/effect.css";
+
+  .theme-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: var(--corner-md);
+    padding: var(--gap-xs) var(--gap-sm);
+  }
+</style>

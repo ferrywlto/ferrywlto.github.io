@@ -1,0 +1,48 @@
+---
+import ItemDateLabel from "./ItemDateLabel.astro";
+import ItemTitleLink from "./ItemTitleLink.astro";
+
+export interface Props {
+  title: string;
+  date: string;
+  subtitle: string;
+  link: string;
+}
+
+const { title, date, subtitle, link } = Astro.props;
+---
+
+<div class="surface-background-hover column-container" onclick={`window.location.href = ${JSON.stringify(link)}`}>
+  <div class="title-row">
+    <ItemDateLabel date={date} />
+    <ItemTitleLink title={title} link={link} />
+  </div>
+  <h4 class="text-item-subtitle hide-on-mobile">{subtitle}</h4>
+</div>
+
+<style>
+  @import "../styles/typography.css";
+  @import "../styles/spacing.css";
+  @import "../styles/effect.css";
+  @import "../styles/layout.css";
+
+  .column-container {
+    padding: var(--gap-sm) 0;
+    gap: var(--gap-md);
+  }
+
+  .title-row {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: var(--gap-md);
+  }
+
+  @media screen and (max-width: 1024px) {
+    .title-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--gap-sm);
+    }
+  }
+</style>

@@ -6,28 +6,45 @@ type Props = HTMLAttributes<'a'>;
 const { href, class: className, ...props } = Astro.props;
 const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
 const subpath = pathname.match(/[^\/]+/g);
-const isActive = href === pathname || href === '/' + (subpath?.[0] || '');
+const isActive = pathname !== '/' && (href === pathname || href === '/' + (subpath?.[0] || ''));
 ---
 
-<a href={href} class:list={[className, "link-accent", { active: isActive }]} {...props}>
-	<slot />
+<a href={href} class:list={[className, { active: isActive }, 'text-body']} {...props}>
+  <div class="link-container nav-control">
+    <slot />
+  </div>
 </a>
 <style>
-	a {
-		position: relative;
-		display: inline-block;
-		padding: 0 var(--space-xs);
-		font-size: var(--text-lg);
-		font-weight: bolder;
-		color: var(--black-emperor-dark);
-		transition: color 0.3s linear, filter 0.3s linear;
-	}
-	
+  @import "../styles/theme.css";
+  @import "../styles/typography.css";
+  @import "../styles/effect.css";
+
 	a.active {
-		color: var(--accent-dark);
+		color: var(--color-primary);
+    font-weight: 600;
 	}
 
-	a:hover {
-		color: var(--accent-light);	
-	}
+  a:hover {
+    text-decoration: none !important;
+  }
+
+  .link-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: var(--corner-md);
+    padding: var(--gap-xs) var(--gap-sm);
+  }
+
+  @media screen and (max-width: 1024px) {
+    .link-container {
+      width: 100%;
+      padding: var(--gap-lg);
+      box-sizing: border-box;
+
+      border-radius: 0;
+    }
+  }
 </style>

@@ -1,43 +1,58 @@
 ---
 
 ---
+<div x-data
+  @click="openDrawer()"
+  class="hide-on-desktop hamburger"
+  aria-label="Toggle menu"
+>
+  <span class="line"></span>
+</div>
+<script>
+import Alpine from "alpinejs";
 
-<button class="hamburger btn-reset btn-interactive" x-on:click="open = !open" aria-label="Toggle menu">
-    <span class="line pad"></span>
-    <span class="line"></span>
-    <span class="line pad"></span>
-</button>
-
-<style>
-    .hamburger {
-        display: none;
+  //@ts-ignore
+  window.openDrawer = function() {
+    const drawer = document.querySelector('.drawer');
+    if(drawer) {
+      drawer.classList.add('drawer-open');
+      Alpine.store('drawer', true);
+      setTimeout(() => {
+        drawer.classList.remove('drawer-open');
+      }, 300);
     }
-    
-	/* Show hamburger on mobile */
-	@media (max-width: 768px) {
-        .hamburger {
-            display: flex;
-            z-index: 1000;
-            padding: var(--space-sm);
-            flex-direction: column;
-            min-width: var(--header-height);
-            min-height: var(--header-height);
-            /* Ensure perfect vertical alignment */
-            align-self: center;
-            margin: auto 0;            
-		}
+  }
+</script>
+<style>
+  @import "../styles/theme.css";
+  @import "../styles/spacing.css";
+  @import "../styles/effect.css";
 
-        .hamburger .line {
-            display: block;
-            width: 38px;
-            height: 3.8px;
-            background-color: var(--accent-dark);
-            border-radius: var(--radius-xs);
-        }
-    
-        .hamburger .pad {
-            margin-top: var(--space-sm); 
-            margin-bottom: var(--space-sm);
-        }
-	}
+  /* Show hamburger on mobile */
+  @media (max-width: 1024px) {
+    .hamburger {
+      display: flex !important;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      padding: var(--gap-lg);
+      width: 100%;
+
+      max-width: 4rem;
+      max-height: 4rem;
+      min-height: 3rem;
+      min-width: 3rem;
+      aspect-ratio: 1;
+      box-sizing: border-box;
+    }
+
+    .hamburger::before, .hamburger::after, .line {
+      content: "";
+      display: block;
+      width: 100%;
+      height: min(5px, 1vh);
+      background-color: var(--color-primary);
+      border-radius: var(--corner-sm);
+    }
+  }
 </style>

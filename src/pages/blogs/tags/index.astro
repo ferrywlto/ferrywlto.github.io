@@ -1,0 +1,173 @@
+---
+import BaseHead from '../../../components/BaseHead.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../../consts';
+import { getCollection } from "astro:content";
+
+const allPosts = await getCollection('blogs');
+const tags = [
+  ...new Set(allPosts.map((post: any) => post.data.tags).flat()),
+].sort();
+
+// Calculate tag frequencies and create tag data with counts
+const tagsWithCounts = tags.map(tag => {
+  const count = allPosts.filter((post: any) => post.data.tags.includes(tag)).length;
+  return { name: tag, count };
+}).sort((a, b) => b.count - a.count); // Sort by frequency (highest first)
+
+// Find min and max counts for scaling
+const maxCount = Math.max(...tagsWithCounts.map(t => t.count));
+const minCount = Math.min(...tagsWithCounts.map(t => t.count));
+
+const pageTitle = "Tag Index";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`${pageTitle} | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+		<style>
+			/* Page-specific overrides using theme variables */
+			main {
+				width: var(--container-xs);
+				max-width: var(--max-width);
+			}
+
+			h1 {
+				color: var(--color-text-primary);
+				font-size: var(--text-4xl);
+				line-height: 1.2;
+			}
+
+			.tags-grid {
+				display: flex;
+				flex-direction: column;
+				gap: var(--space-md);
+			}
+
+			.tag-card {
+			}
+
+			.tag-name {
+				color: var(--color-text-primary);
+				font-weight: 700;
+				line-height: 1.2;
+				flex: 1;
+			}
+
+			.tag-count {
+				color: var(--color-text-secondary);
+				white-space: nowrap;
+				line-height: 1.2;
+			}
+
+			.tag-card:hover .tag-name {
+				color: var(--color-primary);
+			}
+
+			.tag-card:hover .tag-count {
+				color: var(--color-primary);
+			}
+
+			/* Size variations using theme variables */
+			.tag-card.size-xs {
+				padding: var(--space-md) var(--space-lg);
+			}
+			.tag-card.size-xs .tag-name { font-size: var(--text-base); }
+			.tag-card.size-xs .tag-count { font-size: var(--text-xs); }
+
+			.tag-card.size-sm {
+				padding: calc(var(--space-md) * 1.2) var(--space-lg);
+			}
+			.tag-card.size-sm .tag-name { font-size: var(--text-lg); }
+			.tag-card.size-sm .tag-count { font-size: var(--text-sm); }
+
+			.tag-card.size-md .tag-name { font-size: var(--text-xl); }
+			.tag-card.size-md .tag-count { font-size: var(--text-base); }
+
+			.tag-card.size-lg {
+				padding: var(--space-xl) var(--space-lg);
+			}
+			.tag-card.size-lg .tag-name {
+				font-size: var(--text-2xl);
+				font-weight: 800;
+			}
+			.tag-card.size-lg .tag-count { font-size: var(--text-lg); }
+
+			.tag-card.size-xl {
+				padding: calc(var(--space-xl) * 1.25) var(--space-lg);
+			}
+			.tag-card.size-xl .tag-name {
+				font-size: var(--text-3xl);
+				font-weight: 800;
+			}
+			.tag-card.size-xl .tag-count { font-size: var(--text-xl); }
+
+			@media (max-width: 768px) {
+				main {
+				}
+
+				h1 {
+					font-size: var(--text-3xl);
+				}
+
+				.tag-card {
+					box-sizing: border-box;
+					max-width: 100%;
+				}
+
+				.tag-card.size-lg {
+					padding: var(--space-lg);
+				}
+
+				.tag-card.size-xl {
+					padding: var(--space-xl) var(--space-lg);
+				}
+
+				.tag-card.size-xl .tag-name {
+					font-size: var(--text-2xl);
+				}
+
+				.tag-card.size-xl .tag-count {
+					font-size: var(--text-base);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main class="margin-auto responsive-padding">
+			<section>
+				<h1 class="margin-y-xl">{pageTitle}</h1>
+				<div class="tags-grid margin-y-xl">
+					{tagsWithCounts.map((tagData) => {
+						// Calculate size class based on frequency
+						const ratio = maxCount > minCount ? (tagData.count - minCount) / (maxCount - minCount) : 0.5;
+						let sizeClass = 'size-md';
+
+						if (ratio >= 0.8) {
+							sizeClass = 'size-xl';
+						} else if (ratio >= 0.6) {
+							sizeClass = 'size-lg';
+						} else if (ratio >= 0.4) {
+							sizeClass = 'size-md';
+						} else if (ratio >= 0.2) {
+							sizeClass = 'size-sm';
+						} else {
+							sizeClass = 'size-xs';
+						}
+
+						return (
+							<a href={`/tags/${tagData.name}`} class={`tag-card card card-interactive flex-between full-width padding-lg ${sizeClass}`}>
+								<h3 class="tag-name">{tagData.name}</h3>
+								<p class="tag-count text-right">{tagData.count} {tagData.count === 1 ? 'post' : 'posts'}</p>
+							</a>
+						);
+					})}
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>

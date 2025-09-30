@@ -1,0 +1,36 @@
+:root {
+  --content-width: 1024px;
+  /* Not in used, just as a reference for optimal mobile breakpoint */
+  --breakpoint-mobile: calc(var(--content-width) + (2 * var(--gap-md)));
+
+  --gap-xs: 0.375rem;
+  --gap-sm: 0.5rem;
+  --gap-md: 1rem;
+  --gap-lg: 2rem;
+  --gap-xl: 4rem;
+
+  --corner-xs: 0.25rem;
+  --corner-sm: 0.375rem;
+  --corner-md: 0.5rem;
+  --corner-lg: 0.625rem;
+  --corner-xl: 0.75rem;
+  --corner-pill: 999px;
+}
+
+@media screen and (max-width: 1024px) {
+  :root {
+    --gap-xs: 0.25rem;
+    --gap-sm: 0.375rem;
+    --gap-md: 0.5rem;
+    --gap-lg: 1rem;
+    --gap-xl: 2rem;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 375px; /* IPhone SE */
+  box-sizing: border-box;
+  overflow-x: hidden;
+}

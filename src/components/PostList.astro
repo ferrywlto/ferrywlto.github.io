@@ -1,0 +1,36 @@
+---
+import Divider from './Divider.astro';
+import PostListItem from './PostListItem.astro';
+
+export interface Post {
+    title: string,
+    date: string,
+    subtitle: string,
+    link: string
+}
+
+export interface Props {
+    posts: Array<Post>
+}
+
+const { posts } = Astro.props;
+---
+
+<div class="column-container">
+  {posts.map((post, idx) => {
+    const isLast = idx === posts.length - 1;
+    return (
+      <>
+      <PostListItem title={post.title} date={post.date} subtitle={post.subtitle} link={post.link} />
+      {!isLast ? <Divider /> : null}
+    </>
+  );
+})}
+</div>
+
+<style>
+  @import "../styles/layout.css";
+  .column-container {
+    gap: var(--gap-md);
+  }
+</style>

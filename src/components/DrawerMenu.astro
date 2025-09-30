@@ -1,182 +1,164 @@
 ---
-import HeaderLink from './HeaderLink.astro';
+import HeaderLink from "./HeaderLink.astro";
+import CloseButton from "./CloseButton.astro";
+import ThemeToggle from "./ThemeToggle.astro";
 ---
 
-<div class="drawer-overlay" x-show="open" x-transition.opacity.duration.300ms x-on:click="open = false"></div>
-<div class="drawer" x-show="open" 
-     x-transition:enter="drawer-enter" 
-     x-transition:enter-start="drawer-enter-start" 
-     x-transition:enter-end="drawer-enter-end"
-     x-transition:leave="drawer-leave" 
-     x-transition:leave-start="drawer-leave-start" 
-     x-transition:leave-end="drawer-leave-end">
-	<div class="drawer-header texture-overlay flex-between">
-		<h2>Menu</h2>
-		<button class="close-btn btn-reset btn-interactive" x-on:click="open = false" aria-label="Close menu">
-			<svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<path d="M28 10L10 28M10 10L28 28" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-			</svg>
-		</button>
-	</div>
-	<nav class="drawer-nav">
-		<HeaderLink href="/">Home</HeaderLink>
-		<HeaderLink href="/about">About</HeaderLink>
-		<HeaderLink href="/whispers">Whispers</HeaderLink>
-		<HeaderLink href="/blog">Blog</HeaderLink>
-		<HeaderLink href="/tags">Tags</HeaderLink>
-        <HeaderLink href="/projects" class="hidden">Projects</HeaderLink>        
-	</nav>
+<div x-data
+  x-show="$store.drawer"
+  x-on:click="closeDrawer()"
+  x-transition.duration.300ms
+  x-transition.opacity
+  x-cloak
+  class="drawer-overlay"
+>
 </div>
+<div x-data
+  x-cloak
+  x-show="$store.drawer"
+  class="drawer"
+>
+  <div x-data
+  class="drawer-header" x-on:close-button-clicked="closeDrawer()">
+    <ThemeToggle />
+    <h2 class="text-item-title">ferrywl.to</h2>
+    <CloseButton />
+  </div>
+  <nav class="drawer-nav">
+    <div class="nav-item"><HeaderLink href="/">🏠 Home</HeaderLink></div>
+    <div class="nav-item"><HeaderLink href="/blogs">📝 Blog</HeaderLink></div>
+    <div class="nav-item"><HeaderLink href="/diaries">📓 Diary</HeaderLink></div>
+    <div class="nav-item"><HeaderLink href="/whispers">💬 Whispers</HeaderLink></div>
+    <div class="nav-item"><HeaderLink href="/projects">🚀 Projects</HeaderLink></div>
+    <div class="nav-item"><HeaderLink href="/about">👨🏻‍💻 About</HeaderLink></div>
+  </nav>
+</div>
+<script>
+import Alpine from "alpinejs";
 
+  //@ts-ignore
+  window.closeDrawer = function() {
+    const drawer = document.querySelector('.drawer');
+    if(drawer) {
+      drawer.classList.add('drawer-close');
+      setTimeout(() => {
+        drawer.classList.remove('drawer-close');
+        Alpine.store('drawer', false);
+      }, 300);
+    }
+  }
+</script>
 <style>
-	/* Alpine.js transition classes */
-	.drawer-enter {
-		transition: transform 0.3s ease-out;
-	}
-	.drawer-enter-start {
-		transform: translateX(-100%);
-	}
-	.drawer-enter-end {
-		transform: translateX(0);
-	}
-	.drawer-leave {
-		transition: transform 0.3s ease-in;
-	}
-	.drawer-leave-start {
-		transform: translateX(0);
-	}
-	.drawer-leave-end {
-		transform: translateX(-100%);
-	}
-	
-	.drawer-overlay {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100vw;
-		height: 100vh;
-		background: var(--black-opacity-40);
-		backdrop-filter: blur(8px) brightness(0.8);
-		-webkit-backdrop-filter: blur(8px) brightness(0.8);
-		z-index: 998;
-	}
+  @import "../styles/theme.css";
+  @import "../styles/spacing.css";
+  @import "../styles/effect.css";
+  @import "../styles/typography.css";
 
-	.drawer {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: var(--drawer-width);
-		max-width: 70vw;
-		height: 100vh;
-		background: var(--gray-lighter-opacity-90);
-		backdrop-filter: blur(20px) saturate(180%);
-		-webkit-backdrop-filter: blur(20px) saturate(180%);
-		z-index: 999;
-		box-shadow: 
-			4px 0 25px var(--black-opacity-10),
-			0 0 0 1px var(--white-opacity-20);
-		display: flex;
-		flex-direction: column;
-        z-index: 999;
-	}
+  [x-cloak] { display: none !important; }
 
-	.drawer-header {
-		padding: var(--space-sm) var(--space-lg);
-		border-bottom: 1px solid var(--white-opacity-20);
-		background: var(--white-opacity-15);
-		backdrop-filter: blur(10px);
-		-webkit-backdrop-filter: blur(10px);
-		position: relative;
-		box-shadow: 
-			0 6px 20px var(--black-opacity-15),
-			0 3px 8px var(--black-opacity-12),
-			0 1px 3px var(--black-opacity-10);
-		box-sizing: border-box;
-		height: var(--header-height);
-		min-height: var(--header-height);
-        max-height: var(--header-height);
-		overflow: hidden;
-	}
-    
-	.drawer-header::before {
-        content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: linear-gradient(135deg, var(--white-opacity-10) 0%, var(--white-opacity-05) 100%);
-		z-index: -1;
-        max-height: var(--header-height);
-	}
+  @media screen and (max-width: 1024px) {
+    .drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: color-mix(in srgb, var(--color-shadow) 10%, transparent);
+      backdrop-filter: blur(8px) brightness(0.8);
+      -webkit-backdrop-filter: blur(8px) brightness(0.8);
+      z-index: 998;
+      cursor: pointer;
+    }
 
-	.drawer-header h2 {
-		margin: 0;
-		color: var(--accent-dark);
-	}
+    .drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100vh;
+      background: var(--color-bg);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      /* animation: slideInFromLeft 0.3s ease-out; */
+    }
 
-	.close-btn {
-		color: var(--accent-dark);
-		transition: var(--transition-slow);
-		position: relative;
-		overflow: hidden;
-	}
+    .drawer-open {
+      animation: slideInFromLeft 0.3s ease-out;
+    }
 
-	.drawer-nav {
-		flex: 1;
-		padding: 0;
-		margin: 0;
-		overflow-y: auto;
-		width: 100%;
-		border: none;
-		outline: none;
-		/* Reset any inherited nav styles */
-		position: relative;
-		left: 0;
-		top: 0;
-		background: none;
-		list-style: none;
-	}
+    .drawer-close {
+      animation: slideOutToLeft 0.3s ease-in;
+    }
 
-	.drawer-nav :global(a) {
-		display: block;
-		padding: var(--space-md) var(--space-lg);
-		margin: 0;
-		text-decoration: none;
-		color: var(--gray-dark);
-		font-size: var(--text-xl);
-		font-weight: 500;
-		border-left: none;
-		transition: var(--transition-slow);
-		position: relative;
-		overflow: hidden;
-		box-sizing: border-box;
-		width: 100%;
-	}
+    @keyframes slideOutToLeft {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
 
-	/* Override for hidden class */
-	.drawer-nav :global(a.hidden) {
-		display: none;
-	}
+    @keyframes slideInFromLeft {
+      from {
+        transform: translateX(-100%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
 
-	.drawer-nav :global(a.active) {
-		background-color: var(--accent-dark);
-		color: white;
-		border-left: none;
-		font-weight: 700;
-		backdrop-filter: blur(8px) saturate(150%);
-		-webkit-backdrop-filter: blur(8px) saturate(150%);
-		box-shadow: 
-			inset 0 0 20px var(--black-opacity-15),
-			0 4px 15px var(--accent-dark-opacity-40),
-			0 0 0 1px var(--white-opacity-20);
-		text-shadow: 0 1px 2px var(--black-opacity-20);
-	}
-	/* Hide drawer on desktop */
-	@media (min-width: 720px) {
-		.drawer,
-		.drawer-overlay {
-			display: none !important;
-		}
-	}
+    .close-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      cursor: pointer;
+      border-radius: var(--corner-sm);
+      background: transparent;
+      color: var(--color-text);
+      font-size: 1.2rem;
+      transition: background-color 0.2s ease;
+    }
+
+    .close-button:hover {
+      background: var(--color-hover);
+    }
+
+    .drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--color-surface);
+      padding: var(--gap-lg);
+      box-shadow: var(--shadow-drawer);
+      box-sizing: border-box;
+      height: 3.8rem;
+
+      border-bottom: 1px solid var(--color-shadow);
+    }
+
+    .drawer-nav {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      /* gap: var(--gap-xl); */
+
+      box-sizing: border-box;
+      background-color: var(--color-bg);
+    }
+
+    .nav-item {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      padding: var(--gap-lg);
+      box-sizing: border-box;
+      border-bottom: 1px solid var(--color-shadow);
+    }
+  }
 </style>

@@ -1,0 +1,38 @@
+@import './spacing.css';
+
+.column-container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.row-to-column-on-mobile {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+
+.width-constrained-container {
+  width: 100%;
+  box-sizing: border-box;
+  max-width: var(--content-width);
+}
+
+@media screen and (max-width: 1024px) {
+  .row-to-column-on-mobile {
+    flex-direction: column;
+    text-align: flex-start;
+  }
+
+  .width-constrained-container {
+    max-width: 100% !important;
+  }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  min-width: 375px; /* iPhone SE width */
+}
