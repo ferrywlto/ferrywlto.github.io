@@ -7,27 +7,17 @@ import SectionContainer from "../components/SectionContainer.astro";
 import Divider from "../components/Divider.astro";
 import HeroCard from "../components/HeroCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
 
-const posts = [
-  {
-    title: "Understanding Async/Await in JavaScript",
-    date: "2024-06-15",
-    subtitle: "A deep dive into asynchronous programming with async/await.",
-    link: "./post/post1",
-  },
-  {
-    title: "CSS Grid vs. Flexbox: When to Use Which",
-    date: "2024-06-10",
-    subtitle: "A comparison of CSS Grid and Flexbox for layout design.",
-    link: "./post/post2",
-  },
-  {
-    title: "Getting Started with Astro",
-    date: "2024-06-05",
-    subtitle: "An introduction to building fast websites with Astro.",
-    link: "./post/post3",
-  },
-];
+const blogs = (await getCollection("blogs"))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3)
+  .map((post) => ({
+    title: post.data.title,
+    date: post.data.pubDate.toString(),
+    subtitle: post.data.description,
+    link: `./blogs/${post.id}`,
+  }));
 
 const diary = [
   {
@@ -91,11 +81,11 @@ const projects = [
 
     <div class="content-container">
       <div class="column-container content-list">
-        <SectionContainer title="Tech Blog" linkText="All posts" link="./posts">
-          <PostList posts={posts} />
+        <SectionContainer title="Tech Blog" linkText="All posts" link="./blogs">
+          <PostList posts={blogs} />
         </SectionContainer>
 
-        <SectionContainer title="Diary" linkText="Archive" link="./diary">
+        <SectionContainer title="Diary" linkText="Archive" link="./diaries">
           <PostList posts={diary} />
         </SectionContainer>
 
