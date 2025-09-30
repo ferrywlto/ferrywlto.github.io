@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2025-09-30
+
+### ✨ Features
+- **Diary Pages**: Implemented diary page functionality to match blog page behavior ([#27](https://github.com/ferrywlto/ferrywlto.github.io/issues/27))
+- **Content Consistency**: Unified diary and blog page layouts and components
+- **Component Reusability**: Enhanced PostPreview component to work with both blogs and diaries
+
+### 🔧 Improvements  
+- **Page Layout**: Updated diary index page with improved content organization
+- **Navigation**: Added proper slug handling for diary entries
+- **Content Structure**: Improved diary content metadata and formatting
+
+### 🐛 Bug Fixes
+- Fixed diary page routing and content rendering
+- Resolved component compatibility issues between blogs and diaries
+- Improved content preview consistency across different content types
+
 ## [1.0.0] - 2025-09-29
 
 ### 🎨 Major Design Overhaul
