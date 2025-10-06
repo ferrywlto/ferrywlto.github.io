@@ -1,13 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import FerryPortrait from "../assets/photos/ferry.png";
-import SocialLinkIcon from "../components/SocialLinkIcon.astro";
-import FullGitHubLogo from "../assets/logos/github-full.svg";
-import FullLeetcodeLogo from "../assets/logos/leetcode-full.svg";
-import FullStackoverFlowLogo from "../assets/logos/stackoverflow-full.svg";
-import FullLinkedInLogo from "../assets/logos/linkedin-full.svg";
-import FullMediumLogo from "../assets/logos/medium-full.svg";
-import FullThreadsLogo from "../assets/logos/threads-full-light.svg";
 import SheldonPhoto from "../assets/photos/sheldon.jpg";
 import ShamyPhoto from "../assets/photos/shamy.jpg";
 import SevenPhoto from "../assets/photos/seven.jpg";
@@ -20,66 +13,47 @@ const description =
 
 <BaseLayout title={title} description={description}>
   <div class="width-constrained-container column-container">
-    <section>
-      <div class="container flex-center">
-        <div class="portrait">
-          <Image alt="Portrait of Ferry To" src={FerryPortrait} />
-        </div>
-      </div>
-      <div class="container flex-center greeting-text">
-        <h1 class="text-hero-title">👋 Hi there! I'm Ferry.&nbsp;</h4>
-        <h4>Nice to meet you. 😀</h4>
-      </div>
+    <section class="column-container my-photo-container">
+      <Image alt="Portrait of Ferry To" src={FerryPortrait} class="my-photo photo"/>
+      <h1 class="text-item-title greeting">👋 Hi! I'm Ferry. Nice to meet you. 😀</h1>
     </section>
-    <hr />
-    <section>
+    <hr class="hide-on-desktop" />
+    <section class="column-container">
       <h1 class="text-section-title">🧑‍💻 About Me</h1>
 
-      <p class="text-body">
-        A software engineer with two decades of experience in the industry, I
-        love solving problems and building things. I aspire to work for myself
-        one day to transform all my ideas into actual products.
-      </p>
+      <span class="text-body">
+        A software engineer with nearly two decades in the industry, and founder of <a href="https://verdantsparks.com" target="_blank"><b style="color: var(--color-primary)">VerdantSparks</b></a>. I love building software.
+        This site is my digital garden, where I share my thoughts on technology, programming, and life.
+      </span>
 
-      <p class="text-body">
-        My tech stack is .NET-focused, with C# being my current favorite
-        language. I am also curious and continually exploring various aspects of
-        software development such as DevOps, Cloud Infrastructure, Test
-        Automation, and AI.
-      </p>
+      <span class="text-body">
+        I specialize in .NET full-stack development, covering backend APIs, frontend, mobile apps, and Azure cloud infrastructure.
+        I’m at my best when bringing different technologies together into something that simply works.
+      </span>
 
-      <p class="text-body">
-        Coding is the reason I wake up every morning, right after my wife and my
-        pets. I hope to continue working in software development for as long as
-        I can.
-      </p>
+      <span class="text-body">
+        My current focus is on SaaS platform development and WhatsApp integration, crafting tools that help individuals and small businesses operate more efficiently.
+        I believe every idea deserves a chance to spark — and code is how I ignite them.
+      </span>
 
-      <p class="text-body">
-        I currently live in Milton Keynes, UK, with my wife and three cats. I
-        relocated from my home country, Hong Kong, around May 2025 to experience
-        a different lifestyle. During the pandemic, I also lived in Taiwan for
-        about two years.
-      </p>
-      <p class="text-body">
-        My name, <b>Ferry</b>, comes from a nickname given by my family members
-        when I was young. It is an abbreviation of my legal name in Chinese and
-        is pronounced the same as “ferry” in Cantonese (渡輪 ⛴️)
-      </p>
-      <p class="text-body">
-        Fun fact: Although I have three cats, I do like 🐭 rodents very much. I
-        had a few hamsters and mouses in the past but I was heart-broken
-        whenever they had to go due to their relatively short life-span.
-      </p>
+      <span class="text-body">
+        I live in Milton Keynes with my wife and three cats. Originally from Hong Kong, I moved to the UK in 2024 to experience a different pace of life.
+        I've also been living in Taiwan for two years, where I attempted to build a SaaS company during the pandemic.
+      </span>
+
+      <span class="text-body">
+        Fun facts: My name, Ferry, is a short-form of my legal name which is my family nickname that happens to sound like “ferry boat” (渡輪 ⛴️) in Cantonese. I love rodents as much as cats — one of my fancy rat was named <b style="color: var(--color-primary)">Hello 🐭</b>.
+      </span>
     </section>
     <hr />
-    <section>
-      <h2 class="text-item-title">🚀 My Career</h2>
-      <p class="text-body">
+    <section class="column-container">
+      <h2 class="text-section-title">🚀 My Career</h2>
+      <span class="text-body">
         I'm not going to delve into all the details of my professional career.
         For my CV, you can check out my LinkedIn profile at the bottom of this
         page.
-      </p>
-      <p class="text-body">
+      </span>
+      <span class="text-body">
         Several roles throughout my career have been related to gaming. My first
         job after graduation involved R&D for casino slot-machine software,
         where I worked on both the Flash frontend and Java backend. Following
@@ -90,51 +64,51 @@ const description =
         company specializing in online betting and live video streaming of
         betting tables from a Cambodian casino. Interestingly, despite the
         nature of my work, I've never been a fan of gambling.
-      </p>
-      <p class="text-body">
+      </span>
+      <span class="text-body">
         In 2012, my fifth year in the field, I took on a System Analyst role at
         an airline company. However, I quickly discovered it wasn't a good fit
         and resigned after three months. It wasn't until three years later that
         I took on another non-pure-developer role.
-      </p>
-      <p class="text-body">
+      </span>
+      <span class="text-body">
         After leaving the mobile gaming company, I spent a year attempting to
         launch a dining POS system using ActionScript and MXML. Unfortunately,
         my technical knowledge fell short for a project requiring deep hardware
         integration.
-      </p>
-      <p class="text-body">
+      </span>
+      <span class="text-body">
         Next, I served as a System Architect at Hong Kong's largest public
         housing developer for three years. In 2018, an opportunity from a former
         supervisor led me to start my own business.
-      </p>
-      <p class="text-body">
+      </span>
+      <span class="text-body">
         Founded in 2018, VerdantSparks began as a digital consultancy, employing
         up to four full-time employees at its peak. During my two years in
         Taiwan, I ventured into building a Vet & Pet SaaS business. However,
         despite pitching a prototype to the Invest Taipei Office, we failed to
         secure funding. Eventually, resource constraints forced us to halt MVP
         development.
-      </p>
-      <p class="text-body">
+      </span>
+      <span class="text-body">
         Facing significant financial setbacks, I suspended my company, returned
         to Hong Kong, and spent about two years as a Senior Staff Software
         Engineer at a SaaS startup before relocating to the UK. My tenure at the
         startup marked another career peak. With a fantastic team, I became a
         respected leader who influenced cross-team dynamics. The CTO mentored me
         extensively, and I experienced rapid professional growth.
-      </p>
-      <p class="text-body">
+      </span>
+      <span class="text-body">
         However, rapid growth took a toll on my health. Stress from workload and
         office politics led to high blood pressure. Consequently, I decided to
         resign after the CTO's departure, taking a six-month career break while
         planning my move to the UK.
-      </p>
-      <p class="text-body">
+      </span>
+      <span class="text-body">
         Today, I am a mid-level software developer at a large private
         corporation in the United States, working remotely as an individual
         contributor. Quietly preparing for my next career milestone.
-      </p>
+      </span>
     </section>
     <hr />
     <section>
@@ -207,112 +181,97 @@ const description =
     <hr />
     <section class="column-container">
       <h2 class="text-section-title">🏠 My Family</h2>
-      <div>
+      <div class="column-container">
         <h3 class="text-item-title">👰‍♀️ My Wife Elaine</h3>
-        <p class="text-body">
+        <div class="text-body">
           Elaine is a lovely, cheerful and clever lady. She is good at driving
           🚗 and cooking 🍳. She is my best friend who knows me better than
           anyone since I met her at her twenty. She married with me at age just
           twenty four, giving me so much love and support for all the years.
-        </p>
+        </div>
         <div class="cat-photo-container column-container">
           <Image
             alt="Image of my wife Elaine with me, celebrating my birthday"
-            src={BirthdayPhoto} class="photo"
+            src={BirthdayPhoto} class="family-photo photo"
           />
           <span class="text-item-subtitle">Elaine and I, celebrating my birthday.</span>
         </div>
       </div>
-      <div>
+      <div class="column-container">
         <h3 class="text-item-title">🐈 My Cats</h3>
-        <p class="text-body">
+        <span class="text-body">
           Sheldon — A Scottish Fold × British Short-hair who joined us when Elaine and I first met. Polite, not a picky eater, and very people-friendly — our resident receptionist.
-        </p>
-        <p class="text-body">
+        </span>
+        <span class="text-body">
           Shamy — A ginger-and-white domestic adopted a year after we married. Named after Sheldon and Amy from the Big Bang Theory; shy and quietly affectionate.
-
-        </p>
-        <p class="text-body">
+        </span>
+        <span class="text-body">
           Seven — A tabby-and-white we rescued in Taiwan as a month-old kitten. Playful chaos engine, perpetually peckish, and the biggest of the three.
-        </p>
+        </span>
         <div class="cats-photo-grid">
-        <div>
           <div class="cat-photo-container column-container">
             <Image alt="Image of my cat Sheldon" src={SheldonPhoto} class="cat-photo photo"/>
             <span class="text-item-subtitle">Sheldon</span>
           </div>
-        </div>
-        <div>
           <div class="cat-photo-container column-container">
             <Image alt="Image of my cat Shamy" src={ShamyPhoto} class="cat-photo photo"/>
             <span class="text-item-subtitle">Shamy</span>
           </div>
-        </div>
-        <div>
           <div class="cat-photo-container column-container">
             <Image alt="Image of my cat Seven" src={SevenPhoto} class="cat-photo photo"/>
             <span class="text-item-subtitle">Seven</span>
           </div>
-        </div>
       </div>
     </section>
     <hr />
-    <section>
+    <section class="column-container">
       <h2 class="text-section-title">👾 My Hobbies</h2>
-      <p>
-        <h3 class="text-item-title">👫🏻 Hobbies with my wife</h3>
-        <p class="text-body">
-          🎥 We enjoy cinema trips and Netflix at home.
-        </p>
-        <p class="text-body">
-          🏞️ We like short walks around lakes and parks.
-        </p>
-        <p class="text-body">
-          🏓 Table tennis has been my favorite since primary school. After a 20-year break, I’m back at it—we play a few times a week at centre:mk.
-        </p>
-      </p>
-      <p>
-        <h3 class="text-item-title">🎮 Video Games</h3>
-        <p class="text-body">
-          Grew up in arcades (King of Fighters, Gundam VS), later competed in Age of Empires and StarCraft, and spent time in WoW, Guild Wars, and Diablo—plus ranked LoL and PUBG. These days it’s mostly Minecraft (often with my wife) and Magic: The Gathering Arena, though I play far less than a decade ago as family and coding take priority.
-        </p>
-      </p>
-      <p>
-        <h3 class="text-item-title">📚 Other Hobbies</h3>
-        <p class="text-body">
-          Magic: The Gathering since 1995; building Gundam model kits on holidays; bedtime reads of technical books and comics; and plenty of cat-patting. 🐈🐈🐈
-        </p>
-      </p>
+      <h3 class="text-item-title">👫🏻 Hobbies with my wife</h3>
+      <span class="text-body">
+        🎥 We enjoy cinema trips and Netflix at home.
+      </span>
+      <span class="text-body">
+        🏞️ We like short walks around lakes and parks.
+      </span>
+      <span class="text-body">
+        🏓 Table tennis has been my favorite since primary school. After a 20-year break, I’m back at it—we play a few times a week at <b><a href="https://www.centremk.com/" target="_blank">centre:mk</a></b>.
+      </span>
+      <h3 class="text-item-title">🎮 Video Games</h3>
+      <span class="text-body">
+        Grew up in arcades (King of Fighters, Gundam VS), later competed in Age of Empires and StarCraft, and spent time in WoW, Guild Wars, and Diablo—plus ranked LoL and PUBG. These days it’s mostly Minecraft (often with my wife) and Magic: The Gathering Arena, though I play far less than a decade ago as family and coding take priority.
+      </span>
+      <h3 class="text-item-title">📚 Other Hobbies</h3>
+      <span class="text-body">
+        Magic: The Gathering since 1995; building Gundam model kits on holidays; bedtime reads of technical books and comics; and plenty of cat-patting. 🐈🐈🐈
+      </span>
     </section>
     <hr />
-    <section>
-      <div class="column-container">
-        <h2 class="text-section-title">📫 Connect</h2>
-        <h3 class="text-item-title">Follow my latest news from my profiles.</h3>
+    <section class="column-container">
+      <h2 class="text-section-title">📫 Connect</h2>
+      <h3 class="text-item-title">Follow my latest news from my profiles.</h3>
 
-        <div class="social-links text-item-subtitle hide-on-mobile">
-          <a href="https://www.linkedin.com/in/ferry-to-2a905720" target="_blank">LinkedIn</a> |
-          <a href="https://github.com/ferrywlto" target="_blank">GitHub</a> |
-          <a href="https://www.threads.com/@ferrywlto" target="_blank" >Threads</a> |
-          <a href="https://medium.com/@ferrywlto" target="_blank" >Medium</a> |
-          <a href="https://leetcode.com/u/ferrywlto/" target="_blank" >LeetCode</a> |
-          <a href="https://stackoverflow.com/users/2952180/ferry-to" target="_blank" >StackOverflow</a>
-        </div>
-
-        <div class="social-links-mobile hide-on-desktop column-container">
-          <ul>
-            <li><a href="https://www.linkedin.com/in/ferry-to-2a905720" target="_blank">LinkedIn</a></li>
-            <li><a href="https://github.com/ferrywlto" target="_blank">GitHub</a></li>
-            <li><a href="https://www.threads.com/@ferrywlto" target="_blank" >Threads</a></li>
-            <li><a href="https://medium.com/@ferrywlto" target="_blank" >Medium</a></li>
-            <li><a href="https://leetcode.com/u/ferrywlto/" target="_blank" >LeetCode</a></li>
-            <li><a href="https://stackoverflow.com/users/2952180/ferry-to" target="_blank" >StackOverflow</a></li>
-          </ul>
-        </div>
-
-        <h3 class="text-item-title">Have an idea that needs a pragmatic architect? Let’s chat.</h3>
-        <a href="mailto:ferry@verdantsparks.io" target="_blank" class="text-item-subtitle">ferry@verdantsparks.io</a>
+      <div class="text-item-subtitle hide-on-mobile">
+        <a href="https://www.linkedin.com/in/ferry-to-2a905720" target="_blank">LinkedIn</a> |
+        <a href="https://github.com/ferrywlto" target="_blank">GitHub</a> |
+        <a href="https://www.threads.com/@ferrywlto" target="_blank" >Threads</a> |
+        <a href="https://medium.com/@ferrywlto" target="_blank" >Medium</a> |
+        <a href="https://leetcode.com/u/ferrywlto/" target="_blank" >LeetCode</a> |
+        <a href="https://stackoverflow.com/users/2952180/ferry-to" target="_blank" >StackOverflow</a>
       </div>
+
+      <div class="social-links-mobile hide-on-desktop column-container text-item-subtitle">
+        <ul>
+          <li><a href="https://www.linkedin.com/in/ferry-to-2a905720" target="_blank">LinkedIn</a></li>
+          <li><a href="https://github.com/ferrywlto" target="_blank">GitHub</a></li>
+          <li><a href="https://www.threads.com/@ferrywlto" target="_blank" >Threads</a></li>
+          <li><a href="https://medium.com/@ferrywlto" target="_blank" >Medium</a></li>
+          <li><a href="https://leetcode.com/u/ferrywlto/" target="_blank" >LeetCode</a></li>
+          <li><a href="https://stackoverflow.com/users/2952180/ferry-to" target="_blank" >StackOverflow</a></li>
+        </ul>
+      </div>
+
+      <h3 class="text-item-title">Have an idea that needs a pragmatic architect? Let’s chat.</h3>
+      <a href="mailto:ferry@verdantsparks.io" target="_blank" class="text-item-subtitle">ferry@verdantsparks.io</a>
     </section>
   </div>
 </BaseLayout>
@@ -322,6 +281,34 @@ const description =
   @import "../styles/effect.css";
   @import "../styles/layout.css";
   @import "../styles/theme.css";
+
+  .column-container {
+    gap: var(--gap-lg);
+  }
+
+  .photo {
+    border-radius: var(--corner-md);
+  }
+
+  .my-photo-container {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .my-photo {
+    width: 100%;
+    min-width: 256px;
+    max-width: 320px;
+    height: auto;
+  }
+
+  .family-photo {
+    width: 100%;
+    min-width: 256px;
+    max-width: 512px;
+    height: auto;
+  }
 
   .cats-photo-grid {
     display: grid;
@@ -337,10 +324,6 @@ const description =
     align-items: center;
   }
 
-  .photo {
-    border-radius: var(--corner-md);
-  }
-
   .cat-photo {
     width: 100%;
     min-width: 192px;
@@ -352,10 +335,6 @@ const description =
   .width-constrained-container {
     margin: auto;
     padding: var(--gap-lg) ;
-  }
-
-  .column-container {
-    gap: var(--gap-md);
   }
 
   @media (max-width: 1024px) {
