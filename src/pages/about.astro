@@ -6,169 +6,347 @@ import ShamyPhoto from "../assets/photos/shamy.jpg";
 import SevenPhoto from "../assets/photos/seven.jpg";
 import BirthdayPhoto from "../assets/photos/ferry_and_elaine.jpg";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Divider from "../components/Divider.astro";
 const title = "About";
 const description =
-  "Ferry To's backgound, including past experiences and social contacts.";
+  "Ferry To's background, including past experiences and social contacts.";
 ---
 
 <BaseLayout title={title} description={description}>
-  <div class="width-constrained-container column-container">
+  <div class="width-constrained-container column-container gap-xl">
     <section class="column-container my-photo-container">
-      <Image alt="Portrait of Ferry To" src={FerryPortrait} class="my-photo photo"/>
-      <h1 class="text-item-title greeting">👋 Hi! I'm Ferry. Nice to meet you. 😀</h1>
+      <Image
+        alt="Portrait of Ferry To"
+        src={FerryPortrait}
+        class="my-photo photo"
+      />
+      <p class="text-item-title greeting">
+        👋 Hi! I'm Ferry. Nice to meet you. 😀
+      </p>
     </section>
-    <hr class="hide-on-desktop" />
     <section class="column-container">
       <h1 class="text-section-title">🧑‍💻 About Me</h1>
+      <div class="column-container gap-lg">
+        <Divider />
 
-      <span class="text-body">
-        A software engineer with nearly two decades in the industry, and founder of <a href="https://verdantsparks.com" target="_blank"><b style="color: var(--color-primary)">VerdantSparks</b></a>. I love building software.
-        This site is my digital garden, where I share my thoughts on technology, programming, and life.
-      </span>
+        <span class="text-body">
+          A software engineer with nearly two decades in the industry, and
+          founder of <a href="https://verdantsparks.com" target="_blank"
+            ><b style="color: var(--color-primary)">VerdantSparks</b></a
+          >. I love building software. This site is my digital garden, where I
+          share my thoughts on technology, programming, and life.
+        </span>
 
-      <span class="text-body">
-        I specialize in .NET full-stack development, covering backend APIs, frontend, mobile apps, and Azure cloud infrastructure.
-        I’m at my best when bringing different technologies together into something that simply works.
-      </span>
+        <span class="text-body">
+          I specialize in .NET full-stack development, covering backend APIs,
+          frontend, mobile apps, and Azure cloud infrastructure. I’m at my best
+          when bringing different technologies together into something that
+          simply works.
+        </span>
 
-      <span class="text-body">
-        My current focus is on SaaS platform development and WhatsApp integration, crafting tools that help individuals and small businesses operate more efficiently.
-        I believe every idea deserves a chance to spark — and code is how I ignite them.
-      </span>
+        <span class="text-body">
+          My current focus is on SaaS platform development and WhatsApp
+          integration, crafting tools that help individuals and small businesses
+          operate more efficiently. I believe every idea deserves a chance to
+          spark — and code is how I ignite them.
+        </span>
 
-      <span class="text-body">
-        I live in Milton Keynes with my wife and three cats. Originally from Hong Kong, I moved to the UK in 2024 to experience a different pace of life.
-        I've also been living in Taiwan for two years, where I attempted to build a SaaS company during the pandemic.
-      </span>
+        <span class="text-body">
+          I live in Milton Keynes with my wife and three cats. Originally from
+          Hong Kong, I moved to the UK in 2024 to experience a different pace of
+          life. I've also been living in Taiwan for two years, where I attempted
+          to build a SaaS company during the pandemic.
+        </span>
 
-      <span class="text-body">
-        <b>Fun facts:</b> My name, Ferry, is a short-form of my legal name which is my family nickname that happens to sound like “ferry boat” (渡輪 ⛴️) in Cantonese. I love rodents as much as cats — one of my fancy rat was named <b style="color: var(--color-primary)">Hello 🐭</b>.
-      </span>
+        <span class="text-body">
+          <b>Fun facts:</b> My name, Ferry, is a short-form of my legal name which
+          is my family nickname that happens to sound like “ferry boat” (渡輪 ⛴️)
+          in Cantonese. I love rodents as much as cats — one of my fancy rat was
+          named <b style="color: var(--color-primary)">Hello 🐭</b>.
+        </span>
+      </div>
     </section>
-    <hr />
     <section>
-      <details class="column-container">
-        <summary class="text-section-title"><h2>🚀 My Career</h2></summary>
-        <div class="column-container">
-          <span class="text-body">I won’t go into every detail here — you can find the full record on my LinkedIn below.</span>
-          <h3 class="text-item-title">🎰 Early Career — Betting & R&D (2007 – 2011)</h3>
-          <span class="text-body">Started in casino slot-machine development, working across Flash frontend and Java backends. Later joined Hong Kong’s largest charity organization, where I learned about how C#, .NET, works in enterprise context.</span>
-          <h3 class="text-item-title">🗺️ Period of Exploration (2011 – 2015)</h3>
-          <span class="text-body">Built real-time betting and live-streaming systems for a mobile gaming company. Also explored client-facing roles such as consultant, system analyst, and product specialist — experiences that confirmed my strength and satisfaction remain in hands-on development.</span>
-          <h3 class="text-item-title">🧩 First Entrepreneurial Attempt (2015 – 2016)</h3>
-          <span class="text-body">Ventured into creating a dining POS system while creating a few mobile apps as a freelance developer — my first taste of entrepreneurship. It revealed how much I value technical integration, hands-on problem-solving, and end-to-end ownership.</span>
-          <h3 class="text-item-title">🏗️ Architecture & Team Management (2016 – 2018)</h3>
-          <span class="text-body">Focused on large-scale system design and digital transformation in the public sector. It was my first experience managing direct reports, where I learned how collaboration and teamwork can drive successful outcomes. The experience — and an inspiring supervisor — laid the groundwork for starting my own company.</span>
-          <h3 class="text-item-title">🌱 Founder & SaaS Experimentation (2018 – 2021)</h3>
-          <span class="text-body">Founded VerdantSparks, a digital consultancy that grew to four employees. Later pivoted toward SaaS and built a Vet & Pet platform prototype during two years in Taiwan — a period that strengthened my understanding of product design, pitching, validation, and resilience.</span>
-          <h3 class="text-item-title">🚀 Growth in Technical Leadership (2021 – 2023)</h3>
-          <span class="text-body">Joined a SaaS startup, witnessed the up and down from series A to B, shaping technical vision, cross-team collaboration, and culture under an inspiring CTO. It was a period of steep growth — both technical and personal.</span>
-          <h3 class="text-item-title">🌿 Recalibration & Relocation (2024 – Present)</h3>
-          <span class="text-body">After stepping back for health and balance, I relocated to the UK. Now working remotely for a large US corporation, I continue refining my craft while quietly preparing for my next career milestone.</span>
+      <details>
+        <summary class="text-section-title">
+          <h2>🎤 My Recent Activities</h2>
+        </summary>
+        <div class="column-container gap-lg">
+          <Divider />
+          <h3 class="text-item-title">🎙️ Latest Public Events</h3>
+          <ul class="text-body">
+            <li>
+              <a
+                href="https://www.linkedin.com/events/kubernetes-best-practices-for-enhanced-cluster-efficiency-google-cloud-cloudmile-1234567890/"
+                target="_blank"
+              >
+                Kubernetes Best Practices for Enhanced Cluster Efficiency -
+                Google Cloud & Cloudmile [Linkedin]
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://adventuresindotnet.com/making-a-wordle-clone-and-more-net-121"
+                target="_blank"
+              >
+                Adventures in .NET - Making a Wordle clone and more - .NET 121
+              </a>
+            </li>
+          </ul>
         </div>
       </details>
     </section>
     <section>
       <details class="column-container">
-          <summary class="text-section-title">
-            <h2>🏗️ What I am using</h2>
-          </summary>
-          <div class="column-container">
-            <span class="text-body">
-              I started learning C# since 1.0 around 2002. Before the death of Flash, I was a rare certified ActionScript developer and won some competitions with C++.
-            </span>
-            <h3 class="text-item-title">My Main Tech Stack:</h3>
-            <ul class="text-body">
-              <li>Language: C#</li>
-              <li>Cloud: Azure</li>
-              <li>Frontend: Blazor</li>
-              <li>Mobile: MAUI</li>
-              <li>Web: ASP.NET Core, Entity Framework, .NET Aspire</li>
-              <li>AI: OpenAI API, Semantic Kernel</li>
-              <li>Database & Cache: SQL Server, MongoDB, SQLite, Redis</li>
-              <li>DevOps: GitHub Actions, Docker</li>
-              <li>Testing: Xunit, Selenium</li>
-              <li>Library & API: WhatsApp Business API, GoogleMap API, Hangfire</li>
-            </ul>
+        <summary class="text-section-title">
+          <h2>🚀 My Career</h2>
+        </summary>
+        <div class="column-container gap-lg">
+          <Divider />
+          <span class="text-body"
+            >I won’t go into every detail here — you can find the full record on
+            my LinkedIn below.</span
+          >
+          <h3 class="text-item-title">
+            🎰 Early Career — Betting & R&D (2007 – 2011)
+          </h3>
+          <span class="text-body"
+            >Started in casino slot-machine development, working across Flash
+            frontend and Java backends. Later joined Hong Kong’s largest charity
+            organization, where I learned about how C#, .NET, works in
+            enterprise context.</span
+          >
+          <h3 class="text-item-title">
+            🗺️ Period of Exploration (2011 – 2015)
+          </h3>
+          <span class="text-body"
+            >Built real-time betting and live-streaming systems for a mobile
+            gaming company. Also explored client-facing roles such as
+            consultant, system analyst, and product specialist — experiences
+            that confirmed my strength and satisfaction remain in hands-on
+            development.</span
+          >
+          <h3 class="text-item-title">
+            🧩 First Entrepreneurial Attempt (2015 – 2016)
+          </h3>
+          <span class="text-body"
+            >Ventured into creating a dining POS system while creating a few
+            mobile apps as a freelance developer — my first taste of
+            entrepreneurship. It revealed how much I value technical
+            integration, hands-on problem-solving, and end-to-end ownership.</span
+          >
+          <h3 class="text-item-title">
+            🏗️ Architecture & Team Management (2016 – 2018)
+          </h3>
+          <span class="text-body"
+            >Focused on large-scale system design and digital transformation in
+            the public sector. It was my first experience managing direct
+            reports, where I learned how collaboration and teamwork can drive
+            successful outcomes. The experience — and an inspiring supervisor —
+            laid the groundwork for starting my own company.</span
+          >
+          <h3 class="text-item-title">
+            🌱 Founder & SaaS Experimentation (2018 – 2021)
+          </h3>
+          <span class="text-body"
+            >Founded VerdantSparks, a digital consultancy that grew to four
+            employees. Later pivoted toward SaaS and built a Vet & Pet platform
+            prototype during two years in Taiwan — a period that strengthened my
+            understanding of product design, pitching, validation, and
+            resilience.</span
+          >
+          <h3 class="text-item-title">
+            🚀 Growth in Technical Leadership (2021 – 2023)
+          </h3>
+          <span class="text-body"
+            >Joined a SaaS startup, witnessed the up and down from series A to
+            B, shaping technical vision, cross-team collaboration, and culture
+            under an inspiring CTO. It was a period of steep growth — both
+            technical and personal.</span
+          >
+          <h3 class="text-item-title">
+            🌿 Recalibration & Relocation (2024 – Present)
+          </h3>
+          <span class="text-body"
+            >After stepping back for health and balance, I relocated to the UK.
+            Now working remotely for a large US corporation, I continue refining
+            my craft while quietly preparing for my next career milestone.</span
+          >
+        </div>
+      </details>
+    </section>
+    <section>
+      <details class="column-container">
+        <summary class="text-section-title">
+          <h2>🏗️ What I am using</h2>
+        </summary>
+        <div class="column-container gap-lg">
+          <Divider />
+          <span class="text-body">
+            I started learning C# since 1.0 around 2002. Before the death of
+            Flash, I was a rare certified ActionScript developer and won some
+            competitions with C++.
+          </span>
+          <h3 class="text-item-title">🛠️ My Main Tech Stack:</h3>
 
-            <h3 class="text-item-title">
-              What I know but haven't used extensively in production:
-            </h3>
-            <ul class="text-body">
-                <li>Language: JavaScript, TypeScript, Python, Java, C++</li>
-                <li>Cloud: Google Cloud, AWS, Firebase</li>
-                <li>Frontend: Astro, Alpine.js, Angular, React, Vue</li>
-                <li>Web: Node.js</li>
-                <li>Database: MySQL, PostgreSQL</li>
-                <li>DevOps: Jenkins, Kubernetes, Terraform</li>
-                <li>Testing: Cucumber</li>
-                <li>Game & Computer Graphics: DirectX, OpenGL, Unity</li>
-            </ul>
-            <h3 class="text-item-title">My Coding Environment:</h3>
-            <ul class="text-body">
-              <li>IDE: VSCode, Rider</li>
-              <li>Coding Agent: GitHub Copilot CLI, Gemini CLI, GitHub Copilot Agent</li>
-              <li>SCM: Git, GitHub</li>
-              <li>Containerization: Docker</li>
-              <li>API Testing: Postman</li>
-            </ul>
-            <h3 class="text-item-title">My Coding Equipment:</h3>
-            <ul class="text-body">
-              <li>Laptop: MacBook Pro 16 Nov 2023: (M3 Pro, 36 GB RAM)</li>
-              <li>Monitor: BenQ RD280U 4K 28"</li>
-              <li>Keyboard: Ultimate Hacking Keyboard v1</li>
-              <li>Mouse: Magic Trackpad 2</li>
-              <li>Headset: Razer Barracuda X Chroma</li>
-            </ul>
-          </div>
+          <ul class="text-body">
+            <li><b>Language:</b> C#</li>
+            <li><b>Cloud:</b> Azure</li>
+            <li><b>Frontend:</b> Blazor</li>
+            <li><b>Mobile:</b> MAUI</li>
+            <li><b>Web:</b> ASP.NET Core, Entity Framework, .NET Aspire</li>
+            <li><b>AI:</b> OpenAI API, Semantic Kernel</li>
+            <li>
+              <b>Database & Cache:</b> SQL Server, MongoDB, SQLite, Redis
+            </li>
+            <li><b>DevOps:</b> GitHub Actions, Docker</li>
+            <li><b>Testing:</b> Xunit, Selenium</li>
+            <li>
+              <b>Library & API:</b> WhatsApp Business API, GoogleMap API, Hangfire
+            </li>
+          </ul>
+
+          <h3 class="text-item-title">
+            🧰 What I know but haven't used extensively in production:
+          </h3>
+          <ul class="text-body">
+            <li>
+              <b>Language:</b> JavaScript, TypeScript, Python, Java, C++
+            </li>
+            <li><b>Cloud:</b> Google Cloud, AWS, Firebase</li>
+            <li><b>Frontend:</b> Astro, Alpine.js, Angular, React, Vue</li>
+            <li><b>Web:</b> Node.js</li>
+            <li><b>Database:</b> MySQL, PostgreSQL</li>
+            <li><b>DevOps:</b> Jenkins, Kubernetes, Terraform</li>
+            <li><b>Testing:</b> Cucumber</li>
+            <li><b>Game & Computer Graphics:</b> DirectX, OpenGL, Unity</li>
+          </ul>
+          <h3 class="text-item-title">🤖 My Coding Environment:</h3>
+          <ul class="text-body">
+            <li><b>IDE:</b> VSCode, Rider</li>
+            <li>
+              <b>Coding Agent:</b> GitHub Copilot CLI, Gemini CLI, GitHub Copilot
+              Agent
+            </li>
+            <li><b>SCM:</b> Git, GitHub</li>
+            <li><b>Containerization:</b> Docker</li>
+            <li><b>API Testing:</b> Postman</li>
+          </ul>
+          <h3 class="text-item-title">💻 My Coding Equipment:</h3>
+          <ul class="text-body">
+            <li>
+              <b>Laptop:</b> MacBook Pro 16 Nov 2023: (M3 Pro, 36 GB RAM)
+            </li>
+            <li><b>Monitor:</b> BenQ RD280U 4K 28"</li>
+            <li><b>Keyboard:</b> Ultimate Hacking Keyboard v1</li>
+            <li><b>Mouse:</b> Magic Trackpad 2</li>
+            <li><b>Headset:</b> Razer Barracuda X Chroma</li>
+          </ul>
+        </div>
       </details>
     </section>
     <section>
       <details class="column-container">
         <summary class="text-section-title"><h2>🏠 My Family</h2></summary>
-        <div class="column-container">
+        <div class="column-container gap-lg">
+          <Divider />
           <h3 class="text-item-title">👰‍♀️ My Wife Elaine</h3>
-          <div class="text-body">Elaine is a lovely, cheerful and clever lady. She is good at driving 🚗 and cooking 🍳. She is my best friend who knows me better than anyone since I met her at her twenty. She married with me at age just twenty four, giving me so much love and support for all the years.</div>
+          <div class="text-body">
+            Elaine is a lovely, cheerful and clever lady. She is good at driving
+            🚗 and cooking 🍳. She is my best friend who knows me better than
+            anyone since I met her at her twenty. She married with me at age
+            just twenty four, giving me so much love and support for all the
+            years.
+          </div>
           <div class="cat-photo-container column-container">
-            <Image alt="Image of my wife Elaine with me, celebrating my birthday" src={BirthdayPhoto} class="family-photo photo" />
-            <span class="text-item-subtitle">Elaine and I, celebrating my birthday.</span>
+            <Image
+              alt="Image of my wife Elaine with me, celebrating my birthday"
+              src={BirthdayPhoto}
+              class="family-photo photo"
+            />
+            <span class="text-item-subtitle"
+              >Elaine and I, celebrating my birthday.</span
+            >
+          </div>
+          <div class="column-container gap-lg">
+            <h3 class="text-item-title">🐈 My Cats</h3>
+            <span class="text-body"
+              >Sheldon — A Scottish Fold × British Short-hair who joined us when
+              Elaine and I first met. Polite, not a picky eater, and very
+              people-friendly — our resident receptionist.</span
+            >
+            <span class="text-body"
+              >Shamy — A ginger-and-white domestic adopted a year after we
+              married. Named after Sheldon and Amy from the Big Bang Theory; shy
+              and quietly affectionate.</span
+            >
+            <span class="text-body"
+              >Seven — A tabby-and-white we rescued in Taiwan as a month-old
+              kitten. Playful chaos engine, perpetually peckish, and the biggest
+              of the three.</span
+            >
+          </div>
+          <div class="cats-photo-grid">
+            <div class="cat-photo-container column-container">
+              <Image
+                alt="Image of my cat Sheldon"
+                src={SheldonPhoto}
+                class="cat-photo photo"
+              />
+              <span class="text-item-subtitle">Sheldon</span>
+            </div>
+            <div class="cat-photo-container column-container">
+              <Image
+                alt="Image of my cat Shamy"
+                src={ShamyPhoto}
+                class="cat-photo photo"
+              />
+              <span class="text-item-subtitle">Shamy</span>
+            </div>
+            <div class="cat-photo-container column-container">
+              <Image
+                alt="Image of my cat Seven"
+                src={SevenPhoto}
+                class="cat-photo photo"
+              />
+              <span class="text-item-subtitle">Seven</span>
+            </div>
           </div>
         </div>
-        <div class="column-container">
-          <h3 class="text-item-title">🐈 My Cats</h3>
-          <span class="text-body">Sheldon — A Scottish Fold × British Short-hair who joined us when Elaine and I first met. Polite, not a picky eater, and very people-friendly — our resident receptionist.</span>
-          <span class="text-body">Shamy — A ginger-and-white domestic adopted a year after we married. Named after Sheldon and Amy from the Big Bang Theory; shy and quietly affectionate.</span>
-          <span class="text-body">Seven — A tabby-and-white we rescued in Taiwan as a month-old kitten. Playful chaos engine, perpetually peckish, and the biggest of the three.</span>
-        </span>
-        <div class="cats-photo-grid">
-          <div class="cat-photo-container column-container">
-            <Image alt="Image of my cat Sheldon" src={SheldonPhoto} class="cat-photo photo"/>
-            <span class="text-item-subtitle">Sheldon</span>
-          </div>
-          <div class="cat-photo-container column-container">
-            <Image alt="Image of my cat Shamy" src={ShamyPhoto} class="cat-photo photo"/>
-            <span class="text-item-subtitle">Shamy</span>
-          </div>
-          <div class="cat-photo-container column-container">
-            <Image alt="Image of my cat Seven" src={SevenPhoto} class="cat-photo photo"/>
-            <span class="text-item-subtitle">Seven</span>
-          </div>
-      </div>
+      </details>
     </section>
     <section>
       <details class="column-container">
         <summary class="text-section-title"><h2>👾 My Hobbies</h2></summary>
-        <div class="column-container">
+        <div class="column-container gap-lg">
+          <Divider />
           <h3 class="text-item-title">👫🏻 Hobbies with my wife</h3>
-          <span class="text-body">🎥 We enjoy cinema trips and Netflix at home.</span>
-          <span class="text-body">🏞️ We like short walks around lakes and parks.</span>
-          <span class="text-body">🏓 Table tennis has been my favorite since primary school. After a 20-year break, I’m back at it—we play a few times a week at <b><a href="https://www.centremk.com/" target="_blank">centre:mk</a></b>.</span>
+          <span class="text-body"
+            >🎥 We enjoy cinema trips and Netflix at home.</span
+          >
+          <span class="text-body"
+            >🏞️ We like short walks around lakes and parks.</span
+          >
+          <span class="text-body"
+            >🏓 Table tennis has been my favorite since primary school. After
+            a 20-year break, I’m back at it—we play a few times a week at <b
+              ><a href="https://www.centremk.com/" target="_blank"
+                >centre:mk</a
+              ></b
+            >.</span
+          >
           <h3 class="text-item-title">🎮 Video Games</h3>
           <span class="text-body">
-            Age of Empires II, Minecraft and League of Legends are our all time favorites. I also spent significant time of my youth in World of Warcraft, StarCraft and Diablo series.
+            Age of Empires II, Minecraft and League of Legends are our all
+            time favorites. I also spent significant time of my youth in World
+            of Warcraft, StarCraft and Diablo series.
           </span>
           <h3 class="text-item-title">📚 Other Hobbies</h3>
-          <span class="text-body">Magic: The Gathering TCG since 1995; building Gundam model kits on holidays; bedtime reads of technical books and comics; and plenty of cat-patting. 🐈🐈🐈</span>
+          <span class="text-body"
+            >Magic: The Gathering TCG since 1995; building Gundam model kits
+            on holidays; bedtime reads of technical books and comics; and
+            plenty of cat-patting. 🐈🐈🐈</span
+          >
         </div>
       </details>
     </section>
@@ -177,145 +355,201 @@ const description =
         <summary class="text-section-title">
           <h2>📫 Connect</h2>
         </summary>
-        <div class="column-container">
-          <h3 class="text-item-title">Follow my latest news from my profiles.</h3>
+        <div class="column-container gap-lg">
+          <Divider />
+          <h3 class="text-item-title">
+            Follow my latest news from my profiles.
+          </h3>
 
           <div class="text-item-subtitle hide-on-mobile">
-            <a href="https://www.linkedin.com/in/ferry-to-2a905720" target="_blank">LinkedIn</a> |
+            <a
+              href="https://www.linkedin.com/in/ferry-to-2a905720"
+              target="_blank">LinkedIn</a
+            > |
             <a href="https://github.com/ferrywlto" target="_blank">GitHub</a> |
-            <a href="https://www.threads.com/@ferrywlto" target="_blank" >Threads</a> |
-            <a href="https://medium.com/@ferrywlto" target="_blank" >Medium</a> |
-            <a href="https://leetcode.com/u/ferrywlto/" target="_blank" >LeetCode</a> |
-            <a href="https://stackoverflow.com/users/2952180/ferry-to" target="_blank" >StackOverflow</a>
+            <a href="https://www.threads.com/@ferrywlto" target="_blank"
+              >Threads</a
+            > |
+            <a href="https://medium.com/@ferrywlto" target="_blank">Medium</a>
+            |
+            <a href="https://leetcode.com/u/ferrywlto/" target="_blank"
+              >LeetCode</a
+            > |
+            <a
+              href="https://stackoverflow.com/users/2952180/ferry-to"
+              target="_blank">StackOverflow</a
+            >
           </div>
 
-          <div class="social-links-mobile hide-on-desktop column-container text-item-subtitle">
+          <div
+            class="social-links-mobile hide-on-desktop column-container text-item-subtitle"
+          >
             <ul>
-              <li><a href="https://www.linkedin.com/in/ferry-to-2a905720" target="_blank">LinkedIn</a></li>
-              <li><a href="https://github.com/ferrywlto" target="_blank">GitHub</a></li>
-              <li><a href="https://www.threads.com/@ferrywlto" target="_blank" >Threads</a></li>
-              <li><a href="https://medium.com/@ferrywlto" target="_blank" >Medium</a></li>
-              <li><a href="https://leetcode.com/u/ferrywlto/" target="_blank" >LeetCode</a></li>
-              <li><a href="https://stackoverflow.com/users/2952180/ferry-to" target="_blank" >StackOverflow</a></li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/ferry-to-2a905720"
+                  target="_blank">LinkedIn</a
+                >
+              </li>
+              <li>
+                <a href="https://github.com/ferrywlto" target="_blank"
+                  >GitHub</a
+                >
+              </li>
+              <li>
+                <a href="https://www.threads.com/@ferrywlto" target="_blank"
+                  >Threads</a
+                >
+              </li>
+              <li>
+                <a href="https://medium.com/@ferrywlto" target="_blank"
+                  >Medium</a
+                >
+              </li>
+              <li>
+                <a href="https://leetcode.com/u/ferrywlto/" target="_blank"
+                  >LeetCode</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://stackoverflow.com/users/2952180/ferry-to"
+                  target="_blank">StackOverflow</a
+                >
+              </li>
             </ul>
           </div>
 
-          <h3 class="text-item-title">Have an idea that needs a pragmatic architect? Let’s chat.</h3>
-          <a href="mailto:ferry@verdantsparks.io" target="_blank" class="text-item-subtitle">ferry@verdantsparks.io</a>
+          <h3 class="text-item-title">
+            Have an idea that needs a pragmatic architect? Let’s chat.
+          </h3>
+          <a
+            href="mailto:ferry@verdantsparks.io"
+            target="_blank"
+            class="text-item-subtitle">ferry@verdantsparks.io</a
+          >
         </div>
       </details>
     </section>
   </div>
-</BaseLayout>
-<style>
-  @import "../styles/typography.css";
-  @import "../styles/spacing.css";
-  @import "../styles/effect.css";
-  @import "../styles/layout.css";
-  @import "../styles/theme.css";
+  <style>
+    @import "../styles/typography.css";
+    @import "../styles/spacing.css";
+    @import "../styles/effect.css";
+    @import "../styles/layout.css";
+    @import "../styles/theme.css";
 
-summary {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: var(--gap-sm);
-}
-
-summary h2 {
-  margin: 0;
-  display: inline;
-}
-
-/* Ensure consistent marker positioning across browsers */
-summary::marker {
-  content: '';
-}
-
-summary::before {
-  content: '▶';
-  display: inline-block;
-  transition: transform 0.3s ease;
-}
-
-details[open] summary::before {
-  transform: rotate(90deg);
-}
-
-  .column-container {
-    gap: var(--gap-lg);
-  }
-
-  .photo {
-    border-radius: var(--corner-md);
-  }
-
-  .my-photo-container {
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .my-photo {
-    width: 100%;
-    min-width: 256px;
-    max-width: 320px;
-    height: auto;
-  }
-
-  .family-photo {
-    width: 100%;
-    min-width: 256px;
-    max-width: 512px;
-    height: auto;
-  }
-
-  .cats-photo-grid {
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--gap-md);
-    box-sizing: border-box;
-  }
-
-  .cat-photo-container {
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .cat-photo {
-    width: 100%;
-    min-width: 192px;
-    max-width: 256px;
-    max-height: 256px;
-    aspect-ratio: 1;
-  }
-
-  .width-constrained-container {
-    margin: auto;
-    padding: var(--gap-lg) ;
-  }
-
-  @media (max-width: 1024px) {
-    .social-links-mobile ul {
-      margin: 0;
-    }
-
-    .social-links-mobile li {
-      margin: var(--gap-lg) 0;
-    }
-
-    .cats-photo-grid {
+    summary {
+      cursor: pointer;
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
+      gap: var(--gap-sm);
+    }
+
+    summary h2 {
+      margin: 0;
+      display: inline;
+    }
+
+    /* Ensure consistent marker positioning across browsers */
+    summary::marker {
+      content: "";
+    }
+
+    summary::before {
+      content: "▶";
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    details[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .gap-lg {
       gap: var(--gap-lg);
     }
 
-    .cat-photo {
-      max-width: 100%;
-      height: auto;
-      max-height: none;
+    .gap-xl {
+      gap: var(--gap-xl);
     }
-  }
-</style>
+
+    .column-container ul {
+      line-height: 2;
+      margin: 0;
+    }
+    .photo {
+      border-radius: var(--corner-md);
+    }
+
+    .my-photo-container {
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .my-photo {
+      width: 100%;
+      min-width: 256px;
+      max-width: 320px;
+      height: auto;
+    }
+
+    .family-photo {
+      width: 100%;
+      min-width: 256px;
+      max-width: 512px;
+      height: auto;
+    }
+
+    .cats-photo-grid {
+      display: grid;
+      width: 100%;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--gap-md);
+      box-sizing: border-box;
+    }
+
+    .cat-photo-container {
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cat-photo {
+      width: 100%;
+      min-width: 192px;
+      max-width: 256px;
+      max-height: 256px;
+      aspect-ratio: 1;
+    }
+
+    .width-constrained-container {
+      margin: auto;
+      padding: var(--gap-lg);
+    }
+
+    @media (max-width: 1024px) {
+      .social-links-mobile ul {
+        margin: 0;
+      }
+
+      .social-links-mobile li {
+        margin: var(--gap-lg) 0;
+      }
+
+      .cats-photo-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--gap-lg);
+      }
+
+      .cat-photo {
+        max-width: 100%;
+        height: auto;
+        max-height: none;
+      }
+    }
+  </style>
+</BaseLayout>
