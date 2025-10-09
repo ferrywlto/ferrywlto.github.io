@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [1.2.0] - 2025-09-30
+## [1.3.0] - 2025-10-09
+
+### ✨ Features
+- Redesigned About page with structured sections (Activities, Career, Tools, Family, Hobbies, Connect)
+
+### 🔧 Improvements
+- Improved accessibility and semantics (ul/li structure, anchor separation)
+- Added photo shadow styling and consistent photo container classes
+
 
 ### ✨ Features
 - **Real Content Integration**: Replaced all dummy content with real data from content collections

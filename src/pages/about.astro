@@ -1,416 +1,428 @@
 ---
 import { Image } from "astro:assets";
 import FerryPortrait from "../assets/photos/ferry.png";
-import SocialLinkIcon from "../components/SocialLinkIcon.astro";
-import FullGitHubLogo from "../assets/logos/github-full.svg";
-import FullLeetcodeLogo from "../assets/logos/leetcode-full.svg";
-import FullStackoverFlowLogo from "../assets/logos/stackoverflow-full.svg";
-import FullLinkedInLogo from "../assets/logos/linkedin-full.svg";
-import FullMediumLogo from "../assets/logos/medium-full.svg";
-import FullThreadsLogo from "../assets/logos/threads-full-light.svg";
 import SheldonPhoto from "../assets/photos/sheldon.jpg";
 import ShamyPhoto from "../assets/photos/shamy.jpg";
 import SevenPhoto from "../assets/photos/seven.jpg";
 import BirthdayPhoto from "../assets/photos/ferry_and_elaine.jpg";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Divider from "../components/Divider.astro";
+import Section from "../components/about-page/Section.astro";
+import SubSection from "../components/about-page/SubSection.astro";
 const title = "About";
 const description =
-  "Ferry To's backgound, including past experiences and social contacts.";
+  "Ferry To's background, including past experiences and social contacts.";
+
+const about_me_content = [
+  `A software engineer with nearly two decades in the industry,
+   and founder of <a href=\"https://verdantsparks.com\" target=\"_blank\"><b style=\"color: var(--color-primary)\">VerdantSparks</b></a>.
+   I love building software. This site is my digital garden, where I share my thoughts on technology, programming, and life.`,
+  `I specialize in .NET full-stack development, covering backend APIs,
+   frontend, mobile apps, and Azure cloud infrastructure. I’m at my best
+   when bringing different technologies together into something that simply works.`,
+  `My current focus is on SaaS platform development and WhatsApp
+   integration, crafting tools that help individuals and small businesses
+   operate more efficiently. I believe every idea deserves a chance to
+   spark — and code is how I ignite them.`,
+  `I live in Milton Keynes with my wife and three cats. Originally from
+   Hong Kong, I moved to the UK in 2024 to experience a different pace of
+   life. I've also been living in Taiwan for two years, where I attempted
+   to build a SaaS company during the pandemic.`,
+  `<b>Fun facts:</b> My name, Ferry, is a short-form of my legal name which
+  is my family nickname that happens to sound like “ferry boat” (渡輪 ⛴️)
+  in Cantonese. I love rodents as much as cats — one of my fancy rats was
+  named <b style="color: var(--color-primary)">Hello 🐭</b>. I once looked after more than 20 rescued hamsters.`,
+];
+
+const career_items = [
+  {
+    period: "🎰 Early Career — Betting & R&D (2007 – 2011)",
+    description:
+      "Started in casino slot-machine development, working across Flash frontend and Java backends. Later joined Hong Kong’s largest charity organization, where I learned about how C# and .NET work in an enterprise context.",
+  },
+  {
+    period: "🗺️ Period of Exploration (2011 – 2015)",
+    description:
+      "Built real-time betting and live-streaming systems for a mobile gaming company. Also explored client-facing roles such as consultant, system analyst, and product specialist — experiences that confirmed my strength and satisfaction remain in hands-on development.",
+  },
+  {
+    period: "🧩 First Entrepreneurial Attempt (2015 – 2016)",
+    description:
+      "Ventured into creating a dining POS system while creating a few mobile apps as a freelance developer — my first taste of entrepreneurship. It revealed how much I value technical integration, hands-on problem-solving, and end-to-end ownership.",
+  },
+  {
+    period: "🏗️ Architecture & Team Management (2016 – 2018)",
+    description:
+      "Focused on large-scale system design and digital transformation in the public sector. It was my first experience managing direct reports, where I learned how collaboration and teamwork can drive successful outcomes. The experience — and an inspiring supervisor — laid the groundwork for starting my own company.",
+  },
+  {
+    period: "🌱 Founder & SaaS Experimentation (2018 – 2021)",
+    description:
+      "Founded VerdantSparks, a digital consultancy that grew to four employees. Later pivoted toward SaaS and built a Vet & Pet platform prototype during two years in Taiwan — a period that strengthened my understanding of product design, pitching, validation, and resilience.",
+  },
+  {
+    period: "🚀 Growth in Technical Leadership (2021 – 2023)",
+    description:
+      "Joined a SaaS startup, witnessed the up and down from series A to B, shaping technical vision, cross-team collaboration, and culture under an inspiring CTO. It was a period of steep growth — both technical and personal.",
+  },
+  {
+    period: "🌿 Recalibration & Relocation (2024 – Present)",
+    description:
+      "After stepping back for health and balance, I relocated to the UK. Now working remotely for a large US corporation, I continue refining my craft while quietly preparing for my next career milestone.",
+  },
+];
+
+const social_links = [
+  { name: "LinkedIn", url: "https://www.linkedin.com/in/ferry-to-2a905720" },
+  { name: "GitHub", url: "https://github.com/ferrywlto" },
+  { name: "Threads", url: "https://www.threads.com/@ferrywlto" },
+  { name: "Medium", url: "https://medium.com/@ferrywlto" },
+  { name: "LeetCode", url: "https://leetcode.com/u/ferrywlto/" },
+  { name: "StackOverflow", url: "https://stackoverflow.com/users/2952180/ferry-to" },
+];
+
+const cats = [
+  {
+    name: "Sheldon",
+    description: "A Scottish Fold × British Short-hair who joined us when Elaine and I first met. Polite, not a picky eater, and very people-friendly — our resident receptionist.",
+    photo: SheldonPhoto,
+    alt: "Image of my cat Sheldon",
+  },
+  {
+    name: "Shamy",
+    description: "A ginger-and-white domestic adopted a year after we married. Named after Sheldon and Amy from the Big Bang Theory; shy and quietly affectionate.",
+    photo: ShamyPhoto,
+    alt: "Image of my cat Shamy",
+  },
+  {
+    name: "Seven",
+    description: "A tabby-and-white we rescued in Taiwan as a month-old kitten. Playful chaos engine, perpetually peckish, and the biggest of the three.",
+    photo: SevenPhoto,
+    alt: "Image of my cat Seven",
+  },
+];
+
+const recent_activities = [
+  {
+    title:
+      "Kubernetes Best Practices for Enhanced Cluster Efficiency - Google Cloud & Cloudmile [Linkedin]",
+    link: "https://www.linkedin.com/events/kubernetesbestpracticesforenhan6943523713841516544/",
+  },
+  {
+    title: "Adventures in .NET - Making a Wordle clone and more - .NET 121",
+    link: "https://adventuresindotnet.com/making-a-wordle-clone-and-more-net-121",
+  },
+];
+
+const what_i_use = [
+  {
+    key: "🛠️ My Main Tech Stack:",
+    value: [
+      { key: "Language", value: "C#" },
+      { key: "Cloud", value: "Azure" },
+      { key: "Frontend", value: "Blazor" },
+      { key: "Mobile", value: "MAUI" },
+      { key: "Web", value: "ASP.NET Core, Entity Framework, .NET Aspire" },
+      { key: "AI", value: "OpenAI API, Semantic Kernel" },
+      { key: "Database & Cache", value: "SQL Server, MongoDB, SQLite, Redis" },
+      { key: "DevOps", value: "GitHub Actions, Docker" },
+      { key: "Testing", value: "Xunit, Selenium" },
+      {
+        key: "Library & API",
+        value: "WhatsApp Business API, GoogleMap API, Hangfire",
+      },
+    ],
+  },
+  {
+    key: "🧰 What I know but haven't used extensively in production:",
+    value: [
+      { key: "Language", value: "JavaScript, TypeScript, Python, Java, C++" },
+      { key: "Cloud", value: "Google Cloud, AWS, Firebase" },
+      { key: "Frontend", value: "Astro, Alpine.js, Angular, React, Vue" },
+      { key: "Web", value: "Node.js" },
+      { key: "Database", value: "MySQL, PostgreSQL" },
+      { key: "DevOps", value: "Jenkins, Kubernetes, Terraform" },
+      { key: "Testing", value: "Cucumber" },
+      { key: "Game & Computer Graphics", value: "DirectX, OpenGL, Unity" },
+    ],
+  },
+  {
+    key: "🤖 My Coding Environment:",
+    value: [
+      { key: "IDE", value: "VSCode, Rider" },
+      {
+        key: "Coding Agent",
+        value: "GitHub Copilot CLI, Gemini CLI, GitHub Copilot Agent",
+      },
+      { key: "SCM", value: "Git, GitHub" },
+      { key: "Containerization", value: "Docker" },
+      { key: "API Testing", value: "Postman" },
+    ],
+  },
+  {
+    key: "💻 My Coding Equipment:",
+    value: [
+      { key: "Laptop", value: "MacBook Pro 16 Nov 2023: (M3 Pro, 36 GB RAM)" },
+      { key: "Monitor", value: 'BenQ RD280U 4K 28"' },
+      { key: "Keyboard", value: "Ultimate Hacking Keyboard v1" },
+      { key: "Mouse", value: "Magic Trackpad 2" },
+      { key: "Headset", value: "Razer Barracuda X Chroma" },
+    ],
+  },
+];
 ---
 
 <BaseLayout title={title} description={description}>
-  <div class="width-constrained-container column-container">
-    <section>
-      <div class="container flex-center">
-        <div class="portrait">
-          <Image alt="Portrait of Ferry To" src={FerryPortrait} />
-        </div>
+  <div class="width-constrained-container column-container gap-xl">
+    <section class="column-container photo-container">
+      <Image
+        alt="Portrait of Ferry To"
+        src={FerryPortrait}
+        class="my-photo photo"
+      />
+      <p class="text-item-title greeting">
+        👋 Hi! I'm Ferry. Nice to meet you. 😀
+      </p>
+    </section>
+    <section class="column-container">
+      <h1 class="text-section-title">🧑‍💻 About Me</h1>
+      <div class="column-container gap-lg">
+        <Divider />
+        {
+          about_me_content.map((content) => (
+            <span class="text-body" set:html={content} />
+          ))
+        }
       </div>
-      <div class="container flex-center greeting-text">
-        <h4 class="first-line">👋 Hi there! I'm Ferry.&nbsp;</h4>
-        <h4>Nice to meet you. 😀</h4>
-      </div>
     </section>
-    <hr />
-    <section>
-      <h3>🧑‍💻 About Me</h3>
-      <p>
-        A software engineer with two decades of experience in the industry, I
-        love solving problems and building things. I aspire to work for myself
-        one day to transform all my ideas into actual products.
-      </p>
-      <p>
-        My tech stack is .NET-focused, with C# being my current favorite
-        language. I am also curious and continually exploring various aspects of
-        software development such as DevOps, Cloud Infrastructure, Test
-        Automation, and AI.
-      </p>
-      <p>
-        Coding is the reason I wake up every morning, right after my wife and my
-        pets. I hope to continue working in software development for as long as
-        I can.
-      </p>
-      <p>
-        I currently live in Milton Keynes, UK, with my wife and three cats. I
-        relocated from my home country, Hong Kong, around May 2025 to experience
-        a different lifestyle. During the pandemic, I also lived in Taiwan for
-        about two years.
-      </p>
-      <p>
-        My name, <b>Ferry</b>, comes from a nickname given by my family members
-        when I was young. It is an abbreviation of my legal name in Chinese and
-        is pronounced the same as “ferry” in Cantonese (渡輪 ⛴️)
-      </p>
-      <p>
-        Fun fact: Although I have three cats, I do like 🐭 rodents very much. I
-        had a few hamsters and mouses in the past but I was heart-broken
-        whenever they had to go due to their relatively short life-span.
-      </p>
-    </section>
-    <hr />
-    <section>
-      <h3>🚀 My Career</h3>
-      <p>
-        I'm not going to delve into all the details of my professional career.
-        For my CV, you can check out my LinkedIn profile at the bottom of this
-        page.
-      </p>
-      <p>
-        Several roles throughout my career have been related to gaming. My first
-        job after graduation involved R&D for casino slot-machine software,
-        where I worked on both the Flash frontend and Java backend. Following
-        that, I joined one of the largest horse racing organizations globally,
-        also the largest taxpayer and charity in Hong Kong. Over three years
-        there, I honed my skills in C#, the .NET stack, and various web
-        technologies. In my sixth year, I transitioned to a mobile gaming
-        company specializing in online betting and live video streaming of
-        betting tables from a Cambodian casino. Interestingly, despite the
-        nature of my work, I've never been a fan of gambling.
-      </p>
-      <p>
-        In 2012, my fifth year in the field, I took on a System Analyst role at
-        an airline company. However, I quickly discovered it wasn't a good fit
-        and resigned after three months. It wasn't until three years later that
-        I took on another non-pure-developer role.
-      </p>
-      <p>
-        After leaving the mobile gaming company, I spent a year attempting to
-        launch a dining POS system using ActionScript and MXML. Unfortunately,
-        my technical knowledge fell short for a project requiring deep hardware
-        integration.
-      </p>
-      <p>
-        Next, I served as a System Architect at Hong Kong's largest public
-        housing developer for three years. In 2018, an opportunity from a former
-        supervisor led me to start my own business.
-      </p>
-      <p>
-        Founded in 2018, VerdantSparks began as a digital consultancy, employing
-        up to four full-time employees at its peak. During my two years in
-        Taiwan, I ventured into building a Vet & Pet SaaS business. However,
-        despite pitching a prototype to the Invest Taipei Office, we failed to
-        secure funding. Eventually, resource constraints forced us to halt MVP
-        development.
-      </p>
-      <p>
-        Facing significant financial setbacks, I suspended my company, returned
-        to Hong Kong, and spent about two years as a Senior Staff Software
-        Engineer at a SaaS startup before relocating to the UK. My tenure at the
-        startup marked another career peak. With a fantastic team, I became a
-        respected leader who influenced cross-team dynamics. The CTO mentored me
-        extensively, and I experienced rapid professional growth.
-      </p>
-      <p>
-        However, rapid growth took a toll on my health. Stress from workload and
-        office politics led to high blood pressure. Consequently, I decided to
-        resign after the CTO's departure, taking a six-month career break while
-        planning my move to the UK.
-      </p>
-      <p>
-        Today, I am a mid-level software developer at a large private
-        corporation in the United States, working remotely as an individual
-        contributor. Quietly preparing for my next career milestone.
-      </p>
-    </section>
-    <hr />
-    <section>
-      <h3>🏗️ My tech stack</h3>
-      <p>
-        My tech stack slowly shifted from being Macromedia/Adobe-focused to
-        .NET-focused between 2000 and 2010. I taught myself Flash and
-        ActionScript during secondary school. When I attended technical college
-        at the start of the 21st century, my primary IDE was Flash 4. The main
-        languages I used during that time were VB6, VBScript, ASP, ActionScript,
-        and some C. Over the years, I progressed from building animations to
-        developing Rich Internet Applications, transitioning from ActionScript 2
-        to ActionScript 3. However, Apple's decision to phase out Flash in 2010
-        brought significant changes. I began learning C# around 2002, shortly
-        after the release of the .NET Framework 1.0. Since then, it has become
-        my primary programming language.
-      </p>
-      <p>
-        <h4>My main tech stack:</h4>
-        <ul>
-          <li>Language: C#</li>
-          <li>
-            Cloud: Azure App Service, Azure Functions, Application Insights, GCP
-            CloudRun, PubSub
-          </li>
-          <li>Frontend: Blazor, Vue.js</li>
-          <li>Mobile: MAUI</li>
-          <li>Web: ASP.NET Core, Entity Framework, .NET Aspire</li>
-          <li>AI: OpenAI API, Semantic Kernal</li>
-          <li>Database & Cache: SQL Server, MongoDB, SQLite, Redis</li>
-          <li>DevOps: GitHub Actions, Docker</li>
-          <li>Testing: Xunit, Selemium</li>
-          <li>Libary & API: WhatsApp Business API, Hangfire</li>
+
+    <Section title="🎤 Activities">
+      <SubSection title="🎙️ Latest Public Events">
+        <ul class="text-body">
+          {
+            recent_activities.map((activity) => (
+              <li><a href={activity.link} target="_blank">{activity.title}</a></li>
+            ))
+          }
         </ul>
-      </p>
-      <p>
-        <h4>
-          Technologies I'm familiar with but haven't used extensively in
-          production:
-        </h4>
-        <ul>
-          <li>Language: Java, JavaScript, TypeScript, Python</li>
-          <li>Cloud: AWS, Firebase</li>
-          <li>Frontend: Angular, React, Astro, Alpine.js</li>
-          <li>Web: Node.js, Astro</li>
-          <li>Database: MySQL</li>
-          <li>DevOps: Jenkins, Kubernetes</li>
-          <li>Testing: Flywight, Cucumber</li>
-          <li>Game & Computer Graphics: DirectX, OpenGL, Unity</li>
-        </ul>
-      </p>
-    </section>
-    <hr />
-    <section>
-      <h3>🎓 My Background</h3>
-      <p>WIP</p>
-    </section>
-    <section>
-      <h3>My Values</h3>
-      <p>
-        <ul>
-          <li>Integrity</li>
-          <li>Responsible</li>
-          <li>Quality</li>
-          <li>Kind to animals</li>
-          <li>Save the planet</li>
-        </ul>
-      </p>
-    </section>
-    <hr />
-    <section>
-      <h3>🏠 My Family</h3>
-      <p>
-        <h4>👰‍♀️ My Wife Elaine</h4>
-        <p>
+      </SubSection>
+    </Section>
+
+    <Section title="🚀 Career">
+      <span class="text-body">I won’t go into every detail here — you can find the full record on my LinkedIn below.</span>
+      {
+        career_items.map((item) => (
+          <div class="column-container gap-lg">
+            <SubSection title={item.period}>
+              <span class="text-body">{item.description}</span>
+            </SubSection>
+          </div>
+        ))
+      }
+    </Section>
+
+    <Section title="🏗️ Tools">
+      <span class="text-body">
+        I started learning C# since 1.0 around 2002. Before the death of
+        Flash, I was a rare certified ActionScript developer and won some
+        competitions with C++.
+      </span>
+      {
+        what_i_use.map((item) => (
+          <div class="column-container gap-lg">
+            <SubSection title={item.key} >
+              <ul class="text-body">
+                {item.value.map((subItem) => (
+                  <li>
+                    <b>{subItem.key}:</b> {subItem.value}
+                  </li>
+                ))}
+              </ul>
+            </SubSection>
+          </div>
+        ))
+      }
+    </Section>
+
+    <Section title="🏠 Family">
+      <SubSection title="👰‍♀️ My Wife Elaine">
+        <div class="text-body">
           Elaine is a lovely, cheerful and clever lady. She is good at driving
           🚗 and cooking 🍳. She is my best friend who knows me better than
-          anyone since I met her at her twenty. She married with me at age just
-          twenty four, giving me so much love and support for all the years.
-        </p>
-        <Image
-          alt="Image of my wife Elaine with me, celebrating my birthday"
-          src={BirthdayPhoto}
-        />
-      </p>
-      <p>
-        <h4>🐈 Sheldon</h4>
-        <p>
-          Sheldon is a Scottish Fold & British Shorthair mix. My wife took him
-          home shortly after the time we first met. Marking how long since I and
-          Elaine met each other. A polite boy that is not a picky eater. He is
-          friendly to human thus being our receptionist.
-        </p>
-        <Image alt="Image of my cat Sheldon" src={SheldonPhoto} />
-      </p>
-      <p>
-        <h4>🐈 Shamy</h4>
-        <p>
-          Shamy is a pretty domestic ginger white. Elaine adopted her from a
-          young korean lady after a year we get married due to I like ginger
-          cat. Her name is a combination of Sheldon and Amy from the Big Bang
-          Theory. Resumbling her shy and quiet personality.
-        </p>
-        <Image alt="Image of my cat Shamy" src={ShamyPhoto} />
-      </p>
-      <p>
-        <h4>🐈 Seven</h4>
-        <p>
-          Seven is a lucky tabby white kid we saved during the time we lived in
-          Taiwan. He was just a month old baby, jump into the middle of a
-          highway, in front of our car just a couple of seconds away. Elaine
-          stopped the car and pick him up such that he don't follow the tragic
-          fate of his parent and siblings. Seven is playful and always hungry.
-          He is the biggest in size among three.
-        </p>
-        <Image alt="Image of my cat Seven" src={SevenPhoto} />
-      </p>
-    </section>
-    <hr />
-    <section>
-      <h3>👾 My Hobbies</h3>
-      <p>
-        <h4>Hobbies with my wife</h4>
-        <p>
-          <ul>
-            <li>
-              🎥 We enjoy watching movies at cinemas and Netflix series at home.
-            </li>
-            <li>
-              👫🏻 We also love go out and for small walks along lakes and parks.
-            </li>
+          anyone since I met her when she was twenty. She married me at age
+          just twenty-four, giving me so much love and support for all the
+          years.
+        </div>
+        <div class="photo-container column-container">
+          <Image
+            alt="Image of my wife Elaine with me, celebrating my birthday"
+            src={BirthdayPhoto}
+            class="family-photo photo"
+          />
+          <span class="text-item-subtitle">Elaine and I, celebrating my birthday.</span>
+        </div>
+      </SubSection>
+
+      <div class="column-container gap-lg">
+        <SubSection title="🐈 My Cats">
+          <ul class="text-body">
+          {
+            cats.map((cat) => (<li><b>{cat.name}</b> — {cat.description}</li>))
+          }
           </ul>
-        </p>
-      </p>
-      <p>
-        <h4>Sports</h4>
-        <p>
-          <ul>
-            <li>
-              🏓 Table Tennis has been my favorite sport since primary school. I
-              took a nearly twenty-year break from it after secondary school,
-              but I've recently picked it up again since getting married.
-            </li>
-            <li>
-              🚴‍♂️ Additionally, I enjoy cycling during cooler days and have
-              developed an interest in 🏹 archery.
-            </li>
-            <li>
-              🏸 I play badminton occasionally, although I'm not particularly
-              skilled at it.
-            </li>
-          </ul>
-        </p>
-      </p>
-      <p>
-        <h4>🎮 Video Games</h4>
-        <p>
-          During my youth, I immersed myself in video games. Countless hours
-          were spent in arcades enjoying games like the King of Fighters and
-          Gundam VS Gundam series. I competed competitively in Age of Empires
-          and StarCraft before the term eSports gained popularity. My gaming
-          adventures extended to World of Warcraft, Guild Wars, and the
-          challenging realms of Diablo. Besides, I strived for ranks in games
-          like League of Legends and PUBG. However, the game that occupies most
-          of my gaming time now is Minecraft and Magic: The Gathering Arena.
-          Playing Minecraft with my wife is a particular joy. Compared to a
-          decade ago, my gaming habits have significantly reduced as my
-          attention is now dedicated to coding and family life.
-        </p>
-      </p>
-      <p>
-        <h4>📚 Other Hobbies</h4>
-        <p>
-          I started playing and collecting Magic the Gathering cards since 1995.
-          During some long holidays, I built Gundam Model Kits. I also enjoy
-          reading technical books and comics before bedtime. And last but not
-          least, I love petting my cats. 🐈🐈🐈
-        </p>
-      </p>
-    </section>
-    <hr />
-    <section>
-      <div class="container flex-center social-links-container">
-        <h5>Follow my latest news from my profiles.</h5>
-        <p>
-          <div class="social-links">
-            <SocialLinkIcon
-              url="https://www.linkedin.com/in/ferry-to-2a905720"
-              alt="Go to Ferry's LinkedIn profile"
-              src={FullLinkedInLogo}
-            />
-            <SocialLinkIcon
-              url="https://github.com/ferrywlto"
-              alt="Go to Ferry's GitHub profile"
-              src={FullGitHubLogo}
-            />
-            <SocialLinkIcon
-              url="https://www.threads.com/@ferrywlto"
-              alt="Go to Ferry's Threads profile"
-              src={FullThreadsLogo}
-            />
-            <SocialLinkIcon
-              url="https://medium.com/@ferrywlto"
-              alt="Go to Ferry's Medium profile"
-              src={FullMediumLogo}
-            />
-            <SocialLinkIcon
-              url="https://leetcode.com/u/ferrywlto/"
-              alt="Go to Ferry's Leetcode profile"
-              src={FullLeetcodeLogo}
-            />
-            <SocialLinkIcon
-              url="https://stackoverflow.com/users/2952180/ferry-to"
-              alt="Go to Ferry's Stackoverflow profile"
-              src={FullStackoverFlowLogo}
-            />
+          <div class="cats-photo-grid">
+            {
+              cats.map((cat) => (
+                <div class="photo-container column-container">
+                  <Image alt={cat.alt} src={cat.photo} class="cat-photo photo"/>
+                  <span class="text-item-subtitle">{cat.name}</span>
+                </div>
+              ))
+            }
           </div>
-        </p>
+        </SubSection>
       </div>
-    </section>
+    </Section>
+
+    <Section title="👾 Hobbies">
+      <SubSection title="👫🏻 Hobbies with my wife">
+        <span class="text-body">🎥 We enjoy cinema trips and Netflix at home.</span>
+        <span class="text-body">🏞️ We like short walks around lakes and parks.</span>
+        <span class="text-body">
+          🏓 Table tennis has been my favorite since primary school. After a
+          20-year break, I’m back at it—we play a few times a week at
+          <b><a href="https://www.centremk.com/" target="_blank">centre:mk</a></b>.
+        </span>
+      </SubSection>
+      <SubSection title="🎮 Video Games">
+        <span class="text-body">
+          Age of Empires II, Minecraft and League of Legends are our all time
+          favorites. I also spent significant time of my youth in World of
+          Warcraft, StarCraft and Diablo series.
+        </span>
+      </SubSection>
+      <SubSection title="📚 Other Hobbies">
+        <span class="text-body"
+          >Magic: The Gathering TCG since 1995; building Gundam model kits on
+          holidays; bedtime reads of technical books and comics; and plenty of
+          cat-patting. 🐈🐈🐈
+        </span>
+      </SubSection>
+    </Section>
+
+    <Section title="📫 Connect">
+      <SubSection title="Follow my latest news from my profiles.">
+        <div class="text-item-subtitle hide-on-mobile">
+          {
+            social_links.map((link, idx) => (
+              <><a href={link.url} target="_blank">{link.name}</a>{idx < social_links.length - 1 && " | "}</>
+            ))
+          }
+        </div>
+        <div class="social-links-mobile hide-on-desktop column-container text-item-subtitle">
+          <ul>
+            {
+              social_links.map((link) => (
+                <li><a href={link.url} target="_blank">{link.name}</a></li>
+              ))
+            }
+          </ul>
+        </div>
+      </SubSection>
+      <SubSection title="Have an idea that needs a pragmatic architect? Let’s chat.">
+        <a href="mailto:ferry@verdantsparks.io" target="_blank" class="text-item-subtitle">ferry@verdantsparks.io</a>
+      </SubSection>
+    </Section>
   </div>
+
+  <style>
+    @import "../styles/typography.css";
+    @import "../styles/spacing.css";
+    @import "../styles/effect.css";
+    @import "../styles/layout.css";
+    @import "../styles/theme.css";
+
+    .gap-lg {
+      gap: var(--gap-lg);
+    }
+
+    .gap-xl {
+      gap: var(--gap-xl);
+    }
+
+    .column-container ul {
+      line-height: 2;
+      margin: 0;
+    }
+
+    .photo {
+      border-radius: var(--corner-md);
+    }
+
+    .photo-container {
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .my-photo {
+      width: 100%;
+      min-width: 256px;
+      max-width: 320px;
+      height: auto;
+    }
+
+    .family-photo {
+      width: 100%;
+      min-width: 256px;
+      max-width: 512px;
+      height: auto;
+      box-shadow: var(--photo-box-shadow);
+    }
+
+    .cats-photo-grid {
+      display: grid;
+      width: 100%;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--gap-md);
+      box-sizing: border-box;
+    }
+
+    .cat-photo {
+      width: 100%;
+      min-width: 192px;
+      max-width: 256px;
+      max-height: 256px;
+      aspect-ratio: 1;
+      box-shadow: var(--photo-box-shadow);
+    }
+
+    .width-constrained-container {
+      margin: auto;
+      padding: var(--gap-lg);
+    }
+
+    @media (max-width: 1024px) {
+      .social-links-mobile ul {
+        margin: 0;
+      }
+
+      .social-links-mobile li {
+        margin: var(--gap-lg) 0;
+      }
+
+      .cats-photo-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--gap-lg);
+      }
+
+      .cat-photo {
+        max-width: 100%;
+        height: auto;
+        max-height: none;
+      }
+    }
+  </style>
 </BaseLayout>
-<style>
-  @import "../styles/typography.css";
-  @import "../styles/spacing.css";
-  @import "../styles/effect.css";
-  @import "../styles/layout.css";
-  @import "../styles/theme.css";
-
-  .width-constrained-container {
-    margin: auto;
-    padding: var(--gap-md) 0;
-  }
-
-  .column-container {
-    gap: var(--gap-md);
-  }
-
-  .container ul {
-    margin: 0;
-  }
-  .container {
-    width: 100%;
-  }
-  .portrait {
-    width: 50%;
-    min-width: 380px;
-    max-width: 720px;
-  }
-
-  .bio-text {
-    display: block;
-  }
-
-  .social-links-container {
-    text-align: center;
-    display: block;
-  }
-
-  .social-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: var(--space-sm);
-  }
-  .bio-header {
-    font-size: var(--text-3xl);
-    text-align: center;
-  }
-
-  @media (max-width: 1024px) {
-    .social-links-container {
-      text-align: start;
-    }
-    .follow-text {
-      text-align: justify;
-    }
-    .greeting-text {
-      display: block;
-      text-align: center;
-    }
-  }
-</style>
