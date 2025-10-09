@@ -265,9 +265,11 @@ const what_i_use = [
 
       <div class="column-container gap-lg">
         <SubSection title="🐈 My Cats">
+          <ul class="text-body">
           {
-            cats.map((cat) => (<span class="text-body"><b>{cat.name}</b> — {cat.description}</span>))
+            cats.map((cat) => (<li><b>{cat.name}</b> — {cat.description}</li>))
           }
+          </ul>
           <div class="cats-photo-grid">
             {
               cats.map((cat) => (
