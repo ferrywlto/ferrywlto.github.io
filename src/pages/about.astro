@@ -7,6 +7,8 @@ import SevenPhoto from "../assets/photos/seven.jpg";
 import BirthdayPhoto from "../assets/photos/ferry_and_elaine.jpg";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Divider from "../components/Divider.astro";
+import Section from "../components/about-page/Section.astro";
+import SubSection from "../components/about-page/SubSection.astro";
 const title = "About";
 const description =
   "Ferry To's background, including past experiences and social contacts.";
@@ -172,7 +174,7 @@ const what_i_use = [
 
 <BaseLayout title={title} description={description}>
   <div class="width-constrained-container column-container gap-xl">
-    <section class="column-container my-photo-container">
+    <section class="column-container photo-container">
       <Image
         alt="Portrait of Ferry To"
         src={FerryPortrait}
@@ -193,224 +195,150 @@ const what_i_use = [
         }
       </div>
     </section>
-    <section>
-      <details>
-        <summary class="text-section-title">
-          <h2>🎤 Activities</h2>
-        </summary>
-        <div class="column-container gap-lg">
-          <Divider />
-          <h3 class="text-item-title">🎙️ Latest Public Events</h3>
-          <ul class="text-body">
-            {
-              recent_activities.map((activity) => (
-                <li>
-                  <a href={activity.link} target="_blank">
-                    {activity.title}
-                  </a>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-      </details>
-    </section>
-    <section>
-      <details class="column-container">
-        <summary class="text-section-title">
-          <h2>🚀 Career</h2>
-        </summary>
-        <div class="column-container gap-lg">
-          <Divider />
-          <span class="text-body">I won’t go into every detail here — you can find the full record on my LinkedIn below.</span>
+
+    <Section title="🎤 Activities">
+      <SubSection title="🎙️ Latest Public Events">
+        <ul class="text-body">
           {
-            career_items.map((item) => (
-              <div class="column-container gap-lg">
-                <h3 class="text-item-title">{item.period}</h3>
-                <span class="text-body">{item.description}</span>
-              </div>
+            recent_activities.map((activity) => (
+              <li><a href={activity.link} target="_blank">{activity.title}</a></li>
             ))
           }
-        </div>
-      </details>
-    </section>
-    <section>
-      <details class="column-container">
-        <summary class="text-section-title">
-          <h2>🏗️ Tools</h2>
-        </summary>
-        <div class="column-container gap-lg">
-          <Divider />
-          <span class="text-body">
-            I started learning C# since 1.0 around 2002. Before the death of
-            Flash, I was a rare certified ActionScript developer and won some
-            competitions with C++.
-          </span>
-          {
-            what_i_use.map((item) => (
-              <div class="column-container gap-lg">
-                <h3 class="text-item-title">{item.key}</h3>
-                <ul class="text-body">
-                  {item.value.map((subItem) => (
-                    <li>
-                      <b>{subItem.key}:</b> {subItem.value}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))
-          }
-        </div>
-      </details>
-    </section>
-    <section>
-      <details class="column-container">
-        <summary class="text-section-title"><h2>🏠 Family</h2></summary>
-        <div class="column-container gap-lg">
-          <Divider />
-          <h3 class="text-item-title">👰‍♀️ My Wife Elaine</h3>
-          <div class="text-body">
-            Elaine is a lovely, cheerful and clever lady. She is good at driving
-            🚗 and cooking 🍳. She is my best friend who knows me better than
-            anyone since I met her when she was twenty. She married with me at age
-            just twenty-four, giving me so much love and support for all the
-            years.
-          </div>
-          <div class="cat-photo-container column-container">
-            <Image
-              alt="Image of my wife Elaine with me, celebrating my birthday"
-              src={BirthdayPhoto}
-              class="family-photo photo"
-            />
-            <span class="text-item-subtitle">Elaine and I, celebrating my birthday.</span>
-          </div>
+        </ul>
+      </SubSection>
+    </Section>
+
+    <Section title="🚀 Career">
+      <span class="text-body">I won’t go into every detail here — you can find the full record on my LinkedIn below.</span>
+      {
+        career_items.map((item) => (
           <div class="column-container gap-lg">
-            <h3 class="text-item-title">🐈 My Cats</h3>
-            {
-              cats.map((cat) => (
-                <span class="text-body">
-                  {cat.name} — {cat.description}
-                </span>
-              ))
-            }
+            <SubSection title={item.period}>
+              <span class="text-body">{item.description}</span>
+            </SubSection>
           </div>
+        ))
+      }
+    </Section>
+
+    <Section title="🏗️ Tools">
+      <span class="text-body">
+        I started learning C# since 1.0 around 2002. Before the death of
+        Flash, I was a rare certified ActionScript developer and won some
+        competitions with C++.
+      </span>
+      {
+        what_i_use.map((item) => (
+          <div class="column-container gap-lg">
+            <SubSection title={item.key} >
+              <ul class="text-body">
+                {item.value.map((subItem) => (
+                  <li>
+                    <b>{subItem.key}:</b> {subItem.value}
+                  </li>
+                ))}
+              </ul>
+            </SubSection>
+          </div>
+        ))
+      }
+    </Section>
+
+    <Section title="🏠 Family">
+      <SubSection title="👰‍♀️ My Wife Elaine">
+        <div class="text-body">
+          Elaine is a lovely, cheerful and clever lady. She is good at driving
+          🚗 and cooking 🍳. She is my best friend who knows me better than
+          anyone since I met her when she was twenty. She married with me at age
+          just twenty-four, giving me so much love and support for all the
+          years.
+        </div>
+        <div class="photo-container column-container">
+          <Image
+            alt="Image of my wife Elaine with me, celebrating my birthday"
+            src={BirthdayPhoto}
+            class="family-photo photo"
+          />
+          <span class="text-item-subtitle">Elaine and I, celebrating my birthday.</span>
+        </div>
+      </SubSection>
+
+      <div class="column-container gap-lg">
+        <SubSection title="🐈 My Cats">
+          {
+            cats.map((cat) => (<span class="text-body"><b>{cat.name}</b> — {cat.description}</span>))
+          }
           <div class="cats-photo-grid">
             {
               cats.map((cat) => (
-                <div class="cat-photo-container column-container">
-                  <Image
-                    alt={cat.alt}
-                    src={cat.photo}
-                    class="cat-photo photo"
-                  />
+                <div class="photo-container column-container">
+                  <Image alt={cat.alt} src={cat.photo} class="cat-photo photo"/>
                   <span class="text-item-subtitle">{cat.name}</span>
                 </div>
               ))
             }
           </div>
-        </div>
-      </details>
-    </section>
-    <section>
-      <details class="column-container">
-        <summary class="text-section-title"><h2>👾 Hobbies</h2></summary>
-        <div class="column-container gap-lg">
-          <Divider />
-          <h3 class="text-item-title">👫🏻 Hobbies with my wife</h3>
-          <span class="text-body">🎥 We enjoy cinema trips and Netflix at home.</span>
-          <span class="text-body">🏞️ We like short walks around lakes and parks.</span>
-          <span class="text-body">
-            🏓 Table tennis has been my favorite since primary school. After a
-            20-year break, I’m back at it—we play a few times a week at
-            <b><a href="https://www.centremk.com/" target="_blank">centre:mk</a></b>.
-          </span>
-          <h3 class="text-item-title">🎮 Video Games</h3>
-          <span class="text-body">
-            Age of Empires II, Minecraft and League of Legends are our all time
-            favorites. I also spent significant time of my youth in World of
-            Warcraft, StarCraft and Diablo series.
-          </span>
-          <h3 class="text-item-title">📚 Other Hobbies</h3>
-          <span class="text-body"
-            >Magic: The Gathering TCG since 1995; building Gundam model kits on
-            holidays; bedtime reads of technical books and comics; and plenty of
-            cat-patting. 🐈🐈🐈</span
-          >
-        </div>
-      </details>
-    </section>
-    <section>
-      <details class="column-container">
-        <summary class="text-section-title">
-          <h2>📫 Connect</h2>
-        </summary>
-        <div class="column-container gap-lg">
-          <Divider />
-          <h3 class="text-item-title">
-            Follow my latest news from my profiles.
-          </h3>
+        </SubSection>
+      </div>
+    </Section>
 
-          <div class="text-item-subtitle hide-on-mobile">
+    <Section title="👾 Hobbies">
+      <SubSection title="👫🏻 Hobbies with my wife">
+        <span class="text-body">🎥 We enjoy cinema trips and Netflix at home.</span>
+        <span class="text-body">🏞️ We like short walks around lakes and parks.</span>
+        <span class="text-body">
+          🏓 Table tennis has been my favorite since primary school. After a
+          20-year break, I’m back at it—we play a few times a week at
+          <b><a href="https://www.centremk.com/" target="_blank">centre:mk</a></b>.
+        </span>
+      </SubSection>
+      <SubSection title="🎮 Video Games">
+        <span class="text-body">
+          Age of Empires II, Minecraft and League of Legends are our all time
+          favorites. I also spent significant time of my youth in World of
+          Warcraft, StarCraft and Diablo series.
+        </span>
+      </SubSection>
+      <SubSection title="📚 Other Hobbies">
+        <span class="text-body"
+          >Magic: The Gathering TCG since 1995; building Gundam model kits on
+          holidays; bedtime reads of technical books and comics; and plenty of
+          cat-patting. 🐈🐈🐈
+        </span>
+      </SubSection>
+    </Section>
+
+    <Section title="📫 Connect">
+      <SubSection title="Follow my latest news from my profiles.">
+        <div class="text-item-subtitle hide-on-mobile">
+          {
+            social_links.map((link, idx) => (
+              <><a href={link.url} target="_blank">{link.name}</a>{idx < social_links.length - 1 && " | "}</>
+            ))
+          }
+        </div>
+        <div class="social-links-mobile hide-on-desktop column-container text-item-subtitle">
+          <ul>
             {
-              social_links.map((link, idx) => (
-                <><a href={link.url} target="_blank">{link.name}</a>{idx < social_links.length - 1 && " | "}</>
+              social_links.map((link) => (
+                <li><a href={link.url} target="_blank">{link.name}</a></li>
               ))
             }
-          </div>
-
-          <div class="social-links-mobile hide-on-desktop column-container text-item-subtitle">
-            <ul>
-              {
-                social_links.map((link) => (
-                  <li><a href={link.url} target="_blank">{link.name}</a></li>
-                ))
-              }
-            </ul>
-          </div>
-
-          <h3 class="text-item-title">Have an idea that needs a pragmatic architect? Let’s chat.</h3>
-          <a
-            href="mailto:ferry@verdantsparks.io"
-            target="_blank"
-            class="text-item-subtitle">ferry@verdantsparks.io</a
-          >
+          </ul>
         </div>
-      </details>
-    </section>
+      </SubSection>
+      <SubSection title="Have an idea that needs a pragmatic architect? Let’s chat.">
+        <a href="mailto:ferry@verdantsparks.io" target="_blank" class="text-item-subtitle">ferry@verdantsparks.io</a>
+      </SubSection>
+    </Section>
   </div>
+
   <style>
     @import "../styles/typography.css";
     @import "../styles/spacing.css";
     @import "../styles/effect.css";
     @import "../styles/layout.css";
     @import "../styles/theme.css";
-
-    summary {
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: var(--gap-sm);
-    }
-
-    summary h2 {
-      margin: 0;
-      display: inline;
-    }
-
-    /* Ensure consistent marker positioning across browsers */
-    summary::marker {
-      content: "";
-    }
-
-    summary::before {
-      content: "▶";
-      display: inline-block;
-      transition: transform 0.3s ease;
-    }
-
-    details[open] summary::before {
-      transform: rotate(90deg);
-    }
 
     .gap-lg {
       gap: var(--gap-lg);
@@ -424,11 +352,12 @@ const what_i_use = [
       line-height: 2;
       margin: 0;
     }
+
     .photo {
       border-radius: var(--corner-md);
     }
 
-    .my-photo-container {
+    .photo-container {
       width: 100%;
       justify-content: center;
       align-items: center;
@@ -446,6 +375,7 @@ const what_i_use = [
       min-width: 256px;
       max-width: 512px;
       height: auto;
+      box-shadow: var(--photo-box-shadow);
     }
 
     .cats-photo-grid {
@@ -456,18 +386,13 @@ const what_i_use = [
       box-sizing: border-box;
     }
 
-    .cat-photo-container {
-      width: 100%;
-      justify-content: center;
-      align-items: center;
-    }
-
     .cat-photo {
       width: 100%;
       min-width: 192px;
       max-width: 256px;
       max-height: 256px;
       aspect-ratio: 1;
+      box-shadow: var(--photo-box-shadow);
     }
 
     .width-constrained-container {
