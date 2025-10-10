@@ -12,6 +12,11 @@ const { title, description, pubDate, updatedDate, heroImage, tags } =
 
 <BaseLayout title={title} description={description}>
   <article class="width-constrained-container column-container">
+    <div class="section-header-link">
+      <a href="/blogs" class="text-small-link">
+        &leftarrow; Back
+      </a>
+    </div>
     <HeroImage src={heroImage} alt={description} class="hero-image" />
     <div>
       <div class="title">
@@ -35,6 +40,11 @@ const { title, description, pubDate, updatedDate, heroImage, tags } =
         <TagRow tags={tags} linkPrefix="blog" />
       </div>
     </div>
+    <div class="section-header-link">
+      <a href="/blogs" class="text-small-link">
+        &leftarrow; Back
+      </a>
+    </div>
   </article>
 </BaseLayout>
 <style>
@@ -44,6 +54,7 @@ const { title, description, pubDate, updatedDate, heroImage, tags } =
 
   .column-container {
     padding: 0 var(--gap-lg);
+    gap: var(--gap-lg);
   }
 
   .title {
