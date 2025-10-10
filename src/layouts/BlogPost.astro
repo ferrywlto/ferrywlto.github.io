@@ -28,7 +28,9 @@ const { title, description, pubDate, updatedDate, heroImage, tags } =
         <h1 class="text-item-title">{title}</h1>
         <hr />
       </div>
-      <slot />
+      <div class="text-body">
+        <slot />
+      </div>
       <div class="tags-container">
         <TagRow tags={tags} linkPrefix="blog" />
       </div>
