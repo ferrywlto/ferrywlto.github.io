@@ -23,7 +23,7 @@ export interface Post {
 
 function getTopByDateReversed(posts: Post[]) {
   return posts
-    .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
     .slice(0, 3)
 }
 
@@ -85,11 +85,7 @@ const projects = [
           <WhisperList />
         </SectionContainer>
 
-        <SectionContainer
-          title="Projects"
-          linkText="All projects"
-          link="./projects"
-        >
+        <SectionContainer title="Projects" linkText="All projects" link="./projects">
           <ProjectList projects={projects} />
         </SectionContainer>
       </div>
