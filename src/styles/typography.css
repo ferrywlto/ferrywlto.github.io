@@ -8,7 +8,14 @@ html {
 }
 
 :root {
-  /* Scale with Fibonacci Sequence 0, [1, 1, 2, 3, 5, 8], 13, 21, 34... */
+  /* Typography scale based on Fibonacci numbers: 1, 1, 2, 3, 5, 8
+     Mapping:
+       --type-tag, --type-meta: 1
+       --type-body: 2
+       --type-item: 3
+       --type-section: 5
+       --type-hero: 8
+  */
   --base: 0.0875rem;
   --type-hero: calc(1rem + (var(--base) * 8));
   --type-section: calc(1rem + (var(--base) * 5));
