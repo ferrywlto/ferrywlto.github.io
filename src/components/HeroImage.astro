@@ -14,11 +14,7 @@ const { src, alt, class: className = '' } = Astro.props;
 <div class={`hero-image ${className}`}>
   {
     src ? (
-      <Image
-        inferSize
-        src={src}
-        alt={alt}
-      />
+      <Image inferSize src={src} alt={alt} />
     ) : (
       <Image src={placeholderImg} alt={alt} />
     )
@@ -37,5 +33,6 @@ const { src, alt, class: className = '' } = Astro.props;
     border-radius: var(--corner-md);
     box-sizing: border-box;
     object-fit: contain;
+    box-shadow: var(--photo-box-shadow);
   }
 </style>

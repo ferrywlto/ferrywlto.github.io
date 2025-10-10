@@ -8,12 +8,14 @@ html {
 }
 
 :root {
-  --type-hero: 2.25rem;   /* 36px — page headline */
-  --type-section: 1.5rem; /* 24px — section headings */
-  --type-item: 1.125rem;  /* 18px — item titles */
-  --type-body: 1rem;      /* 16px — body copy */
-  --type-meta: 0.875rem;  /* 14px — metadata */
-  --type-tag: 0.875rem;    /* 12px — small tags */
+  /* Scale with Fibonacci Sequence 0, 1, 1, 2, 3, 5, 8, 13, 21, 34 */
+  --base: 0.0875rem;
+  --type-hero: calc(1rem + (var(--base) * 8));
+  --type-section: calc(1rem + (var(--base) * 5));
+  --type-item: calc(1rem + (var(--base) * 3));
+  --type-body: calc(1rem + (var(--base) * 2));
+  --type-meta: calc(1rem + (var(--base) * 1));
+  --type-tag: calc(1rem + (var(--base) * 1));
 
   --font-weight-hero: 700;
   --font-weight-title: 600;
@@ -31,12 +33,13 @@ html {
 
 @media screen and (min-width: 1024px) {
   :root {
-    --type-hero: 3rem;    /* 48px on large screens */
-    --type-section: 2rem; /* 32px */
-    --type-item: 1.25rem; /* 20px */
-    --type-body: 1.0625rem; /* 17px */
-    --type-meta: 0.9375rem;  /* 15px */
-    --type-tag: 0.8125rem;   /* 13px */
+    --base: 0.125rem;
+    --type-hero: calc(1rem + (var(--base) * 8));
+    --type-section: calc(1rem + (var(--base) * 5));
+    --type-item: calc(1rem + (var(--base) * 3));
+    --type-body: calc(1rem + (var(--base) * 2));
+    --type-meta: calc(1rem + (var(--base) * 1));
+    --type-tag: calc(1rem + (var(--base) * 1));
   }
 }
 
