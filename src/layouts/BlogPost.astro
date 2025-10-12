@@ -4,16 +4,17 @@ import FormattedDate from "../components/FormattedDate.astro";
 import BaseLayout from "./BaseLayout.astro";
 import TagRow from "../components/TagRow.astro";
 import HeroImage from "../components/HeroImage.astro";
-type Props = CollectionEntry<"blogs">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage, tags } =
+type Props = CollectionEntry<"blogs">["data"] & {  parent: string; };
+
+const { title, description, pubDate, updatedDate, heroImage, tags, parent } =
   Astro.props;
 ---
 
 <BaseLayout title={title} description={description}>
   <article class="width-constrained-container column-container">
     <div class="section-header-link">
-      <a href="/blogs" class="text-small-link">
+      <a href={`/${parent}`} class="text-small-link">
         &leftarrow; Back
       </a>
     </div>
@@ -37,11 +38,11 @@ const { title, description, pubDate, updatedDate, heroImage, tags } =
         <slot />
       </div>
       <div class="tags-container">
-        <TagRow tags={tags} linkPrefix="blog" />
+        <TagRow tags={tags} linkPrefix={`/${parent}/tags`} />
       </div>
     </div>
     <div class="section-header-link">
-      <a href="/blogs" class="text-small-link">
+      <a href={`/${parent}`} class="text-small-link">
         &leftarrow; Back
       </a>
     </div>
