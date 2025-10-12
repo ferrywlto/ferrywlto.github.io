@@ -1,5 +1,3 @@
-@import './spacing.css';
-
 .column-container {
   display: flex;
   flex-direction: column;
