@@ -17,10 +17,10 @@
   resolved "https://registry.yarnpkg.com/@astrojs/internal-helpers/-/internal-helpers-0.7.1.tgz#50ce657c415b18b88369e9c6eeb12da208783905"
   integrity sha512-7dwEVigz9vUWDw3nRwLQ/yH/xYovlUA0ZD86xoeKEBmkz9O6iELG1yri67PgAPW6VLL/xInA4t7H0CK6VmtkKQ==
 
-"@astrojs/internal-helpers@0.7.3":
-  version "0.7.3"
-  resolved "https://registry.yarnpkg.com/@astrojs/internal-helpers/-/internal-helpers-0.7.3.tgz#3e991ef509ee20cf425fd1ae87da9f97e8dbb3de"
-  integrity sha512-6Pl0bQEIChuW5wqN7jdKrzWfCscW2rG/Cz+fzt4PhSQX2ivBpnhXgFUCs0M3DCYvjYHnPVG2W36X5rmFjZ62sw==
+"@astrojs/internal-helpers@0.7.4":
+  version "0.7.4"
+  resolved "https://registry.yarnpkg.com/@astrojs/internal-helpers/-/internal-helpers-0.7.4.tgz#827469f88087f6690813949b02d9f9983236cc93"
+  integrity sha512-lDA9MqE8WGi7T/t2BMi+EAXhs4Vcvr94Gqx3q15cFEz8oFZMO4/SFBqYr/UcmNlvW+35alowkVj+w9VhLvs5Cw==
 
 "@astrojs/markdown-remark@6.3.5":
   version "6.3.5"
@@ -49,12 +49,12 @@
     unist-util-visit-parents "^6.0.1"
     vfile "^6.0.3"
 
-"@astrojs/markdown-remark@6.3.7":
-  version "6.3.7"
-  resolved "https://registry.yarnpkg.com/@astrojs/markdown-remark/-/markdown-remark-6.3.7.tgz#68d80083205afe12cd51118ea2d545a1e83fcc56"
-  integrity sha512-KXGdq6/BC18doBCYXp08alHlWChH0hdD2B1qv9wIyOHbvwI5K6I7FhSta8dq1hBQNdun8YkKPR013D/Hm8xd0g==
+"@astrojs/markdown-remark@6.3.8":
+  version "6.3.8"
+  resolved "https://registry.yarnpkg.com/@astrojs/markdown-remark/-/markdown-remark-6.3.8.tgz#292cebc1bfb069cccb1e245eb1ac4aad4da0221f"
+  integrity sha512-uFNyFWadnULWK2cOw4n0hLKeu+xaVWeuECdP10cQ3K2fkybtTlhb7J7TcScdjmS8Yps7oje9S/ehYMfZrhrgCg==
   dependencies:
-    "@astrojs/internal-helpers" "0.7.3"
+    "@astrojs/internal-helpers" "0.7.4"
     "@astrojs/prism" "3.3.0"
     github-slugger "^2.0.0"
     hast-util-from-html "^2.0.3"
@@ -68,7 +68,7 @@
     remark-parse "^11.0.0"
     remark-rehype "^11.1.2"
     remark-smartypants "^3.0.2"
-    shiki "^3.12.2"
+    shiki "^3.13.0"
     smol-toml "^1.4.2"
     unified "^11.0.5"
     unist-util-remove-position "^5.0.0"
@@ -76,12 +76,12 @@
     unist-util-visit-parents "^6.0.1"
     vfile "^6.0.3"
 
-"@astrojs/mdx@^4.3.6":
-  version "4.3.6"
-  resolved "https://registry.yarnpkg.com/@astrojs/mdx/-/mdx-4.3.6.tgz#217bab4ba0439666af8e401e2a8b99ad852ce67b"
-  integrity sha512-jH04tYgaqLfq3To42+z1oEcXrXUzo3BxZ4fTkb+7BEmOJkQ9/c3iIixFEC+x0GgE8lJb4SuEDGldpAv7+1yY8A==
+"@astrojs/mdx@^4.3.7":
+  version "4.3.7"
+  resolved "https://registry.yarnpkg.com/@astrojs/mdx/-/mdx-4.3.7.tgz#a6cb6e2c05af037e8abdc6049be342f35210158c"
+  integrity sha512-5SRmvMyT/UMWaU2eoD+htnXtE2mUZZEH2K/nEzhuEy+iCsOSuS/DUry59WuKUJRQETi1mgJFdNR4dZLJHYVuRA==
   dependencies:
-    "@astrojs/markdown-remark" "6.3.7"
+    "@astrojs/markdown-remark" "6.3.8"
     "@mdx-js/mdx" "^3.1.1"
     acorn "^8.15.0"
     es-module-lexer "^1.7.0"
@@ -918,11 +918,6 @@ blob-to-buffer@^1.2.8:
   version "1.2.9"
   resolved "https://registry.yarnpkg.com/blob-to-buffer/-/blob-to-buffer-1.2.9.tgz#a17fd6c1c564011408f8971e451544245daaa84a"
   integrity sha512-BF033y5fN6OCofD3vgHmNtwZWRcq9NLyyxyILx9hfMy1sXYy4ojFl765hJ2lP0YaN2fuxPaLO2Vzzoxy0FLFFA==
-
-bootstrap@^5.3.3:
-  version "5.3.3"
-  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.3.3.tgz#de35e1a765c897ac940021900fcbb831602bac38"
-  integrity sha512-8HLCdWgyoMguSO9o+aH+iuZ+aht+mzW0u3HIMzVu7Srrpv7EBBxTnrFlSCskwdY1+EOFQSm7uMJhNQHkdPcmjg==
 
 boxen@8.0.1:
   version "8.0.1"
@@ -2753,7 +2748,7 @@ sharp@^0.33.3:
     "@img/sharp-win32-ia32" "0.33.5"
     "@img/sharp-win32-x64" "0.33.5"
 
-shiki@^3.12.2, shiki@^3.2.1:
+shiki@^3.13.0, shiki@^3.2.1:
   version "3.13.0"
   resolved "https://registry.yarnpkg.com/shiki/-/shiki-3.13.0.tgz#9675e9d36a893434cc297d66ddd4598a4af1fea1"
   integrity sha512-aZW4l8Og16CokuCLf8CF8kq+KK2yOygapU5m3+hoGw0Mdosc6fPitjM+ujYarppj5ZIKGyPDPP1vqmQhr+5/0g==
