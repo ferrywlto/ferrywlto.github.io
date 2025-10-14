@@ -4,7 +4,6 @@ import ProjectList from "../components/ProjectList.astro";
 import WhisperList from "../components/WhisperList.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 
-import Divider from "../components/Divider.astro";
 import HeroCard from "../components/HeroCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
@@ -69,7 +68,7 @@ const projects = [
 <BaseLayout>
   <main class="width-constrained-container column-container wrapper">
     <HeroCard />
-    <Divider />
+    <hr />
 
     <div class="content-container">
       <div class="column-container content-list">

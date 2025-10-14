@@ -6,7 +6,6 @@ import ShamyPhoto from "../assets/photos/shamy.jpg";
 import SevenPhoto from "../assets/photos/seven.jpg";
 import BirthdayPhoto from "../assets/photos/ferry_and_elaine.jpg";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Divider from "../components/Divider.astro";
 import Section from "../components/about-page/Section.astro";
 import SubSection from "../components/about-page/SubSection.astro";
 const title = "About";
@@ -187,7 +186,7 @@ const what_i_use = [
     <section class="column-container">
       <h1>🧑‍💻 About Me</h1>
       <div class="column-container gap-lg">
-        <Divider />
+        <hr />
         {
           about_me_content.map((content) => (
             <span class="text-body" set:html={content} />
