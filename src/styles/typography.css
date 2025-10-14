@@ -55,21 +55,21 @@ html {
   color: var(--color-text-title);
 }
 
-.text-section-title {
+h1, .text-section-title {
   font-size: var(--type-section);
   font-weight: var(--font-weight-title);
   line-height: var(--line-height-section);
   color: var(--color-primary);
 }
 
-.text-item-title {
+h2, .text-item-title {
   font-size: var(--type-item);
   font-weight: var(--font-weight-title);
   line-height: var(--line-height-item);
   color: var(--color-text-title);
 }
 
-.text-item-subtitle {
+h3, .text-item-subtitle {
   font-size: var(--type-body);
   font-weight: var(--font-weight-subtitle);
   line-height: var(--line-height-subtitle);
@@ -124,6 +124,9 @@ h5,
 h6 {
   padding: 0;
   margin: 0;
+}
+
+h4, h5, h6 {
   line-height: inherit;
   font-size: inherit;
   font-weight: inherit;
