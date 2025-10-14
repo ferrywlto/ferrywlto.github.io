@@ -31,7 +31,7 @@
 /* Dark Theme Colors */
 :root[data-theme="dark"] {
     --color-bg: #242424;
-    --color-surface: #4D4D4D;
+    --color-surface: #2e2e2e;
     --color-body: #E4E4E4;
     --color-subtle: #bebebe;
     --color-light: #f0f0f0;

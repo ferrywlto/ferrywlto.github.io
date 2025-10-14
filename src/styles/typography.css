@@ -149,3 +149,44 @@ a:hover {
   overflow: hidden;
   white-space: nowrap;
 }
+
+/*
+The following styles will be overridden by blended inline GitHub Dark style at runtime.
+- background-color: #24292e
+- color: #e1e4e8
+- overflow-x: auto
+*/
+pre {
+	padding: var(--gap-lg);
+	border-radius: var(--corner-md);
+	margin: var(--gap-md) 0;
+}
+
+/* Inside triple backtick ``` blocks */
+pre > code {
+	all: unset;
+	color: inherit;
+	background: none;
+	padding: 0;
+}
+
+/* Single backtick ` blocks */
+code {
+	padding: var(--gap-xs);
+	background-color: var(--color-surface);
+  color: var(--color-secondary);
+	border-radius: var(--corner-md);
+	font-family: 'Courier New', monospace;
+	font-size: var(--type-meta);
+}
+
+/* Block quotes > blocks */
+blockquote {
+	border-left: 3px solid var(--color-thread);
+	padding: 0 var(--gap-lg);
+	margin: 0;
+	font-size: var(--type-body);
+	font-style: italic;
+	color: var(--color-secondary);
+  background-color: var(--color-surface);
+}
