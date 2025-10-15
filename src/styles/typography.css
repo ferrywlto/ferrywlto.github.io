@@ -76,7 +76,7 @@ h3, .text-item-subtitle {
   color: var(--color-text-subtitle);
 }
 
-.text-body {
+p, li, .text-body {
   font-size: var(--type-body);
   line-height: var(--line-height-body);
   color: var(--color-text-title);
@@ -170,6 +170,11 @@ pre > code {
 	padding: 0;
 }
 
+pre > code > .line {
+  font-size: var(--type-meta);
+  line-height: var(--line-height-body);
+}
+
 /* Single backtick ` blocks */
 code {
 	padding: var(--gap-xs);
@@ -185,10 +190,18 @@ blockquote {
 	border-left: 3px solid var(--color-thread);
 	padding: 0 var(--gap-lg);
 	margin: 0;
-	font-size: var(--type-body);
-	font-style: italic;
-	color: var(--color-secondary);
   background-color: var(--color-surface);
+}
+
+blockquote p {
+  font-style: italic;
+  font-size: var(--type-body);
+  color: var(--color-secondary);
+  line-height: var(--line-height-body);
+}
+
+blockquote p a {
+ color: var(--color-primary);
 }
 
 hr {

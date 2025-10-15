@@ -34,9 +34,8 @@ const { title, description, pubDate, updatedDate, heroImage, tags, parent } =
         <h1 class="text-item-title">{title}</h1>
         <hr />
       </div>
-      <div class="text-body">
-        <slot />
-      </div>
+      <slot />
+
       <div class="tags-container">
         <TagRow tags={tags} linkPrefix={`/${parent}/tags`} />
       </div>
