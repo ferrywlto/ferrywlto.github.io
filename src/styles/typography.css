@@ -188,7 +188,7 @@ code {
 /* Block quotes > blocks */
 blockquote {
 	border-left: 3px solid var(--color-thread);
-	padding: 0 var(--gap-lg);
+	padding: 0;
 	margin: 0;
   background-color: var(--color-surface);
 }
@@ -198,15 +198,9 @@ blockquote p {
   font-size: var(--type-body);
   color: var(--color-secondary);
   line-height: var(--line-height-body);
+  padding: var(--gap-md);
 }
 
 blockquote p a {
  color: var(--color-primary);
-}
-
-hr {
-  border: none;
-  width: 100%;
-  height: 1px;
-  background-color: var(--color-thread);
 }
