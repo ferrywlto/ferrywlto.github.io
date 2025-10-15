@@ -35,9 +35,7 @@ const description = "A chronological timeline of thoughts, quotes, and quick not
 
 <BaseLayout title={title} description={description}>
   <div class="width-constrained-container column-container">
-    <h1 class="text-item-title">
-      Funny quotes from me and my wife. 😀
-    </h1>
+    <h1>Funny quotes from me and my wife. 😀</h1>
 
     <div class="column-container timeline">
       {Object.entries(groupedTweets).map(([dateKey, tweets]) => (
@@ -69,10 +67,6 @@ const description = "A chronological timeline of thoughts, quotes, and quick not
 </MainLayout>
 
 <style>
-  @import '../styles/typography.css';
-  @import '../styles/spacing.css';
-  @import '../styles/layout.css';
-  @import '../styles/theme.css';
   .width-constrained-container {
     padding: 0 var(--gap-lg);
     gap: var(--gap-lg);

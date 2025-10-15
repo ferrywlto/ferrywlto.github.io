@@ -1,5 +1,3 @@
-@import './spacing.css';
-
 .column-container {
   display: flex;
   flex-direction: column;
@@ -35,4 +33,20 @@ html, body {
   box-sizing: border-box;
   scroll-behavior: smooth;
   min-width: 375px; /* iPhone SE width */
+}
+
+hr {
+  border: none;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-thread);
+}
+
+p > img {
+  display: block;
+  margin: var(--gap-md) auto;
+  max-width: 100%;
+  border-radius: var(--corner-md);
+  object-fit: contain;
+  box-shadow: var(--photo-box-shadow);
 }

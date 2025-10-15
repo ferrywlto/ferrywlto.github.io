@@ -6,7 +6,6 @@ import ShamyPhoto from "../assets/photos/shamy.jpg";
 import SevenPhoto from "../assets/photos/seven.jpg";
 import BirthdayPhoto from "../assets/photos/ferry_and_elaine.jpg";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Divider from "../components/Divider.astro";
 import Section from "../components/about-page/Section.astro";
 import SubSection from "../components/about-page/SubSection.astro";
 const title = "About";
@@ -185,9 +184,9 @@ const what_i_use = [
       </p>
     </section>
     <section class="column-container">
-      <h1 class="text-section-title">🧑‍💻 About Me</h1>
+      <h1>🧑‍💻 About Me</h1>
       <div class="column-container gap-lg">
-        <Divider />
+        <hr />
         {
           about_me_content.map((content) => (
             <span class="text-body" set:html={content} />
@@ -286,13 +285,13 @@ const what_i_use = [
 
     <Section title="👾 Hobbies">
       <SubSection title="👫🏻 Hobbies with my wife">
-        <span class="text-body">🎥 We enjoy cinema trips and Netflix at home.</span>
-        <span class="text-body">🏞️ We like short walks around lakes and parks.</span>
-        <span class="text-body">
-          🏓 Table tennis has been my favorite since primary school. After a
+        <ul>
+          <li>🎥 We enjoy cinema trips and Netflix at home.</li>
+          <li>🏞️ We like short walks around lakes and parks.</li>
+          <li>🏓 Table tennis has been my favorite since primary school. After a
           20-year break, I’m back at it—we play a few times a week at
-          <b><a href="https://www.centremk.com/" target="_blank">centre:mk</a></b>.
-        </span>
+          <b><a href="https://www.centremk.com/" target="_blank">centre:mk</a></b></li>
+        </ul>
       </SubSection>
       <SubSection title="🎮 Video Games">
         <span class="text-body">
@@ -336,12 +335,6 @@ const what_i_use = [
   </div>
 
   <style>
-    @import "../styles/typography.css";
-    @import "../styles/spacing.css";
-    @import "../styles/effect.css";
-    @import "../styles/layout.css";
-    @import "../styles/theme.css";
-
     .gap-lg {
       gap: var(--gap-lg);
     }

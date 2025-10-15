@@ -22,8 +22,8 @@ const body =
         />
       </div>
 
-      <h1 class="text-hero-title hide-on-mobile">{headingDesktop}</h1>
-      <h1 class="text-hero-title hide-on-desktop">{headingMobile}</h1>
+      <div class="text-hero-title hide-on-mobile">{headingDesktop}</div>
+      <div class="text-hero-title hide-on-desktop">{headingMobile}</div>
       <span class="text-body" set:html={body} />
       <BaseButton href="/about" text={ctaLabel} />
     </div>
@@ -40,11 +40,6 @@ const body =
 </div>
 
 <style>
-  @import "../styles/typography.css";
-  @import "../styles/spacing.css";
-  @import "../styles/effect.css";
-  @import "../styles/layout.css";
-
   .wrapper {
     margin-bottom: var(--gap-lg);
   }
