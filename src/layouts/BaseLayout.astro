@@ -15,6 +15,15 @@ const { title, description } = Astro.props;
 			<slot />
 		</main>
 		<Footer />
+    <!-- 100% privacy-first analytics -->
+    <script async src="https://scripts.simpleanalyticscdn.com/latest.js" is:inline></script>
+    <noscript>
+      <img
+        src="https://queue.simpleanalyticscdn.com/noscript.gif?collect-dnt=true"
+        alt=""
+        referrerpolicy="no-referrer-when-downgrade"
+      />
+    </noscript>
 	</body>
 </html>
 
