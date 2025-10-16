@@ -1,0 +1,15 @@
+---
+import TagCloud from "../../../layouts/TagCloud.astro";
+
+const pageTitle = "Diary Tag Index";
+const pageDescription = "A list of all diary tags";
+const collection = "diaries";
+const headerText = "All diary posts are grouped by the tags below:";
+---
+
+<TagCloud
+  title={pageTitle}
+  description={pageDescription}
+  collection={collection}
+  header={headerText}
+/>
