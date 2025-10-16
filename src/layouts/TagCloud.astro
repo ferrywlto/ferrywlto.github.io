@@ -3,24 +3,26 @@ import { getCollection } from "astro:content";
 import BaseLayout from "./BaseLayout.astro";
 import TagPill from "../components/TagPill.astro";
 
+type TaggableCollection = 'blogs' | 'diaries' | 'projects';
+
 export interface Props {
   title: string;
   description: string;
-  collection: string;
+  collection: TaggableCollection;
   header: string;
 }
 const { title, description, collection, header } = Astro.props;
 
-const entries = await getCollection(collection as any);
+const entries = await getCollection(collection);
 
 const tags = [
-  ...new Set(entries.map((post: any) => post.data.tags).flat()),
+  ...new Set(entries.map((post) => post.data.tags).flat()),
 ].sort();
 
 // Calculate tag frequencies and create tag data with counts
 const tagsWithCounts = tags
   .map((tag) => {
-    const count = entries.filter((post: any) =>
+    const count = entries.filter((post) =>
       post.data.tags.includes(tag)
     ).length;
     return { name: tag, count };
