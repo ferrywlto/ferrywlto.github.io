@@ -1,0 +1,15 @@
+---
+import TagCloud from "../../../layouts/TagCloud.astro";
+
+const pageTitle = "Project Tag Index";
+const pageDescription = "A list of all project tags";
+const collection = "projects";
+const headerText = "All project posts are grouped by the tags below:";
+---
+
+<TagCloud
+  title={pageTitle}
+  description={pageDescription}
+  collection={collection}
+  header={headerText}
+/>
