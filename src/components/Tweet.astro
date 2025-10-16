@@ -17,7 +17,7 @@ const timeFormat = new Intl.DateTimeFormat('en-US', {
 });
 ---
 
-<div class="column-container tweet">
+<div class="column-container tweet" id={tweet.id}>
   <div class="text-meta tweet-time-author">
     <span>{timeFormat.format(pubDate)}</span>
     <span>{author} said:</span>
