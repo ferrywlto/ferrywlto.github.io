@@ -1,12 +1,12 @@
 ---
 export interface Props {
   tag: string;
-  linkPrefix?: string;
+  parent?: string;
 }
-const { tag, linkPrefix } = Astro.props;
+const { tag, parent: linkPrefix } = Astro.props;
 ---
 
-<a href={`${linkPrefix}/${tag}`}>
+<a href={`${linkPrefix}/tags/${tag}`}>
   <div class="hollow-tag-badge">
     <span class="text-badge">{tag}</span>
   </div>

@@ -17,12 +17,12 @@ const { title: name, description, link, tags } = Astro.props;
     <div class="title-row">
       <ItemTitleLink title={name} link={link} />
       <div class="hide-on-mobile">
-        <TagRow tags={tags} />
+        <TagRow tags={tags} parent={`/projects`} />
       </div>
     </div>
     <span class="text-item-subtitle">{description}</span>
     <div class="hide-on-desktop">
-      <TagRow tags={tags} />
+      <TagRow tags={tags} parent={`/projects`} />
     </div>
   </div>
 </div>
