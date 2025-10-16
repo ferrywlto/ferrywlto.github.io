@@ -27,7 +27,9 @@ export async function GET(context) {
             ...whisper.data,
             link: `/whispers/#${whisper.id}`,
         })),
-    ].sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+    ]
+    .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
+    .slice(0, 20);
 
     return rss({
         title: SITE_TITLE,
