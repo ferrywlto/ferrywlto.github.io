@@ -15,6 +15,6 @@ type Props = CollectionEntry<'projects'>;
 const projects = Astro.props;
 const { Content } = await render(projects);
 ---
-<BlogPost {...projects.data}>
+<BlogPost {...projects.data} parent='projects'>
 	<Content />
 </BlogPost>
