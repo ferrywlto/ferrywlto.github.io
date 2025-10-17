@@ -2,47 +2,55 @@
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../../components/FormattedDate.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import type { ContentPathWithTag, TaggableCollection } from '../../../types';
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection('blogs');
+  const collections: TaggableCollection[] = ['blogs', 'diaries', 'projects'] as const;
+  const paths: ContentPathWithTag[] = [];
 
-  const allTags = [
-    ...new Set(allPosts.map((post: any) => post.data.tags).flat()),
-  ];
+  for (const collection of collections) {
+    const entries = await getCollection(collection);
+    const tags = [...new Set(entries.flatMap((post) => post.data.tags ?? []))];
 
-  return allTags.map((tag) => {
-    const postsWithTag = allPosts.filter((post: any) =>
-      post.data.tags.includes(tag)
-    ).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-    return {
-      params: { tag },
-      props: { posts: postsWithTag },
-    };
-  });
+    tags.forEach((tag) => {
+      const posts = entries
+        .filter((post) => (post.data.tags ?? []).includes(tag))
+        .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+      paths.push({
+        // The params used to fill the path structure.
+        params: { collection, tag },
+        props: { posts }
+      });
+    });
+  }
+
+  return paths;
 }
 
-const { tag } = Astro.params;
+const { tag, collection } = Astro.params;
 const { posts } = Astro.props;
-const title = `Posts tagged with "${tag}"`;
-const description = `A collection of blog posts tagged with "${tag}".`;
+const title = `${collection} posts tagged with "${tag}"`;
+const description = `A collection of ${collection} posts tagged with "${tag}".`;
+const header = `${posts.length} ${collection} ${posts.length === 1 ? 'post' : 'posts'} found with this tag.`;
 ---
 
 <BaseLayout title={title} description={description}>
   <section class="width-constrained-container column-container section-wrapper">
-    <a href="/blogs/tags" class="text-small-link">← All Tags</a>
+    <a href={`/${collection}/tags`} class="text-small-link">← All Tags</a>
 
     <div>
       <div class="header-row text-body">
-        <h1>{tag}</h1><span class="tag-info">{posts.length} {posts.length === 1 ? 'post' : 'posts'} found with this tag.</span>
+        <h1>{tag}</h1><span class="tag-info">{header}</span>
       </div>
 
       {posts.length > 0 ? (
         <ul class="column-container post-list">
-          {posts.map((post: any) => (
+          {posts.map((post) => (
             <li class="surface-background-hover">
-              <a href={`/blogs/${post.id}/`}>
+              <a href={`/${collection}/${post.id}/`}>
                 <div class="post-entry">
-                  <FormattedDate date={post.data.pubDate} />
+                  {post.data.pubDate && <FormattedDate date={post.data.pubDate} />}
                   <h3>{post.data.title}</h3>
                 </div>
               </a>

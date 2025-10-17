@@ -24,8 +24,17 @@ export interface ProjectPost {
     rendered?: RenderedContent;
     filePath?: string;
 };
-export type ContentPost = {
-  data: BlogPost | DiaryPost | ProjectPost;
-};
+export type ContentPost = BlogPost | DiaryPost | ProjectPost;
 
 export type TaggableCollection = 'blogs' | 'diaries' | 'projects';
+
+export type ContentPathWithTag =
+{
+  params: {
+    collection: TaggableCollection;
+    tag: string;
+  };
+  props: {
+    posts: ContentPost[];
+  };
+}
