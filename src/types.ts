@@ -23,7 +23,8 @@ export interface ProjectPost {
     data: InferEntrySchema<"projects">;
     rendered?: RenderedContent;
     filePath?: string;
-};
+}
+
 export type ContentPost = BlogPost | DiaryPost | ProjectPost;
 
 export type TaggableCollection = 'blogs' | 'diaries' | 'projects';
