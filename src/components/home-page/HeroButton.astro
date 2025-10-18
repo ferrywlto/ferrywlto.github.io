@@ -7,8 +7,8 @@ const { href, text } = Astro.props;
 ---
 
 <a href={href}>
-  <div class="call-to-action">
-    <span class="text-call-to-action" set:html={text} />
+  <div class="call-to-action text-item-subtitle">
+    {text}
   </div>
 </a>
 
@@ -33,8 +33,8 @@ const { href, text } = Astro.props;
     border-radius: var(--corner-md);
     padding: var(--gap-md);
     cursor: pointer;
-    color: var(--color-primary);
     box-sizing: border-box;
+    color: var(--color-primary);
   }
 
   .call-to-action:hover {
@@ -42,7 +42,7 @@ const { href, text } = Astro.props;
     color: var(--color-button-hover-text);
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1023px) {
     a {
       display: block;
       width: 100%;
