@@ -1,6 +1,6 @@
 ---
-import BaseButton from "./BaseButton.astro";
-import FerryAvatar from "../assets/photos/ferry-avatar-octocat_512.png";
+import HeroButton from "./HeroButton.astro";
+import FerryAvatar from "../../assets/photos/ferry-avatar-octocat_512.png";
 import { Image } from "astro:assets";
 
 const ctaLabel = "About Me 🙋🏻 &#8594;";
@@ -25,7 +25,7 @@ const body =
       <div class="text-hero-title hide-on-mobile">{headingDesktop}</div>
       <div class="text-hero-title hide-on-desktop">{headingMobile}</div>
       <span class="text-body" set:html={body} />
-      <BaseButton href="/about" text={ctaLabel} />
+      <HeroButton href="/about" text={ctaLabel} />
     </div>
 
     <div class="avatar-container-desktop hide-on-mobile">

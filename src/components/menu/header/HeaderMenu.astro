@@ -1,0 +1,48 @@
+---
+import MenuLink from "../MenuLink.astro";
+import ThemeToggle from "../ThemeToggle.astro";
+---
+
+<div class="hide-on-mobile nav-grid">
+  <div class="home-link">
+    <MenuLink href="/">🌐 ferrywl.to</MenuLink>
+  </div>
+  <div class="nav-links">
+    <MenuLink href="/blogs">📝 Blog</MenuLink>
+    <MenuLink href="/diaries">📓 Diary</MenuLink>
+    <MenuLink href="/whispers">💬 Whispers</MenuLink>
+    <MenuLink href="/projects">🚀 Projects</MenuLink>
+    <MenuLink href="/about">👨🏻‍💻 About</MenuLink>
+  </div>
+  <div class="controls">
+    <ThemeToggle />
+  </div>
+</div>
+
+<style>
+  .nav-grid {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: var(--gap-lg);
+    align-items: center;
+    width: 100%;
+  }
+
+  .home-link {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--gap-lg);
+  }
+
+  .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>

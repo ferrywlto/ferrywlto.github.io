@@ -1,0 +1,31 @@
+---
+import Hamburger from '../menu/drawer/Hamburger.astro';
+import DrawerMenu from '../menu/drawer/DrawerMenu.astro';
+import HeaderMenu from '../menu/header/HeaderMenu.astro';
+---
+
+<header>
+	<nav class="width-constrained-container">
+		<Hamburger />
+		<HeaderMenu />
+	</nav>
+	<DrawerMenu />
+</header>
+
+<style>
+	header {
+    display: flex;
+		box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+		position: sticky;
+		top: 0;
+    width: 100%;
+    min-height: 3.8rem;
+    height: 3.8rem;
+    max-height: 3.8rem;
+		background: var(--color-surface);
+    border-bottom: var(--elevation-border);
+    margin: auto;
+	}
+</style>

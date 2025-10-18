@@ -29,6 +29,17 @@ export type ContentPost = BlogPost | DiaryPost | ProjectPost;
 
 export type TaggableCollection = 'blogs' | 'diaries' | 'projects';
 
+export type ContentPath =
+{
+  params: {
+    collection: TaggableCollection;
+    slug: string;
+  };
+  props: {
+    post: ContentPost;
+  };
+}
+
 export type ContentPathWithTag =
 {
   params: {
