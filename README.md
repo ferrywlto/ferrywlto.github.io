@@ -1,74 +1,57 @@
 # ferrywl.to - My Personal Website
 
-A modern, responsive personal website hand-crafted without vibe coding.
+A modern, responsive hand-crafted website as my digital garden. Focused on clarity, performance, accessibility, and sustainable content structure.
 
 ```
 ├── public/                     # Static assets
 │   ├── blog-placeholder-*.jpg  # Hero image placeholders
 │   └── favicon.svg
 ├── src/
-│   ├── assets/                 # Optimized assets
-│   │   ├── logos/             # Brand and social icons
-│   │   └── photos/            # Personal photos
-│   ├── components/            # Reusable UI components
-│   │   ├── BaseButton.astro   # CTA button component
-│   │   ├── HeroImage.astro    # Hero image with fallback
-│   │   ├── PostPageItem.astro # Post preview component
-│   │   ├── DrawerMenu.astro   # Mobile navigation
-│   │   └── ThemeToggle.astro  # Dark/light theme switch
-│   ├── content/               # Content collections
-│   │   ├── blogs/            # Blog posts (YYYY/MM structure)
-│   │   ├── diaries/          # Personal diary entries
-│   │   ├── projects/         # Portfolio projects
-│   │   └── whispers/         # Quick quotes/thoughts
-│   ├── layouts/              # Page layouts
-│   │   ├── BaseLayout.astro  # Main layout template
-│   │   └── BlogPost.astro    # Blog post layout
-│   ├── pages/                # Route pages
-│   │   ├── blogs/           # Blog listing and individual posts
-│   │   ├── diaries/         # Diary listings and posts
-│   │   └── *.astro          # Main pages (index, about, etc.)
-│   ├── scripts/             # Client-side JavaScript
-│   └── styles/              # Design system CSS
-│       ├── global.css       # Global styles and resets
-│       ├── theme.css        # Color system and themes
-│       ├── typography.css   # Font and text styles
-│       ├── spacing.css      # Spacing utilities
-│       └── layout.css       # Layout utilities
+│   ├── assets/                 # Optimized assets (logos, photography, reserved media licenses)
+│   ├── components/             # Reusable UI primitives and page sections
+│   │   ├── layout/             # Header, footer, base head, etc.
+│   │   ├── menu/               # Alpine-powered navigation components
+│   │   ├── home-page/          # Landing page building blocks
+│   │   ├── about-page/         # Structured about-page sections
+│   │   └── whisper-page/       # Whisper presentation helpers
+│   ├── content/                # Markdown collections (blogs/diaries/projects/whispers)
+│   ├── layouts/                # Page layouts (`BaseLayout`, `ContentPost`, `TagCloud`)
+│   ├── pages/                  # Route definitions (index, privacy, dynamic `[collection]` routes, tag pages)
+│   ├── styles/                 # Design system CSS modules
+│   ├── consts.ts               # Shared constants (paths, metadata)
+│   ├── content.config.ts       # Content collections schema definitions
+│   └── types.ts                # Shared TypeScript types
 ├── doc/
 │   └── CHANGELOG.md          # Version history
-├── new-post.sh              # Blog creation script
-├── new-tweet.sh             # Whisper creation script
+├── new-blog.sh              # Blog creation helper
+├── new-diary.sh             # Diary entry helper
+├── new-whisper.sh           # Whisper creation helper
 └── astro.config.mjs         # Astro configuration
 ```
 
 ## 🎨 Design System
 
-The site uses a comprehensive design system with:
+The design system is token-driven (pure CSS custom properties) and mobile-first:
 
-- **Typography Scale**: Fluid typography that scales with screen size
-- **Color System**: CSS custom properties supporting light/dark themes
-- **Spacing Scale**: Consistent spacing using CSS custom properties
-- **Component Architecture**: Modular, reusable Astro components
-- **Responsive Layout**: Mobile-first design with breakpoint-based layout ensuring blogs, diaries, projects, and quotes.
+- **Color Tokens**: `--color-bg`, `--color-surface`, `--color-body`, semantic blends (`--color-text-title`, `--color-text-meta`, `--color-thread`), dual light/dark palettes
+- **Typography Scale**: Fibonacci-derived modular scale (`--type-hero` through `--type-tag`) with adaptive `--base` for desktop
+- **Font Weights & Line Heights**: Dedicated tokens (`--font-weight-hero`, `--line-height-body`, etc.) enabling predictable rhythm
+- **Spacing & Radius**: Responsive gaps (`--gap-xs` … `--gap-xl`) and corner radii (`--corner-xs` … `--corner-pill`) shrink for mobile
+- **Layout Primitives**: Utility classes (`.column-container`, `.row-to-column-on-mobile`, `.width-constrained-container`) keep markup minimal
+- **Effects & Elevation**: Shadow + surface + hover utilities (`--photo-box-shadow`, `.surface-background-hover`) only apply when `@media (hover: hover)` matches
+- **Transitions**: Motion tokens (`--transition-normal`, `--transition-slow`) used for subtle interactive feedback
+- **Accessibility Utilities**: `.sr-only` helper and reduced complexity semantics for headings, links, lists
 
 ## ✨ Features
 
-- 🎨 **Modern Design System** - Custom design with typography, spacing, and color variables
-- 📱 **Mobile-First Responsive** - Optimized for all screen sizes with hamburger navigation
-- 🌙 **Dark/Light Theme** - Theme toggle with FOUC prevention
-- ⚡ **Alpine.js Integration** - Lightweight client-side interactivity
-- 📝 **Multiple Content Types** - Blogs, diaries, projects, and whispers
-- 🔍 **SEO Optimized** - Canonical URLs, OpenGraph data, and sitemap
+ -� **Privacy-First Analytics** - Simple Analytics with a transparent privacy policy page
+ - **Multiple Content Types** - Blogs, diaries, projects, and whispers
+- 🔍 **SEO & Discovery** - Canonical URLs, OpenGraph, sitemap & RSS curation
 - 📡 **RSS Feed** - Unified feed for all content types
 - 🚀 **Performance Focused** - 100/100 Lighthouse scores
 
-## 🏗️ Content Collections
-
-- **Blogs** - Technical articles and thoughts
-- **Diaries** - Personal reflections and daily notes  
 - **Projects** - Portfolio and project showcases
-- **Whispers** - Quick quotes and funny moments
+All content uses Markdown with frontmatter validated via Astro Content Collections & Zod (strict types, date parsing, required fields).
 
 ## 📐 Design Guidelines
 
@@ -80,6 +63,7 @@ The site uses a comprehensive design system with:
 - **Content Width**: Responsive with max-width constraints
 - **Navigation**: Slide-out drawer on mobile, horizontal on desktop
 - **Typography**: Fluid scaling based on screen size 
+
 ## 🚀 Getting Started
 
 ### Development Commands
@@ -94,8 +78,9 @@ The site uses a comprehensive design system with:
 
 | Script | Purpose |
 |--------|---------|
-| `./new-post.sh` | Create new blog post |
-| `./new-tweet.sh` | Create new whisper/quote |
+| `./new-blog.sh` | Create new blog post |
+| `./new-diary.sh` | Create new diary entry |
+| `./new-whisper.sh` | Create new whisper/quote |
 
 
 ## 🛠️ Tech Stack
@@ -123,7 +108,7 @@ Content is organized in collections under `src/content/`:
 - **Projects**: Portfolio showcases with descriptions
 - **Whispers**: Quick quotes and funny moments
 
-All content uses Markdown with YAML frontmatter for metadata.
+All content uses Markdown with frontmatter (validated by Astro Content Collections + Zod schemas for type safety).
 
 ## 🎯 Deployment
 
@@ -131,16 +116,15 @@ The site is deployed to GitHub Pages with automatic builds on push to `master`.
 
 ## 📄 License
 
-This project (except `/src/content` folder) is open source and available under the [MIT License](LICENSE).
+This project (except `/src/content` and `/src/assets/photos`) is open source and available under the [MIT License](LICENSE). Content & photos are all-rights-reserved.
 
 ---
 
 **Built with ❤️ using Astro.js**
 
-
 ## 🎨 Design System Reference
 
-### Color System
+### Color & Theme Tokens
 ```css
 /* Primary Colors */
 --color-primary: /* Brand color */
@@ -158,7 +142,7 @@ This project (except `/src/content` folder) is open source and available under t
 [data-theme='dark'] { /* Dark theme values */ }
 ```
 
-### Typography Scale
+### Typography Scale (Fibonacci)
 ```css
 /* Font Sizes */
 --text-hero: /* Large hero text */
@@ -175,7 +159,8 @@ This project (except `/src/content` folder) is open source and available under t
 ```
 
 ### Component Architecture
-- **Base Components**: Layout primitives (BaseLayout, BaseCard, BaseButton)
-- **Content Components**: Content-specific (HeroImage, PostPageItem, TagPill)
-- **Navigation Components**: Site navigation (Header, DrawerMenu, ThemeToggle)
-- **Utility Components**: Helpers (FormattedDate, SocialLinkIcon)
+- **Layouts**: `BaseLayout`, `ContentPost`, `TagCloud` unify page scaffolding
+- **Navigation**: `menu/` (drawer, hamburger, theme toggle, menu link) with Alpine.js state
+- **Content Primitives**: `HeroImage`, `PostPreview`, `FormattedDate`, `TagPill`, `TagRow`
+- **Section Modules**: `home-page/` (lists, cards) & `about-page/` (section & subsection wrappers)
+- **Feedback & Interaction**: Hover classes (`.surface-background-hover`, `.hover-text-primary`) gated by hover media query for performance on touch devices
