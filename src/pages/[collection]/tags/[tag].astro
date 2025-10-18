@@ -1,0 +1,104 @@
+---
+import { getCollection } from 'astro:content';
+import FormattedDate from '../../../components/FormattedDate.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import type { ContentPathWithTag, TaggableCollection } from '../../../types';
+
+export async function getStaticPaths() {
+  const collections: TaggableCollection[] = ['blogs', 'diaries', 'projects'] as const;
+  const paths: ContentPathWithTag[] = [];
+
+  for (const collection of collections) {
+    const entries = await getCollection(collection);
+    const tags = [...new Set(entries.flatMap((post) => post.data.tags ?? []))];
+
+    tags.forEach((tag) => {
+      const posts = entries
+        .filter((post) => (post.data.tags ?? []).includes(tag))
+        .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+      paths.push({
+        // The params used to fill the path structure.
+        params: { collection, tag },
+        props: { posts }
+      });
+    });
+  }
+
+  return paths;
+}
+
+const { tag, collection } = Astro.params;
+const capitalized = collection.charAt(0).toUpperCase() + collection.slice(1);
+const singular = collection === 'diaries' ? 'diary' : collection.slice(0, -1);
+const { posts } = Astro.props;
+const title = `${capitalized} posts tagged with "${tag}"`;
+const description = `A collection of ${singular} posts tagged with "${tag}".`;
+const header = `${posts.length} ${singular} ${posts.length === 1 ? 'post' : 'posts'} found with this tag.`;
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="width-constrained-container column-container section-wrapper">
+    <a href={`/${collection}/tags`} class="text-small-link">← All Tags</a>
+
+    <div>
+      <div class="header-row text-body">
+        <h1>{tag}</h1><span class="tag-info">{header}</span>
+      </div>
+
+      {posts.length > 0 ? (
+        <ul class="column-container post-list">
+          {posts.map((post) => (
+            <li class="surface-background-hover">
+              <a href={`/${collection}/${post.id}/`}>
+                <div class="post-entry">
+                  {post.data.pubDate && <FormattedDate date={post.data.pubDate} />}
+                  <h3>{post.data.title}</h3>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>No posts found with this tag.</p>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .section-wrapper {
+    padding: 0 var(--gap-lg);
+    gap: var(--gap-lg);
+  }
+  .header-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--gap-md);
+  }
+  .post-entry {
+    display: grid;
+    grid-template-columns: minmax(110px, max-content) minmax(0, auto);
+    align-items: center;
+    gap: var(--gap-md);
+  }
+  .surface-background-hover {
+    border-radius: var(--corner-md);
+  }
+
+  @media screen and (max-width: 1024px) {
+    .post-list {
+      gap: var(--gap-md);
+    }
+    .header-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .post-entry {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+    }
+  }
+</style>
