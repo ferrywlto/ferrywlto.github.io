@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import BlogPost from '../../layouts/BlogPost.astro';
+import { render } from 'astro:content';
+import type { ContentPath, TaggableCollection } from '../../types';
+
+export async function getStaticPaths() {
+  const collections: TaggableCollection[] = ['blogs', 'diaries', 'projects'] as const;
+  const paths: ContentPath[] = [];
+
+  for (const collection of collections) {
+    const posts = await getCollection(collection);
+    for (const post of posts) {
+      paths.push({
+        params: {
+          collection,
+          slug: post.id
+        },
+        props: { post },
+      });
+    }
+  }
+  return paths;
+}
+
+const { collection } = Astro.params;
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BlogPost {...post.data} parent={collection}>
+	<Content />
+</BlogPost>
