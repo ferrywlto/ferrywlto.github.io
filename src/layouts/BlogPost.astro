@@ -22,7 +22,7 @@ const { title, description, pubDate, updatedDate, heroImage, tags, parent } =
     <div>
       <div class="title">
         <div class="date">
-          <FormattedDate date={pubDate} />
+          {pubDate && <FormattedDate date={pubDate} />}
           {
             updatedDate && (
               <div class="last-updated-on text-meta">
@@ -36,10 +36,11 @@ const { title, description, pubDate, updatedDate, heroImage, tags, parent } =
       </div>
 
       <slot />
-
+      {tags && tags.length > 0 && (
       <div class="tags-container">
         <TagRow tags={tags} parent={`/${parent}`} />
       </div>
+      )}
     </div>
     <div class="section-header-link">
       <a href={`/${parent}`} class="text-small-link">

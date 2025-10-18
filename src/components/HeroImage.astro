@@ -16,7 +16,7 @@ const { src, alt, class: className = '' } = Astro.props;
     src ? (
       <Image inferSize src={src} alt={alt} />
     ) : (
-      <Image src={placeholderImg} alt={alt} />
+      <Image src={placeholderImg} alt="" />
     )
   }
 </div>
