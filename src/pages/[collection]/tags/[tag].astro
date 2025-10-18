@@ -6,26 +6,26 @@ import type { ContentPathWithTag, TaggableCollection } from '../../../types';
 
 export async function getStaticPaths() {
   const collections: TaggableCollection[] = ['blogs', 'diaries', 'projects'] as const;
-  const paths: ContentPathWithTag[] = [];
+  // Improve performance by fetching collections in parallel
+  const paths = await Promise.all(
+    collections.map(async (collection) => {
+      const entries = await getCollection(collection);
+      const tags = [...new Set(entries.flatMap((post) => post.data.tags ?? []))];
 
-  for (const collection of collections) {
-    const entries = await getCollection(collection);
-    const tags = [...new Set(entries.flatMap((post) => post.data.tags ?? []))];
+      return tags.map<ContentPathWithTag>((tag) => {
+        const posts = entries
+          .filter((post) => (post.data.tags ?? []).includes(tag))
+          .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-    tags.forEach((tag) => {
-      const posts = entries
-        .filter((post) => (post.data.tags ?? []).includes(tag))
-        .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-
-      paths.push({
-        // The params used to fill the path structure.
-        params: { collection, tag },
-        props: { posts }
+        return {
+          params: { collection, tag },
+          props: { posts }
+        };
       });
-    });
-  }
+    })
+  );
 
-  return paths;
+  return paths.flat();
 }
 
 const { tag, collection } = Astro.params;
