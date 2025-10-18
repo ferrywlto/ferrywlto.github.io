@@ -29,10 +29,12 @@ export async function getStaticPaths() {
 }
 
 const { tag, collection } = Astro.params;
+const capitalized = collection.charAt(0).toUpperCase() + collection.slice(1);
+const singular = collection === 'diaries' ? 'diary' : collection.slice(0, -1);
 const { posts } = Astro.props;
-const title = `${collection} posts tagged with "${tag}"`;
-const description = `A collection of ${collection} posts tagged with "${tag}".`;
-const header = `${posts.length} ${collection} ${posts.length === 1 ? 'post' : 'posts'} found with this tag.`;
+const title = `${capitalized} posts tagged with "${tag}"`;
+const description = `A collection of ${singular} posts tagged with "${tag}".`;
+const header = `${posts.length} ${singular} ${posts.length === 1 ? 'post' : 'posts'} found with this tag.`;
 ---
 
 <BaseLayout title={title} description={description}>
