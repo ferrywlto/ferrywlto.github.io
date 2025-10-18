@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import { render } from 'astro:content';
-import Tweet from '../components/Tweet.astro';
+import Whisper from '../components/whisper-page/Whisper.astro';
 import { SITE_TITLE } from '../consts';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
@@ -52,7 +52,7 @@ const description = "A chronological timeline of thoughts, quotes, and quick not
           </h2>
 
           {tweets.map(({ tweet, Content }) => (
-            <Tweet tweet={tweet} Content={Content} />
+            <Whisper tweet={tweet} Content={Content} />
           ))}
         </section>
       ))}

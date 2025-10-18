@@ -1,0 +1,46 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  tweet: CollectionEntry<'whispers'>;
+  Content: any;
+}
+
+const { tweet, Content } = Astro.props;
+const { pubDate, author } = tweet.data;
+
+// Format time for display
+const timeFormat = new Intl.DateTimeFormat('en-US', {
+  hour: 'numeric',
+  minute: '2-digit',
+  hour12: true
+});
+---
+
+<div class="column-container tweet" id={tweet.id}>
+  <div class="text-meta tweet-time-author">
+    <span>{timeFormat.format(pubDate)}</span>
+    <span>{author} said:</span>
+  </div>
+  <div class="tweet-content text-body">
+    <Content />
+  </div>
+</div>
+
+<style>
+  .tweet-time-author {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    white-space: nowrap;
+    gap: var(--gap-md);
+  }
+
+  .tweet-content {
+    display: flex;
+    /* white-space: pre-wrap; */
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+</style>
