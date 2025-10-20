@@ -1,26 +1,8 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-
+import PostCollections from "../../layouts/PostCollections.astro";
 ---
-<BaseLayout>
-  <main class="column-container width-constrained-container">
-    <h1>List of Projects</h1>
-    <section>
-      <div class="diary-entries text-item-title">
-        🚧 Work In Progress ... 🚧
-      </div>
-    </section>
-  </main>
-</BaseLayout>
-
-<style>
-  .column-container {
-    padding: 0 var(--gap-lg);
-    gap: var(--gap-lg);
-  }
-
-  .diary-entries {
-    display: grid;
-    width: 100%;
-  }
-</style>
+<PostCollections
+  collection="projects"
+  title="Complete List of Projects"
+  subtitle="All about technology and changelog of my projects."
+/>
