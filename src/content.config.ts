@@ -1,5 +1,5 @@
 import { glob } from 'astro/loaders';
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, z, type SchemaContext } from 'astro:content';
 
 // Content base path
 const CONTENT_BASE_PATH = './src/content';
@@ -14,9 +14,11 @@ const baseContentSchema = z.object({
   tags: z.array(z.string()),
 });
 
-const projectLinksSchema = z.object({
+
+const projectLinksSchema = (ctx: SchemaContext) => z.object({
 	projectUrl: z.string().url().optional(),
 	repoUrl: z.string().url().optional(),
+  heroImage: ctx.image().optional(),
 });
 
 // Content collections
@@ -40,7 +42,7 @@ const diaries = defineCollection({
 
 const projects = defineCollection({
 	loader: glob({ base: `${CONTENT_BASE_PATH}/projects`, pattern: '**/*.{md,mdx}' }),
-	schema: baseContentSchema.merge(projectLinksSchema),
+	schema: (ctx: SchemaContext) => baseContentSchema.merge(projectLinksSchema(ctx)),
 });
 
 export const collections = { blogs, whispers, diaries, projects };

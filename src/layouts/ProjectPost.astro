@@ -1,0 +1,84 @@
+---
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
+import BaseLayout from "./BaseLayout.astro";
+import TagRow from "../components/TagRow.astro";
+import HeroImage from "../components/HeroImage.astro";
+
+type Props = CollectionEntry<"projects">["data"];
+
+const { title, description, pubDate, updatedDate, heroImage, tags, repoUrl, projectUrl } =
+  Astro.props;
+
+const parent = '/projects';
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="width-constrained-container column-container">
+    <div class="section-header-link">
+      <a href={parent} class="text-small-link">
+        &leftarrow; Back
+      </a>
+    </div>
+    <HeroImage src={heroImage} alt={description} class="hero-image" />
+    <div>
+      <div class="title">
+        <div class="date">
+          {pubDate && <FormattedDate date={pubDate} />}
+          {
+            updatedDate && (
+              <div class="last-updated-on text-meta">
+                Last updated on <FormattedDate date={updatedDate} />
+              </div>
+            )
+          }
+        </div>
+        <h1 class="text-item-title">{title}</h1>
+        <hr />
+      </div>
+
+      <slot />
+      {tags && tags.length > 0 && (
+      <div class="tags-container">
+        <TagRow tags={tags} parent={`${parent}`} />
+      </div>
+      )}
+    </div>
+    <div class="section-header-link">
+      <a href={`${parent}`} class="text-small-link">
+        &leftarrow; Back
+      </a>
+    </div>
+  </article>
+</BaseLayout>
+<style>
+  .column-container {
+    padding: 0 var(--gap-lg);
+    gap: var(--gap-lg);
+  }
+
+  .title {
+    margin-bottom: var(--gap-md);
+    padding: var(--gap-md) 0;
+    line-height: 1;
+  }
+
+  .date {
+    margin-bottom: var(--gap-sm);
+  }
+
+  .title h1 {
+    margin: 0 0 var(--gap-sm) 0;
+  }
+
+  .last-updated-on {
+    font-style: italic;
+  }
+
+  .tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-sm);
+    margin-top: var(--gap-lg);
+  }
+</style>
