@@ -1,14 +1,11 @@
 ---
-import type { CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
 import BaseLayout from "./BaseLayout.astro";
 import TagRow from "../components/TagRow.astro";
 import HeroImage from "../components/HeroImage.astro";
 
-type Props = CollectionEntry<"blogs">["data"] & {  parent: string; };
+const { title, description, pubDate, updatedDate, heroImage, tags, parent } = Astro.props;
 
-const { title, description, pubDate, updatedDate, heroImage, tags, parent } =
-  Astro.props;
 ---
 
 <BaseLayout title={title} description={description}>
