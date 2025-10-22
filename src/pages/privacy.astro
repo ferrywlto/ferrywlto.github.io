@@ -7,13 +7,46 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   description="Read about the privacy practices and policies of Ferry To's personal website."
 >
   <div class="width-constrained-container column-container">
-    <h1 class="text-page-title">Privacy Policy</h1>
-    <hr />
-    <section class="text-content">
-      <p>
-        This site uses <a href="https://simpleanalytics.com" target="_blank" rel="noopener noreferrer">Simple Analytics</a>.
+    <div>
+      <h1 class="text-page-title">Privacy Policy</h1>
+      <hr />
+    </div>
+    <a href="https://dashboard.simpleanalytics.com/?utm_source=ferrywl.to&utm_content=badge&affiliate=sobuf" referrerpolicy="origin" target="_blank" class="analytics-badge">
+      <img id="analytics-badge-img"
+        src="https://simpleanalyticsbadges.com/ferrywl.to"
+        data-src-light="https://simpleanalyticsbadges.com/ferrywl.to?mode=light"
+        data-src-dark="https://simpleanalyticsbadges.com/ferrywl.to?mode=dark"
+        loading="lazy" referrerpolicy="no-referrer" crossorigin="anonymous" />
+    </a>
+    <section class="text-body">
+        This site uses
+        <a href="https://dashboard.simpleanalytics.com/?utm_source=ferrywl.to&utm_content=badge&affiliate=sobuf" referrerpolicy="origin" target="_blank" rel="noopener noreferrer" class="analytics-badge">
+          Simple Analytics
+        </a>.
         You can view the privacy policy <a href="https://simpleanalytics.com/privacy" target="_blank" rel="noopener noreferrer">here</a>.
-      </p>
     </section>
+    <script is:inline>
+      (function () {
+        var img = document.getElementById('analytics-badge-img');
+        if (!img) return;
+        function apply() {
+          var theme = document.documentElement.getAttribute('data-theme') || 'light';
+          var next = theme === 'dark' ? img.dataset.srcDark : img.dataset.srcLight;
+          if (next && img.src !== next) img.src = next;
+        }
+        apply(); // initial swap to current theme
+        new MutationObserver(apply).observe(document.documentElement, {
+          attributes: true,
+          attributeFilter: ['data-theme']
+        });
+      })();
+    </script>
   </div>
 </BaseLayout>
+
+<style>
+  .column-container {
+    padding: 0 var(--gap-lg);
+    gap: var(--gap-lg);
+  }
+</style>
