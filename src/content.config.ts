@@ -18,7 +18,7 @@ const baseContentSchema = z.object({
 const projectLinksSchema = (ctx: SchemaContext) => z.object({
 	projectUrl: z.string().url().optional(),
 	repoUrl: z.string().url().optional(),
-  heroImage: ctx.image().optional(),
+  heroImage: z.union([ctx.image(), z.string()]).optional(),
 });
 
 // Content collections
