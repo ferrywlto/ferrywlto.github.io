@@ -15,7 +15,7 @@ export interface Post {
     title: string;
     description: string;
     pubDate: Date;
-    heroImage?: string;
+    heroImage?: string | ImageMetadata;
     tags?: string[];
   }
 }
@@ -40,29 +40,6 @@ const blogs = getTopPosts(await getCollection("blogs"));
 
 const diaries = getTopPosts(await getCollection("diaries"));
 
-const projects = [
-  {
-    name: "Personal Portfolio Website",
-    tags: ["Astro", "CSS", "JavaScript"],
-    lastUpdated: "2024-06-14",
-    description: "A showcase of my work and skills.",
-    link: "./project/project1",
-  },
-  {
-    name: "E-commerce Platform",
-    tags: [".NET", "Azure", "AI"],
-    lastUpdated: "2024-06-12",
-    description: "An online store for various products.",
-    link: "./project/project2",
-  },
-  {
-    name: "Blog Application",
-    tags: ["Blazor", "MAUI", "Qdrant"],
-    lastUpdated: "2024-06-10",
-    description: "A platform to share articles and posts.",
-    link: "./project/project3",
-  },
-];
 ---
 
 <BaseLayout>
@@ -85,7 +62,7 @@ const projects = [
         </SectionContainer>
 
         <SectionContainer title="Projects" linkText="All projects" link="./projects">
-          <ProjectList projects={projects} />
+          <ProjectList />
         </SectionContainer>
       </div>
     </div>

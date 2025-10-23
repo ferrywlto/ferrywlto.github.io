@@ -15,7 +15,7 @@ const posts = (await getCollection(collection)).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 const firstPost = posts[0];
-const remainingPosts = posts.slice(1, 10);
+const remainingPosts = posts.slice(1);
 ---
 
 <BaseLayout>
