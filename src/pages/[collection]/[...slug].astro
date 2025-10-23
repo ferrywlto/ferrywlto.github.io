@@ -5,7 +5,7 @@ import { render } from 'astro:content';
 import type { ContentPath, TaggableCollection } from '../../types';
 
 export async function getStaticPaths() {
-  const collections: TaggableCollection[] = ['blogs', 'diaries'] as const;
+  const collections: TaggableCollection[] = ['blogs', 'diaries', 'projects'] as const;
   // Improve performance by fetching collections in parallel
   const paths = await Promise.all(
     collections.map(async (collection) => {
