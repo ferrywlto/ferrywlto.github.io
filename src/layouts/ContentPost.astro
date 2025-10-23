@@ -28,8 +28,10 @@ const { title, description, pubDate, updatedDate, heroImage, tags, parent } = As
             )
           }
         </div>
-        <h1 class="text-item-title">{title}</h1>
-        <hr />
+        <div>
+          <h1 class="text-section-title">{title}</h1>
+          <hr />
+        </div>
       </div>
 
       <slot />
@@ -53,13 +55,18 @@ const { title, description, pubDate, updatedDate, heroImage, tags, parent } = As
   }
 
   .title {
+    display: flex;
+    flex-direction: column;
     margin-bottom: var(--gap-md);
     padding: var(--gap-md) 0;
     line-height: 1;
+    gap: var(--gap-md);
   }
 
   .date {
+    display: flex;
     margin-bottom: var(--gap-sm);
+    gap: var(--gap-md);
   }
 
   .title h1 {
