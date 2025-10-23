@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] - 2025-10-23
+
+### ✨ Features
+- Support both remote and local hero images across all post types via unified `HeroImage` component and schema groundwork (`HeroImage` hybrid detection) 
+- Single dynamic route `[collection]/[...slug]` now handles blogs, diaries, and projects
+- Added Simple Analytics badge image and footer privacy link integration
+- External links presentation refined for project posts
+
+### 🔧 Improvements
+- Shared layout component (`ContentPost`) adopted for all collections reducing duplication
+
+---
+
 ## [1.4.0] - 2025-10-18
 
 ### ✨ Features
