@@ -14,7 +14,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### 🔧 Improvements
 - Shared layout component (`ContentPost`) adopted for all collections reducing duplication
-
+- Appended semantic title slugs to dated markdown filenames (preserved yyyy-MM-dd)
+- Added `scripts/append-slug.sh` helper to automate slug appending (now supports single-file rename via argument); improved title extraction regex
+- Moved existing shell scripts to `scripts` folder for better organization
 ---
 
 ## [1.4.0] - 2025-10-18
