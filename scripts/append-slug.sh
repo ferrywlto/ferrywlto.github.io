@@ -22,25 +22,23 @@ slugify() {
 
 base=$(basename "$FILE")
 dir=$(dirname "$FILE")
-if [[ $base =~ ^([0-9]{4}-[0-9]{2}-[0-9]{2})(\.md)$ ]]; then
-  title=$(grep -m1 '^title:' "$FILE" | sed -E "s/^title:\s*[\"']?([^\"']+)[\"']?\s*$/\1/") || true
-  if [[ -z $title ]]; then
-    echo "Title not found; skipping" >&2
-    exit 2
-  fi
-  slug=$(slugify "$title")
-  if [[ -z $slug ]]; then
-    echo "Empty slug; skipping" >&2
-    exit 3
-  fi
-  new="$dir/${BASH_REMATCH[1]}-$slug.md"
-  if [[ "$FILE" == "$new" ]]; then
-    echo "Already slugged: $FILE" >&2
-    exit 0
-  fi
-  mv "$FILE" "$new"
-  echo "$FILE -> $new"
-else
-  echo "Filename does not match date pattern (YYYY-MM-DD.md): $base" >&2
-  exit 4
+# extract title and pubDate from frontmatter
+title=$(grep -m1 '^title:' "$FILE" | sed -E "s/^title:[[:space:]]*[\"']?([^\"']+)[\"']?[[:space:]]*$/\1/") || true
+pubDate=$(grep -m1 '^pubDate:' "$FILE" | grep -Eo '[0-9]{4}-[0-9]{2}-[0-9]{2}' | head -1) || true
+if [[ -z $title || -z $pubDate ]]; then
+  echo 'Missing title or pubDate; skipping' >&2
+  exit 2
 fi
+slug=$(slugify "$title" | tr 'A-Z' 'a-z')
+slug=${slug#title-}
+if [[ -z $slug ]]; then
+  echo 'Empty slug; skipping' >&2
+  exit 3
+fi
+new="$dir/${pubDate}-$slug.md"
+if [[ "$FILE" == "$new" ]]; then
+  echo 'Already slugged: '"$FILE" >&2
+  exit 0
+fi
+mv "$FILE" "$new"
+echo "$FILE -> $new"
