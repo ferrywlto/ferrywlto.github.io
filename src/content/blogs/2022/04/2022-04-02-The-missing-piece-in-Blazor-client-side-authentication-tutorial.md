@@ -16,8 +16,6 @@ This is the missing piece of Blazor client-side authentication tutorial and answ
 
 **Note: Client side authentication is fragile, don't depends on it. The aim of this article is not about security, it's all about UI. There are lots of tips and tricks you can find on the Internet on security hardening for both client and server side.**
 
----
-
 ## Steps
 
 1. Required dependencies:
