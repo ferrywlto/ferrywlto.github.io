@@ -5,7 +5,7 @@
 # Example: ./new-whisper.sh dev "Hong Kong"
 
 # Configuration
-CONTENT_DIR="../src/content/whispers"
+CONTENT_DIR="src/content/whispers"
 CURRENT_YEAR=$(date +%Y)
 CURRENT_MONTH=$(date +%m)
 TIMESTAMP=$(date +%Y-%m-%d-%H%M)

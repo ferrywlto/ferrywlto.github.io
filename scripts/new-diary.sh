@@ -5,7 +5,7 @@
 # Creates a new diary post with current date and opens it in VS Code
 
 # Configuration
-CONTENT_DIR="../src/content/diaries"
+CONTENT_DIR="src/content/diaries"
 CURRENT_YEAR=$(date +%Y)
 CURRENT_MONTH=$(date +%m)
 CURRENT_DATE=$(date +%Y-%m-%d)

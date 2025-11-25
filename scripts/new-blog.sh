@@ -5,7 +5,7 @@
 # Creates a new blog post with current date and opens it in VS Code
 
 # Configuration
-CONTENT_DIR="../src/content/blogs"
+CONTENT_DIR="src/content/blogs"
 CURRENT_YEAR=$(date +%Y)
 CURRENT_MONTH=$(date +%m)
 CURRENT_DATE=$(date +%Y-%m-%d)
