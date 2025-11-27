@@ -1,6 +1,6 @@
 ---
 title: 'Your automation buddies in C#'
-description: 'Learn to automate tasks in C# using Polly to handle retries and **Hangfire** for scheduling and queuing jobs'
+description: 'Learn to automate tasks in C# using Polly to handle retries and Hangfire for scheduling and queuing jobs'
 pubDate: '2022-03-19'
 tags: ['csharp', 'automation', 'polly', 'hangfire', 'scheduling']
 heroImage: 'https://miro.medium.com/v2/resize:fit:508/format:webp/0*pAzO-cChcxzLG3JL.png'
