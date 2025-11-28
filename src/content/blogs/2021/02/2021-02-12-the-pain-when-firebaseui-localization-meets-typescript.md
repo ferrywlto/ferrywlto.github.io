@@ -81,7 +81,7 @@ In JavaScript project one may try: (Not tested)
 1. Dynamically remove the firebaseui `<script>` tag  
 2. Create new `<script>` tag with `src` point to new language version. 
 3. Attach the new `<script>` tag back to DOM.  
-4. Call AuthUI.reset() then AuthUI.start().
+4. Call `AuthUI.reset()` then `AuthUI.start()`.
 
 In TypeScript project this will be a bit tricky, and verbose:  
 - Duplicate app per language with the only differences in the `src/firebaseui/dist` folder.  
