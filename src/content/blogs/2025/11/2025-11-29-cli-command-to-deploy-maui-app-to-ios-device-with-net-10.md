@@ -1,12 +1,10 @@
 ---
 title: 'CLI command to deploy MAUI App to iOS device with .NET 10'
-description: 'A snippet to make your deploy MAUI app to iOS device with CLI.'
+description: 'A short snippet to deploy your MAUI app to iOS device with CLI.'
 pubDate: '2025-11-29'
 heroImage: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/0*OtfXrTTyLd2eOoQu'
 tags: ['maui', 'dotnet', 'ios', 'msbuild', 'mobile-development']
 ---
-
-# CLI command to deploy MAUI App to iOS device with .NET 10
 
 A short snippet to make your MAUI app development life easier.
 
