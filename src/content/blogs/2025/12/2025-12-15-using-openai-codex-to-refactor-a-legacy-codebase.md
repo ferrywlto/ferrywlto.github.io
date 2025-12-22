@@ -1,6 +1,6 @@
 ---
-title: 'Using OpenAI Codex to refactor a legacy codebase'
-description: 'This is a record of my journey of refactoring a large legacy backend codebase with OpenAI Codex.'
+title: 'Migrate from GitHub Copilot to OpenAI Codex: Refactor a legacy codebase'
+description: 'My journey of refactoring a large legacy backend codebase with migration from GitHub Copilot to OpenAI Codex.'
 pubDate: '2025-12-15'
 tags: ['AI', 'OpenAI', 'Codex', 'GitHub Copilot', '.NET']
 heroImage: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*6rIdhywe2d-1NaeQ6kTYgA.png'
