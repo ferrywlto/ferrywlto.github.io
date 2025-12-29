@@ -10,7 +10,9 @@ export async function getStaticPaths() {
   const paths = await Promise.all(
     collections.map(async (collection) => {
       const posts = await getCollection(collection);
-      return posts.map<ContentPath>((post) => ({
+      return posts
+      .filter((post) => post.data.draft !== true)
+      .map<ContentPath>((post) => ({
         params: {
           collection,
           slug: post.id,

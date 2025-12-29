@@ -12,6 +12,7 @@ const buildBaseContentSchema = (ctx: SchemaContext) => z.object({
 	updatedDate: z.coerce.date().optional(),
   heroImage: z.union([ctx.image(), z.string().url()]).optional(),
   tags: z.array(z.string()),
+  draft: z.boolean().optional()
 });
 
 const buildProjectLinksSchema = (ctx: SchemaContext) => z.object({

@@ -17,11 +17,13 @@ export interface Post {
     pubDate: Date;
     heroImage?: string | ImageMetadata;
     tags?: string[];
+    draft?: boolean
   }
 }
 
 function getTopByDateReversed(posts: Post[]) {
   return posts
+    .filter((post) => post.data.draft !== true)
     .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
     .slice(0, 3)
 }
