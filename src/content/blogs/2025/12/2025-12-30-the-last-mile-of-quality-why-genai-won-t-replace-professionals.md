@@ -52,7 +52,9 @@ Curate aggressively. Mute or unfollow accounts that sell certainty, post absolut
 When a claim shows up in your feed, ask:
 
 - **Incentives:** What does the author gain if you believe this — attention, followers, courses, consulting, tool sales? If a message is high-certainty, low-evidence, and perfectly aligned with what the author is selling, treat it as marketing until proven otherwise.
+
 - **Production:** Is this about shipping and operating real systems, or just a demo that “runs on my machine”? (demo/benchmark ≠ production)
+
 - **Last mile:** Who handles the final few percent — edge cases, security, reliability, maintainability, compliance — and who is accountable when it breaks?
 
 ## Step 3: Respond based on the analysis
@@ -90,8 +92,10 @@ Now apply the framework:
     - Label it as noise and do not believe it.
 
 - **Run the three filters**  
-  - **Incentives:** engagement (doom spreads), identity signalling (“I’m ahead; you’re behind”), or vendor cheerleading (praising a model/tool)?  
+  - **Incentives:** engagement (doom spreads), identity signalling (“I’m ahead; you’re behind”), or vendor cheerleading (praising a model/tool)?
+
   - **Production:** “90% of code written by AI” is ambiguous. *Where is it written, and how is it measured?* Is it final code shipped without human refinement after review, testing, and security audit?
+  
   - **Last mile:** even if a model reaches 80% on an SWE benchmark, that still means 20% fail in a benchmark environment. In production, that remaining percentage is exactly where the harm lives. Even if AI writes 90% of the text, professionals still own 100% of the consequences. Who is responsible for the incident? Can the consequence be fixed or avoid without software engineers?
 
 - **Respond based on the analysis**  
@@ -168,7 +172,7 @@ There’s no doubt Quadrant 4 beats Quadrant 1.
 
 The real question — and the core doom narrative — is this: will Quadrant 2 replace Quadrant 3?
 
-**Speed is not the same as quality**
+## Speed is not the same as quality
 
 AI can massively speed up task completion through automation. But in a production context, speed is not the bottleneck — quality and accountability are. At best, AI is natural-language automation, not a miracle wand.
 
@@ -178,7 +182,7 @@ Without AI, an outsider may struggle to complete the task at all. With AI, they 
 
 But production-grade work is decided by the last mile.
 
-**Why Quadrant 3 still matters in production**
+## Why Quadrant 3 still matters in production
 
 Masters were already shipping production-quality deliverables before GenAI. With AI, they ship faster — because they can:
 - set constraints and recognise wrong outputs,
@@ -188,13 +192,13 @@ Masters were already shipping production-quality deliverables before GenAI. With
 
 In other words: AI boosts people who understand the craft. It’s “slower without AI” versus “never without AI”.
 
-**Benchmarks don’t end the profession**
+## Benchmarks don’t end the profession
 
 Even when models score highly on coding benchmarks, they are still probabilistic and can be confidently wrong. In production, a small error rate is not “just 1%” — it can be the difference between a secure system and an incident, or between correct behaviour and a costly failure.
 
 That is exactly why the remaining few percent — judgement, taste, and accountability — continues to be the differentiator. Vibe coders and casual AI users struggle with that last mile because they don’t have the training to recognise and manage risk.
 
-**A quick example: “Project managers will replace software engineers”**
+### A quick example: “Project managers will replace software engineers”
 
 Sometimes people claim project managers will overtake software engineers because AI can do the coding. In practice, on a product small enough, a software engineer can still deliver a production-grade outcome without a dedicated PM. The reverse isn’t true: coordination cannot substitute for engineering judgement, especially when quality and accountability are on the line.
 

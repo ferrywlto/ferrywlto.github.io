@@ -70,7 +70,7 @@ h2, .text-item-title {
 }
 
 h3, .text-item-subtitle {
-  font-size: var(--type-body);
+  font-size: var(--type-item);
   font-weight: var(--font-weight-subtitle);
   line-height: var(--line-height-subtitle);
   color: var(--color-text-subtitle);
@@ -203,4 +203,8 @@ blockquote p {
 
 blockquote p a {
  color: var(--color-primary);
+}
+
+article a {
+  color: var(--color-primary);
 }
