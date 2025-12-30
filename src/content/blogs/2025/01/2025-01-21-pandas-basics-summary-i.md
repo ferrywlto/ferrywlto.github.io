@@ -1,7 +1,7 @@
 ---
 title: 'Pandas Basics Summary I'
 description: 'Some Pandas functions I have learned during leetcode'
-pubDate: 2025-01-21
+pubDate: '2025-01-21'
 heroImage: 'https://plus.unsplash.com/premium_photo-1695717076798-404f76f121da?q=80&w=2991&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
 tags: ['leetcode', 'python', 'pandas']
 ---

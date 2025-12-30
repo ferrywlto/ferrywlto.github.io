@@ -1,9 +1,9 @@
 ---
 title: 'Creating iOS Widgets with MAUI - Part 2: Bundling iOS Widget'
 description: 'Bundling an iOS widget into a MAUI app so that the app can interact with the widget.'
-pubDate: 2025-11-16
+pubDate: '2025-11-16'
 tags: [dotnet, maui, ios, xcode, mobile-development]
-heroImage: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*9pkIYNAA8oXMPbFHtRPeRw.png"
+heroImage: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*9pkIYNAA8oXMPbFHtRPeRw.png'
 ---
 
 This is the second part of the series recording how I managed to create a MAUI app that can interact with an iOS widget. In this post, we will explore how to create a Hello World widget in iOS and have our MAUI app bundle it. I highly recommend reading the first post, [Creating iOS Widgets with MAUI - Part 1: Interoperability](https://ferrywlto.medium.com/creating-ios-widgets-with-maui-part-1-interoperability-d73d6f2c563c?postPublishedType=repub), if you haven't read it yet, as the topic in this post will require knowledge from the previous one.

@@ -1,9 +1,9 @@
 ---
-title: "Step-by-step guide on creating and publishing a Vue.js plugin"
-description: "A journey of learning how to share Vue.js code by bundling and publishing as a package."
-pubDate: "2020-11-16"
-heroImage: "https://miro.medium.com/v2/resize:fit:1400/0*ziRdBfK_xoRlH3s2"
-tags: ["vuejs", "npm", "vue-plugin", "javascript", "web-development"]
+title: 'Step-by-step guide on creating and publishing a Vue.js plugin'
+description: 'A journey of learning how to share Vue.js code by bundling and publishing as a package.'
+pubDate: '2020-11-16'
+heroImage: 'https://miro.medium.com/v2/resize:fit:1400/0*ziRdBfK_xoRlH3s2'
+tags: ['vuejs', 'npm', 'vue-plugin', 'javascript', 'web-development']
 ---
 
 This is a journey of learning how to share the Vue.js code to my colleagues some times ago. There are cases that you don’t want to copy & paste your elegantly crafted component from project to project or sharing to your friends. The solution is to bundle it as a package and publish it so other developers can keep their hands DRY. This post will provide step-by-step instructions on how to create your first component, publish to NPM (Node Package Manager) registry and GPR (GitHub Package Registry).

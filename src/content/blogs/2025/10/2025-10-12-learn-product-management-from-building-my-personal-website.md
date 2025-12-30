@@ -1,7 +1,7 @@
 ---
 title: 'Learn Product Management from building my personal website'
 description: ''
-pubDate: 2025-10-12
+pubDate: '2025-10-12'
 tags: []
 ---
 

@@ -28,7 +28,7 @@ fi
 # Create frontmatter
 cat > "$FILENAME" << EOF
 ---
-pubDate: "$ISO_TIMESTAMP"
+pubDate: '$ISO_TIMESTAMP'
 ---
 EOF
 

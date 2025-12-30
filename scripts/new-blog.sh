@@ -29,7 +29,7 @@ cat > "$FILENAME" << EOF
 ---
 title: ''
 description: ''
-pubDate: $CURRENT_DATE
+pubDate: '$CURRENT_DATE'
 tags: []
 ---
 

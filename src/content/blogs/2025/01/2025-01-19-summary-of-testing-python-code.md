@@ -1,8 +1,8 @@
 ---
 title: 'Summary of testing Python code'
 description: 'The steps I used to create a unit-testing environment for testing my Leetcode Python code from scratch'
-pubDate: 2025-01-19
-heroImage: "https://plus.unsplash.com/premium_photo-1664303799202-af9165d754a6?q=80&w=2969&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+pubDate: '2025-01-19'
+heroImage: 'https://plus.unsplash.com/premium_photo-1664303799202-af9165d754a6?q=80&w=2969&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
 tags: ['python', 'leetcode', 'dev']
 ---
 

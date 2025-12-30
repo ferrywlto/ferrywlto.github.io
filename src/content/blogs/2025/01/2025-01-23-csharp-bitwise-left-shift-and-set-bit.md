@@ -1,7 +1,7 @@
 ---
 title: 'C# Bitwise left shift and set bit'
 description: 'Bitwise left shift operation in C# and set particular bit to 1'
-pubDate: 2025-01-23
+pubDate: '2025-01-23'
 tags: ['leetcode', 'csharp', 'dev', 'bitwise']
 ---
 Learned something new during leetcode. 

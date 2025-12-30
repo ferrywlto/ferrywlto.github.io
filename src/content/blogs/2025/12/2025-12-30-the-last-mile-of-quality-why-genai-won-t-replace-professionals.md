@@ -1,7 +1,7 @@
 ---
 title: 'The Last Mile of Quality: Why GenAI Won’t Replace Professionals'
 description: 'Why GenAI won’t replace professionals — and why the “X is dead” narrative is harmful.'
-pubDate: 2025-12-30
+pubDate: '2025-12-30'
 tags: ['AI', 'Software Engineering', 'Professionalism', 'Accountability', 'Career']
 heroImage: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*uUWY46yVKf0K1MCmQCoULA.png'
 ---

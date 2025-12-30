@@ -1,7 +1,7 @@
 ---
 title: 'Creating iOS Widgets with MAUI — Part 1: Interoperability'
 description: 'Finding a way to call Swift code from C#'
-pubDate: 2025-11-13
+pubDate: '2025-11-13'
 tags: [dotnet, maui, ios, xcode, mobile-development]
 heroImage: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*oQXT19nJS_pfzjfeM8quMQ.png'
 ---

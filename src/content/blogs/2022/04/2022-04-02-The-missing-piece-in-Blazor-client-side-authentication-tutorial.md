@@ -1,7 +1,7 @@
 ---
 title: 'The missing piece in Blazor client-side authentication tutorial.'
 description: 'A step-by-step guide to create a dummy login screen in Blazor WebAssembly with client-side authentication.'
-pubDate: 2022-04-02
+pubDate: '2022-04-02'
 heroImage: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/0*Dck_6MWIilE_8CUB'
 tags: ['csharp', 'blazor', 'dotnet', 'web-assembly', 'frontend']
 ---

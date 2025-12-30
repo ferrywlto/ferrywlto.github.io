@@ -1,7 +1,7 @@
 ---
 title: 'v1.0.0 Launch and what I learned'
 description: 'Documentation of the site development process leading up to the v1.0.0 launch.'
-pubDate: 2025-09-30
+pubDate: '2025-09-30'
 tags: ['development', 'website', 'log']
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 'Caveat about i18n on iOS'
 description: 'Fun finding about Cantonese UI culture detection on iOS devices.'
-pubDate: 2025-11-21
+pubDate: '2025-11-21'
 tags: ['dotnet', 'maui', 'ios']
 heroImage: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
 ---

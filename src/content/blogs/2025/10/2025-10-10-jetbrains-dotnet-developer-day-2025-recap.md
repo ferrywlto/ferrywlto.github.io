@@ -1,8 +1,8 @@
 ---
 title: 'JetBrains .NET Developer Day 2025 Recap'
 description: 'A recap of the JetBrains .NET Developer Day 2025 event, highlighting key sessions and takeaways.'
-pubDate: 2025-10-10
-tags: ["CSharp", ".NET", "JetBrains"]
+pubDate: '2025-10-10'
+tags: ['CSharp', '.NET', 'JetBrains']
 heroImage: https://info.jetbrains.com/rs/426-QVD-114/images/dotNE_Day_2025_650x200%402x.png
 ---
 

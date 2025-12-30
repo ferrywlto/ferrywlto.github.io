@@ -1,7 +1,7 @@
 ---
 title: 'Local DeepSeek-R1 with .NET'
 description: 'The journey of chatting with a local LLM on my MacBook Pro, using .NET.'
-pubDate: 2025-02-02
+pubDate: '2025-02-02'
 heroImage: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*0K4nC8BPRYj5mivTgu_47g.jpeg'
 tags: ['ai', 'llm', 'csharp', 'dotnet', 'dev', 'llama', 'deepseek', 'python']
 ---

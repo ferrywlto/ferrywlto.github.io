@@ -1,7 +1,7 @@
 ---
 title: 'Development Log - v0.2.0'
 description: 'Latest development log of this website as of 2025-06-18'
-pubDate: 2025-06-18
+pubDate: '2025-06-18'
 tags: ['dev', 'website', 'log']
 ---
 

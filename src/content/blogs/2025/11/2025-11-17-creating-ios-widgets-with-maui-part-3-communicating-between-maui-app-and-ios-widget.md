@@ -1,9 +1,9 @@
 ---
 title: 'Creating iOS Widgets with MAUI - Part 3: Communicating between MAUI App and iOS Widget'
 description: 'Exploring the communication between a MAUI app and its iOS widget.'
-pubDate: 2025-11-17
+pubDate: '2025-11-17'
 tags: [dotnet, maui, ios, xcode, mobile-development]
-heroImage: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*F9_l0VLHfAxn1Vlx77IfoA.png"
+heroImage: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*F9_l0VLHfAxn1Vlx77IfoA.png'
 ---
 
 This is the last part of the series recording how I managed to create a MAUI app that can interact with an iOS widget. In this post, we will explore how to communicate between the iOS widget and the our MAUI app we created from the previous posts. I highly recommend reading the first and second post, [Creating iOS Widgets with MAUI - Part 1: Interoperability](https://ferrywlto.medium.com/creating-ios-widgets-with-maui-part-1-interoperability-d73d6f2c563c?postPublishedType=repub) and [Creating iOS Widgets with MAUI - Part 2: Bundling iOS Widget](https://ferrywlto.medium.com/creating-ios-widgets-with-maui-part-2-bundling-ios-widget-5c5f5f5f5f5?postPublishedType=repub), if you haven't read them yet, as the topic in this post will require knowledge from the previous ones.
