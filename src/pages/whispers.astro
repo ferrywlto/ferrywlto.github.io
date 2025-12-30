@@ -7,7 +7,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 // Get all tweets and sort by date (newest first)
 const allTweets = await getCollection('whispers');
-const sortedTweets = allTweets.sort((a, b) =>
+const sortedTweets = allTweets
+  .filter((post) => post.data.draft !== true)
+  .sort((a, b) =>
   b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
