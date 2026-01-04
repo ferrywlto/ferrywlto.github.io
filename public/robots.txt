@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Block development/build files
+Disallow: /.astro/
+Disallow: /dist/
+Disallow: /node_modules/
+
+# Sitemap location
+Sitemap: https://ferrywl.to/sitemap-index.xml
