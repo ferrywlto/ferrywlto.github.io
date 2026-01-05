@@ -192,6 +192,8 @@ Masters were already shipping production-quality deliverables before GenAI. With
 
 In other words: AI boosts people who understand the craft. It’s “slower without AI” versus “never without AI”.
 
+In fact, the doom narrative is not valid. In real world Quadrant 3 will keep shrinking due to domain masters are smart and will move to Quadrant 4 eventually.
+
 ## Benchmarks don’t end the profession
 
 Even when models score highly on coding benchmarks, they are still probabilistic and can be confidently wrong. In production, a small error rate is not “just 1%” — it can be the difference between a secure system and an incident, or between correct behaviour and a costly failure.
