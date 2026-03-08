@@ -3,6 +3,7 @@ title: 'First hand experience of future SDLC in AI era'
 description: 'Thoughts from helping my wife to launch her vibe coded tool'
 pubDate: '2026-03-08'
 tags: ['ai', 'ai-coding', 'software-engineering', 'azure']
+heroImage: 'maid-vibe-coding.jpg'
 ---
 
 Launched a small tool for my wife over the weekend.
