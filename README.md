@@ -164,3 +164,11 @@ This project (except `/src/content` and `/src/assets/photos`) is open source and
 - **Content Primitives**: `HeroImage`, `PostPreview`, `FormattedDate`, `TagPill`, `TagRow`
 - **Section Modules**: `home-page/` (lists, cards) & `about-page/` (section & subsection wrappers)
 - **Feedback & Interaction**: Hover classes (`.surface-background-hover`, `.hover-text-primary`) gated by hover media query for performance on touch devices
+
+### Troubleshoot Notes
+```
+[ERROR] [RemoteImageNotAllowed] Remote image is not allowed by your image configuration.
+```
+This stricter allowlist enforcement for `inferSize` starts at astro@5.17.3, published 2026-02-18 [Source](https://docs.astro.build/en/reference/modules/astro-assets/#infersize).
+
+Solution: Add images domains to `image.domains` or `image.remotePatterns` in `astro.config.mjs`.
