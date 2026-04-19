@@ -14,6 +14,7 @@ export default defineConfig({
             'plus.unsplash.com',
             'miro.medium.com',
             'info.jetbrains.com',
+            'static.viu.tv'
         ],
     },
     integrations: [mdx(), sitemap(), alpinejs()],
