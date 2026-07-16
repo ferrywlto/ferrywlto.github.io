@@ -54,7 +54,7 @@ Here I am sharing my .NET project configuration I use in my projects:
 ```
 
 2) We can then fine-tune the rules for specific file/project when needed in `.editorconfig`
-```
+```ts
 root = true
 
 # Base whitespace/newline defaults for all text files.
