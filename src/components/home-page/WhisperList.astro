@@ -13,7 +13,7 @@ const whispers = (await getCollection("whispers"))
       <WhispersListItem
         author={data.author}
         text={body}
-        link={`/whispers/${id}`}
+        link={`/whispers#${id}`}
       />
     ))
   }

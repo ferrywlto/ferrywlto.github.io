@@ -5,11 +5,12 @@ export interface Props {
   link: string;
 }
 const { author, text, link } = Astro.props;
+const displayText = text?.split(/<br\s*\/?>/i, 1)[0];
 ---
 
 <a href={link}>
   <div class="container surface-background-hover">
-    <span class="text-quote truncated">"{text}" - {author}</span>
+    <span class="text-quote truncated">"{displayText}" - {author}</span>
   </div>
 </a>
 
