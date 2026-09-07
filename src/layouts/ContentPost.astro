@@ -17,7 +17,7 @@ const isProjectPost = parent === 'projects';
       </a>
     </div>
     <HeroImage src={heroImage} alt={description} class="hero-image" />
-    <div>
+    <div class="post-content">
       <div class="title">
         <div class="date">
           {pubDate && <FormattedDate date={pubDate} />}
@@ -76,6 +76,9 @@ const isProjectPost = parent === 'projects';
   </article>
 </BaseLayout>
 <style>
+  .post-content {
+    min-width: 0;
+  }
   .project-row {
     align-items: center;
     justify-content: space-between;
