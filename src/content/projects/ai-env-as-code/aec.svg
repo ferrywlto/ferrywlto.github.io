@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="480" viewBox="0 0 960 480" role="img" aria-labelledby="title desc">
+  <title id="title">AI Environment as Code workflow</title>
+  <desc id="desc">Backup records the Codex environment in Git history. Apply restores committed content to Codex. Status inspects differences without changing files.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#85dfc4"/>
+    </marker>
+  </defs>
+  <rect width="960" height="480" rx="24" fill="#152c35"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="48" y="65" fill="#85dfc4" font-size="22" letter-spacing="3">AI ENVIRONMENT AS CODE</text>
+    <text x="48" y="116" fill="#f4f8fa" font-size="34" font-weight="700">Your environment. Your Git history.</text>
+    <rect x="48" y="168" width="300" height="188" rx="16" fill="#203e49" stroke="#4e7885"/>
+    <rect x="612" y="168" width="300" height="188" rx="16" fill="#203e49" stroke="#4e7885"/>
+    <text x="198" y="216" text-anchor="middle" fill="#f4f8fa" font-size="28" font-weight="700">Codex</text>
+    <text x="198" y="261" text-anchor="middle" fill="#c7dae0" font-size="23">AGENTS.md</text>
+    <text x="198" y="297" text-anchor="middle" fill="#c7dae0" font-size="23">Managed setting</text>
+    <text x="198" y="333" text-anchor="middle" fill="#85dfc4" font-size="20">Runtime environment</text>
+    <text x="762" y="216" text-anchor="middle" fill="#f4f8fa" font-size="28" font-weight="700">Git repository</text>
+    <text x="762" y="261" text-anchor="middle" fill="#c7dae0" font-size="23">Canonical files</text>
+    <text x="762" y="297" text-anchor="middle" fill="#c7dae0" font-size="23">Commit history</text>
+    <text x="762" y="333" text-anchor="middle" fill="#85dfc4" font-size="20">Source of truth</text>
+    <g fill="#85dfc4" font-family="monospace" font-size="25" text-anchor="middle">
+      <text x="480" y="213">backup</text>
+      <text x="480" y="297">apply</text>
+    </g>
+    <g stroke="#85dfc4" stroke-width="3" marker-end="url(#arrow)">
+      <path d="M 374 237 H 584"/>
+      <path d="M 586 321 H 376"/>
+    </g>
+    <text x="480" y="424" text-anchor="middle" fill="#c7dae0" font-size="24">status · inspect differences without changing files</text>
+  </g>
+</svg>
