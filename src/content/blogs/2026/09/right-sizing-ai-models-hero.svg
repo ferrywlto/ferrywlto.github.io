@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="480" viewBox="0 0 960 480" role="img" aria-labelledby="title desc">
+  <title id="title">Right-sizing AI models across a project lifecycle</title>
+  <desc id="desc">A project moves from uncertain discovery through design, development, and maintenance. The recommended model capability steps down as the work becomes clearer, with escalation when uncertainty returns.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#85dfc4"/>
+    </marker>
+    <linearGradient id="signal" x1="0" x2="1">
+      <stop offset="0" stop-color="#f0b45b"/>
+      <stop offset="0.46" stop-color="#85dfc4"/>
+      <stop offset="1" stop-color="#85dfc4"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="480" rx="24" fill="#152c35"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="480" y="74" text-anchor="middle" fill="#85dfc4" font-size="31" font-weight="700">Right-sizing AI model for tokenomics</text>
+    <g fill="#203e49" stroke="#4e7885" stroke-width="2">
+      <rect x="48" y="168" width="196" height="112" rx="14"/>
+      <rect x="264" y="168" width="196" height="112" rx="14"/>
+      <rect x="480" y="168" width="196" height="112" rx="14"/>
+      <rect x="696" y="168" width="196" height="112" rx="14"/>
+    </g>
+
+    <g fill="#85dfc4" font-family="monospace" font-size="19" text-anchor="middle">
+      <text x="146" y="207">ASTRA</text>
+      <text x="362" y="207">SOL</text>
+      <text x="578" y="207">TERRA</text>
+      <text x="794" y="207">LUNA</text>
+    </g>
+    <g fill="#f4f8fa" font-size="21" font-weight="700" text-anchor="middle">
+      <text x="146" y="250">Discovery</text>
+      <text x="362" y="250">Design</text>
+      <text x="578" y="250">Develop</text>
+      <text x="794" y="250">Maintain</text>
+    </g>
+    <g stroke="#85dfc4" stroke-width="3" marker-end="url(#arrow)">
+      <path d="M 250 224 H 258"/>
+      <path d="M 466 224 H 474"/>
+      <path d="M 682 224 H 690"/>
+    </g>
+
+    <g fill="none" stroke="url(#signal)" stroke-linecap="round">
+      <path d="M 48 378 Q 58 344 68 378 T 88 378 T 108 378 T 128 378 T 148 378 T 168 378 T 188 378 T 208 378 T 228 378 T 248 378 T 268 378 T 288 378 T 308 378 T 328 378 T 348 378 T 368 378 Q 388 350 408 378 Q 428 405 448 378 Q 468 354 488 378 Q 508 399 528 378 Q 548 360 568 378 Q 588 394 608 378 Q 628 365 648 378 Q 668 389 688 378 Q 708 369 728 378 Q 748 386 768 378 Q 788 372 808 378 Q 828 383 848 378 Q 856 376 864 378" stroke-width="5"/>
+      <path d="M 48 395 Q 58 361 68 395 T 88 395 T 108 395 T 128 395 T 148 395 T 168 395 T 188 395 T 208 395 T 228 395 T 248 395 T 268 395 T 288 395 T 308 395 T 328 395 T 348 395 T 368 395 Q 388 367 408 395 Q 428 422 448 395 Q 468 371 488 395 Q 508 416 528 395 Q 548 377 568 395 Q 588 411 608 395 Q 628 382 648 395 Q 668 406 688 395 Q 708 386 728 395 Q 748 403 768 395 Q 788 389 808 395 Q 828 400 848 395 Q 856 393 864 395" stroke-width="2" opacity="0.65"/>
+    </g>
+    <text x="480" y="446" text-anchor="middle" fill="#c7dae0" font-size="19">As clarity becomes reusable, capability can step down.</text>
+  </g>
+</svg>
