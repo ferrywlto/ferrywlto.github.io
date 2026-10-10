@@ -1,3 +1,8 @@
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
 /* Only apply hover effects on devices that support hover (not touch devices) */
 @media (hover: hover) {
   .surface-background-hover:hover {

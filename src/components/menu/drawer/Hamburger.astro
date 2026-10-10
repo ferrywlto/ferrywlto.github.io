@@ -1,13 +1,16 @@
 ---
 
 ---
-<div x-data
+<button x-data
+  type="button"
   @click="openDrawer()"
   class="hide-on-desktop hamburger"
   aria-label="Toggle menu"
+  aria-controls="site-drawer"
+  x-bind:aria-expanded="$store.drawer ? 'true' : 'false'"
 >
   <span class="line"></span>
-</div>
+</button>
 <script>
 import Alpine from "alpinejs";
 
@@ -24,6 +27,18 @@ import Alpine from "alpinejs";
   }
 </script>
 <style>
+  .hamburger:focus-visible {
+    outline-offset: -4px;
+  }
+  .hamburger {
+    margin: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    height: 100%;
+  }
   /* Show hamburger on mobile */
   @media (max-width: 1024px) {
     .hamburger {
@@ -31,14 +46,17 @@ import Alpine from "alpinejs";
       flex-direction: column;
       align-items: center;
       justify-content: space-evenly;
-      padding: var(--gap-lg);
-      width: 100%;
+      width: auto;
+      aspect-ratio: 1;
+      flex-shrink: 0;
+      padding: var(--gap-md);
+      /* width: 100%;
 
       max-width: 4rem;
       max-height: 4rem;
       min-height: 3rem;
       min-width: 3rem;
-      aspect-ratio: 1;
+      aspect-ratio: 1; */
       box-sizing: border-box;
     }
 
