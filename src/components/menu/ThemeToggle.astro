@@ -5,10 +5,14 @@ export interface Props {
 
 const { class: className } = Astro.props;
 ---
-
-<div class={`theme-toggle nav-control ${className || ''}`} title="Click to toggle light/dark theme">
-  🌚
-</div>
+<button
+  type="button"
+  class={`theme-toggle nav-control ${className || ''}`}
+  aria-label="Toggle between light and dark theme"
+  title="Toggle light/dark theme"
+>
+  <span class="theme-icon" aria-hidden="true">🌚</span>
+</button>
 
 <style>
   .theme-toggle {
@@ -16,9 +20,24 @@ const { class: className } = Astro.props;
     justify-content: center;
     align-items: center;
     aspect-ratio: 1;
+    margin: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
     cursor: pointer;
     box-sizing: border-box;
     border-radius: var(--corner-md);
     padding: var(--gap-xs) var(--gap-sm);
+  }
+
+  .theme-icon {
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  .theme-toggle:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
   }
 </style>
