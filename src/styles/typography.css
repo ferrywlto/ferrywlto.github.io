@@ -120,7 +120,7 @@ article th:not([align]) {
 .text-meta {
   font-size: var(--type-meta);
   line-height: var(--line-height-meta);
-  color: var(--color-text-meta); /* Need more subtle than subtle */
+  color: var(--color-text-meta);
 }
 
 .text-small-link {
