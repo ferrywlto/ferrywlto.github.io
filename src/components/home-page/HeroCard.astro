@@ -21,9 +21,10 @@ const body =
           loading="eager"
         />
       </div>
-
-      <div class="text-hero-title hide-on-mobile">{headingDesktop}</div>
-      <div class="text-hero-title hide-on-desktop">{headingMobile}</div>
+      <h1 class="text-hero-title hero-heading">
+        <span class="hide-on-mobile">{headingDesktop}</span>
+        <span class="hide-on-desktop">{headingMobile}</span>
+      </h1>
       <span class="text-body" set:html={body} />
       <HeroButton href="/about" text={ctaLabel} />
     </div>
@@ -55,6 +56,11 @@ const body =
     background-color: var(--color-surface);
     padding: var(--gap-lg);
     border-radius: var(--corner-lg);
+  }
+
+  .hero-heading > span {
+    font: inherit;
+    color: inherit;
   }
 
   .avatar-container-mobile {

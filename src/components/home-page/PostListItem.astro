@@ -17,10 +17,14 @@ const { title, date, subtitle, link } = Astro.props;
     <ItemDateLabel date={date} />
     <ItemTitleLink title={title} link={link} />
   </div>
-  <h4 class="text-item-subtitle hide-on-mobile">{subtitle}</h4>
+  <p class="text-item-subtitle hide-on-mobile post-description">{subtitle}</p>
 </div>
 
 <style>
+  .post-description {
+    margin: 0;
+  }
+
   .surface-background-hover {
     cursor: pointer;
   }

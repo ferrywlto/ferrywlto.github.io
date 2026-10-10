@@ -45,7 +45,7 @@ const diaries = getTopPosts(await getCollection("diaries"));
 ---
 
 <BaseLayout>
-  <main class="width-constrained-container column-container wrapper">
+  <div class="width-constrained-container column-container wrapper">
     <HeroCard />
     <hr />
 
@@ -68,7 +68,7 @@ const diaries = getTopPosts(await getCollection("diaries"));
         </SectionContainer>
       </div>
     </div>
-  </main>
+  </div>
 </BaseLayout>
 <style>
   .wrapper {
