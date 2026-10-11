@@ -18,6 +18,7 @@ import CloseButton from "./CloseButton.astro";
   x-show="$store.drawer"
   class="drawer"
   id="site-drawer"
+  x-on:keydown.escape.window="if ($store.drawer) { $event.preventDefault(); closeDrawer(); }"
 >
   <div x-data
   class="drawer-header" x-on:close-button-clicked="closeDrawer()">
@@ -35,19 +36,34 @@ import CloseButton from "./CloseButton.astro";
   </nav>
 </div>
 <script>
-import Alpine from "alpinejs";
+  import Alpine from "alpinejs";
+
+  let closing = false;
 
   //@ts-ignore
-  window.closeDrawer = function() {
+  window.closeDrawer = function () {
     const drawer = document.querySelector('.drawer');
-    if(drawer) {
-      drawer.classList.add('drawer-close');
-      setTimeout(() => {
-        drawer.classList.remove('drawer-close');
-        Alpine.store('drawer', false);
-      }, 300);
-    }
-  }
+    if (!drawer || !Alpine.store('drawer') || closing) return;
+
+    closing = true;
+    drawer.classList.remove('drawer-open');
+    drawer.classList.add('drawer-close');
+
+    setTimeout(() => {
+      drawer.classList.remove('drawer-close');
+      Alpine.store('drawer', false);
+      closing = false;
+
+      Alpine.nextTick(() => {
+        const trigger =
+          document.querySelector<HTMLButtonElement>('.hamburger');
+
+        if (trigger?.getClientRects().length && !Alpine.store('drawer')) {
+          trigger.focus({ preventScroll: true });
+        }
+      });
+    }, 300);
+  };
 </script>
 <style>
   [x-cloak] { display: none !important; }

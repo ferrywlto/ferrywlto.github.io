@@ -20,6 +20,12 @@ import Alpine from "alpinejs";
     if(drawer) {
       drawer.classList.add('drawer-open');
       Alpine.store('drawer', true);
+      Alpine.nextTick(() => {
+        if (Alpine.store('drawer')) {
+          drawer.querySelector<HTMLButtonElement>('.close-btn')
+            ?.focus({ preventScroll: true });
+        }
+      });
       setTimeout(() => {
         drawer.classList.remove('drawer-open');
       }, 300);
