@@ -4,7 +4,8 @@ import ThemeToggle from "../ThemeToggle.astro";
 import CloseButton from "./CloseButton.astro";
 ---
 
-<div x-data
+<div
+  x-data
   x-show="$store.drawer"
   x-on:click="closeDrawer()"
   x-transition.duration.300ms
@@ -13,15 +14,15 @@ import CloseButton from "./CloseButton.astro";
   class="drawer-overlay"
 >
 </div>
-<div x-data
+<div
+  x-data
   x-cloak
   x-show="$store.drawer"
   class="drawer"
   id="site-drawer"
   x-on:keydown.escape.window="if ($store.drawer) { $event.preventDefault(); closeDrawer(); }"
 >
-  <div x-data
-  class="drawer-header" x-on:close-button-clicked="closeDrawer()">
+  <div x-data class="drawer-header" x-on:close-button-clicked="closeDrawer()">
     <ThemeToggle />
     <h2 class="text-item-title">ferrywl.to</h2>
     <CloseButton />
@@ -30,8 +31,12 @@ import CloseButton from "./CloseButton.astro";
     <div class="nav-item"><MenuLink href="/">🏠 Home</MenuLink></div>
     <div class="nav-item"><MenuLink href="/blogs">📝 Blog</MenuLink></div>
     <div class="nav-item"><MenuLink href="/diaries">📓 Diary</MenuLink></div>
-    <div class="nav-item"><MenuLink href="/whispers">💬 Whispers</MenuLink></div>
-    <div class="nav-item"><MenuLink href="/projects">🚀 Projects</MenuLink></div>
+    <div class="nav-item">
+      <MenuLink href="/whispers">💬 Whispers</MenuLink>
+    </div>
+    <div class="nav-item">
+      <MenuLink href="/projects">🚀 Projects</MenuLink>
+    </div>
     <div class="nav-item"><MenuLink href="/about">👨🏻‍💻 About</MenuLink></div>
   </nav>
 </div>
@@ -42,31 +47,79 @@ import CloseButton from "./CloseButton.astro";
 
   //@ts-ignore
   window.closeDrawer = function () {
-    const drawer = document.querySelector('.drawer');
-    if (!drawer || !Alpine.store('drawer') || closing) return;
+    const drawer = document.querySelector(".drawer");
+    if (!drawer || !Alpine.store("drawer") || closing) return;
 
     closing = true;
-    drawer.classList.remove('drawer-open');
-    drawer.classList.add('drawer-close');
+    drawer.classList.remove("drawer-open");
+    drawer.classList.add("drawer-close");
 
     setTimeout(() => {
-      drawer.classList.remove('drawer-close');
-      Alpine.store('drawer', false);
+      drawer.classList.remove("drawer-close");
+      Alpine.store("drawer", false);
       closing = false;
 
       Alpine.nextTick(() => {
-        const trigger =
-          document.querySelector<HTMLButtonElement>('.hamburger');
+        const trigger = document.querySelector<HTMLButtonElement>(".hamburger");
 
-        if (trigger?.getClientRects().length && !Alpine.store('drawer')) {
+        if (trigger?.getClientRects().length && !Alpine.store("drawer")) {
           trigger.focus({ preventScroll: true });
         }
       });
     }, 300);
   };
+
+  // Keep focus within drawer menu items on pressing tab. So it won't set focus to footer after About. Instead focusing back to the theme button.
+  document.addEventListener('keydown', (event) => {
+    // Apply containment only to Tab, while the mobile drawer is open.
+    if (
+      event.key !== 'Tab' ||
+      !Alpine.store('drawer') ||
+      !window.matchMedia('(max-width: 1024px)').matches
+    ) return;
+
+    const drawer = document.querySelector('#site-drawer');
+    if (!drawer) return;
+
+    // Find the drawer's links and enabled buttons in their HTML order.
+    // HTMLElement supplies typed access to tabIndex and focus().
+    const controls = Array.from(
+      drawer.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled])'
+      )
+    ).filter(control =>
+      // Negative tabIndex excludes a control from normal Tab navigation.
+      // No layout rectangles means it is hidden by the current layout.
+      control.tabIndex >= 0 && control.getClientRects().length > 0
+    );
+
+    const first = controls[0];
+    const last = controls[controls.length - 1];
+
+    // An empty list has no destination to focus.
+    if (!first || !last) return;
+
+    const active = document.activeElement;
+
+    // Recover on the next Tab if focus has moved behind the drawer.
+    const outside = !drawer.contains(active);
+
+    if (event.shiftKey && (outside || active === first)) {
+      // At the beginning, Shift–Tab wraps backwards to the last control.
+      // Cancel the browser's default movement before choosing a destination.
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && (outside || active === last)) {
+      // At the end, Tab wraps forwards to the first control.
+      event.preventDefault();
+      first.focus();
+    }
+  });
 </script>
 <style>
-  [x-cloak] { display: none !important; }
+  [x-cloak] {
+    display: none !important;
+  }
 
   @media screen and (max-width: 1024px) {
     .drawer-overlay {
