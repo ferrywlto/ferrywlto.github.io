@@ -6,7 +6,7 @@ export interface Props {
 const { tag, parent: linkPrefix } = Astro.props;
 ---
 
-<a href={`${linkPrefix}/tags/${tag}`}>
+<a href={`${linkPrefix}/tags/${encodeURIComponent(tag)}`}>
   <div class="hollow-tag-badge">
     <span class="text-badge">{tag}</span>
   </div>
