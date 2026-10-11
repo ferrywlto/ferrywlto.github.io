@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.7.1] - 2026-10-11
+
+### 🐛 Bug Fixes
+- Make theme and drawer controls keyboard operable, with accessible names, visible focus, drawer focus containment, Escape handling and focus return (#79).
+- Correct homepage headings and main landmarks, the 1024px navigation breakpoint, and metadata contrast in both themes (#79).
+- Preserve native title and tag navigation inside clickable cards; encode tag URLs and display readable tag names (#79).
+- Wrap tag rows and use descriptive article link labels to prevent clipping at supported widths of 375 CSSpx and above (#79).
+- Respect reduced-motion preferences for scrolling, drawer animations, overlay fades and About section transitions (#79).
+---
+
 ## [1.5.1] - 2025-11-22
 
 ### 🐛 Bug Fixes
