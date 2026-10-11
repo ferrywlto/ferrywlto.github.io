@@ -11,8 +11,17 @@ export interface Props {
 }
 const { title: name, description, link, tags } = Astro.props;
 ---
-
-<div class="card" onclick={`window.location.href = ${JSON.stringify(link)}`}>
+<!--
+  Link clicks bubble up to this card.
+  Let title and tag links handle their own navigation.
+  Only description or whitespace clicks use the card's project destination.
+-->
+<div
+  class="card"
+  onclick={`if (!event.target.closest('a')) {
+    window.location.href = ${JSON.stringify(link)};
+  }`}
+>
   <div class="column-container">
     <div class="title-row">
       <ItemTitleLink title={name} link={link} />

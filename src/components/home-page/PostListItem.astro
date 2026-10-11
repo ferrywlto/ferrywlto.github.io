@@ -11,8 +11,16 @@ export interface Props {
 
 const { title, date, subtitle, link } = Astro.props;
 ---
-
-<div class="surface-background-hover column-container" onclick={`window.location.href = ${JSON.stringify(link)}`}>
+<!--
+  Let the title link handle its own navigation.
+  Only clicks outside a link use the row's post destination.
+-->
+<div
+  class="surface-background-hover column-container"
+  onclick={`if (!event.target.closest('a')) {
+    window.location.href = ${JSON.stringify(link)};
+  }`}
+>
   <div class="title-row">
     <ItemDateLabel date={date} />
     <ItemTitleLink title={title} link={link} />
