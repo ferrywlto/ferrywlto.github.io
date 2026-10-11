@@ -50,6 +50,12 @@ import CloseButton from "./CloseButton.astro";
     const drawer = document.querySelector(".drawer");
     if (!drawer || !Alpine.store("drawer") || closing) return;
 
+    // Without an animation, close promptly and return keyboard focus.
+    // Otherwise, wait for the existing 300ms slide-out animation.
+    const closeDelay = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches ? 0 : 300;
+
     closing = true;
     drawer.classList.remove("drawer-open");
     drawer.classList.add("drawer-close");
@@ -66,7 +72,7 @@ import CloseButton from "./CloseButton.astro";
           trigger.focus({ preventScroll: true });
         }
       });
-    }, 300);
+    }, closeDelay);
   };
 
   // Keep focus within drawer menu items on pressing tab. So it won't set focus to footer after About. Instead focusing back to the theme button.

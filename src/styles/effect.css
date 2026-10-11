@@ -89,3 +89,25 @@ button:focus-visible {
     --transition-normal: 0.2s ease;
     --transition-slow: 0.3s ease;
 }
+
+/* For accessibility. */
+@media (prefers-reduced-motion: reduce) {
+  /* Jump to scroll destinations instead of smoothly moving the page. */
+  html,
+  body {
+    scroll-behavior: auto !important;
+  }
+
+  /* Show and hide the drawer without sliding it across the screen. */
+  .drawer-open,
+  .drawer-close {
+    animation: none !important;
+  }
+
+  /* Remove the overlay fade and the About section arrow's rotation.
+     Override Alpine's inline transition and component-scoped styles. */
+  .drawer-overlay,
+  summary::before {
+    transition: none !important;
+  }
+}
