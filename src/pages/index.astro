@@ -7,7 +7,7 @@ import SectionContainer from "../components/home-page/SectionContainer.astro";
 import HeroCard from "../components/home-page/HeroCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
-import { getTopPosts } from "../helpers";
+import { getTopPublishedPostsOrderByDateDesc } from "../helpers";
 import type { PostPreview } from "../types";
 
 function toPostPreview(posts: PostPreview[]){
@@ -18,10 +18,27 @@ function toPostPreview(posts: PostPreview[]){
     link: `./${post.collection}/${post.id}`,
   }));
 }
-const blogs = toPostPreview(getTopPosts(await getCollection("blogs"), 3));
+const [allBlogs, allDiaries, allWhispers, allProjects] =
+  await Promise.all([
+    getCollection("blogs"),
+    getCollection("diaries"),
+    getCollection("whispers"),
+    getCollection("projects"),
+  ]);
 
-const diaries = toPostPreview(getTopPosts(await getCollection("diaries"), 3));
+const blogs = toPostPreview(
+  getTopPublishedPostsOrderByDateDesc(allBlogs, 3)
+);
 
+const diaries = toPostPreview(
+  getTopPublishedPostsOrderByDateDesc(allDiaries, 3)
+);
+
+const whispers =
+  getTopPublishedPostsOrderByDateDesc(allWhispers, 3);
+
+const projects =
+  getTopPublishedPostsOrderByDateDesc(allProjects, 3);
 ---
 
 <BaseLayout>
@@ -40,11 +57,11 @@ const diaries = toPostPreview(getTopPosts(await getCollection("diaries"), 3));
         </SectionContainer>
 
         <SectionContainer title="Whispers" linkText="Archive" link="./whispers">
-          <WhisperList />
+          <WhisperList posts={whispers} />
         </SectionContainer>
 
         <SectionContainer title="Projects" linkText="All projects" link="./projects">
-          <ProjectList />
+          <ProjectList posts={projects} />
         </SectionContainer>
       </div>
     </div>

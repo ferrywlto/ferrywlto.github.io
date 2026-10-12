@@ -4,14 +4,11 @@ import { render } from 'astro:content';
 import Whisper from '../components/whisper-page/Whisper.astro';
 import { SITE_TITLE } from '../consts';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getTopPublishedPostsOrderByDateDesc } from '../helpers';
 
 // Get all tweets and sort by date (newest first)
 const allTweets = await getCollection('whispers');
-const sortedTweets = allTweets
-  .filter((post) => post.data.draft !== true)
-  .sort((a, b) =>
-  b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+const sortedTweets = getTopPublishedPostsOrderByDateDesc(allTweets);
 
 // Render content for each tweet
 const tweetsWithContent = await Promise.all(

@@ -1,13 +1,14 @@
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getPublishedPosts } from '../helpers';
 
 export async function GET(context) {
     const [blogs, diaries, projects, whispers] = await Promise.all([
-        getCollection('blogs'),
-        getCollection('diaries'),
-        getCollection('projects'),
-        getCollection('whispers'),
+        getPublishedPosts(getCollection('blogs')),
+        getPublishedPosts(getCollection('diaries')),
+        getPublishedPosts(getCollection('projects')),
+        getPublishedPosts(getCollection('whispers')),
     ]);
 
     const allItems = [

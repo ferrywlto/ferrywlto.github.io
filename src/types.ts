@@ -1,5 +1,12 @@
 import type { InferEntrySchema, RenderedContent } from "astro:content";
+import type { CollectionEntry } from 'astro:content';
 
+export interface Post {
+    title: string,
+    date: string,
+    subtitle: string,
+    link: string
+}
 export interface PostPreview {
   id: string,
   collection: string,
@@ -12,7 +19,6 @@ export interface PostPreview {
     draft?: boolean
   }
 }
-
 export interface BlogPost {
     id: string;
     body?: string;
@@ -37,6 +43,7 @@ export interface ProjectPost {
     rendered?: RenderedContent;
     filePath?: string;
 }
+export type WhisperPost = CollectionEntry<'whispers'>;
 
 export type ContentPost = BlogPost | DiaryPost | ProjectPost;
 

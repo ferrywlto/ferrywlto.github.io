@@ -3,17 +3,18 @@ import { getCollection } from 'astro:content';
 import FormattedDate from '../../../components/FormattedDate.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import type { ContentPathWithTag, TaggableCollection } from '../../../types';
+import { getPublishedPosts, getUniqueTagsFromPosts } from '../../../helpers';
 
 export async function getStaticPaths() {
   const collections: TaggableCollection[] = ['blogs', 'diaries', 'projects'] as const;
   // Improve performance by fetching collections in parallel
   const paths = await Promise.all(
     collections.map(async (collection) => {
-      const entries = await getCollection(collection);
-      const tags = [...new Set(entries.flatMap((post) => post.data.tags ?? []))];
+      const published = getPublishedPosts(await getCollection(collection));
+      const tags = getUniqueTagsFromPosts(published);
 
       return tags.map<ContentPathWithTag>((tag) => {
-        const posts = entries
+        const posts = published
           .filter((post) => (post.data.tags ?? []).includes(tag))
           .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 

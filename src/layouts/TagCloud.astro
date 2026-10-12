@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import BaseLayout from "./BaseLayout.astro";
 import TagPill from "../components/TagPill.astro";
 import type { TaggableCollection } from "../types";
+import { getUniqueTagsFromPosts, getPublishedPosts } from "../helpers";
 
 export interface Props {
   title: string;
@@ -12,16 +13,13 @@ export interface Props {
 }
 const { title, description, collection, header } = Astro.props;
 
-const entries = await getCollection(collection);
-
-const allTags = [
-  ...new Set(entries.map((post) => post.data.tags).flat()),
-];
+const published = getPublishedPosts(await getCollection(collection));
+const tags = getUniqueTagsFromPosts(published);
 
 // Calculate tag frequencies and create tag data with counts
-const tagsWithCounts = allTags
+const tagFrequency = tags
   .map((tag) => {
-    const count = entries.filter((post) =>
+    const count = published.filter((post) =>
       post.data.tags.includes(tag)
     ).length;
     return { name: tag, count };
@@ -38,7 +36,7 @@ const tagsWithCounts = allTags
     <hr />
     <div class="tag-cloud">
     {
-      tagsWithCounts.map((tagData) => {
+      tagFrequency.map((tagData) => {
         return (
           <div class="tag-row surface-background-hover">
             <TagPill tag={tagData.name} parent={`/${collection}`} />

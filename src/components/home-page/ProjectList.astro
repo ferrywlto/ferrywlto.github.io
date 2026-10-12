@@ -1,22 +1,23 @@
 ---
-import { getCollection } from 'astro:content';
-import ProjectListItem from './ProjectListItem.astro';
+import ProjectListItem from "./ProjectListItem.astro";
+import type { ProjectPost } from "../../types";
 
-const projects = (await getCollection('projects'))
-    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-    .slice(0, 3)
-    .map((item) => ({
-      title: item.data.title,
-      description: item.data.description,
-      link: `projects/${item.id}`,
-      tags: item.data.tags,
-    }));
+export interface Props {
+    posts: Array<ProjectPost>
+}
+
+const { posts } = Astro.props;
 ---
 
 <div class="column-container">
   {
-    projects.map(({ title, description, link, tags }) => (
-      <ProjectListItem title={title} description={description} link={link} tags={tags} />
+    posts.map((post) => (
+      <ProjectListItem
+        title={post.data.title}
+        description={post.data.description}
+        link={`projects/${post.id}`}
+        tags={post.data.tags}
+      />
     ))
   }
 </div>

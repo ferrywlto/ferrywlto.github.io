@@ -1,25 +1,28 @@
 ---
-import { getCollection } from 'astro:content';
-import ContentPost from '../../layouts/ContentPost.astro';
-import { render } from 'astro:content';
-import type { ContentPath, TaggableCollection } from '../../types';
+import { getCollection } from "astro:content";
+import ContentPost from "../../layouts/ContentPost.astro";
+import { render } from "astro:content";
+import type { ContentPath, TaggableCollection } from "../../types";
+import { getPublishedPosts } from "../../helpers";
 
 export async function getStaticPaths() {
-  const collections: TaggableCollection[] = ['blogs', 'diaries', 'projects'] as const;
+  const collections: TaggableCollection[] = [
+    "blogs",
+    "diaries",
+    "projects",
+  ] as const;
   // Improve performance by fetching collections in parallel
   const paths = await Promise.all(
     collections.map(async (collection) => {
-      const posts = await getCollection(collection);
-      return posts
-      .filter((post) => post.data.draft !== true)
-      .map<ContentPath>((post) => ({
+      const published = getPublishedPosts(await getCollection(collection));
+      return published.map<ContentPath>((post) => ({
         params: {
           collection,
           slug: post.id,
         },
         props: { post },
       }));
-    })
+    }),
   );
 
   return paths.flat();
@@ -31,5 +34,5 @@ const { Content } = await render(post);
 ---
 
 <ContentPost {...post.data} parent={collection}>
-	<Content />
+  <Content />
 </ContentPost>

@@ -1,15 +1,17 @@
 ---
-import { getCollection } from "astro:content";
 import WhispersListItem from "./WhisperListItem.astro";
+import type { WhisperPost } from "../../types";
 
-const whispers = (await getCollection("whispers"))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
+export interface Props {
+    posts: Array<WhisperPost>
+}
+
+const { posts } = Astro.props;
 ---
 
 <div class="column-container">
   {
-    whispers.map(({ data, body, id }) => (
+    posts.map(({ data, body, id }) => (
       <WhispersListItem
         author={data.author}
         text={body}

@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import PostPreview from "../components/PostPreview.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import type { TaggableCollection } from "../types";
-import { getTopPosts } from "../helpers";
+import { getTopPublishedPostsOrderByDateDesc } from "../helpers";
 
 export interface Props {
   collection: TaggableCollection;
@@ -12,7 +12,7 @@ export interface Props {
 }
 const { collection, title, subtitle } = Astro.props;
 
-const posts = getTopPosts(await getCollection(collection));
+const posts = getTopPublishedPostsOrderByDateDesc(await getCollection(collection));
 const firstPost = posts[0];
 const remainingPosts = posts.slice(1);
 ---

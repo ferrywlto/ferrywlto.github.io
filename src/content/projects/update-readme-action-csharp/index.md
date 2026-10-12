@@ -2,7 +2,7 @@
 title: 'Update README Action in C#'
 description: 'A Docker-based GitHub Action that refreshes marked README sections with recent Medium stories and Stack Overflow activity.'
 tags: ['C#', '.NET', 'GitHub Actions', 'Docker']
-pubDate: '2026-09-07'
+pubDate: '2023-09-07'
 projectUrl: 'https://github.com/ferrywlto/update-readme-action-csharp#usage'
 repoUrl: 'https://github.com/ferrywlto/update-readme-action-csharp'
 heroImage: './readme-activity-flow.svg'
