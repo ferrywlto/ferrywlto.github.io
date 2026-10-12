@@ -1,5 +1,18 @@
 import type { InferEntrySchema, RenderedContent } from "astro:content";
 
+export interface PostPreview {
+  id: string,
+  collection: string,
+  data: {
+    title: string;
+    description: string;
+    pubDate: Date;
+    heroImage?: string | ImageMetadata;
+    tags?: string[];
+    draft?: boolean
+  }
+}
+
 export interface BlogPost {
     id: string;
     body?: string;

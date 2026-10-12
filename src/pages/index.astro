@@ -7,40 +7,20 @@ import SectionContainer from "../components/home-page/SectionContainer.astro";
 import HeroCard from "../components/home-page/HeroCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
+import { getTopPosts } from "../helpers";
+import type { PostPreview } from "../types";
 
-export interface Post {
-  id: string,
-  collection: string,
-  data: {
-    title: string;
-    description: string;
-    pubDate: Date;
-    heroImage?: string | ImageMetadata;
-    tags?: string[];
-    draft?: boolean
-  }
+function toPostPreview(posts: PostPreview[]){
+  return posts.map((post) => ({
+    title: post.data.title,
+    date: post.data.pubDate.toISOString().split('T')[0],
+    subtitle: post.data.description,
+    link: `./${post.collection}/${post.id}`,
+  }));
 }
+const blogs = toPostPreview(getTopPosts(await getCollection("blogs"), 3));
 
-function getTopByDateReversed(posts: Post[]) {
-  return posts
-    .filter((post) => post.data.draft !== true)
-    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-    .slice(0, 3)
-}
-
-function getTopPosts(posts: Post[]) {
-  return getTopByDateReversed(posts)
-    .map((post) => ({
-      title: post.data.title,
-      date: post.data.pubDate.toISOString().split('T')[0],
-      subtitle: post.data.description,
-      link: `./${post.collection}/${post.id}`,
-    }));
-}
-
-const blogs = getTopPosts(await getCollection("blogs"));
-
-const diaries = getTopPosts(await getCollection("diaries"));
+const diaries = toPostPreview(getTopPosts(await getCollection("diaries"), 3));
 
 ---
 
