@@ -6,15 +6,19 @@ export function getPublishedPosts<T extends PublishablePost>(posts: T[]) {
   return posts.filter((post) => post.data.draft !== true);
 }
 
-function getTopByDateReversed<T extends PublishablePost>(posts: T[]) {
+export function getSortedByDateDesc<T extends PublishablePost>(posts: T[]) {
   return posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+}
+
+export function getTopPosts<T extends PublishablePost>(posts: T[], size: number) {
+  if (size === -1) return posts;
+  return posts.slice(0, size);
 }
 
 export function getTopPublishedPostsOrderByDateDesc<T extends PublishablePost>(posts: T[], size: number = -1) {
   const publishedPosts = getPublishedPosts(posts);
-  const sortedPosts = getTopByDateReversed(publishedPosts);
-  if (size === -1) return sortedPosts;
-  return sortedPosts.slice(0, size);
+  const sortedPosts = getSortedByDateDesc(publishedPosts);
+  return getTopPosts(sortedPosts, size);
 }
 
 export function getUniqueTagsFromPosts(posts: ContentPost[]) {

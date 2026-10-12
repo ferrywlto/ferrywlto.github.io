@@ -2,6 +2,7 @@
 import type { ImageMetadata } from 'astro';
 import FormattedDate from './FormattedDate.astro';
 import HeroImage from './HeroImage.astro';
+import PreviewCover from './PreviewCover.astro';
 
 export interface Props {
   id: string;
@@ -13,14 +14,23 @@ export interface Props {
 }
 
 const { id, title, description, pubDate, heroImage, linkPrefix } = Astro.props;
+
+const coverTitle = linkPrefix === "blogs"
+  ? "Tech Notes"
+  : linkPrefix === "diaries"
+    ? "Thought"
+    : "Project";
 ---
 
 <div class="post-preview">
   <a href={`/${linkPrefix}/${id}/`}>
-    <HeroImage
+    {heroImage ? (<HeroImage
       src={heroImage}
       alt={description}
-    />
+      class="preview-image"
+    />): (
+      <PreviewCover title={coverTitle} />
+    )}
     <h2 class="text-item-title">{title}</h2>
     <p class="text-meta">
       <FormattedDate date={pubDate} />

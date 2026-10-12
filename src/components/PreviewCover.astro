@@ -1,0 +1,54 @@
+---
+export interface Props {
+  title: string;
+}
+const {title} = Astro.props
+---
+<div class="preview-cover preview-cover--fallback" aria-hidden="true">
+  <span class="preview-cover-label">{title}</span>
+</div>
+
+<style>
+  .preview-cover {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: var(--corner-md);
+    margin-bottom: var(--gap-lg);
+  }
+
+  .preview-cover--fallback {
+    display: flex;
+    align-items: flex-end;
+    padding: var(--gap-lg);
+    box-sizing: border-box;
+
+    background: color-mix(
+      in srgb,
+      var(--color-primary) 6%,
+      var(--color-surface)
+    );
+
+    border: 1px solid var(--color-thread);
+    border-top: 1px solid var(--color-primary);
+    border-right: 1px solid var(--color-primary);
+
+    /* Solid fallback */
+    background: var(--color-surface);
+
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--color-primary) 10%, var(--color-surface)) 0%,
+      color-mix(in srgb, var(--color-primary), var(--color-surface)) 100%
+    );
+  }
+
+  .preview-cover-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+</style>

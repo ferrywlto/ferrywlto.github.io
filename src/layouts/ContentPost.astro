@@ -16,7 +16,7 @@ const isProjectPost = parent === 'projects';
         &leftarrow; Back
       </a>
     </div>
-    <HeroImage src={heroImage} alt={description} class="hero-image" />
+    {heroImage && <HeroImage src={heroImage} alt={description} class="hero-image" />}
     <div class="post-content">
       <div class="title">
         <div class="date">
