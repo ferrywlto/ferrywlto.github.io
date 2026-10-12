@@ -7,9 +7,10 @@ import HeroImage from "../components/HeroImage.astro";
 const { title, description, pubDate, updatedDate, heroImage, tags, projectUrl, repoUrl, parent } = Astro.props;
 
 const isProjectPost = parent === 'projects';
+const socialImage = typeof heroImage === 'string' ? heroImage : heroImage?.src;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} image={socialImage}>
   <article class="width-constrained-container column-container">
     <div class="section-header-link">
       <a href={`/${parent}`} class="text-small-link">
