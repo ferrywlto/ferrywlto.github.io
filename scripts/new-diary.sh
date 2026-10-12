@@ -31,6 +31,7 @@ title: ''
 description: ''
 pubDate: '$CURRENT_DATE'
 tags: []
+draft: true
 ---
 
 EOF
